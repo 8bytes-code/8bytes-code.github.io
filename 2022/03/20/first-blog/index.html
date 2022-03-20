@@ -196,7 +196,7 @@
 
             
             <div class="article-busuanzi">
-                <span id="busuanzi_value_page_pv">N</span> 人看过
+                <span id="busuanzi_value_page_pv">N</span> views
             </div>
             
 
@@ -208,23 +208,39 @@
 <span id="more"></span>
 
 
-<h2 id="前言——"><a href="#前言——" class="headerlink" title="前言——"></a>前言——</h2><h3 id="1-准备工作"><a href="#1-准备工作" class="headerlink" title="1.准备工作"></a>1.准备工作</h3><blockquote>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><h3 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h3><blockquote>
 <ul>
 <li>GitHub账号</li>
-<li>node.js、npm</li>
-<li>git for windows</li>
-</ul>
-</blockquote>
-<h3 id="2-本文所使用环境"><a href="#2-本文所使用环境" class="headerlink" title="2.本文所使用环境"></a>2.本文所使用环境</h3><blockquote>
-<ul>
 <li>windows 11</li>
-<li><a href="mailto:&#x6e;&#111;&#100;&#101;&#x2e;&#106;&#x73;&#x40;&#x31;&#x36;&#x2e;&#x31;&#x34;&#x2e;&#48;">&#x6e;&#111;&#100;&#101;&#x2e;&#106;&#x73;&#x40;&#x31;&#x36;&#x2e;&#x31;&#x34;&#x2e;&#48;</a></li>
-<li><a href="mailto:&#104;&#101;&#x78;&#x6f;&#64;&#x35;&#x2e;&#x34;&#x2e;&#49;">&#104;&#101;&#x78;&#x6f;&#64;&#x35;&#x2e;&#x34;&#x2e;&#49;</a></li>
-<li><a href="mailto:&#103;&#105;&#116;&#x40;&#x32;&#46;&#x33;&#53;&#x2e;&#x31;">&#103;&#105;&#116;&#x40;&#x32;&#46;&#x33;&#53;&#x2e;&#x31;</a></li>
+<li>git          —<a target="_blank" rel="noopener" href="https://git-scm.com/">https://git-scm.com/</a></li>
+<li>node.js      —<a target="_blank" rel="noopener" href="https://nodejs.org/en/download/">https://nodejs.org/en/download/</a></li>
 </ul>
 </blockquote>
+<p><strong>建议先下载git工具，下载完后先注销或者重启，不然可能出现git bash无法检索到nodejs的命令。</strong><br>然后打开git bash，bash是linux终端所使用的一种，如果你对linux有一定基础相信不用多做解释，没基础也没事，基础命令都可以通过tab补齐或者copy</p>
+<p>不放心不确定的童鞋可以在git bash中输入</p>
+<pre><code class="bash">$ git --version
+#和
+$ node -v
+</code></pre>
+<p>正常回显版本则表示安装正确</p>
+<p>然后安装hexo</p>
+<pre><code class="bash">$ npm install hexo -g
+</code></pre>
+<p>安装完后测试:</p>
+<pre><code class="bash">$ hexo -v 
+#有正常输出且看到hexo即可
+</code></pre>
 <hr>
-<h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><p>进入<a target="_blank" rel="noopener" href="https://github.com/">github</a><br>创建一个新的仓库，仓库名为你的<strong>github用户名.github.io</strong></p>
+<h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><h3 id="1-创建仓库"><a href="#1-创建仓库" class="headerlink" title="1.创建仓库"></a>1.创建仓库</h3><p>进入<a target="_blank" rel="noopener" href="https://github.com/">github</a></p>
+<img src="/2022/03/20/first-blog/0.png" class="">
+<p>创建一个新的仓库，仓库名为你的<strong>github用户名.github.io</strong></p>
+<blockquote>
+<p>例如用户名为test，则仓库名为test.github.io</p>
+</blockquote>
+<img src="/2022/03/20/first-blog/001.png" class="">
+<blockquote>
+<p>此处报错是因为我已经创建过了，可以忽略</p>
+</blockquote>
 <p>需要注意的是：</p>
 <blockquote>
 <ol>
@@ -233,6 +249,126 @@
 <li>最后就是因为这个仓库是以用户名为根本，所以可见每个用户只能创建一个这样的仓库</li>
 </ol>
 </blockquote>
+<p>创建成功后先不用管，等会通过hexo上传仓库</p>
+<h3 id="2-配置ssh-key"><a href="#2-配置ssh-key" class="headerlink" title="2.配置ssh key"></a>2.配置ssh key</h3><p><strong>配置ssh key的目的是为了每次上传时不需要输入账号和密码</strong><br>在git bash中:</p>
+<pre><code class="bash">$ cd ~/.ssh
+</code></pre>
+<p><strong>error:no such file or directory表示这台电脑是一次使用git</strong></p>
+<p>输入</p>
+<pre><code class="bash">$ ssh-keygen -t rsa -C &quot;邮件地址&quot;
+</code></pre>
+<p>连续三次回车，会在用户目录下生成一个.ssh文件夹，打开文件夹里面会有一个id_rsa.pub文件<br>看不到.ssh的童鞋可能是没有打开显示隐藏文件夹</p>
+<img src="/2022/03/20/first-blog/003.png" class="">
+<p>用记事本打开id_rsa.pub文件，将其内容复制粘贴到github主页的ssh and gpg keys里</p>
+<img src="/2022/03/20/first-blog/004.png" class="">
+<p>点击new ssh key，tiele随便起，内容粘贴到key里面，最后点击add ssh key</p>
+<p>测试是否成功:</p>
+<pre><code class="bash">$ ssh -T git@github.com # 注意邮箱地址不用改
+</code></pre>
+<p>如果提示Are you sure you want to continue connecting (yes/no)?，输入yes，然后会看到：</p>
+<blockquote>
+<p>Hi 你的用户名! You’ve successfully authenticated, but GitHub does not provide shell access.<br>到这里表示ssh配置成功</p>
+</blockquote>
+<p>然后我们添加github用户名和注册邮箱即</p>
+<pre><code class="bash">$ git config --global user.name &quot;username&quot; #你的github用户名
+$ git config --global user.email &quot;xxx@qq.com&quot; #填写你的github注册邮箱,qq,网易都一样
+</code></pre>
+<h3 id="3-搭建博客"><a href="#3-搭建博客" class="headerlink" title="3.搭建博客"></a>3.搭建博客</h3><p>再次之前先介绍hexo基本命令</p>
+<pre><code class="bash">$ hexo new &quot;postName&quot; #新建文章
+$ hexo new page &quot;pageName&quot; #新建页面
+$ hexo generate #生成静态页面至public目录
+$ hexo server #开启预览访问端口（默认端口4000，&#39;ctrl + c&#39;关闭server）
+$ hexo deploy #部署到GitHub
+$ hexo help  # 查看帮助
+$ hexo version  #查看Hexo的版本
+</code></pre>
+<p>实际上我们常用的就几条:</p>
+<pre><code class="bash">$ hexo clean #generate其实也会覆盖public文件夹，所以clean用不用都差不多
+$ hexo generate &gt;&gt; 缩写为 $ hexo g
+$ hexo server &gt;&gt; 缩写为 $ hexo s
+$ hexo deploy &gt;&gt; 缩写为 $ hexo d
+</code></pre>
+<blockquote>
+<p>然后选择博客放到那个文件夹，c盘d盘都可以<br>用git bash cd进去就行</p>
+</blockquote>
+<pre><code class="bash">$ pwd #查看当前所在目录,一般就是在c/users/xxx，直接在里面创建也行
+$ cd /d #表示切换到d盘，e盘同理
+$ mkdir blog #文件名无所谓，都行，此处以blog为例
+$ cd blog
+$ hexo init #初始化博客
+</code></pre>
+<p>文件夹里面会出现很多内容</p>
+<pre><code class="bash">$ hexo g #生成静态文件至public文件夹
+$ hexo s #预览博客
+</code></pre>
+<p>浏览器url里面输入localhost:4000 即可在浏览器中预览，如果4000端口被占用了可以尝试用其他端口</p>
+<p>默认的主题就在/thems 文件夹中，叫landscape，比较简单吧。</p>
+<h3 id="4-修改主题"><a href="#4-修改主题" class="headerlink" title="4.修改主题"></a>4.修改主题</h3><p><a target="_blank" rel="noopener" href="https://hexo.io/themes/">https://hexo.io/themes/</a> 这是官方主题网址，总的来讲数量不多，如果修改需要一定知识储备，或者作者开源有附上教程</p>
+<p>我这里用的主题是：<a target="_blank" rel="noopener" href="https://github.com/lh1me/hexo-theme-aomori">https://github.com/lh1me/hexo-theme-aomori</a><br>预览：<a target="_blank" rel="noopener" href="https://linhong.me/">https://linhong.me/</a></p>
+<p>界面比较简洁，功能添加也比较方便</p>
+<p>下载有两种方式</p>
+<ol>
+<li>就是git clone 仓库的https链接<br>git clone <a target="_blank" rel="noopener" href="https://github.com/lh1me/hexo-theme-aomori.git">https://github.com/lh1me/hexo-theme-aomori.git</a> thems/aomori</li>
+<li>或者直接下载作者打包好的文件,作者主题网站置顶中有写</li>
+</ol>
+<p>二者的差别就是clone的会有.git的一些信息，具体用处不知道</p>
+<p>下载完之后我们在blog文件夹中找到_config.yml<br>划到最下面看到</p>
+<blockquote>
+<p>themes: landscape</p>
+</blockquote>
+<p>修改后面的内容，如果你是参照我第一种下载方式，那么因为我创建的文件夹名称为aomori，所以此处也使用aomori，如果是第二种方法下载zip压缩包解压，那么根据对应的文件夹为hexo-theme-aomori，切记不要弄错</p>
+<p>原作者在后面标准了关掉hexo默认的highlight代码高亮，那么使用这个主题也就去关了<br>在_config.yml文件中找到</p>
+<pre><code class="bash">highlight:
+  enable: false
+</code></pre>
+<p>将其修改为false</p>
+<p>然后在git bash中清除静态文件夹重新生成并预览</p>
+<pre><code class="bash">$ hexo clean
+$ hexo g
+$ hexo s
+</code></pre>
+<blockquote>
+<p>如果没有生成index.html 则可能是你删除了source文件夹中的hello-world.md文件<br>要么重新hexo init，或者直接hexo n 一个新的文件写博客，在hexo g生成，hexo s预览</p>
+</blockquote>
+<p>至此本地上已经没有什么问题了</p>
+<h3 id="5-上传仓库"><a href="#5-上传仓库" class="headerlink" title="5.上传仓库"></a>5.上传仓库</h3><p>还是_config.yml文件中，最后片段关于deploy的部分。</p>
+<p>正确写法：</p>
+<pre><code class="bash">deploy:
+  type: git
+  repository: git@github.com:8bytes-code/8bytes-code.github.io.git
+  branch: main
+</code></pre>
+<p>错误写法：</p>
+<pre><code class="bash">deploy:
+  type: git
+  repository: https://github.com/8bytes-code/8bytes-code.github.io.git
+  branch: main
+</code></pre>
+<blockquote>
+<p>还有一点需要注意：branch，按照我的方法分支就是main，如果你的分支是master，那么branch就修改成master。</p>
+</blockquote>
+<p>具体如图</p>
+<img src="/2022/03/20/first-blog/005.jpg" class="">
+
+<p>然后我们直接执行hexo d的时候应该是会报错的：</p>
+<pre><code class="bash">Deployer not found: github 或者 Deployer not found: git
+</code></pre>
+<p>就是少了个插件安装一下就行了</p>
+<pre><code class="bash">$ npm install hexo-deployer-git --save
+</code></pre>
+<p>然后我们在hexo d提交代码，有改动会跑一段挺长的，没改动就没啥变化，结尾就是info deploy done：git</p>
+<p><strong>hexo d是覆盖操作，所以仓库的代码每次都会被覆盖，如果有需要自己找个地方保存一下，能力强的或许还有git clone仓库下来，然后每次提交形成分支</strong></p>
+<h3 id="6-能注意的地方"><a href="#6-能注意的地方" class="headerlink" title="6.能注意的地方"></a>6.能注意的地方</h3><p>hexo n 一个文件的时候<br>其中</p>
+<pre><code>---
+title: name #文章显示的名称
+date:       #默认根据创建的时候生成，一般不做修改
+tags:       #文章标签，如果所用主题有文章分类功能，可以为其添加
+---
+
+下面才是写正文的地方
+
+如果需要设置文章不显示全部内容，使用 &lt;!--more--&gt;的时候注意上下都空两行，否则可能不起效果
+</code></pre>
 
         </div>
 
