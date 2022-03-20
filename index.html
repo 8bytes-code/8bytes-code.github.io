@@ -40,6 +40,8 @@
     
 
     
+    <meta property="algolia:search" data-application-id="4CVCYWPWWN" data-api-key="59b954d83ef02a2ce792002967e7e9a8" data-index-name="ohmyhsy">
+    
 
     
 
@@ -69,7 +71,7 @@
             
         }
         window.aomori_logo_typed_animated = true
-        window.aomori_search_algolia = false
+        window.aomori_search_algolia = true
 
     </script>
 
@@ -100,6 +102,8 @@
                 
                 <a href="/archives">Archives</a>
                 
+                <a href="/about">About</a>
+                
             </div>
             <div class="header-menu-social">
                 
@@ -125,6 +129,8 @@
                     <a href="/">Home</a>
                     
                     <a href="/archives">Archives</a>
+                    
+                    <a href="/about">About</a>
                     
                 </div>
             </div>
@@ -167,7 +173,7 @@ class="article article-type-post"
     </header>
     <div class="article-entry post-inner-html">
         
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;其实最基础的博客就跟日记一样，但是写日记这种事情似乎停留在了小学，自初中以后便不曾写过。但是有的时候记录一下一些未知的事情以便日后解决不失为一种好办法，在了解了一些基础的知识后。找到了由GitHub作为博客的仓库，在本地由npm+hexo+git bash+node.js为依赖实现简易版个人博客</p>
+        <p>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;其实最基础的博客就跟日记一样，但是写日记这种事情似乎停留在了小学，自初中以后便不曾写过。但是有的时候记录一下一些未知的事情以便日后解决不失为一种好办法，在了解了一些基础的知识后。找到了由GitHub作为博客的仓库，在本地由npm+hexo+git bash+node.js为依赖实现简易版个人博客</p>
 <hr>
         
     </div>
@@ -253,8 +259,18 @@ class="article article-type-post"
             </section>
 
             
-            <aside class="sidebar ">
+            <aside class="sidebar sidebar-search-fix">
                 
+
+    <div class="search">
+    <div class="has-icon-right">
+        <input type="text" class="form-input" id="search" placeholder="SEARCH" autocomplete="off">
+        <div class="form-icon">
+            <box-icon name='search' color="#3c4859"></box-icon>
+        </div>
+    </div>
+    <div class="search-result" id="search-ps"></div>
+</div>
 
 
 <div class="widget" id="widget">
