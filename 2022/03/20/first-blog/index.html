@@ -196,7 +196,7 @@
 
             
             <div class="article-busuanzi">
-                <span id="busuanzi_value_page_pv">N</span> views
+                <span id="busuanzi_value_page_pv">N</span> 人看过
             </div>
             
 
@@ -358,8 +358,11 @@ $ hexo s
 </code></pre>
 <p>然后我们在hexo d提交代码，有改动会跑一段挺长的，没改动就没啥变化，结尾就是info deploy done：git</p>
 <p><strong>hexo d是覆盖操作，所以仓库的代码每次都会被覆盖，如果有需要自己找个地方保存一下，能力强的或许还有git clone仓库下来，然后每次提交形成分支</strong></p>
-<h3 id="6-能注意的地方"><a href="#6-能注意的地方" class="headerlink" title="6.能注意的地方"></a>6.能注意的地方</h3><p>hexo n 一个文件的时候<br>其中</p>
-<pre><code>---
+<h3 id="6-能注意的地方"><a href="#6-能注意的地方" class="headerlink" title="6.能注意的地方"></a>6.能注意的地方</h3><ol>
+<li>hexo n 一个文件的时候<br>其中</li>
+</ol>
+<pre><code class="bash">
+---
 title: name #文章显示的名称
 date:       #默认根据创建的时候生成，一般不做修改
 tags:       #文章标签，如果所用主题有文章分类功能，可以为其添加
@@ -369,6 +372,32 @@ tags:       #文章标签，如果所用主题有文章分类功能，可以为�
 
 如果需要设置文章不显示全部内容，使用 &lt;!--more--&gt;的时候注意上下都空两行，否则可能不起效果
 </code></pre>
+<ol start="2">
+<li>图片的设置</li>
+</ol>
+<img src="/2022/03/20/first-blog/005.png" class="">
+<p>在首页中文章所示图片是根据作者文档中描述的属性</p>
+<img src="/2022/03/20/first-blog/006.png" class="">
+<blockquote>
+<p>即添加在.md文件的头部— xxxx —之中<br>至于路径设置我是在source文件夹下新建了一个images文件夹，然后设置</p>
+</blockquote>
+<img src="/2022/03/20/first-blog/007.png" class="">
+
+<p>至于文章中的图片，以后如果文章写的多了，图片都在一个文件夹不利于管理，而且命名也麻烦<br>于是参考官方文档<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/asset-folders">https://hexo.io/zh-cn/docs/asset-folders</a></p>
+<img src="/2022/03/20/first-blog/008.png" class="">
+
+<p>修改_config.yml的post_asset_folder属性之后，hexo n 一个新的文件都会附带一个一样名称的文件夹，我们把那篇文章需要用到的图片放到文件夹里即可，引用方法也如标红所示:</p>
+<pre><code class="bash">&#123;%asset_img filename.jpg/png  %&#125;
+</code></pre>
+<blockquote>
+<p>后面的描述可有可无</p>
+</blockquote>
+<p>最后就是作者写的教程：<a target="_blank" rel="noopener" href="https://aomori.linhong.me/v/chinese/getting-started/intro">https://aomori.linhong.me/v/chinese/getting-started/intro</a><br>自己在慢慢做调整吧，开源是美德，但没有义务一直帮你，大家慢慢凭借文档修改吧。</p>
+<blockquote>
+<p>遇到bug可以上github提交issues。</p>
+</blockquote>
+<hr>
+<h2 id="结尾"><a href="#结尾" class="headerlink" title="结尾"></a>结尾</h2><p>花了点时间自己做了下调整，有空去把评论功能加上，毕竟比较骚气。部分还是保留原作者的内容不做太多修改。<br>还有就是域名绑定问题，暂时没这个钱，都是通过username.github.io访问的，github都知道会被墙，响应速度不好说。如果你担心这个问题，可以去百度用gitee搭建的博客，码云是国内的服务器，响应会比github快点。</p>
 
         </div>
 
@@ -389,7 +418,7 @@ tags:       #文章标签，如果所用主题有文章分类功能，可以为�
   
   
     <a href="/2022/03/10/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-caption">precedente</div>
+      <div class="article-nav-caption">上一篇</div>
       <div class="article-nav-title">Hello World</div>
     </a>
   
@@ -397,7 +426,7 @@ tags:       #文章标签，如果所用主题有文章分类功能，可以为�
 
 
     <section class="share">
-        <div class="share-title">share</div>
+        <div class="share-title">分享</div>
         <a class="share-item" target="_blank"
             href="https://twitter.com/share?text=关于个人博客创建过程 - ohmyhsy&url=http%3A%2F%2Fexample.com%2F2022%2F03%2F20%2Ffirst-blog%2F">
             <box-icon type='logo' name='twitter'></box-icon>
