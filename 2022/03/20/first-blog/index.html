@@ -159,7 +159,7 @@
             <section class="inner">
                 <section class="inner-main">
                     <div class="post">
-    <article id="post-cl0zh84330000l8k62xo150d7" class="article article-type-post" itemscope
+    <article id="post-cl17lxp420001zsk6126n7xfm" class="article article-type-post" itemscope
     itemprop="blogPost">
 
     <div class="article-inner">
@@ -198,7 +198,7 @@
 
             
             <div class="article-busuanzi">
-                <span id="busuanzi_value_page_pv">N</span> 人看过
+                <span id="busuanzi_value_page_pv">N</span> views
             </div>
             
 
@@ -210,7 +210,7 @@
 <span id="more"></span>
 
 
-<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><h3 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h3><blockquote>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><blockquote>
 <ul>
 <li>GitHub账号</li>
 <li>windows 11</li>
@@ -233,7 +233,7 @@ $ node -v
 #有正常输出且看到hexo即可
 </code></pre>
 <hr>
-<h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><h3 id="1-创建仓库"><a href="#1-创建仓库" class="headerlink" title="1.创建仓库"></a>1.创建仓库</h3><p>进入<a target="_blank" rel="noopener" href="https://github.com/">github</a></p>
+<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><h2 id="1-创建仓库"><a href="#1-创建仓库" class="headerlink" title="1.创建仓库"></a>1.创建仓库</h2><p>进入<a target="_blank" rel="noopener" href="https://github.com/">github</a></p>
 <img src="/2022/03/20/first-blog/0.png" class="">
 <p>创建一个新的仓库，仓库名为你的<strong>github用户名.github.io</strong></p>
 <blockquote>
@@ -252,7 +252,7 @@ $ node -v
 </ol>
 </blockquote>
 <p>创建成功后先不用管，等会通过hexo上传仓库</p>
-<h3 id="2-配置ssh-key"><a href="#2-配置ssh-key" class="headerlink" title="2.配置ssh key"></a>2.配置ssh key</h3><p><strong>配置ssh key的目的是为了每次上传时不需要输入账号和密码</strong><br>在git bash中:</p>
+<h2 id="2-配置ssh-key"><a href="#2-配置ssh-key" class="headerlink" title="2.配置ssh key"></a>2.配置ssh key</h2><p><strong>配置ssh key的目的是为了每次上传时不需要输入账号和密码</strong><br>在git bash中:</p>
 <pre><code class="bash">$ cd ~/.ssh
 </code></pre>
 <p><strong>error:no such file or directory表示这台电脑是一次使用git</strong></p>
@@ -275,7 +275,7 @@ $ node -v
 <pre><code class="bash">$ git config --global user.name &quot;username&quot; #你的github用户名
 $ git config --global user.email &quot;xxx@qq.com&quot; #填写你的github注册邮箱,qq,网易都一样
 </code></pre>
-<h3 id="3-搭建博客"><a href="#3-搭建博客" class="headerlink" title="3.搭建博客"></a>3.搭建博客</h3><p>再次之前先介绍hexo基本命令</p>
+<h2 id="3-搭建博客"><a href="#3-搭建博客" class="headerlink" title="3.搭建博客"></a>3.搭建博客</h2><p>再次之前先介绍hexo基本命令</p>
 <pre><code class="bash">$ hexo new &quot;postName&quot; #新建文章
 $ hexo new page &quot;pageName&quot; #新建页面
 $ hexo generate #生成静态页面至public目录
@@ -305,7 +305,7 @@ $ hexo s #预览博客
 </code></pre>
 <p>浏览器url里面输入localhost:4000 即可在浏览器中预览，如果4000端口被占用了可以尝试用其他端口</p>
 <p>默认的主题就在&#x2F;thems 文件夹中，叫landscape，比较简单吧。</p>
-<h3 id="4-修改主题"><a href="#4-修改主题" class="headerlink" title="4.修改主题"></a>4.修改主题</h3><p><a target="_blank" rel="noopener" href="https://hexo.io/themes/">https://hexo.io/themes/</a> 这是官方主题网址，总的来讲数量不多，如果修改需要一定知识储备，或者作者开源有附上教程</p>
+<h2 id="4-修改主题"><a href="#4-修改主题" class="headerlink" title="4.修改主题"></a>4.修改主题</h2><p><a target="_blank" rel="noopener" href="https://hexo.io/themes/">https://hexo.io/themes/</a> 这是官方主题网址，总的来讲数量不多，如果修改需要一定知识储备，或者作者开源有附上教程</p>
 <p>我这里用的主题是：<a target="_blank" rel="noopener" href="https://github.com/lh1me/hexo-theme-aomori">https://github.com/lh1me/hexo-theme-aomori</a><br>预览：<a target="_blank" rel="noopener" href="https://linhong.me/">https://linhong.me/</a></p>
 <p>界面比较简洁，功能添加也比较方便</p>
 <p>下载有两种方式</p>
@@ -333,7 +333,7 @@ $ hexo s
 <p>如果没有生成index.html 则可能是你删除了source文件夹中的hello-world.md文件<br>要么重新hexo init，或者直接hexo n 一个新的文件写博客，在hexo g生成，hexo s预览</p>
 </blockquote>
 <p>至此本地上已经没有什么问题了</p>
-<h3 id="5-上传仓库"><a href="#5-上传仓库" class="headerlink" title="5.上传仓库"></a>5.上传仓库</h3><p>还是_config.yml文件中，最后片段关于deploy的部分。</p>
+<h2 id="5-上传仓库"><a href="#5-上传仓库" class="headerlink" title="5.上传仓库"></a>5.上传仓库</h2><p>还是_config.yml文件中，最后片段关于deploy的部分。</p>
 <p>正确写法：</p>
 <pre><code class="bash">deploy:
   type: git
@@ -360,7 +360,7 @@ $ hexo s
 </code></pre>
 <p>然后我们在hexo d提交代码，有改动会跑一段挺长的，没改动就没啥变化，结尾就是info deploy done：git</p>
 <p><strong>hexo d是覆盖操作，所以仓库的代码每次都会被覆盖，如果有需要自己找个地方保存一下，能力强的或许还有git clone仓库下来，然后每次提交形成分支</strong></p>
-<h3 id="6-能注意的地方"><a href="#6-能注意的地方" class="headerlink" title="6.能注意的地方"></a>6.能注意的地方</h3><ol>
+<h2 id="6-能注意的地方"><a href="#6-能注意的地方" class="headerlink" title="6.能注意的地方"></a>6.能注意的地方</h2><ol>
 <li>hexo n 一个文件的时候<br>其中</li>
 </ol>
 <pre><code class="bash">
@@ -399,7 +399,7 @@ tags:       #文章标签，如果所用主题有文章分类功能，可以为�
 <p>遇到bug可以上github提交issues。</p>
 </blockquote>
 <hr>
-<h2 id="结尾"><a href="#结尾" class="headerlink" title="结尾"></a>结尾</h2><p>花了点时间自己做了下调整，有空去把评论功能加上，毕竟比较骚气。部分还是保留原作者的内容不做太多修改。<br>还有就是域名绑定问题，暂时没这个钱，都是通过username.github.io访问的，github都知道会被墙，响应速度不好说。如果你担心这个问题，可以去百度用gitee搭建的博客，码云是国内的服务器，响应会比github快点。</p>
+<h1 id="结尾"><a href="#结尾" class="headerlink" title="结尾"></a>结尾</h1><p>花了点时间自己做了下调整，有空去把评论功能加上，毕竟比较骚气。部分还是保留原作者的内容不做太多修改。<br>还有就是域名绑定问题，暂时没这个钱，都是通过username.github.io访问的，github都知道会被墙，响应速度不好说。如果你担心这个问题，可以去百度用gitee搭建的博客，码云是国内的服务器，响应会比github快点。</p>
 
         </div>
 
@@ -419,7 +419,7 @@ tags:       #文章标签，如果所用主题有文章分类功能，可以为�
 <nav class="article-nav">
   
     <a href="/2022/03/23/vscode-c-c-configure/" id="article-nav-newer" class="article-nav-link-wrap">
-      <div class="article-nav-caption">下一篇</div>
+      <div class="article-nav-caption">次の記事</div>
       <div class="article-nav-title">
         
           vscode c/c++ run+debug
@@ -429,7 +429,7 @@ tags:       #文章标签，如果所用主题有文章分类功能，可以为�
   
   
     <a href="/2022/03/10/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-caption">上一篇</div>
+      <div class="article-nav-caption">前の記事</div>
       <div class="article-nav-title">Hello World</div>
     </a>
   
@@ -437,7 +437,7 @@ tags:       #文章标签，如果所用主题有文章分类功能，可以为�
 
 
     <section class="share">
-        <div class="share-title">分享</div>
+        <div class="share-title">シェア</div>
         <a class="share-item" target="_blank"
             href="https://twitter.com/share?text=关于个人博客创建过程 - ohmyhsy&url=http%3A%2F%2Fexample.com%2F2022%2F03%2F20%2Ffirst-blog%2F">
             <box-icon type='logo' name='twitter'></box-icon>
