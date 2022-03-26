@@ -198,7 +198,7 @@
 
             
             <div class="article-busuanzi">
-                <span id="busuanzi_value_page_pv">N</span> views
+                <span id="busuanzi_value_page_pv">N</span> 人看过
             </div>
             
 
@@ -210,7 +210,7 @@
 <span id="more"></span>
 
 
-<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><blockquote>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><h3 id="22-03-26-新增搜索功能"><a href="#22-03-26-新增搜索功能" class="headerlink" title="22.03.26 新增搜索功能"></a>22.03.26 新增搜索功能</h3><h3 id="22-03-26-新增域名绑定"><a href="#22-03-26-新增域名绑定" class="headerlink" title="22.03.26 新增域名绑定"></a>22.03.26 新增域名绑定</h3><h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><blockquote>
 <ul>
 <li>GitHub账号</li>
 <li>windows 11</li>
@@ -219,7 +219,7 @@
 </ul>
 </blockquote>
 <p><strong>建议先下载git工具，下载完后先注销或者重启，不然可能出现git bash无法检索到nodejs的命令。</strong><br>然后打开git bash，bash是linux终端所使用的一种，如果你对linux有一定基础相信不用多做解释，没基础也没事，基础命令都可以通过tab补齐或者copy</p>
-<p>不放心不确定的童鞋可以在git bash中输入</p>
+<p>不放心不确定的童鞋可以在<code>git bash</code>中输入</p>
 <pre><code class="bash">$ git --version
 #和
 $ node -v
@@ -252,7 +252,8 @@ $ node -v
 </ol>
 </blockquote>
 <p>创建成功后先不用管，等会通过hexo上传仓库</p>
-<h2 id="2-配置ssh-key"><a href="#2-配置ssh-key" class="headerlink" title="2.配置ssh key"></a>2.配置ssh key</h2><p><strong>配置ssh key的目的是为了每次上传时不需要输入账号和密码</strong><br>在git bash中:</p>
+<hr>
+<h2 id="2-配置ssh-key"><a href="#2-配置ssh-key" class="headerlink" title="2.配置ssh key"></a>2.配置ssh key</h2><p><strong>配置ssh key的目的是为了每次上传时不需要输入账号和密码</strong><br>在<code>git bash</code>中:</p>
 <pre><code class="bash">$ cd ~/.ssh
 </code></pre>
 <p><strong>error:no such file or directory表示这台电脑是一次使用git</strong></p>
@@ -275,6 +276,7 @@ $ node -v
 <pre><code class="bash">$ git config --global user.name &quot;username&quot; #你的github用户名
 $ git config --global user.email &quot;xxx@qq.com&quot; #填写你的github注册邮箱,qq,网易都一样
 </code></pre>
+<hr>
 <h2 id="3-搭建博客"><a href="#3-搭建博客" class="headerlink" title="3.搭建博客"></a>3.搭建博客</h2><p>再次之前先介绍hexo基本命令</p>
 <pre><code class="bash">$ hexo new &quot;postName&quot; #新建文章
 $ hexo new page &quot;pageName&quot; #新建页面
@@ -291,7 +293,7 @@ $ hexo server &gt;&gt; 缩写为 $ hexo s
 $ hexo deploy &gt;&gt; 缩写为 $ hexo d
 </code></pre>
 <blockquote>
-<p>然后选择博客放到那个文件夹，c盘d盘都可以<br>用git bash cd进去就行</p>
+<p>然后选择博客放到那个文件夹，c盘d盘都可以<br>用<code>git bash</code><br>cd filename进去就行</p>
 </blockquote>
 <pre><code class="bash">$ pwd #查看当前所在目录,一般就是在c/users/xxx，直接在里面创建也行
 $ cd /d #表示切换到d盘，e盘同理
@@ -303,8 +305,9 @@ $ hexo init #初始化博客
 <pre><code class="bash">$ hexo g #生成静态文件至public文件夹
 $ hexo s #预览博客
 </code></pre>
-<p>浏览器url里面输入localhost:4000 即可在浏览器中预览，如果4000端口被占用了可以尝试用其他端口</p>
+<p>浏览器url里面输入<code>localhost:4000</code>即可在浏览器中预览，如果4000端口被占用了可以尝试用其他端口</p>
 <p>默认的主题就在&#x2F;thems 文件夹中，叫landscape，比较简单吧。</p>
+<hr>
 <h2 id="4-修改主题"><a href="#4-修改主题" class="headerlink" title="4.修改主题"></a>4.修改主题</h2><p><a target="_blank" rel="noopener" href="https://hexo.io/themes/">https://hexo.io/themes/</a> 这是官方主题网址，总的来讲数量不多，如果修改需要一定知识储备，或者作者开源有附上教程</p>
 <p>我这里用的主题是：<a target="_blank" rel="noopener" href="https://github.com/lh1me/hexo-theme-aomori">https://github.com/lh1me/hexo-theme-aomori</a><br>预览：<a target="_blank" rel="noopener" href="https://linhong.me/">https://linhong.me/</a></p>
 <p>界面比较简洁，功能添加也比较方便</p>
@@ -314,17 +317,17 @@ $ hexo s #预览博客
 <li>或者直接下载作者打包好的文件,作者主题网站置顶中有写</li>
 </ol>
 <p>二者的差别就是clone的会有.git的一些信息，具体用处不知道</p>
-<p>下载完之后我们在blog文件夹中找到_config.yml<br>划到最下面看到</p>
+<p>下载完之后我们在blog文件夹中找到<code>_config.yml</code><br>划到最下面看到</p>
 <blockquote>
 <p>themes: landscape</p>
 </blockquote>
 <p>修改后面的内容，如果你是参照我第一种下载方式，那么因为我创建的文件夹名称为aomori，所以此处也使用aomori，如果是第二种方法下载zip压缩包解压，那么根据对应的文件夹为hexo-theme-aomori，切记不要弄错</p>
-<p>原作者在后面标准了关掉hexo默认的highlight代码高亮，那么使用这个主题也就去关了<br>在_config.yml文件中找到</p>
+<p>原作者在后面标准了关掉hexo默认的highlight代码高亮，那么使用这个主题也就去关了<br>在<code>_config.yml</code>文件中找到</p>
 <pre><code class="bash">highlight:
   enable: false
 </code></pre>
 <p>将其修改为false</p>
-<p>然后在git bash中清除静态文件夹重新生成并预览</p>
+<p>然后在<code>git bash</code>中清除静态文件夹重新生成并预览</p>
 <pre><code class="bash">$ hexo clean
 $ hexo g
 $ hexo s
@@ -333,7 +336,8 @@ $ hexo s
 <p>如果没有生成index.html 则可能是你删除了source文件夹中的hello-world.md文件<br>要么重新hexo init，或者直接hexo n 一个新的文件写博客，在hexo g生成，hexo s预览</p>
 </blockquote>
 <p>至此本地上已经没有什么问题了</p>
-<h2 id="5-上传仓库"><a href="#5-上传仓库" class="headerlink" title="5.上传仓库"></a>5.上传仓库</h2><p>还是_config.yml文件中，最后片段关于deploy的部分。</p>
+<hr>
+<h2 id="5-上传仓库"><a href="#5-上传仓库" class="headerlink" title="5.上传仓库"></a>5.上传仓库</h2><p>还是<code>_config.yml</code>文件中，最后片段关于deploy的部分。</p>
 <p>正确写法：</p>
 <pre><code class="bash">deploy:
   type: git
@@ -352,15 +356,16 @@ $ hexo s
 <p>具体如图</p>
 <img src="/2022/03/20/first-blog/005.jpg" class="">
 
-<p>然后我们直接执行hexo d的时候应该是会报错的：</p>
+<p>然后我们直接执行<code>hexo d</code>的时候应该是会报错的：</p>
 <pre><code class="bash">Deployer not found: github 或者 Deployer not found: git
 </code></pre>
 <p>就是少了个插件安装一下就行了</p>
 <pre><code class="bash">$ npm install hexo-deployer-git --save
 </code></pre>
-<p>然后我们在hexo d提交代码，有改动会跑一段挺长的，没改动就没啥变化，结尾就是info deploy done：git</p>
+<p>然后我们在<code>hexo d</code>提交代码，有改动会跑一段挺长的，没改动就没啥变化，结尾就是info deploy done：git</p>
 <p><strong>hexo d是覆盖操作，所以仓库的代码每次都会被覆盖，如果有需要自己找个地方保存一下，能力强的或许还有git clone仓库下来，然后每次提交形成分支</strong></p>
-<h2 id="6-能注意的地方"><a href="#6-能注意的地方" class="headerlink" title="6.能注意的地方"></a>6.能注意的地方</h2><ol>
+<hr>
+<h2 id="6-注意的地方"><a href="#6-注意的地方" class="headerlink" title="6.注意的地方"></a>6.注意的地方</h2><ol>
 <li>hexo n 一个文件的时候<br>其中</li>
 </ol>
 <pre><code class="bash">
@@ -372,7 +377,7 @@ tags:       #文章标签，如果所用主题有文章分类功能，可以为�
 
 下面才是写正文的地方
 
-如果需要设置文章不显示全部内容，使用 &lt;!--more--&gt;的时候注意上下都空两行，否则可能不起效果
+如果需要设置文章不显示全部内容，使用 &lt;!--more--&gt;的时候注意上下都空两行，否则可能不起效果，具体原因未知，有的时候好像不会被占用，好像会和上下文字所使用的标题什么的有影响保险起见多空几行的了
 </code></pre>
 <ol start="2">
 <li>图片的设置</li>
@@ -388,7 +393,7 @@ tags:       #文章标签，如果所用主题有文章分类功能，可以为�
 <p>至于文章中的图片，以后如果文章写的多了，图片都在一个文件夹不利于管理，而且命名也麻烦<br>于是参考官方文档<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/asset-folders">https://hexo.io/zh-cn/docs/asset-folders</a></p>
 <img src="/2022/03/20/first-blog/008.png" class="">
 
-<p>修改_config.yml的post_asset_folder属性之后，hexo n 一个新的文件都会附带一个一样名称的文件夹，我们把那篇文章需要用到的图片放到文件夹里即可，引用方法也如标红所示:</p>
+<p>修改<code>_config.yml</code>的post_asset_folder属性之后，hexo n 一个新的文件都会附带一个一样名称的文件夹，我们把那篇文章需要用到的图片放到文件夹里即可，引用方法也如标红所示:</p>
 <pre><code class="bash">&#123;%asset_img filename.jpg/png  %&#125;
 </code></pre>
 <blockquote>
@@ -399,7 +404,76 @@ tags:       #文章标签，如果所用主题有文章分类功能，可以为�
 <p>遇到bug可以上github提交issues。</p>
 </blockquote>
 <hr>
-<h1 id="结尾"><a href="#结尾" class="headerlink" title="结尾"></a>结尾</h1><p>花了点时间自己做了下调整，有空去把评论功能加上，毕竟比较骚气。部分还是保留原作者的内容不做太多修改。<br>还有就是域名绑定问题，暂时没这个钱，都是通过username.github.io访问的，github都知道会被墙，响应速度不好说。如果你担心这个问题，可以去百度用gitee搭建的博客，码云是国内的服务器，响应会比github快点。</p>
+<h2 id="7-新增搜索功能"><a href="#7-新增搜索功能" class="headerlink" title="7.新增搜索功能"></a>7.新增搜索功能</h2><img src="/2022/03/20/first-blog/009.png" class="">
+
+<p>如文档所示，先访问<a target="_blank" rel="noopener" href="https://www.algolia.com/">Algolia</a>, 创建账号或者使用github登录</p>
+<img src="/2022/03/20/first-blog/018.png" class="">
+<blockquote>
+<p>这里弄得太快忘了，如果你的index没有，那么就new一个，名字后面会用到</p>
+</blockquote>
+<p>然后点击settings,点击api keys,new一个 api key，indices选之前新建的index名字，acl权限就按照我这个几个先给了</p>
+<img src="/2022/03/20/first-blog/017.png" class="">
+
+<p>你还需要在<code>git bash</code>安装这个拓展</p>
+<pre><code class="bash">$ npm install --save hexo-algolia
+</code></pre>
+<p>并且在全局配置文件<code>_config.yml</code>下填入配置，这些都是在api keys的your api keys里面套</p>
+<pre><code class="bash">algolia:
+  applicationID: &#39;applicationID&#39;
+  apiKey: &#39;apiKey&#39;
+  indexName: &#39;...&#39;
+</code></pre>
+<p>然后在<code>git bash</code>下输入命令</p>
+<pre><code class="bash">$ export HEXO_ALGOLIA_INDEXING_KEY=
+#这个key就是刚才创建的api的key，默认的就一个搜索功能在使用hexo algolia是会报下面的错
+#ERROR [hexo-algolia] Not enough rights to update an object near line:1 column:785
+$ hexo clean
+$ hexo algolia
+</code></pre>
+<p>成功会返回<img src="/2022/03/20/first-blog/019.png" class=""></p>
+<p>最后在站点启用搜索功能</p>
+<pre><code class="bash">aomori_search_algolia: true
+</code></pre>
+<p><strong>注意：以后发布文章都需要运行hexo algolia，否则新文章没有创建记录，无法被检索</strong></p>
+<hr>
+<h2 id="8-新增域名绑定"><a href="#8-新增域名绑定" class="headerlink" title="8.新增域名绑定"></a>8.新增域名绑定</h2><p><strong>不是打广告</strong>，阿里云和腾讯云都行，万网好像是被阿里收购了，所以都差不多，目前购买域名需要实名认证，不要打马虎眼。</p>
+<p>此处以阿里云举例：<a target="_blank" rel="noopener" href="https://wanwang.aliyun.com/domain?spm=5176.21213303.J_6704733920.9.300953c9w7wqdp&scm=20140722.S_product@@%E4%BA%91%E4%BA%A7%E5%93%81@@999997._.ID_product@@%E4%BA%91%E4%BA%A7%E5%93%81@@999997-RL_%E5%9F%9F%E5%90%8D-LOC_main-OR_ser-V_2-P0_1">戳此处</a></p>
+<img src="/2022/03/20/first-blog/010.png" class="">
+
+<p>首先搜索你需要的域名，此处以hhh为例，点击查询可以看到</p>
+<img src="/2022/03/20/first-blog/011.png" class="">
+<p>大概是简短或者商用价值比较高的域名价格都比较贵，其次按照域名的等级<br>买家可以买一年也可以一次性买十年，这个都随便，至于检索速度还是要看各搜索引擎了。我买的是.top的</p>
+<p>买完之后去工作台，找到域名服务，管理你的域名;<strong>刚买完需要审核1-2日，但是实际上还是比较快的用不了几分钟</strong></p>
+<img src="/2022/03/20/first-blog/012.png" class="">
+<p>你进去的页面可能是在审核中，但是没关系，我们点击后面的解析，他会跳转到一个页面</p>
+<img src="/2022/03/20/first-blog/013.png" class="">
+<p>在此处我们需要添加两条记录，这个其实相当于dns的解析，如果学过一点的会知道，dns有正向和逆向的，说白了就是从域名翻译成服务器ip地址，从服务器ip地址翻译成域名这两条记录</p>
+<blockquote>
+<p>此处需要注意ip地址可能要添加两条记录，一条ipv4和一条ipv6</p>
+</blockquote>
+<p>如何查看IP地址，win+r 输入cmd 回车，当然<strong>ping 你用户名.github.io</strong>是最简单的，但是现在可能返回的都是ipv6了<br>或者直接github看文档吧<a target="_blank" rel="noopener" href="https://docs.github.com/cn/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site#configuring-an-apex-domain">戳此处</a></p>
+<p><del>划到第五步，此处我不确定提示的ip是每个人都相同还是不相同就先打码了</del><br><del>虽然感觉应该是一样的，毕竟github总不能你建一个仓库他单独给你一个ip地址，ipv4早用光了</del></p>
+<img src="/2022/03/20/first-blog/014.png" class="">
+
+<blockquote>
+<p>按照第五步显示的两块ip，各取相同一行的一条记录，添加到域名解析里面的记录值</p>
+</blockquote>
+<img src="/2022/03/20/first-blog/015.png" class="">
+
+<blockquote>
+<p>a对应ipv4，aaaa对应ipv6。且这两条主机记录为@。地址再次强调就是第五步显示的<br>用户名.github.io 那条的主机类型为www，记录类型为CNAME。</p>
+</blockquote>
+<p>然后进入你github博客仓库，找到设置，找到pages，将域名填入custom domain之中，看他是否打勾</p>
+<img src="/2022/03/20/first-blog/016.png" class="">
+<p>此处他还会花一点时间安装tsl证书还是啥，估摸着应该是和ssl证书差不多的东西吧，因为https是在http基础上增加了ssl证书获得一个加密性。等待一段时间即可，至于下面的强制https，开不开都行，https自然是会安全一点的。</p>
+<p>然后在博客文件夹目录下的<code>source</code>下，新建一个CNAME的文件，记住没有拓展名，打开后输入你买的域名，不需要加https，就单纯的域名.com啥的</p>
+<p>完成后，在浏览器url中输入你的域名，即可跳转到个人博客！</p>
+<blockquote>
+<p>然后就是印证猜想了，通过百度了几个人用github搭建的博客绑定域名过程中我看到他们ping的结果都是跟文档里的那几个一样的。<br>所以我们在url里面输入ping测试返回的ip地址是不会跳转到我们的博客的，但是用户名.github.io会跳转。至于为什么还要增加我就不清楚了，本文重在使用。</p>
+</blockquote>
+<hr>
+<h1 id="结尾"><a href="#结尾" class="headerlink" title="结尾"></a>结尾</h1><p>花了点时间自己做了下调整，有空去把评论功能加上，毕竟比较骚气。<br><del>还有就是域名绑定问题，暂时没这个钱，都是通过username.github.io访问的，github都知道会被墙，响应速度不好说。如果你担心这个问题，可以去百度用gitee搭建的博客，码云是国内的服务器，响应会比github快点。</del></p>
+<p>上述操作是我自己尝试过的，可能会产生差异。</p>
 
         </div>
 
@@ -419,7 +493,7 @@ tags:       #文章标签，如果所用主题有文章分类功能，可以为�
 <nav class="article-nav">
   
     <a href="/2022/03/23/vscode-c-c-configure/" id="article-nav-newer" class="article-nav-link-wrap">
-      <div class="article-nav-caption">次の記事</div>
+      <div class="article-nav-caption">下一篇</div>
       <div class="article-nav-title">
         
           vscode c/c++ run+debug
@@ -429,7 +503,7 @@ tags:       #文章标签，如果所用主题有文章分类功能，可以为�
   
   
     <a href="/2022/03/10/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-caption">前の記事</div>
+      <div class="article-nav-caption">上一篇</div>
       <div class="article-nav-title">Hello World</div>
     </a>
   
@@ -437,7 +511,7 @@ tags:       #文章标签，如果所用主题有文章分类功能，可以为�
 
 
     <section class="share">
-        <div class="share-title">シェア</div>
+        <div class="share-title">分享</div>
         <a class="share-item" target="_blank"
             href="https://twitter.com/share?text=关于个人博客创建过程 - ohmyhsy&url=http%3A%2F%2Fexample.com%2F2022%2F03%2F20%2Ffirst-blog%2F">
             <box-icon type='logo' name='twitter'></box-icon>
