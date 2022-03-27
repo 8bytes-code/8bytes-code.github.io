@@ -10,4 +10,4 @@
 
 原主题项目地址：[戳此处](https://github.com/lh1me/hexo-theme-aomori)
 
-![样图示意](https://raw.githubusercontent.com/8bytes-code/8bytes-code.github.io/main/images/1.jpg)
+![样图示意](./source/../images/1.jpg)
