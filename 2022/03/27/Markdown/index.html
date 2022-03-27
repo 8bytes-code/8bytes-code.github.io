@@ -82,6 +82,22 @@
         window.aomori = {
             
             
+            valine: {
+                enable: true,
+                appId: "sippPVoPE6T8lmSx52ntPnRG-gzGzoHsz",
+                appKey: "rrhU2TbBhpLqJGlGSPzfiQYu",
+                placeholder: "Hello World!",
+                avatar: "",
+                pageSize: "10",
+                lang: "zh-CN",
+                visitor: false,
+                highlight: false,
+                recordIP: false,
+                emojiCDN: "",
+                enableQQ: false,
+                requiredFields: []
+            },
+            
             
         }
         window.aomori_logo_typed_animated = true
@@ -153,8 +169,8 @@
         <div class="main">
             <section class="inner">
                 <section class="inner-main">
-                    <div class="post">
-    <article id="post-cl18xsrwj0000pwk6hgehf056" class="article article-type-post" itemscope
+                    <div class="tweet">
+    <article id="tweet-cl18xsrwj0000pwk6hgehf056" class="article article-type-tweet" itemscope
     itemprop="blogPost">
 
     <div class="article-inner">
@@ -166,18 +182,8 @@
         
 
         
-        <header class="article-header">
-            
-  
-    <h1 class="article-title" itemprop="name">
-      Markdown 基本语法
-    </h1>
-  
 
-        </header>
-        
-
-        <div class="article-more-info article-more-info-post hairline">
+        <div class="article-more-info article-more-info-tweet hairline">
 
             <div class="article-date">
   <time datetime="2022-03-27T05:56:09.000Z" itemprop="datePublished">2022-03-27</time>
@@ -193,7 +199,7 @@
 
             
             <div class="article-busuanzi">
-                <span id="busuanzi_value_page_pv">N</span> 人看过
+                <span id="busuanzi_value_page_pv">N</span> views
             </div>
             
 
@@ -452,19 +458,11 @@ ___粗斜体文本___
     
 
     
-
-    
-
-    
-
-    
-
-    
 <nav class="article-nav">
   
   
     <a href="/2022/03/23/vscode-c-c-configure/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-caption">上一篇</div>
+      <div class="article-nav-caption">前の記事</div>
       <div class="article-nav-title">vscode c/c++ run+debug</div>
     </a>
   
@@ -472,7 +470,7 @@ ___粗斜体文本___
 
 
     <section class="share">
-        <div class="share-title">分享</div>
+        <div class="share-title">シェア</div>
         <a class="share-item" target="_blank"
             href="https://twitter.com/share?text=Markdown 基本语法 - ohmyhsy&url=http%3A%2F%2Fexample.com%2F2022%2F03%2F27%2FMarkdown%2F">
             <box-icon type='logo' name='twitter'></box-icon>
@@ -497,6 +495,11 @@ ___粗斜体文本___
 
 
 
+
+<section class="comments">
+    <div id="valine-container"></div>
+</section>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
 
 
 
@@ -528,12 +531,6 @@ ___粗斜体文本___
 <div class="widget" id="widget">
     
       
-  <div class="widget-wrap">
-    <div class="widget-inner">
-      <div class="toc post-toc-html"></div>
-    </div>
-  </div>
-
     
       
 
