@@ -234,7 +234,7 @@
 
             
             <div class="article-busuanzi">
-                <span id="busuanzi_value_page_pv">N</span> views
+                <span id="busuanzi_value_page_pv">N</span> 人看过
             </div>
             
 
@@ -331,6 +331,9 @@ int main()&#123;
 <p>这里我们直接选择第一个gdb即可，以前用过第二个，但是配置不够完整…..导致程序只能编译运行不能debug，所以也很苦恼，最后将两者结合了一下就差不多行了。</p>
 <img src="/2022/03/23/vscode-c-c-configure/018.png" class="">
 <p>我们选择gcc.exe之后，我们会发现文件夹下多了一个.vscode，里面有两个文件分别是launch.json和tasks.json。并且都是存在内容的，但是你会发现程序并没有运行，所以直接套用我这里的模板。</p>
+<blockquote>
+<p>需要注意几点就是我的mingw路径是在d盘的，我会在launch.json和tasks.json中指出，希望你能仔细阅读</p>
+</blockquote>
 <pre><code class="json">&#123;
     //launch.json
     // 使用 IntelliSense 了解相关属性。 
@@ -349,7 +352,7 @@ int main()&#123;
             &quot;environment&quot;: [],
             &quot;externalConsole&quot;: true,
             &quot;MIMode&quot;: &quot;gdb&quot;,
-            &quot;miDebuggerPath&quot;: &quot;D:\\MinGW\\bin\\gdb.exe&quot;,
+            &quot;miDebuggerPath&quot;: &quot;D:\\MinGW\\bin\\gdb.exe&quot;,//这里需要修改
             &quot;setupCommands&quot;: [
                 &#123;
                     &quot;description&quot;: &quot;为 gdb 启用整齐打印&quot;,
@@ -376,7 +379,7 @@ int main()&#123;
             &quot;environment&quot;: [],
             &quot;externalConsole&quot;: true,
             &quot;MIMode&quot;: &quot;gdb&quot;,
-            &quot;miDebuggerPath&quot;: &quot;D:\\MinGW\\bin\\gdb.exe&quot;,
+            &quot;miDebuggerPath&quot;: &quot;D:\\MinGW\\bin\\gdb.exe&quot;,    //这里需要修改
             &quot;setupCommands&quot;: [
                 &#123;
                     &quot;description&quot;: &quot;为 gdb 启用整齐打印&quot;,
@@ -400,7 +403,7 @@ int main()&#123;
         &#123;
             &quot;type&quot;: &quot;cppbuild&quot;,
             &quot;label&quot;: &quot;C/C++: gcc.exe 生成活动文件&quot;,
-            &quot;command&quot;: &quot;D:\\MinGW\\bin\\gcc.exe&quot;,
+            &quot;command&quot;: &quot;D:\\MinGW\\bin\\gcc.exe&quot;,   //这里需要修改
             &quot;args&quot;: [
                 &quot;-fdiagnostics-color=always&quot;,
                 &quot;-g&quot;,
@@ -409,7 +412,7 @@ int main()&#123;
                 &quot;$&#123;fileDirname&#125;\\$&#123;fileBasenameNoExtension&#125;.exe&quot;
             ],
             &quot;options&quot;: &#123;
-                &quot;cwd&quot;: &quot;D:\\MinGW\\bin&quot;
+                &quot;cwd&quot;: &quot;D:\\MinGW\\bin&quot; //这里需要修改
             &#125;,
             &quot;problemMatcher&quot;: [
                 &quot;$gcc&quot;
@@ -445,6 +448,9 @@ int main()&#123;
 <p>那么是什么意思呢，就是简单来说，cmd的字符编码是gb2312还是啥来着，也就是在cmd中输入chcp，系统回执是936，而真正的项目开发一般都采用utf-8环境，也就是所说的65001。</p>
 <p>所以你会发现中文，通常在cmd中都会乱码，可能网上有方法是教你文件改成ansi啊，或者gb2312的，但是这些都是治标不治本的，微软还在地区选项中有一个beta模式，可以强制系统编码为65001，但是下场很凄凉，到了别人936的环境中，你的文件所包含的中文全部是乱码的。</p>
 <p>有缘找到解决办法再分享，最好是不大改系统环境的情况下，毕竟互联网的目的是为了资源共享。不会永远停留在原地。</p>
+<blockquote>
+<p>22.03.28：发现一个问题，我之前保存在linux上的.c文件不知道为什么就是会编译报错，提示路径非可执行程序或者路径不对，故此你的文件夹确保是在windows上创建的。</p>
+</blockquote>
 
         </div>
 
@@ -464,7 +470,7 @@ int main()&#123;
 <nav class="article-nav">
   
     <a href="/2022/03/27/Markdown/" id="article-nav-newer" class="article-nav-link-wrap">
-      <div class="article-nav-caption">次の記事</div>
+      <div class="article-nav-caption">下一篇</div>
       <div class="article-nav-title">
         
           Markdown 基本语法
@@ -474,7 +480,7 @@ int main()&#123;
   
   
     <a href="/2022/03/20/first-blog/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-caption">前の記事</div>
+      <div class="article-nav-caption">上一篇</div>
       <div class="article-nav-title">关于个人博客创建过程</div>
     </a>
   
@@ -482,7 +488,7 @@ int main()&#123;
 
 
     <section class="share">
-        <div class="share-title">シェア</div>
+        <div class="share-title">分享</div>
         <a class="share-item" target="_blank"
             href="https://twitter.com/share?text=vscode c/c++ run+debug - ohmyhsy&url=http%3A%2F%2Fexample.com%2F2022%2F03%2F23%2Fvscode-c-c-configure%2F">
             <box-icon type='logo' name='twitter'></box-icon>
