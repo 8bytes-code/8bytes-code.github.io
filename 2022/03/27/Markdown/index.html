@@ -82,22 +82,6 @@
         window.aomori = {
             
             
-            valine: {
-                enable: true,
-                appId: "sippPVoPE6T8lmSx52ntPnRG-gzGzoHsz",
-                appKey: "rrhU2TbBhpLqJGlGSPzfiQYu",
-                placeholder: "Hello World!",
-                avatar: "",
-                pageSize: "10",
-                lang: "zh-CN",
-                visitor: false,
-                highlight: false,
-                recordIP: false,
-                emojiCDN: "",
-                enableQQ: false,
-                requiredFields: []
-            },
-            
             
         }
         window.aomori_logo_typed_animated = true
@@ -199,7 +183,7 @@
 
             
             <div class="article-busuanzi">
-                <span id="busuanzi_value_page_pv">N</span> 人看过
+                <span id="busuanzi_value_page_pv">N</span> views
             </div>
             
 
@@ -462,7 +446,7 @@ ___粗斜体文本___
   
   
     <a href="/2022/03/23/vscode-c-c-configure/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-caption">上一篇</div>
+      <div class="article-nav-caption">precedente</div>
       <div class="article-nav-title">vscode c/c++ run+debug</div>
     </a>
   
@@ -470,7 +454,7 @@ ___粗斜体文本___
 
 
     <section class="share">
-        <div class="share-title">分享</div>
+        <div class="share-title">share</div>
         <a class="share-item" target="_blank"
             href="https://twitter.com/share?text=Markdown 基本语法 - ohmyhsy&url=http%3A%2F%2Fexample.com%2F2022%2F03%2F27%2FMarkdown%2F">
             <box-icon type='logo' name='twitter'></box-icon>
@@ -496,14 +480,24 @@ ___粗斜体文本___
 
 
 
-<section class="comments">
-    <div id="valine-container"></div>
-</section>
-<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
 
 
 
 
+
+
+    <script src="//cdn.jsdelivr.net/npm/@waline/client"></script>
+    <section class="comments">
+        <div id="waline"></div>
+    </section>
+    <!--<script src="//unpkg.com/@waline/dist/Waline.min.js"></script>-->
+    
+    <script>
+        Waline({
+          el: '#waline',
+          serverURL: 'https://ohmyhsy-pdcrsrn13-8bytes-code.vercel.app/',
+        });
+      </script>
 
 
 
