@@ -198,7 +198,7 @@
 
             
             <div class="article-busuanzi">
-                <span id="busuanzi_value_page_pv">N</span> 人看过
+                <span id="busuanzi_value_page_pv">N</span> views
             </div>
             
 
@@ -491,7 +491,7 @@ $ hexo algolia
 <img src="/2022/03/20/first-blog/021.png" class="">进入之后我们创建一个应用，名称和描述随便。选择开发版就行了。
 <img src="/2022/03/20/first-blog/021.png" class="">找到我们的appid和appkey，将其复制到我们刚才在`_config.yml`中的那两行即可
 <p>后面的配置不用管，但是安全域名那个如果你购买过域名的话建议还是设置一下，在安全中心里面的web安全域名。</p>
-<h2 id="10-评论修改为修改为waline"><a href="#10-评论修改为修改为waline" class="headerlink" title="10.评论修改为修改为waline"></a>10.评论修改为修改为waline</h2><p>因为感觉到valine有点原始，但是胜在配置简单，作者也对其写好了功能，只需要填入id和key即可，但是我个人搜了一下，valine还是存在一些缺点的，加上remark42是需要部署在私人服务器上的，我博客都是搭建在github所以更没机会弄。<br>步骤不方便教，因为是我自己瞎改的，有需要还是等原作者更新吧。</p>
+<h2 id="10-评论修改为修改为waline"><a href="#10-评论修改为修改为waline" class="headerlink" title="10.评论修改为修改为waline"></a>10.评论修改为修改为waline</h2><p>因为感觉到valine有点原始，但是胜在配置简单，作者也对其写好了功能，只需要填入id和key即可，但是我个人搜了一下，valine还是存在一些缺点的，加上remark42是需要部署在私人服务器上的，我博客都是搭建在github所以更没机会弄。<br>步骤不方便教，因为是我自己瞎改的，所以会在所有博客下显示，有需要还是等原作者更新吧。</p>
 <hr>
 <h1 id="结尾"><a href="#结尾" class="headerlink" title="结尾"></a>结尾</h1><p><del>花了点时间自己做了下调整，有空去把评论功能加上，毕竟比较骚气。</del><br><del>还有就是域名绑定问题，暂时没这个钱，都是通过username.github.io访问的，github都知道会被墙，响应速度不好说。如果你担心这个问题，可以去百度用gitee搭建的博客，码云是国内的服务器，响应会比github快点。</del></p>
 <p>上述操作均为自己尝试过的，不同环境可能会产生差异，欢迎评论交流。</p>
@@ -514,7 +514,7 @@ $ hexo algolia
 <nav class="article-nav">
   
     <a href="/2022/03/23/vscode-c-c-configure/" id="article-nav-newer" class="article-nav-link-wrap">
-      <div class="article-nav-caption">下一篇</div>
+      <div class="article-nav-caption">次の記事</div>
       <div class="article-nav-title">
         
           vscode c/c++ run+debug
@@ -524,7 +524,7 @@ $ hexo algolia
   
   
     <a href="/2022/03/10/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-caption">上一篇</div>
+      <div class="article-nav-caption">前の記事</div>
       <div class="article-nav-title">Hello World</div>
     </a>
   
@@ -532,7 +532,7 @@ $ hexo algolia
 
 
     <section class="share">
-        <div class="share-title">分享</div>
+        <div class="share-title">シェア</div>
         <a class="share-item" target="_blank"
             href="https://twitter.com/share?text=关于个人博客创建过程 - ohmyhsy&url=http%3A%2F%2Fexample.com%2F2022%2F03%2F20%2Ffirst-blog%2F">
             <box-icon type='logo' name='twitter'></box-icon>
@@ -564,18 +564,17 @@ $ hexo algolia
 
 
 
-    
+    <script src="//unpkg.com/@waline/dist/Waline.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/@waline/client"></script>
     <section class="comments">
         <div id="waline"></div>
     </section>
-    <script src="//unpkg.com/@waline/dist/Waline.min.js"></script>
-    <script src="//cdn.jsdelivr.net/npm/@waline/client"></script>
     <script>
         Waline({
           el: '#waline',
           serverURL: 'https://ohmyhsy-pdcrsrn13-8bytes-code.vercel.app/',
         });
-      </script>
+    </script>
 
 
 
@@ -617,7 +616,7 @@ $ hexo algolia
   <div class="widget-wrap widget-tags">
     <div class="widget-title"><span>Tags</span></div>
     <div class="widget-inner">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blog/" rel="tag">blog</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vscode/" rel="tag">vscode</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blog/" rel="tag">blog</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ubuntu/" rel="tag">ubuntu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vscode/" rel="tag">vscode</a></li></ul>
     </div>
   </div>
 
@@ -645,6 +644,10 @@ $ hexo algolia
             <a href="/2022/03/10/hello-world/">Hello World</a>
           </li>
         
+          <li>
+            <a href="/2021/07/07/ubuntu-terminal/">ubuntu-终端改zsh使用powerlevel10k</a>
+          </li>
+        
       </ul>
     </div>
   </div>
@@ -654,7 +657,7 @@ $ hexo algolia
   <div class="widget-wrap widget-archive">
     <div class="widget-title"><span>Archive</span></div>
     <div class="widget-inner">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/">2022</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/">2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/">2021</a></li></ul>
     </div>
   </div>
 
