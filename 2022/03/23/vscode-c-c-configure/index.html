@@ -314,7 +314,7 @@ int main()&#123;
             &quot;type&quot;: &quot;cppdbg&quot;,
             &quot;request&quot;: &quot;launch&quot;,
             &quot;program&quot;: &quot;C:\\Windows\\system32\\cmd.exe&quot;,
-            &quot;args&quot;: [&quot;/C&quot;,&quot;$&#123;workspaceFolder&#125;\\$&#123;fileBasenameNoExtension&#125;.exe&quot;,&quot;&amp;&quot;,&quot;pause&quot;],
+            &quot;args&quot;: [&quot;/C&quot;,&quot;$&#123;fileDirname&#125;\\$&#123;fileBasenameNoExtension&#125;.exe&quot;,&quot;&amp;&quot;,&quot;pause&quot;],
             &quot;stopAtEntry&quot;: false,
             &quot;cwd&quot;: &quot;$&#123;workspaceFolder&#125;&quot;,
             &quot;environment&quot;: [],
@@ -340,7 +340,7 @@ int main()&#123;
             &quot;name&quot;: &quot;debug&quot;,
             &quot;type&quot;: &quot;cppdbg&quot;,
             &quot;request&quot;: &quot;launch&quot;,
-            &quot;program&quot;: &quot;$&#123;workspaceFolder&#125;/$&#123;fileBasenameNoExtension&#125;.exe&quot;,
+            &quot;program&quot;: &quot;$&#123;fileDirname&#125;\\$&#123;fileBasenameNoExtension&#125;.exe&quot;,
             &quot;args&quot;: [],
             &quot;stopAtEntry&quot;: false,
             &quot;cwd&quot;: &quot;$&#123;workspaceFolder&#125;&quot;,
@@ -416,9 +416,6 @@ int main()&#123;
 <p>那么是什么意思呢，就是简单来说，cmd的字符编码是gb2312还是啥来着，也就是在cmd中输入chcp，系统回执是936，而真正的项目开发一般都采用utf-8环境，也就是所说的65001。</p>
 <p>所以你会发现中文，通常在cmd中都会乱码，可能网上有方法是教你文件改成ansi啊，或者gb2312的，但是这些都是治标不治本的，微软还在地区选项中有一个beta模式，可以强制系统编码为65001，但是下场很凄凉，到了别人936的环境中，你的文件所包含的中文全部是乱码的。</p>
 <p>有缘找到解决办法再分享，最好是不大改系统环境的情况下，毕竟互联网的目的是为了资源共享。不会永远停留在原地。</p>
-<blockquote>
-<p>22.03.28：发现一个问题，我之前保存在linux上的.c文件不知道为什么就是会编译报错，提示路径非可执行程序或者路径不对，故此你的文件夹确保是在windows上创建的。</p>
-</blockquote>
 
         </div>
 
@@ -438,7 +435,7 @@ int main()&#123;
 <nav class="article-nav">
   
     <a href="/2022/03/27/Markdown/" id="article-nav-newer" class="article-nav-link-wrap">
-      <div class="article-nav-caption">prossimo</div>
+      <div class="article-nav-caption">下一篇</div>
       <div class="article-nav-title">
         
           Markdown 基本语法
@@ -448,7 +445,7 @@ int main()&#123;
   
   
     <a href="/2022/03/20/first-blog/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-caption">precedente</div>
+      <div class="article-nav-caption">上一篇</div>
       <div class="article-nav-title">关于个人博客创建过程</div>
     </a>
   
@@ -456,7 +453,7 @@ int main()&#123;
 
 
     <section class="share">
-        <div class="share-title">share</div>
+        <div class="share-title">分享</div>
         <a class="share-item" target="_blank"
             href="https://twitter.com/share?text=vscode c/c++ run+debug - ohmyhsy&url=http%3A%2F%2Fexample.com%2F2022%2F03%2F23%2Fvscode-c-c-configure%2F">
             <box-icon type='logo' name='twitter'></box-icon>
