@@ -333,7 +333,7 @@ int main()&#123;
                     &quot;ignoreFailures&quot;: true
                 &#125;
             ],
-            &quot;preLaunchTask&quot;: &quot;C/C++: cc.exe 生成活动文件&quot;
+            &quot;preLaunchTask&quot;: &quot;C/C++: gcc.exe 生成活动文件&quot;
         &#125;,
 
         &#123;
@@ -360,7 +360,7 @@ int main()&#123;
                     &quot;ignoreFailures&quot;: true
                 &#125;
             ],
-            &quot;preLaunchTask&quot;: &quot;C/C++: g++.exe 生成活动文件&quot;
+            &quot;preLaunchTask&quot;: &quot;C/C++: gcc.exe 生成活动文件&quot;
         &#125;
     ]
 &#125;
@@ -395,6 +395,9 @@ int main()&#123;
     &quot;version&quot;: &quot;2.0.0&quot;
 &#125;
 </code></pre>
+<blockquote>
+<p>如果是c++的配置，记得将tasks.json的command程序改成g++.exe，至于label和prelaunchtask这两个要是愿意也可以把gcc.exe 改成g++.exe</p>
+</blockquote>
 <p>使用模板之后，我们发现程序成功在cmd跑起来了</p>
 <img src="/2022/03/23/vscode-c-c-configure/019.png" class="">
 <blockquote>
