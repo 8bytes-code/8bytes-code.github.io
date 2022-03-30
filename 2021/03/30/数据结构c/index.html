@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    
+    <title>数据结构c语言 | ohmyhsy</title>
+
+    <meta name="description" content="&lt;h1 id=&#34;参考&#34;&gt;&lt;a href=&#34;#参考&#34; class=&#34;headerlink&#34; title=&#34;参考&#34;&gt;&lt;/a&gt;参考&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;青岛大学 王卓老师的数据结构和算法基础&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;">
+    <meta name="keywords" content="">
+
+    
+
+    <meta property="og:locale" content="en" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content= "数据结构c语言 | ohmyhsy"  />
+    <meta property="og:description" content= "&lt;h1 id=&#34;参考&#34;&gt;&lt;a href=&#34;#参考&#34; class=&#34;headerlink&#34; title=&#34;参考&#34;&gt;&lt;/a&gt;参考&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;青岛大学 王卓老师的数据结构和算法基础&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;" />
+    <meta property="og:url" content="http://example.com/2021/03/30/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84c/index.html" />
+    <meta property="og:site_name" content="" />
+    <meta property="article:author" content="Box" />
+    <meta property="article:publisher" content="" />
+    <meta property="og:description" content="&lt;h1 id=&#34;参考&#34;&gt;&lt;a href=&#34;#参考&#34; class=&#34;headerlink&#34; title=&#34;参考&#34;&gt;&lt;/a&gt;参考&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;青岛大学 王卓老师的数据结构和算法基础&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;" />
+    <meta name="twitter:title" content="数据结构c语言 | ohmyhsy"/>
+    <meta name="twitter:description" content="&lt;h1 id=&#34;参考&#34;&gt;&lt;a href=&#34;#参考&#34; class=&#34;headerlink&#34; title=&#34;参考&#34;&gt;&lt;/a&gt;参考&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;青岛大学 王卓老师的数据结构和算法基础&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;"/>
+    <script type="application/ld+json">
+        {
+            "description": "&lt;h1 id=&#34;参考&#34;&gt;&lt;a href=&#34;#参考&#34; class=&#34;headerlink&#34; title=&#34;参考&#34;&gt;&lt;/a&gt;参考&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;青岛大学 王卓老师的数据结构和算法基础&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;",
+            "author": { "@type": "Person", "name": "Box" },
+            "@type": "BlogPosting",
+            "url": "http://example.com/2021/03/30/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84c/index.html",
+            "publisher": {
+            "@type": "Organization",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "http://example.comundefined"
+            },
+            "name": "Box"
+            },
+            "headline": "数据结构c语言 | ohmyhsy",
+            "datePublished": "2021-03-30T06:29:10.000Z",
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "http://example.com/2021/03/30/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84c/index.html"
+            },
+            "@context": "http://schema.org"
+        }
+    </script>
+
+
+
+
+    
+
+    
+    <meta property="algolia:search" data-application-id="4CVCYWPWWN" data-api-key="7757db6b0a31c3f94c301c885693ed0d" data-index-name="ohmyhsy">
+    
+
+    
+
+    
+
+    
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎮</text></svg>">
+    
+
+    
+
+    
+
+    
+<link rel="stylesheet" href="/dist/build.css?v=1646451311888.css">
+
+
+    
+<link rel="stylesheet" href="/dist/custom.css?v=1646451311888.css">
+
+
+    <script>
+        window.isPost = true
+        window.aomori = {
+            
+            
+            
+        }
+        window.aomori_logo_typed_animated = true
+        window.aomori_search_algolia = true
+
+    </script>
+
+<meta name="generator" content="Hexo 5.4.1"><link rel="alternate" href="/atom.xml" title="ohmyhsy" type="application/atom+xml">
+</head>
+
+<body>
+
+    <div class="container">
+    <header class="header">
+        <div class="header-type">
+            
+            <div class="header-type-inner">
+                
+                    <div id="typed-strings" style="display:none">
+                        <p>ohmyhsy</p>
+                    </div>
+                    <a class="header-type-title" id="typed" href="/"></a>
+                
+    
+                
+            </div>
+        </div>
+        <div class="header-menu">
+            <div class="header-menu-inner">
+                
+                <a href="/">Home</a>
+                
+                <a href="/archives">Archives</a>
+                
+                <a href="/friends">Friends</a>
+                
+            </div>
+            <div class="header-menu-social">
+                
+    <a class="social" target="_blank" href="https://github.com/8bytes-code">
+        <box-icon type='logo' name='github'></box-icon>
+    </a>
+
+            </div>
+        </div>
+
+        <div class="header-menu-mobile">
+            <div class="header-menu-mobile-inner" id="mobile-menu-open">
+                <i class="icon icon-menu"></i>
+            </div>
+        </div>
+    </header>
+
+    <div class="header-menu-mobile-menu">
+        <div class="header-menu-mobile-menu-bg"></div>
+        <div class="header-menu-mobile-menu-wrap">
+            <div class="header-menu-mobile-menu-inner">
+                <div class="header-menu-mobile-menu-close" id="mobile-menu-close">
+                    <i class="icon icon-cross"></i>
+                </div>
+                <div class="header-menu-mobile-menu-list">
+                    
+                    <a href="/">Home</a>
+                    
+                    <a href="/archives">Archives</a>
+                    
+                    <a href="/friends">Friends</a>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+    <div class="container">
+        <div class="main">
+            <section class="inner">
+                <section class="inner-main">
+                    <div class="post">
+    <article id="post-cl1d6tu7h0000ggk6f4hbeazj" class="article article-type-post" itemscope
+    itemprop="blogPost">
+
+    <div class="article-inner">
+
+        
+          
+        
+        
+        
+
+        
+        <header class="article-header">
+            
+  
+    <h1 class="article-title" itemprop="name">
+      数据结构c语言
+    </h1>
+  
+
+        </header>
+        
+
+        <div class="article-more-info article-more-info-post hairline">
+
+            <div class="article-date">
+  <time datetime="2021-03-30T06:29:10.000Z" itemprop="datePublished">2021-03-30</time>
+</div>
+
+            
+
+            
+            <div class="article-tag">
+                <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/c/" rel="tag">c</a></li></ul>
+            </div>
+            
+
+            
+            <div class="article-busuanzi">
+                <span id="busuanzi_value_page_pv">N</span> 人看过
+            </div>
+            
+
+        </div>
+
+        <div class="article-entry post-inner-html hairline" itemprop="articleBody">
+            <h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ul>
+<li>青岛大学 王卓老师的数据结构和算法基础</li>
+</ul>
+<hr>
+<span id="more"></span>
+
+
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>数学底子一般，可能没有这么灵性的想法。<br>文章会存在照抄ppt的形式，理解情况可写可不写，毕竟有些东西能解释就行不需要全背。</p>
+<hr>
+<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><h2 id="课程内容"><a href="#课程内容" class="headerlink" title="课程内容:"></a>课程内容:</h2><img src="/2021/03/30/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84c/000.png" class="" title="课程内容">
+
+<hr>
+<h2 id="问题分析"><a href="#问题分析" class="headerlink" title="问题分析"></a>问题分析</h2><p>问题分析就是能够将具体问题抽象成一个数学模型，从而分化，提取出可以操作的对象，找到对象之间的关联性，最后用数学语言去表达，用计算机语言编程调试。</p>
+<p>最早的计算机通常用于数值计算，现代计算机则越来越多的用于非数值的计算。</p>
+<p>比如：学生信息管理系统，好比一个数据库，对象是学生的各种信息，你能使用的操作算法就是增删查改。对象之间的信息一环接一环，类似于线性结构。——表</p>
+<p>又比如：围棋对弈，高手通常能往后推很多步，每落一子，对手的变化也是有很多种，像这种有点类似树根盘根错节的结构就类似于树形结构，或非线性结构。类似的还有文件系统，一个文件只有一个父目录，但是会有同级目录和子级目录，如此散开。——树</p>
+<p>同样的，根据地图导航，建筑成了节点，建筑之间的路成了连接节点之间的线，最短路径由节点之间的线相加比较之后得出，像这样的结构成为网状结构。——图</p>
+<blockquote>
+<p>这些问题的共性是无法直接用数学公式描述，而是具有一定逻辑关系的数据处理</p>
+</blockquote>
+<hr>
+<h2 id="数据、元素、项、对象"><a href="#数据、元素、项、对象" class="headerlink" title="数据、元素、项、对象"></a>数据、元素、项、对象</h2><ul>
+<li>数据（Data）</li>
+<li>数据元素（Data Element）</li>
+<li>数据项（Data Item）</li>
+<li>数据对象（Data Object）</li>
+</ul>
+<hr>
+<h3 id="数据（Data）"><a href="#数据（Data）" class="headerlink" title="数据（Data）"></a>数据（Data）</h3><p>数据是指能够输入计算机且被计算机处理的集合。</p>
+<ul>
+<li>数值型</li>
+<li>非数值型（影音媒体等）</li>
+</ul>
+<h3 id="数据元素（Data-Element）"><a href="#数据元素（Data-Element）" class="headerlink" title="数据元素（Data Element）"></a>数据元素（Data Element）</h3><p>数据类型是指一些联系比较紧密的数据，通常使用时会作为一个整体处理。</p>
+<ul>
+<li>是数据的基本单位</li>
+<li>也可以简称元素、记录、结点、顶点</li>
+<li>可以由若干数据项组成</li>
+</ul>
+<p>例如学生表：</p>
+<table>
+<thead>
+<tr>
+<th align="center">学号</th>
+<th align="center">姓名</th>
+<th align="center">性别</th>
+<th align="center">出生日期</th>
+<th align="center">政治面貌</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">000001</td>
+<td align="center">张三</td>
+<td align="center">男</td>
+<td align="center">19860902</td>
+<td align="center">群众</td>
+</tr>
+<tr>
+<td align="center">000002</td>
+<td align="center">李四</td>
+<td align="center">女</td>
+<td align="center">19851225</td>
+<td align="center">团员</td>
+</tr>
+</tbody></table>
+<h3 id="数据项（Data-Item）"><a href="#数据项（Data-Item）" class="headerlink" title="数据项（Data Item）"></a>数据项（Data Item）</h3><ul>
+<li>构成数据元素的不可分割的最小单位</li>
+</ul>
+<p>前者对象关系：数据 &gt; 数据元素 &gt; 数据项<br>例如：学生表 &gt; 个人纪录 &gt; 学号、姓名……</p>
+<h3 id="数据对象（Data-Object）"><a href="#数据对象（Data-Object）" class="headerlink" title="数据对象（Data Object）"></a>数据对象（Data Object）</h3><ul>
+<li>是性质相同的数据元素的集合，是数据的一个子集。</li>
+</ul>
+<p>例如:<br>整数对象集合N&#x3D;{0,1,2,3….}<br>字符对象集合C&#x3D;{‘A’,’B’,’C’……}</p>
+<h3 id="数据元素和数据对象"><a href="#数据元素和数据对象" class="headerlink" title="数据元素和数据对象"></a>数据元素和数据对象</h3><p>可以把数据元素看作表格里的行，行内标签代表了不同的属性；而数据对象可以看做表格里的列，它代表这个类型的所有数据。</p>
+<hr>
+<h2 id="数据结构（Data-Structure）"><a href="#数据结构（Data-Structure）" class="headerlink" title="数据结构（Data Structure）"></a>数据结构（Data Structure）</h2><ul>
+<li><p>数据结构</p>
+<ul>
+<li>数据元素不是孤立存在，它们之间存在某种关系，而这些数据元素之间的关系成为结构（Structure）</li>
+<li>指数据相互之间存在一种或多种特定关系</li>
+</ul>
+</li>
+<li><p>数据结构包括三个方面</p>
+<ol>
+<li>数据元素之间的逻辑关系，也称<code>逻辑结构</code></li>
+<li>数据元素及其关系在计算机内存中的表示（又称为映像），被称为数据的<code>物理结构</code>或者数据的<code>存储结构</code> </li>
+<li>数据的运算和实现，及对数据元素可以施加的操作以及这些操作在相应的存储结构上的实现</li>
+</ol>
+</li>
+</ul>
+<h3 id="逻辑结构"><a href="#逻辑结构" class="headerlink" title="逻辑结构"></a>逻辑结构</h3><ul>
+<li>用以描述数据元素之间的逻辑关系</li>
+<li>与数据的存储无关，独立于计算机</li>
+<li>是抽象出来的数学模型</li>
+</ul>
+<h3 id="物理结构（存储结构）"><a href="#物理结构（存储结构）" class="headerlink" title="物理结构（存储结构）"></a>物理结构（存储结构）</h3><ul>
+<li>数据元素及其关系在计算机存储器中的结构</li>
+<li>是数据结构在计算机中的表示</li>
+</ul>
+<hr>
+<h3 id="两者的关系"><a href="#两者的关系" class="headerlink" title="两者的关系"></a>两者的关系</h3><ul>
+<li>存储结构是逻辑关系的映像与元素本身的映像——元素存在逻辑关系但不一定按照逻辑关系存储在内存上</li>
+<li>逻辑结构是数据结构的抽象，存储结构是数据结构的实现——在已有数据结构上找到一种或多种特定规律可以当作逻辑结构，但实际上该怎么存储到内存上就怎么存储上去</li>
+<li>两者综合起来建立了数据元素之间的结构关系</li>
+</ul>
+<blockquote>
+<p>比如1abc2345fiojsg09890<br>在存储结构上就按照先后顺序正常写入<br>逻辑上，数字类型可以有关联，字符类型可以有关联</p>
+</blockquote>
+<hr>
+<h3 id="逻辑结构的种类"><a href="#逻辑结构的种类" class="headerlink" title="逻辑结构的种类"></a>逻辑结构的种类</h3><ol>
+<li>线性结构<br>有且只有一个开始和一个终端节点，规律为直接前驱或直接后继。<br>例如：线性表、栈、队列、串，说人话就跟糖葫芦一样，开头和结尾都只有一个，按照顺序直线排序</li>
+<li>非线性结构<br> 一个节点可能有多个直接前驱和直接后继<br> 例如：树、图，说人话就是一个节点规律一点散开就跟树根一样，图相对更绕</li>
+</ol>
+<p>另一种按照四类基本逻辑结构划分：</p>
+<ol>
+<li>集合结构——元素除了同属于一个集合不存在额外的关系</li>
+<li>线性结构——数据元素参照一对一的线性关系</li>
+<li>树形结构——数据元素参照一对多的层次关系</li>
+<li>图状或网状结构——数据元素存在多对多的任意关系</li>
+</ol>
+<img src="/2021/03/30/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84c/001.png" class="">
+
+<hr>
+<h3 id="存储结构的种类"><a href="#存储结构的种类" class="headerlink" title="存储结构的种类"></a>存储结构的种类</h3><ul>
+<li>顺序存储</li>
+<li>链式存储</li>
+<li>索引存储</li>
+<li>散列存储</li>
+</ul>
+<hr>
+<h4 id="顺序存储"><a href="#顺序存储" class="headerlink" title="顺序存储"></a>顺序存储</h4><p>c语言中用数组实现，有C语言基础的就不用额外说明了</p>
+<ul>
+<li>线性</li>
+<li>连续</li>
+</ul>
+<hr>
+<h4 id="链式存储"><a href="#链式存储" class="headerlink" title="链式存储"></a>链式存储</h4><p>C语言中用指针实现</p>
+<ul>
+<li>线性</li>
+<li>非连续</li>
+</ul>
+<blockquote>
+<p>可以用链表的思维,数据除了自身存储地址之外还保留下一个元素的地址</p>
+</blockquote>
+<hr>
+<h4 id="索引结构"><a href="#索引结构" class="headerlink" title="索引结构"></a>索引结构</h4><p>在存储节点信息的同时，还额外建立了一个附加的<code>索引表</code>。<br>以通讯录为例，手机联系人默认都是按照备注的字母顺序排序，本身既包含联系人姓名电话住址信息，又有排序的索引表</p>
+<hr>
+<h4 id="散列存储"><a href="#散列存储" class="headerlink" title="散列存储"></a>散列存储</h4><ul>
+<li>根据节点的关键字直接计算出节点的存储地址</li>
+</ul>
+<img src="/2021/03/30/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84c/002.png" class="">
+
+<blockquote>
+<p>这个有点抽象，以往好像没有什么类似例子，后续看有没有额外说明</p>
+</blockquote>
+<hr>
+<h2 id="数据类型和抽象的数据类型"><a href="#数据类型和抽象的数据类型" class="headerlink" title="数据类型和抽象的数据类型"></a>数据类型和抽象的数据类型</h2><p>在讲数据类型之前，我认为有必要说明一下强语言和弱语言的区别。<br>强语言如c&#x2F;c++…他们的共性就是数据类型是必须严格指定的，而弱语言如php、JavaScript等，他们声明变量时，没有特别指定变量的数据类型。</p>
+<pre><code class="c">//C语言
+int a = 10; //因为是整型只能是赋值整型数值
+</code></pre>
+<pre><code class="php">//php
+$a = &quot;xxxx&quot;; //而弱语言不强硬指定，所以变量会根据用户赋予的初值调整
+</code></pre>
+<blockquote>
+<p>另外,“这门语言是不是动态语言”与“这门语言是否类型安全”之间是完全没有联系的!” 安全问题的本身不是语言，而是使用者。</p>
+</blockquote>
+<p>C语言常用的基本数据类型有int、char、float、double，数组、结构体，枚举等构造数据类型，指针和void另说。最后就是typedef自定义数据类型。</p>
+<p>数据类型的作用：</p>
+<ol>
+<li>约束变量或常量的取值范围</li>
+<li>约束变量或者常量的操作，像%运算只有整型可以用</li>
+</ol>
+<p>至于抽象数据类型（Abstract Data Type），老师用圆做例子，圆形是本质，而从中找出圆点，画出半径，这样就可以用数据去描述一个圆了，所以圆心和半径就是抽象出来的。</p>
+<blockquote>
+<p>抽象就是抽象。。。</p>
+</blockquote>
+<h3 id="抽象数据类型的形式定义："><a href="#抽象数据类型的形式定义：" class="headerlink" title="抽象数据类型的形式定义："></a>抽象数据类型的形式定义：</h3><ul>
+<li>D-数据对象</li>
+<li>S-D上的关系集</li>
+<li>P-是对D的基本操作集</li>
+</ul>
+<pre><code class="txt">//伪代码
+ADT name&#123;
+    数据对象:&lt;对象的定义&gt;
+    数据关系:&lt;关系的定义&gt;
+    基本操作:&lt;操作的定义&gt;
+&#125;ADT name
+</code></pre>
+<blockquote>
+<p>视频中介绍的参数表、初始条件、操作结果这些就跟正常编程一样，自定义函数，初始化变量，调用执行调试。这个就还能大概感觉到一点</p>
+</blockquote>
+<img src="/2021/03/30/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84c/003.png" class="">
+<p>这个就跟高级语言的面向对象思想很像了</p>
+<pre><code class="cpp">#define PI 3.14
+class circle&#123;
+    public:
+        int R;
+
+        circle(int r)&#123;
+            R = r;
+        &#125;
+
+        double mj()&#123;
+            return R*R*PI;
+        &#125;
+
+        double zc()&#123;
+            return 2*R*PI;
+        &#125;
+
+&#125;
+</code></pre>
+<p>这里就随便举个例子。构建一个类，内置zc，mj方法。传个参数半径就行。当然c语言因为是面向过程的，你说struct结构体肯定是搞不了这个了。</p>
+<img src="/2021/03/30/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84c/004.png" class="">
+
+<blockquote>
+<p>预测的结果和老师写的差不多，如果你有一点面向对象的基础，那么这个还是很好理解的</p>
+</blockquote>
+<img src="/2021/03/30/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84c/005.png" class="">
+
+<blockquote>
+<p>虽然老师用的是类c方式，但是这种写法和面向对象思想比较还是能看得出来的</p>
+</blockquote>
+<img src="/2021/03/30/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84c/006.png" class="">
+<p>复合类型使用<code>typedef</code>定义，方法通过自定义函数实现。</p>
+<img src="/2021/03/30/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84c/007.png" class="">
+
+<h3 id="用了一个新的例子："><a href="#用了一个新的例子：" class="headerlink" title="用了一个新的例子："></a>用了一个新的例子：</h3><img src="/2021/03/30/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84c/008.png" class="">
+<blockquote>
+<p>add是加法运算，multiple是算法。需要注意的是divide是安全除法，因为普通除法分母为0会报错</p>
+</blockquote>
+<hr>
+<h2 id="算法分析"><a href="#算法分析" class="headerlink" title="算法分析"></a>算法分析</h2><p><strong>算法的定义：</strong></p>
+<ul>
+<li>对特定问题的<strong>求解方法和步骤</strong>的一种描述，它是指令的有限序列，其中每一个指令表示一个或多个操作。</li>
+</ul>
+<p><strong>算法的描述：</strong></p>
+<ul>
+<li>自然语言：中文，英语…</li>
+<li>流程图：传统流程图、NS流程图</li>
+<li>伪代码：类语言：类C语言</li>
+</ul>
+<p><strong>算法和程序：</strong></p>
+<ul>
+<li>算法是解决问题的一种方法或一个过程，考虑如何由输入转为输出，一个问题可以有多种算法</li>
+<li>程序是某种程序设计语言对算法的具体实现</li>
+</ul>
+<blockquote>
+<p>程序 &#x3D; 数据结构 + 算法<br>数据结构通过算法实现操作<br>算法根据数据结构设计程序</p>
+</blockquote>
+<p><strong>算法特性：</strong> 一个合格的算法必须具备五个重要特性</p>
+<ol>
+<li>有穷性：一个算法必须在执行有穷步后结束，且每一步都在有穷时间内完成</li>
+<li>确定性：算法中的每一条指令必须有确切含义，没有二义性，任何条件下，只有唯一的执行路径，及对于相同的输入只能得到相同的结果</li>
+<li>可行性：算法是可执行的，算法描述的操作可以通过已经实现的基本操作执行有限次来实现</li>
+<li>输入 一个算法有零个或多个输入</li>
+<li>输出 一个算法至少有一个输出或多个输出</li>
+</ol>
+<p><strong>算法设计的要求：</strong></p>
+<ul>
+<li>正确性（Correctness）</li>
+<li>可读性（Readability）</li>
+<li>健壮性（Robustness）</li>
+<li>高效性（Efficiency）</li>
+</ul>
+
+        </div>
+
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+<nav class="article-nav">
+  
+    <a href="/2021/07/07/ubuntu-terminal/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-caption">prossimo</div>
+      <div class="article-nav-title">
+        
+          ubuntu-终端改zsh使用powerlevel10k
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2021/01/01/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-caption">precedente</div>
+      <div class="article-nav-title">Hello World</div>
+    </a>
+  
+</nav>
+
+
+    <section class="share">
+        <div class="share-title">share</div>
+        <a class="share-item" target="_blank"
+            href="https://twitter.com/share?text=数据结构c语言 - ohmyhsy&url=http%3A%2F%2Fexample.com%2F2021%2F03%2F30%2F%25E6%2595%25B0%25E6%258D%25AE%25E7%25BB%2593%25E6%259E%2584c%2F">
+            <box-icon type='logo' name='twitter'></box-icon>
+        </a>
+        <a class="share-item" target="_blank"
+            href="https://www.facebook.com/sharer.php?title=数据结构c语言 - ohmyhsy&u=http%3A%2F%2Fexample.com%2F2021%2F03%2F30%2F%25E6%2595%25B0%25E6%258D%25AE%25E7%25BB%2593%25E6%259E%2584c%2F">
+            <box-icon name='facebook-square' type='logo' ></box-icon>
+        </a>
+        <!-- <a class="share-item" target="_blank"
+            href="https://service.weibo.com/share/share.php?title=数据结构c语言 - ohmyhsy&url=http://example.com/2021/03/30/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84c/&pic=">
+            <div class="n-icon n-icon-weibo"></div>
+        </a> -->
+    </section>
+
+</article>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- <script src="//unpkg.com/@waline/dist/Waline.min.js"></script> -->
+    <script src="//cdn.jsdelivr.net/npm/@waline/client"></script>
+    <section class="comments">
+        <div id="waline"></div>
+    </section>
+    <script>
+        Waline({
+          el: '#waline',
+          serverURL: 'https://ohmyhsy.vercel.app/'
+        });
+    </script>
+
+
+
+<script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+</div>
+                </section>
+            </section>
+
+            
+            <aside class="sidebar sidebar-search-fix">
+                
+
+    <div class="search">
+    <div class="has-icon-right">
+        <input type="text" class="form-input" id="search" placeholder="SEARCH" autocomplete="off">
+        <div class="form-icon">
+            <box-icon name='search' color="#3c4859"></box-icon>
+        </div>
+    </div>
+    <div class="search-result" id="search-ps"></div>
+</div>
+
+
+<div class="widget" id="widget">
+    
+      
+  <div class="widget-wrap">
+    <div class="widget-inner">
+      <div class="toc post-toc-html"></div>
+    </div>
+  </div>
+
+    
+      
+
+    
+      
+  <div class="widget-wrap widget-tags">
+    <div class="widget-title"><span>Tags</span></div>
+    <div class="widget-inner">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blog/" rel="tag">blog</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c/" rel="tag">c</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/exam/" rel="tag">exam</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ubuntu/" rel="tag">ubuntu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vscode/" rel="tag">vscode</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-recent-posts">
+    <div class="widget-title"><span>Recent Posts</span></div>
+    <div class="widget-inner">
+      <ul>
+        
+          <li>
+            <a href="/2022/03/29/%E5%88%9D%E7%BA%A7%E8%BD%AF%E8%80%83-%E7%A8%8B%E5%BA%8F%E5%91%98/">初级软考-程序员</a>
+          </li>
+        
+          <li>
+            <a href="/2022/03/27/Markdown/">Markdown 基本语法</a>
+          </li>
+        
+          <li>
+            <a href="/2022/03/23/vscode-c-c-configure/">vscode c/c++ run+debug</a>
+          </li>
+        
+          <li>
+            <a href="/2022/03/20/first-blog/">关于个人博客创建过程</a>
+          </li>
+        
+          <li>
+            <a href="/2021/07/07/ubuntu-terminal/">ubuntu-终端改zsh使用powerlevel10k</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget-wrap widget-archive">
+    <div class="widget-title"><span>Archive</span></div>
+    <div class="widget-inner">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/">2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/">2021</a></li></ul>
+    </div>
+  </div>
+
+
+    
+</div>
+
+<div id="backtop"><i class="icon icon-arrow-up"></i></div>
+            </aside>
+            
+        </div>
+    </div>
+
+    <footer class="footer">
+    <div class="footer-wave">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#3c4859" fill-opacity="1" d="M0,160L60,181.3C120,203,240,245,360,240C480,235,600,181,720,186.7C840,192,960,256,1080,261.3C1200,267,1320,213,1380,186.7L1440,160L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>
+    </div>
+
+    <!-- Please do not remove this -->
+    <!-- 开源不易，请勿删除 -->
+    <div class="footer-wrap">
+        <div class="footer-inner"> 
+            ohmyhsy &copy; 2022<br>
+            Powered By Hexo · Theme By <a href="https://linhong.me/" target="_blank">Aomori</a> · <a href="https://github.com/lh1me/hexo-theme-aomori" target="_blank">Github</a>
+        </div>
+    </div>
+
+</footer>
+
+
+
+
+
+
+<script src="/dist/build.js?1646451311888.js"></script>
+
+
+<script src="/dist/custom.js?1646451311888.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>
