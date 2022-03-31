@@ -201,7 +201,7 @@
 
             
             <div class="article-busuanzi">
-                <span id="busuanzi_value_page_pv">N</span> 人看过
+                <span id="busuanzi_value_page_pv">N</span> views
             </div>
             
 
@@ -418,7 +418,7 @@ int main()&#123;
 <h1 id="结尾"><a href="#结尾" class="headerlink" title="结尾"></a>结尾</h1><p>当然vscode还有一点不好，其实也是归根在微软身上，windows操作系统有个很不好的点就是系统的编码是根据地区设置来的。</p>
 <p>那么是什么意思呢，就是简单来说，cmd的字符编码是gb2312还是啥来着，也就是在cmd中输入chcp，系统回执是936，而真正的项目开发一般都采用utf-8环境，也就是所说的65001。</p>
 <p>所以你会发现中文，通常在cmd中都会乱码，可能网上有方法是教你文件改成ansi啊，或者gb2312的，但是这些都是治标不治本的，微软还在地区选项中有一个beta模式，可以强制系统编码为65001，但是下场很凄凉，到了别人936的环境中，你的文件所包含的中文全部是乱码的。</p>
-<p>有缘找到解决办法再分享，最好是不大改系统环境的情况下，毕竟互联网的目的是为了资源共享。不会永远停留在原地。</p>
+<p>目前看来是没有什么办法能够根治的，因为即便你能永久修改了powershell或者cmd的字符集，但是老的windows软件可能用的还是那套字符，多少会存在差异，这也是为什么有些项目都会放在linux上开发。</p>
 
         </div>
 
@@ -438,7 +438,7 @@ int main()&#123;
 <nav class="article-nav">
   
     <a href="/2022/03/27/Markdown/" id="article-nav-newer" class="article-nav-link-wrap">
-      <div class="article-nav-caption">下一篇</div>
+      <div class="article-nav-caption">prossimo</div>
       <div class="article-nav-title">
         
           Markdown 基本语法
@@ -448,7 +448,7 @@ int main()&#123;
   
   
     <a href="/2022/03/20/first-blog/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-caption">上一篇</div>
+      <div class="article-nav-caption">precedente</div>
       <div class="article-nav-title">关于个人博客创建过程</div>
     </a>
   
@@ -456,7 +456,7 @@ int main()&#123;
 
 
     <section class="share">
-        <div class="share-title">分享</div>
+        <div class="share-title">share</div>
         <a class="share-item" target="_blank"
             href="https://twitter.com/share?text=vscode c/c++ run+debug - ohmyhsy&url=http%3A%2F%2Fexample.com%2F2022%2F03%2F23%2Fvscode-c-c-configure%2F">
             <box-icon type='logo' name='twitter'></box-icon>

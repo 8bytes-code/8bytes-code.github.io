@@ -216,7 +216,7 @@
 
             
             <div class="article-busuanzi">
-                <span id="busuanzi_value_page_pv">N</span> 人看过
+                <span id="busuanzi_value_page_pv">N</span> views
             </div>
             
 
@@ -464,6 +464,7 @@ class circle&#123;
 <li>自然语言：中文，英语…</li>
 <li>流程图：传统流程图、NS流程图</li>
 <li>伪代码：类语言：类C语言</li>
+<li>程序代码：c、c++、java…</li>
 </ul>
 <p><strong>算法和程序：</strong></p>
 <ul>
@@ -481,13 +482,43 @@ class circle&#123;
 <li>输入 一个算法有零个或多个输入</li>
 <li>输出 一个算法至少有一个输出或多个输出</li>
 </ol>
+<blockquote>
+<p>理论有点多。。名词记住能解释个大概就差不多了</p>
+</blockquote>
 <p><strong>算法设计的要求：</strong></p>
 <ul>
 <li>正确性（Correctness）</li>
 <li>可读性（Readability）</li>
-<li>健壮性（Robustness）</li>
+<li>健壮性[鲁棒性]（Robustness）</li>
 <li>高效性（Efficiency）</li>
 </ul>
+<p><strong>算法分析：</strong><br>一个算法在满足了上述要求之后，我们评判一个算法的优良，就要通过算法的效率。<br>算法效率主要由两个方面考虑：</p>
+<ol>
+<li>时间效率</li>
+<li>空间效率<blockquote>
+<p>但有的时候往往时间和空间是矛盾的，要有取舍</p>
+</blockquote>
+</li>
+</ol>
+<p>对于时间的度量</p>
+<ul>
+<li>事前分析——通过基础数学做一个估算分析</li>
+<li>事后统计——实现算法，测算时间和空间开销</li>
+</ul>
+<p><code>算法运行时间=一个简单操作所需时间*简单操作次数</code><br>简单操作(赋值、比较等)，即<br><code>算法运行时间=每条语句的执行次数*该语句执行一次所耗费的时间</code></p>
+<blockquote>
+<p>语句执行一次消耗的时间其实会和机器有关，老的机器毕竟没有新的好，所以通常将语句执行一次的时间设置为一个固定量，即算法运行时间&#x3D;每条语句执行次数*n</p>
+</blockquote>
+<p>假设一个n*n的矩阵算法：</p>
+<pre><code class="c">for(int i = 1; i &lt;= n; i++)&#123;            //n+1
+    for(int j = 1; j &lt;= n; j++)&#123;        //n(n+1)
+        a[i][j] = 0;                    //n*n
+        for(int k = 0; k &lt; n; k++)      //n*n*(n+1)
+            a[i][j] = a[i][j] + b[i][k] * c[k][j]; //n*n*n
+    &#125;
+&#125;
+</code></pre>
+<p>算法所耗费的时间定义为<strong>该算法中每条语句的频度之和</strong>，则上述算法的时间消耗为T(n) &#x3D; 2n^3 + 3n^2 + 2n + 1</p>
 
         </div>
 
@@ -507,7 +538,7 @@ class circle&#123;
 <nav class="article-nav">
   
     <a href="/2021/07/07/ubuntu-terminal/" id="article-nav-newer" class="article-nav-link-wrap">
-      <div class="article-nav-caption">下一篇</div>
+      <div class="article-nav-caption">prossimo</div>
       <div class="article-nav-title">
         
           ubuntu-终端改zsh使用powerlevel10k
@@ -517,7 +548,7 @@ class circle&#123;
   
   
     <a href="/2021/01/01/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-caption">上一篇</div>
+      <div class="article-nav-caption">precedente</div>
       <div class="article-nav-title">Hello World</div>
     </a>
   
@@ -525,7 +556,7 @@ class circle&#123;
 
 
     <section class="share">
-        <div class="share-title">分享</div>
+        <div class="share-title">share</div>
         <a class="share-item" target="_blank"
             href="https://twitter.com/share?text=数据结构c语言 - ohmyhsy&url=http%3A%2F%2Fexample.com%2F2021%2F03%2F30%2F%25E6%2595%25B0%25E6%258D%25AE%25E7%25BB%2593%25E6%259E%2584c%2F">
             <box-icon type='logo' name='twitter'></box-icon>
