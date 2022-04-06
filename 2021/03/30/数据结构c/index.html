@@ -216,7 +216,7 @@
 
             
             <div class="article-busuanzi">
-                <span id="busuanzi_value_page_pv">N</span> 人看过
+                <span id="busuanzi_value_page_pv">N</span> views
             </div>
             
 
@@ -455,7 +455,7 @@ class circle&#123;
 <p>add是加法运算，multiple是算法。需要注意的是divide是安全除法，因为普通除法分母为0会报错</p>
 </blockquote>
 <hr>
-<h2 id="算法分析"><a href="#算法分析" class="headerlink" title="算法分析"></a>算法分析</h2><p><strong>算法的定义：</strong></p>
+<h2 id="算法分析"><a href="#算法分析" class="headerlink" title="算法分析"></a>算法分析</h2><h3 id="时间复杂度"><a href="#时间复杂度" class="headerlink" title="时间复杂度"></a>时间复杂度</h3><p><strong>算法的定义：</strong></p>
 <ul>
 <li>对特定问题的<strong>求解方法和步骤</strong>的一种描述，它是指令的有限序列，其中每一个指令表示一个或多个操作。</li>
 </ul>
@@ -518,7 +518,176 @@ class circle&#123;
     &#125;
 &#125;
 </code></pre>
+<blockquote>
+<p>一个循环需要一个n级别的时间，循环之中还有判断，是为n+1<br>第二个循环在第一个循环的基础上又多了一层，也包含判断，是为n(n+1),为啥只有+一个1呢，应该是上一层只管循环<br>赋值的时间估计消耗不计了，就是n*n<br>第三个循环以前两个推，后面的赋值参照前面的赋值</p>
+</blockquote>
 <p>算法所耗费的时间定义为<strong>该算法中每条语句的频度之和</strong>，则上述算法的时间消耗为T(n) &#x3D; 2n^3 + 3n^2 + 2n + 1</p>
+<ul>
+<li>为了便于比较不同算法的时间效率，我们只比较它们的数量级：<br>例如：两个不同算法，时间消耗分别为为：<br>  T1(n) &#x3D; 10n^2 and T2(n) &#x3D; 5n^3</li>
+<li>若有某个辅助函数f(n),使得当n趋近于无穷大时，T(n)&#x2F;f(n)的极限值为不等于零的常数，则称f(n)是T(n)的同数量级函数。记作T(n)&#x3D;O(f(n))，称O(f(n))为算法的渐进时间复杂度(O是数量级的符号)，简称时间复杂度。</li>
+</ul>
+<p>以之前的T(n) &#x3D; 2n^3 + 3n^2 + 2n + 1举例：<br>当n -&gt; &amp;infin; T(n)&#x2F;n^3 -&gt; 2,这表示n充分大时，T(n)与n^3是同阶或同数量级，引入大“O”记号，则<code>T(n) = O(n^3)</code></p>
+<blockquote>
+<p>也就是看最高指数项<br>弹幕有一条总结比较好的：<br>1.常数1取代运行时间中的加法常数.<br>2.只保留最高阶项<br>3.如果最高阶项存在且系数不为1，则去除该项的系数 得到的结果就是大0阶</p>
+</blockquote>
+<p><strong>一般情况下，不必计算所有操作的执行次数，而只考虑算法中基本操作执行的次数，它是问题规模n的某个函数，用T(n)表示</strong></p>
+<p>故此算法时间复杂度的定义就是说，算法中基本语句重复执行的次数是问题规模n的某个函数f(n)，算法的时间量度记作：<code>T(n) = O(f(n))</code>;</p>
+<ul>
+<li>排序：n为记录数</li>
+<li>矩阵：n为矩阵的阶数</li>
+<li>多项式：n为多项式的项数</li>
+<li>集合：n为元素个数</li>
+<li>树：n为树的结点个数</li>
+<li>图：n为图的顶点数或边数</li>
+</ul>
+<pre><code>他表示随着n的增大，算法执行的时间的增长率和f(n)的增长率相同，成为渐进时间复杂度
+</code></pre>
+<p>若有某个辅助函数f(n)，使得当n趋近于无穷大时，T(n)&#x2F;f(n)的极限值为不等于零的常熟，则称f(n)是T(n)的同数量级函数，记作T(n)&#x3D;O(f(n))<br>称O(f(n))为<strong>算法的渐进时间复杂度</strong>（O是数量级的符号），简称<strong>时间复杂度</strong>。</p>
+<blockquote>
+<p>这里的概念性问题有点多，比较绕，个人感觉的话就是考虑时间复杂度的时候一般不计算所有操作的次数，而去考虑基本次数，也就是问题规模n的某个函数用T(n)表示，其实也就是看最高项是什么</p>
+</blockquote>
+<img src="/2021/03/30/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84c/009.png" class="">
+<blockquote>
+<p>这也是老师给的一则定理，看一则多项式，我们只保留含有最高项的指数项，然后指数前面的系数也可以去掉，图里也就是T(n)&#x3D;O(n^m)</p>
+</blockquote>
+<img src="/2021/03/30/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84c/010.png" class="">
+<p>然后对照这个，其实一眼就看出来了，T(n)&#x3D;O(n^2)<br>过程就是<img src="/2021/03/30/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84c/011.png" class=""><br>同理转换就是根据T(n)&#x3D;O(f(n))，这里的f(n)&#x3D;n(n+1)，然后常数抛掉，就得到T(n)&#x3D;O(n^2)。</p>
+<img src="/2021/03/30/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84c/012.png" class="">
+<p>后续再看一题，其实跟上题差不多，都是n^2</p>
+<img src="/2021/03/30/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84c/013.png" class="">
+<p>也就是验证时间复杂度是由嵌套最深语句的频度决定的。</p>
+<img src="/2021/03/30/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84c/014.png" class="">
+<p>第二个实例，因为循环中条件不全是&lt;&#x3D;n了，所以在计算语句频度之上的方法有点区别，但是最终还是n^3</p>
+<img src="/2021/03/30/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84c/015.png" class="">
+
+<blockquote>
+<p>看到这玩意还是咯噔了一下，但是说是最后不考究以什么为底的对数，就是简单说明这个程序的时间复杂度达到了对数级别。</p>
+</blockquote>
+<img src="/2021/03/30/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84c/016.png" class="">
+<p>考虑算法复杂度时：</p>
+<ul>
+<li>最坏时间复杂度：最坏情况下算法的时间复杂度</li>
+<li>平均时间复杂度：在输入实例等概率出现的情况下，算法所达到期望的运行时间。</li>
+<li>最好时间复杂度：指在最好情况下，算法的时间复杂度。</li>
+</ul>
+<p>实际上最多考虑的也就是最坏时间了，平均时间有的时候也不好求。</p>
+<img src="/2021/03/30/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84c/017.png" class="">
+<blockquote>
+<p>这个看着有点迷糊，先记住有加法和乘法吧</p>
+</blockquote>
+<img src="/2021/03/30/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84c/018.png" class="">
+<p>分别对应常数、对数、幂、指数、阶、以及不断增多的阶乘.<br>按照ppt的排序则为<img src="/2021/03/30/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84c/019.png" class=""><br>也就是说在合理需求内一个算法尽量保持在对数阶左右，立方阶次要，k次方和指数是非常不合理的算法了。</p>
+<blockquote>
+<p>时间复杂度由程序换算最高项决定</p>
+</blockquote>
+<hr>
+<h3 id="空间复杂度"><a href="#空间复杂度" class="headerlink" title="空间复杂度"></a>空间复杂度</h3><ul>
+<li>空间复杂度：即算法所需的存储空间的度量，记作：<br>S(n)&#x3D;O(f(n)),其中n为问题的规模<blockquote>
+<p>时间time，空间space。。还挺直观的</p>
+</blockquote>
+</li>
+</ul>
+<p>算法要占据的空间除了本身，还要考虑输入&#x2F;输出，指令，常数，变量等</p>
+<h4 id="例一"><a href="#例一" class="headerlink" title="例一"></a>例一</h4><p>将一个一维数组a中的第n个数逆序存放到原数组</p>
+<pre><code class="c">//算法一
+for(i = 0; i &lt; n/2; i++)&#123;
+    t = a[i];
+    a[i] = a[n-i-1];
+    a[n-i-1] = t;
+&#125;
+</code></pre>
+<pre><code class="c">//算法二
+for(i = 0; i &lt; n; i++)
+    b[i] = a[n-i-1];
+for(i = 0; i &lt; n; i++)
+    a[i] = b[i];
+</code></pre>
+<blockquote>
+<p>其实从第二种算法中出现数组b，就能看出算法二的空间占用会高一点</p>
+</blockquote>
+<p>算法一因为只额外用了一个变量t，故S(n)&#x3D;O(1);<br>算法二因为多生成了一个数组，且长度肯定也要跟n一样，故S(n)&#x3D;O(n);</p>
+<blockquote>
+<p>不得不感慨对于空间的概念雀食描述很少，这简单的一个举例就完事了。</p>
+</blockquote>
+<h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><img src="/2021/03/30/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84c/020.png" class="">
+
+<blockquote>
+<p>对于时间而言，考虑的会更多，概念也更多，而空间的概念会少很多，就是纯看程序所涉及到那些变量的占用空间。</p>
+<p>对于一个算法，其时间复杂度和空间复杂度往往是相互影响的。当追求一个较好的时间复杂度时，可能会使空间复杂度的性能变差，即可能导致占用较多的存储空间；反之，当追求一个较好的空间复杂度时，可能会使时间复杂度的性能变差，即可能导致占用较长的运行时间。另外，算法的所有性能之间都存在着或多或少的相互影响。因此，当设计一个算法(特别是大型算法)时，要综合考虑算法的各项性能，算法的使用频率，算法处理的数据量的大小，算法描述语言的特性，算法运行的机器系统环境等各方面因素，才能够设计出比较好的算法。算法的时间复杂度和空间复杂度合称为算法的复杂度。—— 摘自百度</p>
+</blockquote>
+<hr>
+<p>回顾：</p>
+<img src="/2021/03/30/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84c/021.png" class="">
+
+<h2 id="线性表"><a href="#线性表" class="headerlink" title="线性表"></a>线性表</h2><p>线性表是具有相同特性的数据元素的一个有限序列。</p>
+<img src="/2021/03/30/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84c/022.png" class="">
+
+<blockquote>
+<p>直接抽象上看就跟一维数组一样，有头有尾有下标，但是如果要考虑到每个元素带前驱和后继，就会增加一项指针，用来指向前驱成员的位置和后驱成员的位置</p>
+</blockquote>
+<p>线性表（Linear List）</p>
+<ul>
+<li>其中数据元素的个数n定义为表的长度</li>
+<li>当n&#x3D;0时称为空表</li>
+<li>将非空的线性表(n&gt;0)记作：(a1,a2……an)</li>
+<li>这里的数据元素只是抽象的符号，具体含义根据不同情况而定</li>
+</ul>
+<blockquote>
+<p>根据这样的介绍，线性表相当于拆成三块</p>
+</blockquote>
+<p>在非空的情况下：</p>
+<ul>
+<li>开始节点，不存在前驱，只存在后继成员</li>
+<li>终端节点，不存在后继，只存在前驱成员</li>
+<li>中间节点：既有前驱又有后继</li>
+</ul>
+<p>案例：</p>
+<img src="/2021/03/30/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84c/023.png" class="">
+<img src="/2021/03/30/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84c/024.png" class="">
+<img src="/2021/03/30/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84c/025.png" class="">
+<blockquote>
+<p>由于数组在开辟时就需要声明有多少成员，以至于不使用在此处场景，毕竟你不能确定到底需要多大的空间，于是还是由链式存储结构更为合适。</p>
+</blockquote>
+<img src="/2021/03/30/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84c/026.png" class="">
+<img src="/2021/03/30/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84c/027.png" class="">
+<blockquote>
+<p>这里一块三个成员，其实就对应链表的一个节点，不过不同的是此处的链表可以说是双向的，但不循环，因为头尾节点并没有相互指向的指针域</p>
+</blockquote>
+<img src="/2021/03/30/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84c/028.png" class="">
+<img src="/2021/03/30/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84c/029.png" class="">
+<blockquote>
+<p>图书顺序表其实就跟结构体一样，里面包含序号，书名，价格，链表当然也可以</p>
+</blockquote>
+<img src="/2021/03/30/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84c/030.png" class="">
+<p>这玩意换成c的话估计是：</p>
+<pre><code class="c">struct List&#123;
+    char ch[10];
+    //xxxxx
+&#125;;
+void InitList(struct List *l)&#123;&#125;
+void DestroyList(struct List *l)&#123;&#125;
+void Listnsert(struct List *l,int i,e)&#123;&#125;
+void ListDelete(struct List *l,int i,*e)&#123;&#125;
+</code></pre>
+<p>代码肯定是不能运行的，只是大致的才想，毕竟不是c++，那么能用到的就是类似这样的写法。</p>
+<ul>
+<li>InitList：构造一个空的线性表，也就是初始化</li>
+<li>DestroyList：若存在表，则其销毁掉</li>
+<li>ClearList：若存在表，则重置清空表</li>
+<li>ListEmpty：判断线性表是否为空，应是bool型，或者返回0或1</li>
+<li>ListLength：统计线性表元素个数</li>
+<li>GetElem：表存在前提，根据输入的变量返回线性表中该位置的值</li>
+<li>LocateElem：返回第一个找到满足要求的数据元素的位序</li>
+</ul>
+<img src="/2021/03/30/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84c/031.png" class="">
+<blockquote>
+<p>这俩说实在。。还没感受到有啥意义</p>
+</blockquote>
+<ul>
+<li>ListInsert：在线性表的第i个位置插入新的数据，表长度+1</li>
+<li>ListDelect：删除线性表的第i个元素，表长度-1</li>
+<li></li>
+</ul>
 
         </div>
 
@@ -531,6 +700,12 @@ class circle&#123;
     
 
     
+  <div class="article-copyright hairline">
+    <p>
+      本記事は  <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">「表示 - 非営利 - 改変禁止 4.0 国際 (CC BY-NC-ND 4.0)」</a> を採用。
+    </p>
+  </div>
+  
 
     
 
@@ -538,7 +713,7 @@ class circle&#123;
 <nav class="article-nav">
   
     <a href="/2021/07/07/ubuntu-terminal/" id="article-nav-newer" class="article-nav-link-wrap">
-      <div class="article-nav-caption">下一篇</div>
+      <div class="article-nav-caption">次の記事</div>
       <div class="article-nav-title">
         
           ubuntu-终端改zsh使用powerlevel10k
@@ -548,7 +723,7 @@ class circle&#123;
   
   
     <a href="/2021/01/01/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-caption">上一篇</div>
+      <div class="article-nav-caption">前の記事</div>
       <div class="article-nav-title">Hello World</div>
     </a>
   
@@ -556,7 +731,7 @@ class circle&#123;
 
 
     <section class="share">
-        <div class="share-title">分享</div>
+        <div class="share-title">シェア</div>
         <a class="share-item" target="_blank"
             href="https://twitter.com/share?text=数据结构c语言 - ohmyhsy&url=http%3A%2F%2Fexample.com%2F2021%2F03%2F30%2F%25E6%2595%25B0%25E6%258D%25AE%25E7%25BB%2593%25E6%259E%2584c%2F">
             <box-icon type='logo' name='twitter'></box-icon>
@@ -640,7 +815,7 @@ class circle&#123;
   <div class="widget-wrap widget-tags">
     <div class="widget-title"><span>Tags</span></div>
     <div class="widget-inner">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blog/" rel="tag">blog</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c/" rel="tag">c</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/exam/" rel="tag">exam</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ubuntu/" rel="tag">ubuntu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vscode/" rel="tag">vscode</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blog/" rel="tag">blog</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c/" rel="tag">c</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/exam/" rel="tag">exam</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/" rel="tag">leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ubuntu/" rel="tag">ubuntu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vscode/" rel="tag">vscode</a></li></ul>
     </div>
   </div>
 
@@ -651,6 +826,10 @@ class circle&#123;
     <div class="widget-title"><span>Recent Posts</span></div>
     <div class="widget-inner">
       <ul>
+        
+          <li>
+            <a href="/2022/04/06/leetcodeno1/">leetcode第一题</a>
+          </li>
         
           <li>
             <a href="/2022/03/29/%E5%88%9D%E7%BA%A7%E8%BD%AF%E8%80%83-%E7%A8%8B%E5%BA%8F%E5%91%98/">初级软考-程序员</a>
@@ -666,10 +845,6 @@ class circle&#123;
         
           <li>
             <a href="/2022/03/20/first-blog/">关于个人博客创建过程</a>
-          </li>
-        
-          <li>
-            <a href="/2021/07/07/ubuntu-terminal/">ubuntu-终端改zsh使用powerlevel10k</a>
           </li>
         
       </ul>

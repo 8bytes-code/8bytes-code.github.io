@@ -260,6 +260,192 @@ class="article article-type-post"
   
     
       <article
+id="post-leetcodeno1"
+class="article article-type-post"
+>
+
+
+
+<div class="article-inner">
+    
+
+    <div class="article-body">
+    <header class="article-title">
+        <a href="/2022/04/06/leetcodeno1/">leetcode第一题</a>
+    </header>
+    <div class="article-entry post-inner-html">
+        
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><img src="/2022/04/06/leetcodeno1/000.png" class="">
+
+<p>有人相爱，有人夜里开车看海，有人连leetcode第一题都做不出来。—— 摘自评论</p>
+<hr>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p>没啥参考的，用到啥函数了就回头看看。毕竟记得不是很清楚。</p>
+<hr>
+<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><img src="/2022/04/06/leetcodeno1/001.png" class="">
+
+<p>从题目要求里看形式就像输入一个数组和一个目标数，求数组中哪两个成员能组合成这个目标数。</p>
+<p>默认给的模板是：</p>
+<pre><code class="cpp">class Solution &#123;
+public:
+    vector&lt;int&gt; twoSum(vector&lt;int&gt;&amp; nums, int target) &#123;
+
+    &#125;
+&#125;;
+</code></pre>
+<blockquote>
+<p>估计是因为c++ 有stl思想，所以不用数组，而使用容器vector</p>
+</blockquote>
+<h2 id="初解"><a href="#初解" class="headerlink" title="初解"></a>初解</h2><p>暴力解法我们肯定想到的是两层for循环直接挨个if过来<br>实现：<br>时间复杂度按照这样说好像就是<code>T(n)=O(n^2)</code>;</p>
+<pre><code class="cpp">class Solution &#123;
+public:
+    vector&lt;int&gt; twoSum(vector&lt;int&gt;&amp; nums, int target) &#123;
+        vector&lt;int&gt; n;
+        for(int i=0;i&lt;nums.size();i++)&#123;
+            for(int j=1;j&lt;nums.size();j++)&#123;
+                if(nums[i]+nums[j]==target)&#123;
+                    n.push_back(i);
+                    n.push_back(j);
+                    return n; //或者直接break结束循环，反正最后都要返回。
+                &#125;
+            &#125;
+        &#125;
+        return n;
+    &#125;
+&#125;;
+</code></pre>
+<blockquote>
+<p>最初的时候想创建一个数组返回的，但是题目用的好像是vector，也就凑合用了，后面看了下评论，发现return居然能返回{}，这样的一组数据，就感觉很新奇也很离谱。。毕竟传统概念return都是返回一个变量或者值</p>
+</blockquote>
+<h3 id="的解释"><a href="#的解释" class="headerlink" title="{}的解释"></a>{}的解释</h3><p>后面多看了几个评论，发现类似传递的规则，应该是默认将{}转换成这个函数类型相符的了，比如java的可能是public int[] twoSum，那么return的是，默认就是return int[] {i,j}.</p>
+<p>至于为什么这么说呢，因我自己试了一下：</p>
+<img src="/2022/04/06/leetcodeno1/007.png" class="">
+<p>是可以通过测试，并且提交也是正确的，那么ok就不用管这么多了，<strong>虽然感觉在实际的面试中应该出的题目会和这个不太一样，如果有需要开辟就开辟下新的空间用吧。</strong></p>
+<hr>
+<h2 id="调试初解"><a href="#调试初解" class="headerlink" title="调试初解"></a>调试初解</h2><pre><code class="cpp">class Solution &#123;
+public:
+    vector&lt;int&gt; twoSum(vector&lt;int&gt;&amp; nums, int target) &#123;
+        for(int i = 0; i &lt; nums.size(); i++)&#123;
+            for(int j = 0; j &lt; nums.size(); j++)&#123;
+                if(nums[i] + nums[j] == target)&#123;
+                    return &#123;i,j&#125;;
+                &#125;
+            &#125;
+        &#125;
+        return &#123;&#125;;
+    &#125;
+&#125;;
+</code></pre>
+<blockquote>
+<p>故此这里开始都使用{}的方法，这样雀食省了空间，但是还没搞懂为什么能这么用，看后续能不能看到</p>
+</blockquote>
+<p>运行代码的时候发现输出和预期结果不一样：</p>
+<img src="/2022/04/06/leetcodeno1/002.png" class="">
+<p>看了一下发现j不应该也从0开始，浪费了，那么把j的初始化设置为1；</p>
+<pre><code class="cpp">class Solution &#123;
+public:
+    vector&lt;int&gt; twoSum(vector&lt;int&gt;&amp; nums, int target) &#123;
+        for(int i = 0; i &lt; nums.size(); i++)&#123;
+            for(int j = 1; j &lt; nums.size(); j++)&#123;
+                if(nums[i] + nums[j] == target)&#123;
+                    return &#123;i,j&#125;;
+                &#125;
+            &#125;
+        &#125;
+        return &#123;&#125;;
+    &#125;
+&#125;;
+</code></pre>
+<p>再次执行测试：</p>
+<img src="/2022/04/06/leetcodeno1/003.png" class="">
+<p>哎发现可以了，提交看看</p>
+<p>哎然后，然后就报错了。。</p>
+<img src="/2022/04/06/leetcodeno1/004.png" class="">
+<p>又看了一下题目:<strong>你可以假设每种输入只会对应一个答案。但是，数组中同一个元素在答案里不能重复出现。</strong><br>原来是不允许重复啊。那么在if里面在判断一次i！&#x3D; j即可</p>
+<pre><code class="cpp">class Solution &#123;
+public:
+    vector&lt;int&gt; twoSum(vector&lt;int&gt;&amp; nums, int target) &#123;
+        for(int i = 0; i &lt; nums.size(); i++)&#123;
+            for(int j = 1; j &lt; nums.size(); j++)&#123;
+                if(nums[i] + nums[j] == target &amp;&amp; i != j)&#123;
+                    return &#123;i,j&#125;;
+                &#125;
+            &#125;
+        &#125;
+        return &#123;&#125;;
+    &#125;
+&#125;;
+</code></pre>
+<p>提交代码：<img src="/2022/04/06/leetcodeno1/005.png" class=""><br>ok通过了。。但是这个执行用时才击败了5.12%的用户也太搞了。。不得不感慨人和人之间的差距。</p>
+<hr>
+<h2 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h2><p>又看了下我的代码，看看哪能优化一丢丢，想了想，在i和j那里可以做做手脚。<br>比如测试样例是nums&#x3D;[2,5,5,11],target&#x3D;10;<br>我i肯定是从0开始，但是j呢，从1开始是没啥问题，但是如果</p>
+<ul>
+<li>第一次i&#x3D;0，j就从1-end。</li>
+<li>第二次i&#x3D;1，j还是从1-end。</li>
+<li>第三次i&#x3D;2，j还是从1-end。</li>
+</ul>
+<p>这样以来就能简单的看出问题所在之处了。</p>
+<p>所以我们的j应该是&#x3D;1+i，这样一来</p>
+<ul>
+<li>第一次i&#x3D;0，j&#x3D;1+0 —— end</li>
+<li>第二次i&#x3D;1，j&#x3D;1+1 —— end</li>
+<li>第三次i&#x3D;2，j&#x3D;1+2 —— end</li>
+</ul>
+<p>这样可以说大小省略掉一半的时间了。</p>
+<p>简单修改一下代码：</p>
+<pre><code class="cpp">class Solution &#123;
+public:
+    vector&lt;int&gt; twoSum(vector&lt;int&gt;&amp; nums, int target) &#123;
+        for(int i = 0; i &lt; nums.size(); i++)&#123;
+            for(int j = i + 1; j &lt; nums.size(); j++)&#123;
+                if(nums[i] + nums[j] == target &amp;&amp; i != j)&#123;
+                    return &#123;i,j&#125;;
+                &#125;
+            &#125;
+        &#125;
+        return &#123;&#125;;
+    &#125;
+&#125;;
+</code></pre>
+<p>再次提交：<img src="/2022/04/06/leetcodeno1/006.png" class=""></p>
+<p>果然时间效率优化了不少，内存依旧是在9.8和9.9徘徊是正常的。</p>
+<hr>
+<h2 id="在优化——load"><a href="#在优化——load" class="headerlink" title="在优化——load"></a>在优化——load</h2><p>目前好像还没想到小于O(n^2)的办法，等哪天想到了再来改一下，因为怎么样都是要都举一遍</p>
+<hr>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>leetcode的测试感觉。。还得顺带看看服务器心情哈哈哈</p>
+<img src="/2022/04/06/leetcodeno1/008.png" class="">
+<p>一样的的代码，结果每次都不相同哈哈哈哈</p>
+
+        
+    </div>
+    </div>
+
+    <div class="article-badge">
+        
+        
+    </div>
+
+</div>
+
+<footer class="article-footer">
+    <div class="article-more-info">
+    <div class="article-date">
+  <time datetime="2022-04-06T13:22:16.000Z" itemprop="datePublished">2022-04-06</time>
+</div>
+    
+    
+        <div class="article-tag">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/leetcode/" rel="tag">leetcode</a></li></ul>
+        </div>
+    
+    </div>
+</footer>
+
+</article>
+
+    
+  
+    
+      <article
 id="post-初级软考-程序员"
 class="article article-type-post"
 >
@@ -527,7 +713,7 @@ class="article article-type-post"
   <div class="widget-wrap widget-tags">
     <div class="widget-title"><span>Tags</span></div>
     <div class="widget-inner">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blog/" rel="tag">blog</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c/" rel="tag">c</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/exam/" rel="tag">exam</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ubuntu/" rel="tag">ubuntu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vscode/" rel="tag">vscode</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blog/" rel="tag">blog</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c/" rel="tag">c</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/exam/" rel="tag">exam</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/" rel="tag">leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ubuntu/" rel="tag">ubuntu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vscode/" rel="tag">vscode</a></li></ul>
     </div>
   </div>
 
@@ -538,6 +724,10 @@ class="article article-type-post"
     <div class="widget-title"><span>Recent Posts</span></div>
     <div class="widget-inner">
       <ul>
+        
+          <li>
+            <a href="/2022/04/06/leetcodeno1/">leetcode第一题</a>
+          </li>
         
           <li>
             <a href="/2022/03/29/%E5%88%9D%E7%BA%A7%E8%BD%AF%E8%80%83-%E7%A8%8B%E5%BA%8F%E5%91%98/">初级软考-程序员</a>
@@ -553,10 +743,6 @@ class="article article-type-post"
         
           <li>
             <a href="/2022/03/20/first-blog/">关于个人博客创建过程</a>
-          </li>
-        
-          <li>
-            <a href="/2021/07/07/ubuntu-terminal/">ubuntu-终端改zsh使用powerlevel10k</a>
           </li>
         
       </ul>
