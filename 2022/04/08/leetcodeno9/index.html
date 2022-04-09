@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    
+    <title>leetcodeno9 | ohmyhsy</title>
+
+    <meta name="description" content="&lt;h1 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;先按难度往下走，因为数据结构还没理清。&lt;/p&gt;">
+    <meta name="keywords" content="">
+
+    
+
+    <meta property="og:locale" content="en" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content= "leetcodeno9 | ohmyhsy"  />
+    <meta property="og:description" content= "&lt;h1 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;先按难度往下走，因为数据结构还没理清。&lt;/p&gt;" />
+    <meta property="og:url" content="http://example.com/2022/04/08/leetcodeno9/index.html" />
+    <meta property="og:site_name" content="" />
+    <meta property="article:author" content="Box" />
+    <meta property="article:publisher" content="" />
+    <meta property="og:description" content="&lt;h1 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;先按难度往下走，因为数据结构还没理清。&lt;/p&gt;" />
+    <meta name="twitter:title" content="leetcodeno9 | ohmyhsy"/>
+    <meta name="twitter:description" content="&lt;h1 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;先按难度往下走，因为数据结构还没理清。&lt;/p&gt;"/>
+    <script type="application/ld+json">
+        {
+            "description": "&lt;h1 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;先按难度往下走，因为数据结构还没理清。&lt;/p&gt;",
+            "author": { "@type": "Person", "name": "Box" },
+            "@type": "BlogPosting",
+            "url": "http://example.com/2022/04/08/leetcodeno9/index.html",
+            "publisher": {
+            "@type": "Organization",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "http://example.comundefined"
+            },
+            "name": "Box"
+            },
+            "headline": "leetcodeno9 | ohmyhsy",
+            "datePublished": "2022-04-08T14:55:39.000Z",
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "http://example.com/2022/04/08/leetcodeno9/index.html"
+            },
+            "@context": "http://schema.org"
+        }
+    </script>
+
+
+
+
+    
+
+    
+    <meta property="algolia:search" data-application-id="4CVCYWPWWN" data-api-key="7757db6b0a31c3f94c301c885693ed0d" data-index-name="ohmyhsy">
+    
+
+    
+
+    
+
+    
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎮</text></svg>">
+    
+
+    
+
+    
+
+    
+<link rel="stylesheet" href="/dist/build.css?v=1646451311888.css">
+
+
+    
+<link rel="stylesheet" href="/dist/custom.css?v=1646451311888.css">
+
+
+    <script>
+        window.isPost = true
+        window.aomori = {
+            
+            
+            
+        }
+        window.aomori_logo_typed_animated = true
+        window.aomori_search_algolia = true
+
+    </script>
+
+<meta name="generator" content="Hexo 5.4.1"><link rel="alternate" href="/atom.xml" title="ohmyhsy" type="application/atom+xml">
+</head>
+
+<body>
+
+    <div class="container">
+    <header class="header">
+        <div class="header-type">
+            
+            <div class="header-type-inner">
+                
+                    <div id="typed-strings" style="display:none">
+                        <p>ohmyhsy</p>
+                    </div>
+                    <a class="header-type-title" id="typed" href="/"></a>
+                
+    
+                
+            </div>
+        </div>
+        <div class="header-menu">
+            <div class="header-menu-inner">
+                
+                <a href="/">Home</a>
+                
+                <a href="/archives">Archives</a>
+                
+                <a href="/friends">Friends</a>
+                
+            </div>
+            <div class="header-menu-social">
+                
+    <a class="social" target="_blank" href="https://github.com/8bytes-code">
+        <box-icon type='logo' name='github'></box-icon>
+    </a>
+
+            </div>
+        </div>
+
+        <div class="header-menu-mobile">
+            <div class="header-menu-mobile-inner" id="mobile-menu-open">
+                <i class="icon icon-menu"></i>
+            </div>
+        </div>
+    </header>
+
+    <div class="header-menu-mobile-menu">
+        <div class="header-menu-mobile-menu-bg"></div>
+        <div class="header-menu-mobile-menu-wrap">
+            <div class="header-menu-mobile-menu-inner">
+                <div class="header-menu-mobile-menu-close" id="mobile-menu-close">
+                    <i class="icon icon-cross"></i>
+                </div>
+                <div class="header-menu-mobile-menu-list">
+                    
+                    <a href="/">Home</a>
+                    
+                    <a href="/archives">Archives</a>
+                    
+                    <a href="/friends">Friends</a>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+    <div class="container">
+        <div class="main">
+            <section class="inner">
+                <section class="inner-main">
+                    <div class="post">
+    <article id="post-cl1rznc3b0000c4k6h8k92dz3" class="article article-type-post" itemscope
+    itemprop="blogPost">
+
+    <div class="article-inner">
+
+        
+          
+        
+        
+        
+
+        
+        <header class="article-header">
+            
+  
+    <h1 class="article-title" itemprop="name">
+      leetcodeno9
+    </h1>
+  
+
+        </header>
+        
+
+        <div class="article-more-info article-more-info-post hairline">
+
+            <div class="article-date">
+  <time datetime="2022-04-08T14:55:39.000Z" itemprop="datePublished">2022-04-08</time>
+</div>
+
+            
+
+            
+            <div class="article-tag">
+                <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/leetcode/" rel="tag">leetcode</a></li></ul>
+            </div>
+            
+
+            
+            <div class="article-busuanzi">
+                <span id="busuanzi_value_page_pv">N</span> 人看过
+            </div>
+            
+
+        </div>
+
+        <div class="article-entry post-inner-html hairline" itemprop="articleBody">
+            <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>先按难度往下走，因为数据结构还没理清。</p>
+<span id="more"></span>
+
+
+<hr>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><del>c++ string：</del></p>
+<ul>
+<li><del>length —— 返回字符串长度</del></li>
+<li><del>size —— 返回字符串长度</del></li>
+</ul>
+<p><del><strong>注意：strlen是以char*去计算字符串长度直到‘\0’结束，本题用不到。</strong></del></p>
+<p>c++ vector:</p>
+<ul>
+<li>size —— 获取vector容器元素个数</li>
+<li>operator[] —— 类似数组根据下标返回元素值</li>
+</ul>
+<hr>
+<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><h2 id="回文数"><a href="#回文数" class="headerlink" title="回文数"></a>回文数</h2><img src="/2022/04/08/leetcodeno9/000.png" class="">
+
+<p>c++给到的代码框架：</p>
+<pre><code class="cpp">class Solution &#123;
+public:
+    bool isPalindrome(int x) &#123;
+
+    &#125;
+&#125;;
+</code></pre>
+<blockquote>
+<p>bool型函数，返回true或false即可</p>
+</blockquote>
+<p>根据现有条件可以排除x&lt;10的情况，因为个位数不可能存在回文现象，而两位数的10也不存在，负数更不用说，多了个-号；故此首先判断x&lt;10，如果成立直接返回false；</p>
+<pre><code class="cpp">class Solution &#123;
+public:
+    bool isPalindrome(int x) &#123;
+        if(x &lt; 10)&#123;
+            return false;
+        &#125;else&#123;
+            
+        &#125;
+    &#125;
+&#125;;
+</code></pre>
+<p>接下来就是要拆开x去判断是否为回文数字,题目进阶思想是不使用将整数转换成字符串。先用最低级暴力去解题试试看。</p>
+<hr>
+<h3 id="初解"><a href="#初解" class="headerlink" title="初解"></a>初解</h3><p>字符串这里肯定不能用char了，因为不知道长度，所以得用str接着，让x每次%10，然后让str+&#x3D;x%10;</p>
+<p><strong>注意：这里有个问题就是，int类型无法直接+&#x3D;给string类型，网上是有一些不同版本特性诞生的函数可以操作，但是这样对于算法的鲁棒性就很差了</strong><br>所以字符串应该是不可取的，至于题目进阶反而提示的是不使用整数转换成字符串我就不是很了解了，等我做完看看评论大哥怎么做的。</p>
+<p>在上述不考虑string的情况下，我们如何让一个int类型还能做到拆分成像数组一样呢？其实就是老朋友vector了。</p>
+<p>我们可以通过while转换:</p>
+<pre><code class="cpp">vector&lt;int&gt; v;
+while(x &gt; 0)&#123;
+    v.push_back(x%10);
+    x /= 10;
+&#125;
+</code></pre>
+<blockquote>
+<p>即x倒置了一遍</p>
+</blockquote>
+<p>然后根据vector自带的size方法，先获取元素个数</p>
+<pre><code class="cpp">int len = v.size();
+</code></pre>
+<p>然后首尾之间判断肯定是通过两个for循环了，但是需要统计一下，为什么这么说呢，因为我是把长度&#x2F;2来算，一个i从&#x3D;0 &lt; len&#x2F;2; 一个j &#x3D; len-1 &gt; len&#x2F;2; 这样首尾一判断也还行。故此代码： </p>
+<pre><code class="cpp">int num = 0;
+for(int i = 0; i &lt; len/2; i++)&#123;
+    for(int j = len-1; j &gt; len/2; j--)&#123;
+        if(v[i] == v[j])
+            num++;
+    &#125;
+&#125;
+</code></pre>
+<p>然后最后在判断一些num是否&#x3D;len&#x2F;2，这样就证明了有几组数字是相同的。</p>
+<p>提一嘴的就是，leetcode是要求函数必须返回一个值，所以我们直接在if完之后的return还不行。要定义一个bool flag；</p>
+<p>在东拼西凑之后，代码如下：</p>
+<pre><code class="cpp">class Solution &#123;
+public:
+    bool isPalindrome(int x) &#123;
+
+        bool flag = false;
+ 
+        if( x &lt; 10)&#123;
+            flag = false;
+        &#125;else&#123;
+            vector&lt;int&gt; v;
+            int num = 0;
+
+            while(x &gt; 0)&#123;
+                v.push_back(x%10);
+                x /= 10;
+            &#125;
+            int len= v.size();
+            for(int i = 0; i &lt; len/2; i++)&#123;
+                for(int j = len-1; j &gt; len/2; j--)&#123;
+                    if(v[i] == v[j])
+                        num++;
+                &#125;
+            &#125;
+            if(num == len/2)
+                flag = true;
+ 
+        &#125;
+           return flag;
+    &#125;
+&#125;;
+</code></pre>
+<p>测试了几个案例之后我们提交一下看看：</p>
+<img src="/2022/04/08/leetcodeno9/001.png" class="">
+
+<p>我直呼好家伙！！！！！<br>0居然算回文啊，那个位数其实都算了吧？<br>我直呼好家伙！！！！！<br>这么重要的东西不在示例里面。。靠，不过没事，</p>
+<p>我们修改一下<code>if(x &lt; 0)</code>就可以了：</p>
+<pre><code class="cpp">class Solution &#123;
+public:
+    bool isPalindrome(int x) &#123;
+
+        bool flag = false;
+ 
+        if( x &lt; 0)&#123;
+            flag = false;
+        &#125;else&#123;
+            vector&lt;int&gt; v;
+            int num = 0;
+
+            while(x &gt; 0)&#123;
+                v.push_back(x%10);
+                x /= 10;
+            &#125;
+            int len= v.size();
+            for(int i = 0; i &lt; len/2; i++)&#123;
+                for(int j = len-1; j &gt; len/2; j--)&#123;
+                    if(v[i] == v[j])
+                        num++;
+                &#125;
+            &#125;
+            if(num == len/2)
+                flag = true;
+ 
+        &#125;
+           return flag;
+    &#125;
+&#125;;
+</code></pre>
+<p>再提交一次：</p>
+<img src="/2022/04/08/leetcodeno9/002.png" class="">
+
+<p>额，这就很尴尬了，简单测试了一下，发现是我的思路出问题了，因为我拆成两份算的时候考虑的是这个数是奇数位数而不是偶数位数……<br>调整的时候注意到一个问题。。预期对半算，不如直接i和len算</p>
+<pre><code class="cpp">for(int i = 0; i &lt; len; i++)&#123;
+    if(v[i] == v[len-i])
+        num++;
+&#125;
+</code></pre>
+<p>先测试一下。。发现还是有点问题，就是因为len是元素个数，但是实际上vector[]重载跟数组一下都是从0开始，这就导致len得先-1，放在循环里反而不合适了。所以对上面的len&#x3D;size的时候就-1，这代码就跟屎山一样现在堆积在一起。测了一下，0不起作用，其他都行了，因为我while的时候判断条件就是x&gt;0，所以就很扯淡。这里直接用elseif套过去先，看看能不能通过。合并之后的代码：</p>
+<pre><code class="cpp">class Solution &#123;
+public:
+    bool isPalindrome(int x) &#123;
+
+        bool flag = false;
+ 
+        if( x &lt; 0)&#123;
+            flag = false;
+        &#125;else if( x == 0 )&#123;
+            flag = true;
+        &#125;else&#123;
+            vector&lt;int&gt; v;
+            int num = 0;
+
+            while(x &gt; 0)&#123;
+                v.push_back(x%10);
+                x /= 10;
+            &#125;
+            int len= v.size()-1;
+            for(int i = 0; i &lt; len; i++)&#123;
+                if(v[i] == v[len-i])
+                    num++;
+            &#125;
+            if(num == len)
+                flag = true;
+ 
+        &#125;
+           return flag;
+    &#125;
+&#125;;
+</code></pre>
+<img src="/2022/04/08/leetcodeno9/003.png" class="">
+
+<blockquote>
+<p>通过是通过了，但是这个时间和空间效率真的惨不忍睹，这大概就是陷进去了。不过在用while拆解x的时候突然想到一个点。在后面优化一下看看。</p>
+</blockquote>
+<hr>
+<h3 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h3><p>回望屎山，满目鄙夷之色。。。。hhh,真的是人太菜。</p>
+<p>回归正题，在将x不断%10拆解的时候，我那会就在想，如果用一个变量&#x3D;<code>x%10+变量*10</code>，这样的话，例如x&#x3D;121的时候，我创建一个变量n；</p>
+<blockquote>
+<p>n &#x3D; 121%10 + n*10，此时n &#x3D; 1;<br>然后将x&#x2F;10，再重复上步骤,<br>n &#x3D; 12%10 + n*10; 这个时候n &#x3D; 12;<br>在x&#x2F;10重复,<br>n &#x3D; 1%10 + n*10; n &#x3D; 121;</p>
+</blockquote>
+<p>这样直接if(n &#x3D;&#x3D; x)好像就完事了。</p>
+<p>0-9结果都一样，也不用再加什么elseif了。</p>
+<p>浓缩后的代码：</p>
+<pre><code class="cpp">class Solution &#123;
+public:
+    bool isPalindrome(int x) &#123;
+
+        bool flag = false;
+        int n = 0;
+
+        while(x &gt; 0)&#123;
+            n = x%10 + n*10;
+            x /= 10;
+        &#125;
+        if(x == n)
+            flag = true;
+
+        return flag;
+    &#125;
+&#125;;
+</code></pre>
+<p>然后测试了一下。。发现好像就0是对的，又看了几遍看出了点门道。。我的x被我一直&#x2F;10，后面变成0了。。。。难怪<code>if(x == n)</code>怎么没变化。。，</p>
+<p>找个变量先复制x的值就行了。</p>
+<pre><code class="cpp">class Solution &#123;
+public:
+    bool isPalindrome(int x) &#123;
+
+        bool flag = false;
+        int n = 0;
+        int y = x;
+
+        while(x &gt; 0)&#123;
+            n = x%10 + n*10;
+            x /= 10;
+        &#125;
+        if(y == n)
+            flag = true;
+
+        return flag;
+    &#125;
+&#125;;
+</code></pre>
+<p>决定命运的时刻来了，提交看看：</p>
+<img src="/2022/04/08/leetcodeno9/004.png" class="">
+<p>额，真是坎坷啊，它提示好像溢出了，也是哦，题目提示的范围是-2<sup>31</sup> &lt;&#x3D; x &lt;&#x3D; 2<sup>31</sup> - 1,<br>那也就是说要把n的类型改成long int应该就行了。</p>
+<pre><code class="cpp">class Solution &#123;
+public:
+    bool isPalindrome(int x) &#123;
+
+        bool flag = false;
+        long int n = 0;
+        int y = x;
+
+        while(x &gt; 0)&#123;
+            n = x%10 + n*10;
+            x /= 10;
+        &#125;
+        if(y == n)
+            flag = true;
+
+        return flag;
+    &#125;
+&#125;;
+</code></pre>
+<p>最后执行效率：</p>
+<img src="/2022/04/08/leetcodeno9/005.png" class="">
+
+<p>时间好像挺叼的了，空间拉不满应该是我用了long int的问题，不过最后还是取决与服务器之间的联系吧，多测一下好像最好的内存占用也是5.6mb，然后时间会从0ms-12ms浮动，不知道是不是网络波动的问题。</p>
+<hr>
+<h1 id="结尾"><a href="#结尾" class="headerlink" title="结尾"></a>结尾</h1><p>不得不感慨。。有的时候屎山写着写着找到金子了好像。。</p>
+<p>去看了看评论。第一条就是对题目的批评：</p>
+<img src="/2022/04/08/leetcodeno9/006.png" class="">
+<p>也难怪。。毕竟这个回文数没想到会这么大。。利用*10往上推是会出现这样的问题。</p>
+<p>然后就是感觉能稍微优化一下空间和省略一个if哎，评论里大多都是直接return n&#x3D;&#x3D;x这样，这样雀食省了我定义一个bool变量。</p>
+<pre><code class="cpp">class Solution &#123;
+public:
+    bool isPalindrome(int x) &#123;
+        long int n = 0;
+        int y = x;
+
+        while(x &gt; 0)&#123;
+            n = x%10 + n*10;
+            x /= 10;
+        &#125;
+
+        return y == n;
+    &#125;
+&#125;;
+</code></pre>
+<p>几轮刷新提交最好情况内存也就是5.6MB，好像没有太大区别，时间反而除了第一次的0ms，其他最好表现都是4ms了，不过问题不大。</p>
+<p>同样的也看到了之前用string的，也就是我开头说的一个问题，int转换成string的函数是带来的新特性还是标准库函数，但是我个人还是不赞成去用这种方法。</p>
+
+        </div>
+
+    </div>
+
+    
+
+    
+
+    
+
+    
+  <div class="article-copyright hairline">
+    <p>
+      本作品采用  <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议 (CC BY-NC-ND 4.0)</a> 进行许可。
+    </p>
+  </div>
+  
+
+    
+
+    
+<nav class="article-nav">
+  
+  
+    <a href="/2022/04/06/leetcodeno1/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-caption">上一篇</div>
+      <div class="article-nav-title">leetcode第一题</div>
+    </a>
+  
+</nav>
+
+
+    <section class="share">
+        <div class="share-title">分享</div>
+        <a class="share-item" target="_blank"
+            href="https://twitter.com/share?text=leetcodeno9 - ohmyhsy&url=http%3A%2F%2Fexample.com%2F2022%2F04%2F08%2Fleetcodeno9%2F">
+            <box-icon type='logo' name='twitter'></box-icon>
+        </a>
+        <a class="share-item" target="_blank"
+            href="https://www.facebook.com/sharer.php?title=leetcodeno9 - ohmyhsy&u=http%3A%2F%2Fexample.com%2F2022%2F04%2F08%2Fleetcodeno9%2F">
+            <box-icon name='facebook-square' type='logo' ></box-icon>
+        </a>
+        <!-- <a class="share-item" target="_blank"
+            href="https://service.weibo.com/share/share.php?title=leetcodeno9 - ohmyhsy&url=http://example.com/2022/04/08/leetcodeno9/&pic=">
+            <div class="n-icon n-icon-weibo"></div>
+        </a> -->
+    </section>
+
+</article>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- <script src="//unpkg.com/@waline/dist/Waline.min.js"></script> -->
+    <script src="//cdn.jsdelivr.net/npm/@waline/client"></script>
+    <section class="comments">
+        <div id="waline"></div>
+    </section>
+    <script>
+        Waline({
+          el: '#waline',
+          serverURL: 'https://ohmyhsy.vercel.app/'
+        });
+    </script>
+
+
+
+<script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+</div>
+                </section>
+            </section>
+
+            
+            <aside class="sidebar sidebar-search-fix">
+                
+
+    <div class="search">
+    <div class="has-icon-right">
+        <input type="text" class="form-input" id="search" placeholder="SEARCH" autocomplete="off">
+        <div class="form-icon">
+            <box-icon name='search' color="#3c4859"></box-icon>
+        </div>
+    </div>
+    <div class="search-result" id="search-ps"></div>
+</div>
+
+
+<div class="widget" id="widget">
+    
+      
+  <div class="widget-wrap">
+    <div class="widget-inner">
+      <div class="toc post-toc-html"></div>
+    </div>
+  </div>
+
+    
+      
+
+    
+      
+  <div class="widget-wrap widget-tags">
+    <div class="widget-title"><span>Tags</span></div>
+    <div class="widget-inner">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blog/" rel="tag">blog</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c/" rel="tag">c</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/exam/" rel="tag">exam</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/" rel="tag">leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ubuntu/" rel="tag">ubuntu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vscode/" rel="tag">vscode</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-recent-posts">
+    <div class="widget-title"><span>Recent Posts</span></div>
+    <div class="widget-inner">
+      <ul>
+        
+          <li>
+            <a href="/2022/04/08/leetcodeno9/">leetcodeno9</a>
+          </li>
+        
+          <li>
+            <a href="/2022/04/06/leetcodeno1/">leetcode第一题</a>
+          </li>
+        
+          <li>
+            <a href="/2022/03/29/%E5%88%9D%E7%BA%A7%E8%BD%AF%E8%80%83-%E7%A8%8B%E5%BA%8F%E5%91%98/">初级软考-程序员</a>
+          </li>
+        
+          <li>
+            <a href="/2022/03/27/Markdown/">Markdown 基本语法</a>
+          </li>
+        
+          <li>
+            <a href="/2022/03/23/vscode-c-c-configure/">vscode c/c++ run+debug</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget-wrap widget-archive">
+    <div class="widget-title"><span>Archive</span></div>
+    <div class="widget-inner">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/">2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/">2021</a></li></ul>
+    </div>
+  </div>
+
+
+    
+</div>
+
+<div id="backtop"><i class="icon icon-arrow-up"></i></div>
+            </aside>
+            
+        </div>
+    </div>
+
+    <footer class="footer">
+    <div class="footer-wave">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#3c4859" fill-opacity="1" d="M0,160L60,181.3C120,203,240,245,360,240C480,235,600,181,720,186.7C840,192,960,256,1080,261.3C1200,267,1320,213,1380,186.7L1440,160L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>
+    </div>
+
+    <!-- Please do not remove this -->
+    <!-- 开源不易，请勿删除 -->
+    <div class="footer-wrap">
+        <div class="footer-inner"> 
+            ohmyhsy &copy; 2022<br>
+            Powered By Hexo · Theme By <a href="https://linhong.me/" target="_blank">Aomori</a> · <a href="https://github.com/lh1me/hexo-theme-aomori" target="_blank">Github</a>
+        </div>
+    </div>
+
+</footer>
+
+
+
+
+
+
+<script src="/dist/build.js?1646451311888.js"></script>
+
+
+<script src="/dist/custom.js?1646451311888.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>
