@@ -19,7 +19,7 @@
     <meta property="og:title" content= "关于个人博客创建过程 | ohmyhsy"  />
     <meta property="og:description" content= "&lt;p&gt;其实最基础的博客就跟日记一样，但是写日记这种事情似乎停留在了小学还得是作业的情况下，自初中以后便抛诸脑后。有的时候记录一下一些未知的bug以便日后解决也不失为一种好办法，在了解了一些基础的知识后。找到了由GitHub作为博客的仓库，在本地由hexo+git+node.js为基础实现简易版个人博客&lt;/p&gt;
 &lt;hr&gt;" />
-    <meta property="og:url" content="http://example.com/2022/03/20/first-blog/index.html" />
+    <meta property="og:url" content="https://8bytes.top/2022/03/20/first-blog/index.html" />
     <meta property="og:site_name" content="" />
     <meta property="article:author" content="Box" />
     <meta property="article:publisher" content="" />
@@ -34,12 +34,12 @@
 &lt;hr&gt;",
             "author": { "@type": "Person", "name": "Box" },
             "@type": "BlogPosting",
-            "url": "http://example.com/2022/03/20/first-blog/index.html",
+            "url": "https://8bytes.top/2022/03/20/first-blog/index.html",
             "publisher": {
             "@type": "Organization",
             "logo": {
                 "@type": "ImageObject",
-                "url": "http://example.comundefined"
+                "url": "https://8bytes.topundefined"
             },
             "name": "Box"
             },
@@ -47,7 +47,7 @@
             "datePublished": "2022-03-20T08:43:58.000Z",
             "mainEntityOfPage": {
                 "@type": "WebPage",
-                "@id": "http://example.com/2022/03/20/first-blog/index.html"
+                "@id": "https://8bytes.top/2022/03/20/first-blog/index.html"
             },
             "@context": "http://schema.org"
         }
@@ -446,8 +446,10 @@ $ hexo algolia
 </code></pre>
 <p><strong>注意：以后发布文章都需要运行hexo algolia，否则新文章没有创建记录，无法被检索</strong></p>
 <blockquote>
-<p>ERROR [hexo-algolia] Please set an HEXO_ALGOLIA_INDEXING_KEY environment &gt;variable to enable content indexing.<br>ERROR &gt;&gt; Read <a target="_blank" rel="noopener" href="https://npmjs.com/hexo-algolia#api-key">https://npmjs.com/hexo-algolia#api-key</a> for more informations.<br>后续如果使用hexo algolia报此错误，啊呢么请重新输入上面export HEXO_ALGOLIA_INDEXING_KEY，具体原因出在哪不知道，但是建议你将自建权限的key以注释的方法存在_config.yml下，以方便使用。</p>
+<p>ERROR [hexo-algolia] Please set an HEXO_ALGOLIA_INDEXING_KEY environment variable to enable content indexing.<br>ERROR &gt;&gt; Read <a target="_blank" rel="noopener" href="https://npmjs.com/hexo-algolia#api-key">https://npmjs.com/hexo-algolia#api-key</a> for more informations.<br>后续如果使用hexo algolia报此错误，那么请重新输入上面export HEXO_ALGOLIA_INDEXING_KEY，具体原因出在哪不知道，好像隔段时间就没记忆了，所以建议你将自建权限的key以注释的方法存在_config.yml下，以方便后期重新更新使用。</p>
 </blockquote>
+<p><strong>注意</strong></p>
+<p>如果搜索跳转时网址显示<code>http://example.com</code>开头，在algolia记录里可以看到：<img src="/2022/03/20/first-blog/023.png" class=""><br>那么请注意你的<code>_config.yml</code>配置中找到<img src="/2022/03/20/first-blog/024.png" class=""><br>将url修改为你github page的地址，或者你购买了域名就改成域名，上述注释是清楚描述了这个问题。<br>修改完之后在<code>git bash</code>执行hexo algolia重新生成即可。</p>
 <hr>
 <h2 id="8-新增域名绑定"><a href="#8-新增域名绑定" class="headerlink" title="8.新增域名绑定"></a>8.新增域名绑定</h2><p><strong>不是打广告</strong>，阿里云和腾讯云都行，万网好像是被阿里收购了，所以都差不多，目前购买域名需要实名认证，不要打马虎眼。</p>
 <p>此处以阿里云举例：<a target="_blank" rel="noopener" href="https://wanwang.aliyun.com/domain?spm=5176.21213303.J_6704733920.9.300953c9w7wqdp&scm=20140722.S_product@@%E4%BA%91%E4%BA%A7%E5%93%81@@999997._.ID_product@@%E4%BA%91%E4%BA%A7%E5%93%81@@999997-RL_%E5%9F%9F%E5%90%8D-LOC_main-OR_ser-V_2-P0_1">戳此处</a></p>
@@ -501,7 +503,7 @@ $ hexo algolia
 <hr>
 <h2 id="10-评论系统修改waline"><a href="#10-评论系统修改waline" class="headerlink" title="10.评论系统修改waline"></a>10.评论系统修改waline</h2><p>因为感觉到valine有点原始，但是胜在配置简单，作者也对其写好了功能，只需要填入id和key即可，但是我个人搜了一下，valine还是存在一些缺点的——具体百度都搜得到不细说了，加上remark42是需要部署在私人服务器上的，我博客都是搭建在github所以更没机会弄。<br>至于步骤不方便教，因为是我自己瞎改的，所以会在所有博客下显示，原本的评论开关就没用了。不符合主题原意，有需要还是等原作者更新吧。</p>
 <hr>
-<h1 id="结尾"><a href="#结尾" class="headerlink" title="结尾"></a>结尾</h1><p><del>花了点时间自己做了下调整，有空去把评论功能加上，毕竟比较骚气。</del><br><del>还有就是域名绑定问题，暂时没这个钱，都是通过username.github.io访问的，github都知道会被墙，响应速度不好说。如果你担心这个问题，可以去百度用gitee搭建的博客，码云是国内的服务器，响应会比github快点。</del></p>
+<h1 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h1><p><del>花了点时间自己做了下调整，有空去把评论功能加上，毕竟比较骚气。</del><br><del>还有就是域名绑定问题，暂时没这个钱，都是通过username.github.io访问的，github都知道会被墙，响应速度不好说。如果你担心这个问题，可以去百度用gitee搭建的博客，码云是国内的服务器，响应会比github快点。</del></p>
 <p>上述操作均为自己尝试过的，不同环境可能会产生差异，欢迎评论交流。</p>
 
         </div>
@@ -528,7 +530,7 @@ $ hexo algolia
 <nav class="article-nav">
   
     <a href="/2022/03/23/vscode-c-c-configure/" id="article-nav-newer" class="article-nav-link-wrap">
-      <div class="article-nav-caption">下一篇</div>
+      <div class="article-nav-caption">prossimo</div>
       <div class="article-nav-title">
         
           vscode c/c++ run+debug
@@ -538,7 +540,7 @@ $ hexo algolia
   
   
     <a href="/2021/07/07/ubuntu-terminal/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-caption">上一篇</div>
+      <div class="article-nav-caption">precedente</div>
       <div class="article-nav-title">ubuntu-终端改zsh使用powerlevel10k</div>
     </a>
   
@@ -546,17 +548,17 @@ $ hexo algolia
 
 
     <section class="share">
-        <div class="share-title">分享</div>
+        <div class="share-title">share</div>
         <a class="share-item" target="_blank"
-            href="https://twitter.com/share?text=关于个人博客创建过程 - ohmyhsy&url=http%3A%2F%2Fexample.com%2F2022%2F03%2F20%2Ffirst-blog%2F">
+            href="https://twitter.com/share?text=关于个人博客创建过程 - ohmyhsy&url=https%3A%2F%2F8bytes.top%2F2022%2F03%2F20%2Ffirst-blog%2F">
             <box-icon type='logo' name='twitter'></box-icon>
         </a>
         <a class="share-item" target="_blank"
-            href="https://www.facebook.com/sharer.php?title=关于个人博客创建过程 - ohmyhsy&u=http%3A%2F%2Fexample.com%2F2022%2F03%2F20%2Ffirst-blog%2F">
+            href="https://www.facebook.com/sharer.php?title=关于个人博客创建过程 - ohmyhsy&u=https%3A%2F%2F8bytes.top%2F2022%2F03%2F20%2Ffirst-blog%2F">
             <box-icon name='facebook-square' type='logo' ></box-icon>
         </a>
         <!-- <a class="share-item" target="_blank"
-            href="https://service.weibo.com/share/share.php?title=关于个人博客创建过程 - ohmyhsy&url=http://example.com/2022/03/20/first-blog/&pic=">
+            href="https://service.weibo.com/share/share.php?title=关于个人博客创建过程 - ohmyhsy&url=https://8bytes.top/2022/03/20/first-blog/&pic=">
             <div class="n-icon n-icon-weibo"></div>
         </a> -->
     </section>
@@ -643,6 +645,10 @@ $ hexo algolia
       <ul>
         
           <li>
+            <a href="/2022/04/10/leetcodeno13/">leetcode第十三题</a>
+          </li>
+        
+          <li>
             <a href="/2022/04/08/leetcodeno9/">leetcode第九题</a>
           </li>
         
@@ -656,10 +662,6 @@ $ hexo algolia
         
           <li>
             <a href="/2022/03/27/Markdown/">Markdown 基本语法</a>
-          </li>
-        
-          <li>
-            <a href="/2022/03/23/vscode-c-c-configure/">vscode c/c++ run+debug</a>
           </li>
         
       </ul>
