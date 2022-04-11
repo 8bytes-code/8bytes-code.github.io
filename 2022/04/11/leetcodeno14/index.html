@@ -201,7 +201,7 @@
 
             
             <div class="article-busuanzi">
-                <span id="busuanzi_value_page_pv">N</span> views
+                <span id="busuanzi_value_page_pv">N</span> 人看过
             </div>
             
 
@@ -231,7 +231,7 @@ public:
 &#125;;
 </code></pre>
 <p>假设第一层for循环跑strs的个数，第二个跑str[i]的长度，那么如果需要比较的话就又得多一层循环，三层其实有点多了，不是很好的办法。</p>
-<p>……想了半天，既然是前缀之间的比较，那么假设循环的长度根据<code>strs[0].lenght()</code>，那么无论[0]的长度是最长还是最短，无非就三个结果，要么正好是他，要么是其中几个，要么都不是。</p>
+<p>……想了半天，既然是前缀之间的比较，那么假设循环的长度根据<code>strs[0].length()</code>，那么无论[0]的长度是最长还是最短，无非就三个结果，要么正好是他，要么是其中几个，要么都不是。</p>
 <pre><code class="cpp">for(int i = 0; i &lt; strs[0].length(); i++)&#123;      //用str[0]作为对象与后面的比较
     for(int j = 1; j &lt; strs.size(); j++)&#123;
         if()
@@ -267,7 +267,7 @@ public:
 </code></pre>
 <p>再测试一下：</p>
 <img src="/2022/04/11/leetcodeno14/002.png" class="">
-<p>额，好像strs[1]比strs[0]要短哦，if好像还应该判断i有没有到达strs[j].lenght()，如果已经到达了后者，那么前面也没必要在判断了，或者说后者比前者大时，i如果没到达strs[j].lenght()，也不用着急停止。意味着我们的if应该是：</p>
+<p>额，好像strs[1]比strs[0]要短哦，if好像还应该判断i有没有到达<code>strs[j].lenght()</code>，如果已经到达了后者，那么前面也没必要在判断了，或者说后者比前者大时，i如果没到达<code>strs[j].lenght()</code>，也不用着急停止。意味着我们的if应该是：</p>
 <pre><code class="cpp">if(strs[0][i] != strs[j][i] &amp;&amp; i != strs[j].length())
     break;
 </code></pre>
@@ -295,10 +295,10 @@ public:
 <p>测试了两个示例结果都正常的，提交看看。</p>
 <img src="/2022/04/11/leetcodeno14/003.png" class="">
 <p>额小尴尬，解答错误了。</p>
-<p>……又想了一圈，if里面应该是用或的，要么达到strs[j].length(),要么就是两个不相等，所噶所噶。。今天脑子有点不好使。<br>把解答错误的案例塞进去试了一下：</p>
+<p>……又想了一圈，if里面应该是用或的，要么达到<code>strs[j].length()</code>,要么就是两个不相等，所噶所噶。。今天脑子有点不好使。<br>把解答错误的案例塞进去试了一下：</p>
 <img src="/2022/04/11/leetcodeno14/004.png" class="">
 <p>。。。。。。坏事</p>
-<p>哦哦哦。。应该是要么俩不相等，要么i&#x3D;&#x3D;strs[j].lenght();表示它走到头了该断了。</p>
+<p>哦哦哦。。应该是要么俩不相等，要么<code>i==strs[j].lenght()</code>;表示它走到头了该断了。</p>
 <pre><code class="cpp">if(strs[0][i] != strs[j][i] || i == strs[j].length())
 </code></pre>
 <img src="/2022/04/11/leetcodeno14/005.png" class="">
@@ -341,7 +341,7 @@ public:
     
   <div class="article-copyright hairline">
     <p>
-      本記事は  <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">「表示 - 非営利 - 改変禁止 4.0 国際 (CC BY-NC-ND 4.0)」</a> を採用。
+      本作品采用  <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议 (CC BY-NC-ND 4.0)</a> 进行许可。
     </p>
   </div>
   
@@ -353,7 +353,7 @@ public:
   
   
     <a href="/2022/04/10/leetcodeno13/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-caption">precedente</div>
+      <div class="article-nav-caption">上一篇</div>
       <div class="article-nav-title">leetcode第十三题</div>
     </a>
   
@@ -361,7 +361,7 @@ public:
 
 
     <section class="share">
-        <div class="share-title">share</div>
+        <div class="share-title">分享</div>
         <a class="share-item" target="_blank"
             href="https://twitter.com/share?text=leetcode第十四题 - ohmyhsy&url=https%3A%2F%2F8bytes.top%2F2022%2F04%2F11%2Fleetcodeno14%2F">
             <box-icon type='logo' name='twitter'></box-icon>
