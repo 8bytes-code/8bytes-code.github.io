@@ -215,6 +215,25 @@
   </entry>
   
   <entry>
+    <title>clion控制台中文乱码</title>
+    <link href="https://8bytes.top/2021/01/30/cliontoutf-8/"/>
+    <id>https://8bytes.top/2021/01/30/cliontoutf-8/</id>
+    <published>2021-01-30T11:17:08.000Z</published>
+    <updated>2022-04-12T11:40:05.136Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://www.jetbrains.com/zh-cn/clion/download/#section=windows">官网下载链接</a></p><span id="more"></span><hr><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>jetbrains系列的软件其实还挺好用的。<br>但是windows平台的编码是真的搞。<br>方法应该是通用的对于jb系列的软件——此处以clion为例。</p><hr><h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><p>首先就是安装clion，上述参考链接含官网下载地址。</p><p>网上不靠谱的就是让你把文件编码改成<code>GBK</code>，这种就是典型治标不治本的做法；真正的大环境开发理想编码肯定是<code>utf-8</code>啊。</p><h2 id="1-setting"><a href="#1-setting" class="headerlink" title="1.setting"></a>1.setting</h2><p>打开file，找到setting</p><img src="/2021/01/30/cliontoutf-8/000.png" class=""><blockquote><p>找到Editor，选择Console，将default encoding也修改成utf-8</p></blockquote><img src="/2021/01/30/cliontoutf-8/001.png" class=""><blockquote><p>再在Editor下找到file encodings，全设置为utf-8</p></blockquote><img src="/2021/01/30/cliontoutf-8/002.png" class=""><blockquote><p>找到我们clion的安装目录下的Bin&#x2F;,看到这个clion64.exe.vmoptions之后用记事本或者notepad打开都行，在末尾加上一句-Dfile.encoding&#x3D;UTF-8</p></blockquote><img src="/2021/01/30/cliontoutf-8/003.png" class=""><img src="/2021/01/30/cliontoutf-8/004.png" class=""><blockquote><p>如果是idea好像还有个idea.exe.vmoptions，也就是不带64的，估计是32位的意思吧，反正都加上。</p></blockquote><p>然后在clion界面，按住<code>Ctrl+Shift+Alt+/</code>，选择Registry，取消run.processes.with.pty的勾选。</p><p>不放心还可以在：</p><img src="/2021/01/30/cliontoutf-8/005.png" class=""><img src="/2021/01/30/cliontoutf-8/006.png" class=""><blockquote><p>加一句-Dfile.encoding&#x3D;UTF-8</p></blockquote><p>至于终端类型切不切换都无所谓，一个cmd或者一个powershell</p><img src="/2021/01/30/cliontoutf-8/007.png" class=""><p>然后开始测试一下：</p><img src="/2021/01/30/cliontoutf-8/008.png" class=""><p>点击右上角的锤子然后点击小箭头，也可以快捷键操作。</p><img src="/2021/01/30/cliontoutf-8/009.png" class=""><p>看到中文正常显示就行了。</p><hr><h1 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h1><p>idea不常用就不写了，参考这个来吧，或者百度考前的应该都是。</p>]]></content>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;参考&quot;&gt;&lt;a href=&quot;#参考&quot; class=&quot;headerlink&quot; title=&quot;参考&quot;&gt;&lt;/a&gt;参考&lt;/h1&gt;&lt;p&gt;&lt;a href=&quot;https://www.jetbrains.com/zh-cn/clion/download/#section=windows&quot;&gt;官网下载链接&lt;/a&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="jetbrains" scheme="https://8bytes.top/tags/jetbrains/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Hello World</title>
     <link href="https://8bytes.top/2021/01/01/hello-world/"/>
     <id>https://8bytes.top/2021/01/01/hello-world/</id>
