@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    
+    <title>pointer浅挖 | ohmyhsy</title>
+
+    <meta name="description" content="&lt;h1 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;指针和数组还有很多知识点需要学习&lt;/p&gt;">
+    <meta name="keywords" content="">
+
+    
+
+    <meta property="og:locale" content="en" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content= "pointer浅挖 | ohmyhsy"  />
+    <meta property="og:description" content= "&lt;h1 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;指针和数组还有很多知识点需要学习&lt;/p&gt;" />
+    <meta property="og:url" content="https://8bytes.top/2022/05/12/pointerP/index.html" />
+    <meta property="og:site_name" content="" />
+    <meta property="article:author" content="Box" />
+    <meta property="article:publisher" content="" />
+    <meta property="og:description" content="&lt;h1 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;指针和数组还有很多知识点需要学习&lt;/p&gt;" />
+    <meta name="twitter:title" content="pointer浅挖 | ohmyhsy"/>
+    <meta name="twitter:description" content="&lt;h1 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;指针和数组还有很多知识点需要学习&lt;/p&gt;"/>
+    <script type="application/ld+json">
+        {
+            "description": "&lt;h1 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;指针和数组还有很多知识点需要学习&lt;/p&gt;",
+            "author": { "@type": "Person", "name": "Box" },
+            "@type": "BlogPosting",
+            "url": "https://8bytes.top/2022/05/12/pointerP/index.html",
+            "publisher": {
+            "@type": "Organization",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://8bytes.topundefined"
+            },
+            "name": "Box"
+            },
+            "headline": "pointer浅挖 | ohmyhsy",
+            "datePublished": "2022-05-12T15:15:13.000Z",
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "https://8bytes.top/2022/05/12/pointerP/index.html"
+            },
+            "@context": "http://schema.org"
+        }
+    </script>
+
+
+
+
+    
+
+    
+    <meta property="algolia:search" data-application-id="4CVCYWPWWN" data-api-key="7757db6b0a31c3f94c301c885693ed0d" data-index-name="ohmyhsy">
+    
+
+    
+
+    
+
+    
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎮</text></svg>">
+    
+
+    
+
+    
+
+    
+<link rel="stylesheet" href="/dist/build.css?v=1646451311888.css">
+
+
+    
+<link rel="stylesheet" href="/dist/custom.css?v=1646451311888.css">
+
+
+    <script>
+        window.isPost = true
+        window.aomori = {
+            
+            
+            
+        }
+        window.aomori_logo_typed_animated = true
+        window.aomori_search_algolia = true
+
+    </script>
+
+<meta name="generator" content="Hexo 5.4.1"><link rel="alternate" href="/atom.xml" title="ohmyhsy" type="application/atom+xml">
+</head>
+
+<body>
+
+    <div class="container">
+    <header class="header">
+        <div class="header-type">
+            
+            <div class="header-type-inner">
+                
+                    <div id="typed-strings" style="display:none">
+                        <p>ohmyhsy</p>
+                    </div>
+                    <a class="header-type-title" id="typed" href="/"></a>
+                
+    
+                
+            </div>
+        </div>
+        <div class="header-menu">
+            <div class="header-menu-inner">
+                
+                <a href="/">Home</a>
+                
+                <a href="/archives">Archives</a>
+                
+                <a href="/friends">Friends</a>
+                
+            </div>
+            <div class="header-menu-social">
+                
+    <a class="social" target="_blank" href="https://github.com/8bytes-code">
+        <box-icon type='logo' name='github'></box-icon>
+    </a>
+
+            </div>
+        </div>
+
+        <div class="header-menu-mobile">
+            <div class="header-menu-mobile-inner" id="mobile-menu-open">
+                <i class="icon icon-menu"></i>
+            </div>
+        </div>
+    </header>
+
+    <div class="header-menu-mobile-menu">
+        <div class="header-menu-mobile-menu-bg"></div>
+        <div class="header-menu-mobile-menu-wrap">
+            <div class="header-menu-mobile-menu-inner">
+                <div class="header-menu-mobile-menu-close" id="mobile-menu-close">
+                    <i class="icon icon-cross"></i>
+                </div>
+                <div class="header-menu-mobile-menu-list">
+                    
+                    <a href="/">Home</a>
+                    
+                    <a href="/archives">Archives</a>
+                    
+                    <a href="/friends">Friends</a>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+    <div class="container">
+        <div class="main">
+            <section class="inner">
+                <section class="inner-main">
+                    <div class="post">
+    <article id="post-cl3ixfr95000q8wk6boin2vu5" class="article article-type-post" itemscope
+    itemprop="blogPost">
+
+    <div class="article-inner">
+
+        
+          
+        
+        
+        
+
+        
+        <header class="article-header">
+            
+  
+    <h1 class="article-title" itemprop="name">
+      pointer浅挖
+    </h1>
+  
+
+        </header>
+        
+
+        <div class="article-more-info article-more-info-post hairline">
+
+            <div class="article-date">
+  <time datetime="2022-05-12T15:15:13.000Z" itemprop="datePublished">2022-05-12</time>
+</div>
+
+            
+
+            
+            <div class="article-tag">
+                <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cpp/" rel="tag">cpp</a></li></ul>
+            </div>
+            
+
+            
+            <div class="article-busuanzi">
+                <span id="busuanzi_value_page_pv">N</span> 人看过
+            </div>
+            
+
+        </div>
+
+        <div class="article-entry post-inner-html hairline" itemprop="articleBody">
+            <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>指针和数组还有很多知识点需要学习</p>
+<span id="more"></span>
+
+
+<hr>
+<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><h2 id="sizeof-数组"><a href="#sizeof-数组" class="headerlink" title="sizeof(数组)"></a>sizeof(数组)</h2><p>大部分情况下，我们使用sizeof()，编译器都是需要一个运行过程的。<br>而我们反汇编sizeof求数组大小的时候会发现不一样的点：</p>
+<img src="/2022/05/12/pointerP/000.png" class="">
+<p>能看到反汇编后</p>
+<pre><code class="cpp">int main()&#123;
+    int ch[5];
+    int size = sizeof(ch);
+
+    return 0;
+&#125;
+</code></pre>
+<p>头两句只有一句反汇编代码，首先也是因为数组没有初始化。<br>其次就是他调用数组大小是20，编译器仿佛知道这个数组的大小了，14h也就是十六进制的写法，换算成十进制也就是20，数组有五个成员*4正好就是20。</p>
+<p><strong>也就是之前说的，数组的底层实现是由指针实现的，数组本身是抽象的结构逻辑</strong><br>所以编译器会提前预览出数组的大小，以便后续使用。</p>
+<hr>
+<h2 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h2><p>引用是一种阉割的指针版本。<br>虽然取址引用变量得到的是原值的内存地址，但是引用的变量本身也占用内存。</p>
+<pre><code class="cpp">int a = 5;
+a = 6;
+int &amp;b = a;
+int &amp;c = a;
+int *d = &amp;a;
+b = 6;
+c = 6;
+*d = 6;
+a = (int)&amp;a;
+</code></pre>
+<p>反汇编后看到：<img src="/2022/05/12/pointerP/001.png" class=""></p>
+<ol>
+<li>a的地址就是ebp-Ch</li>
+<li>b的地址是ebp-18<br>在代码里我们看到&amp;b&#x3D;a之前，先将a的地址赋予eax，然后再将eax赋予b的地址上<br>这就说明了引用变量确实占用了内存。</li>
+<li>c的地址就是ebp-24</li>
+<li>d的地址就是ebp-30</li>
+<li>b&#x3D;6的时候，先将b的地址的值赋给eax，引用b的地址在上述操作中为a的地址</li>
+<li>c&#x3D;6和*d&#x3D;6 发现步骤相同，区别就在于各自的内存地址不一样。不过也印证引用和指针的关联性。</li>
+</ol>
+<hr>
+<h2 id="堆和栈"><a href="#堆和栈" class="headerlink" title="堆和栈"></a>堆和栈</h2><p>空间分配：</p>
+<ol>
+<li>栈（操作系统）：由操作系统自动分配释放 ，存放函数的参数值，局部变量的值等。其操作方式类似于数据结构中的栈。</li>
+<li>堆（操作系统）： 一般由程序员分配释放， 若程序员不释放，程序结束时可能由OS（操作系统）回收，分配方式倒是类似于链表。</li>
+</ol>
+<p>百度而来的浅显答案。</p>
+<pre><code class="cpp">int a;
+int b;
+int c;
+int *d = new int[5];
+
+std::cout &lt;&lt; &amp;a &lt;&lt; std::endl;
+std::cout &lt;&lt; &amp;b &lt;&lt; std::endl;
+std::cout &lt;&lt; &amp;c &lt;&lt; std::endl;
+std::cout &lt;&lt; d &lt;&lt; std::endl;
+</code></pre>
+<p>得到结果：<img src="/2022/05/12/pointerP/002.png" class=""><br>可以看到abc三个变量的地址离得很近，但是d却很远，d现在打印的地址是new出来的，我们捎上变量d本身的地址。</p>
+<pre><code class="cpp">std::cout &lt;&lt; &amp;a &lt;&lt; std::endl;
+std::cout &lt;&lt; &amp;b &lt;&lt; std::endl;
+std::cout &lt;&lt; &amp;c &lt;&lt; std::endl;
+std::cout &lt;&lt; &amp;d &lt;&lt; std::endl;
+std::cout &lt;&lt; d &lt;&lt; std::endl;
+</code></pre>
+<img src="/2022/05/12/pointerP/003.png" class="">
+<p>能看到d变量本身占用的内存地址里abc都是比较近的，因为他们都是挨着声明的，内存地址由计算机分配而来，也就是说这些变量的内存地址存放在栈区。<br>而new出来的那块内存则符合定义中由人为分配的，处于堆区。</p>
+<p><strong>栈区是程序在编译时就确定了大小的一段内存区域，主要用于存放临时变量，其效率也会高于堆，但是因为事先就确定了大小，导致了容量有限的问题，当然可以在编译前指定栈的大小，不过涉及到的东西有点多</strong></p>
+<p>另外就是栈比较有意思的是，他的结构是自上向下的结构，遵循先入后出顺序。</p>
+<img src="/2022/05/12/pointerP/004.png" class="">
+<p>随便画张草图理解一下。<br>ebp通过地址减去得到变量的地址。当变量的声明周期全部结束了的时候，ebp的地址就会和esp一样了</p>
+<hr>
+<h1 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h1><p>主要是浅看指针和数组和引用的关系，然后就是顺便理解堆栈的概念，因为反汇编多次出现了，总要先looklook。</p>
+
+        </div>
+
+    </div>
+
+    
+
+    
+
+    
+
+    
+  <div class="article-copyright hairline">
+    <p>
+      本作品采用  <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议 (CC BY-NC-ND 4.0)</a> 进行许可。
+    </p>
+  </div>
+  
+
+    
+
+    
+<nav class="article-nav">
+  
+    <a href="/2022/05/16/text001/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-caption">prossimo</div>
+      <div class="article-nav-title">
+        
+          随记220516
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/05/11/teamvieweruser/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-caption">precedente</div>
+      <div class="article-nav-title">teamviewer设备上限</div>
+    </a>
+  
+</nav>
+
+
+    <section class="share">
+        <div class="share-title">share</div>
+        <a class="share-item" target="_blank"
+            href="https://twitter.com/share?text=pointer浅挖 - ohmyhsy&url=https%3A%2F%2F8bytes.top%2F2022%2F05%2F12%2FpointerP%2F">
+            <box-icon type='logo' name='twitter'></box-icon>
+        </a>
+        <a class="share-item" target="_blank"
+            href="https://www.facebook.com/sharer.php?title=pointer浅挖 - ohmyhsy&u=https%3A%2F%2F8bytes.top%2F2022%2F05%2F12%2FpointerP%2F">
+            <box-icon name='facebook-square' type='logo' ></box-icon>
+        </a>
+        <!-- <a class="share-item" target="_blank"
+            href="https://service.weibo.com/share/share.php?title=pointer浅挖 - ohmyhsy&url=https://8bytes.top/2022/05/12/pointerP/&pic=">
+            <div class="n-icon n-icon-weibo"></div>
+        </a> -->
+    </section>
+
+</article>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- <script src="//unpkg.com/@waline/dist/Waline.min.js"></script> -->
+    <script src="https://unpkg.com/@waline/client@v2/dist/waline.js"></script>
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/@waline/client@v2/dist/waline.css"
+    />
+    <section class="comments">
+        <div id="waline"></div>
+    </section>
+    <script>
+        Waline.init({
+          el: '#waline',
+          serverURL: 'https://ohmyhsy.vercel.app/',
+        });
+    </script>
+
+
+
+<script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+</div>
+                </section>
+            </section>
+
+            
+            <aside class="sidebar sidebar-search-fix">
+                
+
+    <div class="search">
+    <div class="has-icon-right">
+        <input type="text" class="form-input" id="search" placeholder="SEARCH" autocomplete="off">
+        <div class="form-icon">
+            <box-icon name='search' color="#3c4859"></box-icon>
+        </div>
+    </div>
+    <div class="search-result" id="search-ps"></div>
+</div>
+
+
+<div class="widget" id="widget">
+    
+      
+  <div class="widget-wrap">
+    <div class="widget-inner">
+      <div class="toc post-toc-html"></div>
+    </div>
+  </div>
+
+    
+      
+
+    
+      
+  <div class="widget-wrap widget-tags">
+    <div class="widget-title"><span>Tags</span></div>
+    <div class="widget-inner">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c/" rel="tag">c</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cpp/" rel="tag">cpp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/exam/" rel="tag">exam</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jetbrains/" rel="tag">jetbrains</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/" rel="tag">leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ubuntu/" rel="tag">ubuntu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vscode/" rel="tag">vscode</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-recent-posts">
+    <div class="widget-title"><span>Recent Posts</span></div>
+    <div class="widget-inner">
+      <ul>
+        
+          <li>
+            <a href="/2022/06/09/text004/">text004</a>
+          </li>
+        
+          <li>
+            <a href="/2022/06/03/function5/">function5-栈</a>
+          </li>
+        
+          <li>
+            <a href="/2022/06/01/function4/">function4-本质和函数指针</a>
+          </li>
+        
+          <li>
+            <a href="/2022/05/31/function3/">function3-左值右值</a>
+          </li>
+        
+          <li>
+            <a href="/2022/05/30/function2/">function2</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget-wrap widget-archive">
+    <div class="widget-title"><span>Archive</span></div>
+    <div class="widget-inner">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/">2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/">2021</a></li></ul>
+    </div>
+  </div>
+
+
+    
+</div>
+
+<div id="backtop"><i class="icon icon-arrow-up"></i></div>
+            </aside>
+            
+        </div>
+    </div>
+
+    <footer class="footer">
+    <div class="footer-wave">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#3c4859" fill-opacity="1" d="M0,160L60,181.3C120,203,240,245,360,240C480,235,600,181,720,186.7C840,192,960,256,1080,261.3C1200,267,1320,213,1380,186.7L1440,160L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>
+    </div>
+
+    <!-- Please do not remove this -->
+    <!-- 开源不易，请勿删除 -->
+    <div class="footer-wrap">
+        <div class="footer-inner"> 
+            ohmyhsy &copy; 2022<br>
+            Powered By Hexo · Theme By <a href="https://linhong.me/" target="_blank">Aomori</a> · <a href="https://github.com/lh1me/hexo-theme-aomori" target="_blank">Github</a>
+        </div>
+    </div>
+
+</footer>
+
+
+
+
+
+
+<script src="/dist/build.js?1646451311888.js"></script>
+
+
+<script src="/dist/custom.js?1646451311888.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>

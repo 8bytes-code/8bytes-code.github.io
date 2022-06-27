@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    
+    <title>smartPointer | ohmyhsy</title>
+
+    <meta name="description" content="&lt;h1 id=&#34;引用&#34;&gt;&lt;a href=&#34;#引用&#34; class=&#34;headerlink&#34; title=&#34;引用&#34;&gt;&lt;/a&gt;引用&lt;/h1&gt;&lt;p&gt;c++ 11:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;std::unique_ptr&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;c++ 14:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;std::make_unique&lt;/li&gt;
+&lt;/ul&gt;">
+    <meta name="keywords" content="">
+
+    
+
+    <meta property="og:locale" content="en" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content= "smartPointer | ohmyhsy"  />
+    <meta property="og:description" content= "&lt;h1 id=&#34;引用&#34;&gt;&lt;a href=&#34;#引用&#34; class=&#34;headerlink&#34; title=&#34;引用&#34;&gt;&lt;/a&gt;引用&lt;/h1&gt;&lt;p&gt;c++ 11:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;std::unique_ptr&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;c++ 14:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;std::make_unique&lt;/li&gt;
+&lt;/ul&gt;" />
+    <meta property="og:url" content="https://8bytes.top/2022/05/16/smartPointer/index.html" />
+    <meta property="og:site_name" content="" />
+    <meta property="article:author" content="Box" />
+    <meta property="article:publisher" content="" />
+    <meta property="og:description" content="&lt;h1 id=&#34;引用&#34;&gt;&lt;a href=&#34;#引用&#34; class=&#34;headerlink&#34; title=&#34;引用&#34;&gt;&lt;/a&gt;引用&lt;/h1&gt;&lt;p&gt;c++ 11:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;std::unique_ptr&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;c++ 14:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;std::make_unique&lt;/li&gt;
+&lt;/ul&gt;" />
+    <meta name="twitter:title" content="smartPointer | ohmyhsy"/>
+    <meta name="twitter:description" content="&lt;h1 id=&#34;引用&#34;&gt;&lt;a href=&#34;#引用&#34; class=&#34;headerlink&#34; title=&#34;引用&#34;&gt;&lt;/a&gt;引用&lt;/h1&gt;&lt;p&gt;c++ 11:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;std::unique_ptr&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;c++ 14:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;std::make_unique&lt;/li&gt;
+&lt;/ul&gt;"/>
+    <script type="application/ld+json">
+        {
+            "description": "&lt;h1 id=&#34;引用&#34;&gt;&lt;a href=&#34;#引用&#34; class=&#34;headerlink&#34; title=&#34;引用&#34;&gt;&lt;/a&gt;引用&lt;/h1&gt;&lt;p&gt;c++ 11:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;std::unique_ptr&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;c++ 14:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;std::make_unique&lt;/li&gt;
+&lt;/ul&gt;",
+            "author": { "@type": "Person", "name": "Box" },
+            "@type": "BlogPosting",
+            "url": "https://8bytes.top/2022/05/16/smartPointer/index.html",
+            "publisher": {
+            "@type": "Organization",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://8bytes.topundefined"
+            },
+            "name": "Box"
+            },
+            "headline": "smartPointer | ohmyhsy",
+            "datePublished": "2022-05-16T15:28:58.000Z",
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "https://8bytes.top/2022/05/16/smartPointer/index.html"
+            },
+            "@context": "http://schema.org"
+        }
+    </script>
+
+
+
+
+    
+
+    
+    <meta property="algolia:search" data-application-id="4CVCYWPWWN" data-api-key="7757db6b0a31c3f94c301c885693ed0d" data-index-name="ohmyhsy">
+    
+
+    
+
+    
+
+    
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎮</text></svg>">
+    
+
+    
+
+    
+
+    
+<link rel="stylesheet" href="/dist/build.css?v=1646451311888.css">
+
+
+    
+<link rel="stylesheet" href="/dist/custom.css?v=1646451311888.css">
+
+
+    <script>
+        window.isPost = true
+        window.aomori = {
+            
+            
+            
+        }
+        window.aomori_logo_typed_animated = true
+        window.aomori_search_algolia = true
+
+    </script>
+
+<meta name="generator" content="Hexo 5.4.1"><link rel="alternate" href="/atom.xml" title="ohmyhsy" type="application/atom+xml">
+</head>
+
+<body>
+
+    <div class="container">
+    <header class="header">
+        <div class="header-type">
+            
+            <div class="header-type-inner">
+                
+                    <div id="typed-strings" style="display:none">
+                        <p>ohmyhsy</p>
+                    </div>
+                    <a class="header-type-title" id="typed" href="/"></a>
+                
+    
+                
+            </div>
+        </div>
+        <div class="header-menu">
+            <div class="header-menu-inner">
+                
+                <a href="/">Home</a>
+                
+                <a href="/archives">Archives</a>
+                
+                <a href="/friends">Friends</a>
+                
+            </div>
+            <div class="header-menu-social">
+                
+    <a class="social" target="_blank" href="https://github.com/8bytes-code">
+        <box-icon type='logo' name='github'></box-icon>
+    </a>
+
+            </div>
+        </div>
+
+        <div class="header-menu-mobile">
+            <div class="header-menu-mobile-inner" id="mobile-menu-open">
+                <i class="icon icon-menu"></i>
+            </div>
+        </div>
+    </header>
+
+    <div class="header-menu-mobile-menu">
+        <div class="header-menu-mobile-menu-bg"></div>
+        <div class="header-menu-mobile-menu-wrap">
+            <div class="header-menu-mobile-menu-inner">
+                <div class="header-menu-mobile-menu-close" id="mobile-menu-close">
+                    <i class="icon icon-cross"></i>
+                </div>
+                <div class="header-menu-mobile-menu-list">
+                    
+                    <a href="/">Home</a>
+                    
+                    <a href="/archives">Archives</a>
+                    
+                    <a href="/friends">Friends</a>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+    <div class="container">
+        <div class="main">
+            <section class="inner">
+                <section class="inner-main">
+                    <div class="post">
+    <article id="post-cl3ixfr97000v8wk6bafe8feo" class="article article-type-post" itemscope
+    itemprop="blogPost">
+
+    <div class="article-inner">
+
+        
+          
+        
+        
+        
+
+        
+        <header class="article-header">
+            
+  
+    <h1 class="article-title" itemprop="name">
+      smartPointer
+    </h1>
+  
+
+        </header>
+        
+
+        <div class="article-more-info article-more-info-post hairline">
+
+            <div class="article-date">
+  <time datetime="2022-05-16T15:28:58.000Z" itemprop="datePublished">2022-05-16</time>
+</div>
+
+            
+
+            
+            <div class="article-tag">
+                <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cpp/" rel="tag">cpp</a></li></ul>
+            </div>
+            
+
+            
+            <div class="article-busuanzi">
+                <span id="busuanzi_value_page_pv">N</span> 人看过
+            </div>
+            
+
+        </div>
+
+        <div class="article-entry post-inner-html hairline" itemprop="articleBody">
+            <h1 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h1><p>c++ 11:</p>
+<ul>
+<li>std::unique_ptr</li>
+</ul>
+<p>c++ 14:</p>
+<ul>
+<li>std::make_unique</li>
+</ul>
+<span id="more"></span>
+
+
+<hr>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>正常的指针如果是通过new或者malloc方式还需要额外的手动释放，delect或free。</p>
+<p>智能指针的作用是防止忘记调用delete释放内存和程序异常的进入catch块忘记释放内存。另外指针的释放时机也是非常有考究的，多次释放同一个指针会造成程序崩溃，这些都可以通过智能指针来解决。</p>
+<p>智能指针主要用于管理在堆上分配的内存，它将普通的指针封装为一个栈对象。当栈对象的生存周期结束后，会在析构函数中释放掉申请的内存，从而防止内存泄漏。<br>智能指针的作用是管理一个指针，因为存在以下这种情况：申请的空间在函数结束时忘记释放，造成内存泄漏。使用智能指针可以很大程度上的避免这个问题，因为智能指针是一个类，当超出了类的实例对象的作用域时，会自动调用对象的析构函数，析构函数会自动释放资源。所以智能指针的作用原理就是在函数结束时自动释放内存空间，不需要手动释放内存空间。</p>
+<p>声明方式：<code>std::unique_ptr&lt;type&gt; typename&#123;&#125;</code>,<br>比如<code>std::unique_ptr&lt;int&gt; ptra&#123;std::make_unique&lt;int&gt; (150)&#125;</code></p>
+<p>转到定义看到：<img src="/2022/05/16/smartPointer/000.png" class=""><br>能看到是用class写的，配合上模板。</p>
+<hr>
+<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><p>智能指针之所以智能，肯定会与传统指针有区别。</p>
+<h2 id="no1"><a href="#no1" class="headerlink" title="no1 []"></a>no1 []</h2><p>比如说，传统指针无论大小，都可以用[]方式访问，但是智能指针就不行了。</p>
+<pre><code class="cpp">int main()&#123;
+
+    int *p = new int;
+    std::unique_ptr&lt;int&gt; intP&#123; new int&#123; 5 &#125; &#125;;
+
+    std::cout &lt;&lt; p[0] &lt;&lt; std::endl;
+    //std::cout &lt;&lt; intP[0] &lt;&lt; std::endl;    这一句会报错，编译器给的说明就是没有符合的[]运算符操作
+
+    return 0;
+&#125;
+</code></pre>
+<p>当然很大程度上单个int不被认作为’数组‘。<br>传统指针需要通过<code>int *p = new int[5]</code>,这样才能严格算一个数组。<br>那么智能指针也不例外，需要用到[]，即<code>std::unique_ptr&lt;int[]&gt; intP&#123;new int[]&#123;0&#125;&#125;;</code></p>
+<img src="/2022/05/16/smartPointer/001.png" class="">
+<p>能够看到是合法有效的。</p>
+<hr>
+<h2 id="no2-x3D"><a href="#no2-x3D" class="headerlink" title="no2 &#x3D;"></a>no2 &#x3D;</h2><p>传统指针之间可以套娃，多个指针指向一片内存区域</p>
+<pre><code class="cpp">int *a = new int;
+int *p = a;
+int *p2 = a;
+int *p3 = a;
+std::cout &lt;&lt; a &lt;&lt; std::endl;
+std::cout &lt;&lt; p &lt;&lt; std::endl;
+std::cout &lt;&lt; p2 &lt;&lt; std::endl;
+std::cout &lt;&lt; p3 &lt;&lt; std::endl;
+</code></pre>
+<img src="/2022/05/16/smartPointer/002.png" class="">
+<blockquote>
+<p>可以看到指针a由我们人为new了一块内存地址，紧接着其他指针都指向指针a的地址，但是如果a被释放了，那么其他指针就有可能成为野指针，是一种非常不妙的情况。除非特殊需求，一般也是会尽量避免这种写法。</p>
+</blockquote>
+<p>而智能指针则不允许多个只能指针指向一块区域(简单说就是智能指针a不能赋值给智能指针b)</p>
+<pre><code class="cpp">std::unique_ptr&lt;int&gt; intP&#123; new int &#125;;
+std::unique_ptr&lt;int&gt; intP2 = intP;
+</code></pre>
+<img src="/2022/05/16/smartPointer/003.png" class="">
+<p>编译器自然而然的给出了错误。</p>
+<p><strong>但是有一说一，强转还是很骚的，比如说：</strong></p>
+<pre><code class="cpp">int *a = new int;
+std::unique_ptr&lt;int&gt; intP = (std::unique_ptr&lt;int&gt;) &amp;a;
+std::unique_ptr&lt;int&gt; intP2 = (std::unique_ptr&lt;int&gt;)&amp;a;
+</code></pre>
+<p>通过这种强转的方法，编译器也没有给出错误和警告。<br>当然这种假象让两个智能指针指向同一块内存也就是图一乐。<br>我们能想到的委员会也早想到了，所以每个版本的特性都特别重要。</p>
+<hr>
+<h2 id="no3-c-14初始化"><a href="#no3-c-14初始化" class="headerlink" title="no3 c++14初始化"></a>no3 c++14初始化</h2><p>c++14之后，在初始化的时候有新增了一种方式<br><code>std::unique_ptr&lt;int&gt; intP &#123; std::make_unique&lt;int&gt;() &#125;</code><br><code>std::unique_ptr&lt;int[]&gt; intP &#123; std::make_unique&lt;int[]&gt;() &#125;</code></p>
+<p>二者区别在于第一种方式初始化时()代表了指针指向区域的初始化值为多少<br>第二种则是初始化通过()来声明有几个成员。</p>
+<p>它的好处目前也没能感知到，百度看了几个大致说法就是更安全更简单，至于不能使用定制删除器和不能完美传递一个initializer_list都是目前没感知的。得等以后深入用到了在挖了。</p>
+<hr>
+<h2 id="rest"><a href="#rest" class="headerlink" title="rest()"></a>rest()</h2><p>reset能够释放智能指针的内存空间，并将其置为nullptr;</p>
+<pre><code class="cpp">std::unique_ptr&lt;int&gt; intP&#123; new int&#123;0&#125; &#125;;
+intP.reset();
+
+std::cout &lt;&lt; intP &lt;&lt; std::endl;
+</code></pre>
+<img src="/2022/05/16/smartPointer/004.png" class="">
+<p>内存地址置空跟变成全0意思相同，就是说没有地址了，申请的内存也还给系统了。</p>
+<hr>
+<h2 id="get"><a href="#get" class="headerlink" title="get()"></a>get()</h2><p>一开始使用智能指针的时候会感觉碍手碍脚，不像传统指针能通过*p &#x3D; 直接改变值的过程<br>所以get方法可以让一个指针指向智能指针指向的内存区域。</p>
+<pre><code class="cpp">int *p;
+std::unique_ptr&lt;int&gt; intP&#123; new int &#125;;
+p = intP.get();
+
+std::cout &lt;&lt; intP &lt;&lt; std::endl;
+std::cout &lt;&lt; p &lt;&lt; std::endl;
+</code></pre>
+<img src="/2022/05/16/smartPointer/005.png" class="">
+<p>可以看到指针p也指向了智能指针指向的区域</p>
+<p>然后进行修改：</p>
+<pre><code class="cpp">int *p;
+std::unique_ptr&lt;int&gt; intP&#123; new int&#123;0&#125; &#125;;
+p = intP.get();
+
+std::cout &lt;&lt; *intP &lt;&lt; std::endl;
+std::cout &lt;&lt; *p &lt;&lt; std::endl;
+*p = 500;
+std::cout &lt;&lt; *intP &lt;&lt; std::endl;
+std::cout &lt;&lt; *p &lt;&lt; std::endl;
+</code></pre>
+<img src="/2022/05/16/smartPointer/006.png" class="">
+<p>先初始化了智能指针的值为0，p在指向智能指针<br>然后通过*p&#x3D;500也是成功修改了智能指针的值。</p>
+<hr>
+<h2 id="release"><a href="#release" class="headerlink" title="release()"></a>release()</h2><p>release会返回unique_ptr的指针将其置为nullptr，但是release不会释放占用的内存空间。</p>
+<pre><code class="cpp">std::unique_ptr&lt;int&gt; intP&#123; new int&#123;0&#125; &#125;;
+intP.release();
+std::cout &lt;&lt; intP &lt;&lt; std::endl;
+</code></pre>
+<img src="/2022/05/16/smartPointer/007.png" class="">
+<p><strong>虽然release将智能指针的地址置为nullptr了，但是我们说过，原先的内存没有释放掉，而且release会返回原先智能指针的地址</strong></p>
+<pre><code class="cpp">int *p;
+std::unique_ptr&lt;int&gt; intP&#123; new int&#123;0&#125; &#125;;
+
+std::cout &lt;&lt; intP &lt;&lt; std::endl;
+p = intP.release();
+std::cout &lt;&lt; intP &lt;&lt; std::endl;
+std::cout &lt;&lt; p &lt;&lt; std::endl;
+</code></pre>
+<img src="/2022/05/16/smartPointer/008.png" class="">
+<p>这样就可以看出没release之前intP的地址和release之后的结果。包括p接收了release返回的地址。</p>
+<hr>
+<h2 id="转移"><a href="#转移" class="headerlink" title="转移"></a>转移</h2><p>智能指针具有唯一性是上述提到过的。所以智能指针不能够被复制，但是有转移的方法。</p>
+<pre><code class="cpp">std::unique_ptr&lt;int&gt; intP&#123; new int&#123;0&#125; &#125;;
+std::unique_ptr&lt;int&gt; intP2&#123;&#125;;
+
+std::cout &lt;&lt; intP &lt;&lt; std::endl;
+std::cout &lt;&lt; intP2 &lt;&lt; std::endl;
+
+intP2 = std::move(intP);
+
+std::cout &lt;&lt; intP &lt;&lt; std::endl;
+std::cout &lt;&lt; intP2 &lt;&lt; std::endl;
+</code></pre>
+<img src="/2022/05/16/smartPointer/009.png" class="">
+<p>看到intP被转移后地址被置为nullptr，intP2则获取了intP原先的地址。</p>
+<hr>
+<h1 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h1><p>这玩意目前还不知道应用场景在哪，毕竟不太习惯。</p>
+
+        </div>
+
+    </div>
+
+    
+
+    
+
+    
+
+    
+  <div class="article-copyright hairline">
+    <p>
+      本作品采用  <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议 (CC BY-NC-ND 4.0)</a> 进行许可。
+    </p>
+  </div>
+  
+
+    
+
+    
+<nav class="article-nav">
+  
+    <a href="/2022/05/19/smartPointer1/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-caption">prossimo</div>
+      <div class="article-nav-title">
+        
+          smartPointer1
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/05/16/text001/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-caption">precedente</div>
+      <div class="article-nav-title">随记220516</div>
+    </a>
+  
+</nav>
+
+
+    <section class="share">
+        <div class="share-title">share</div>
+        <a class="share-item" target="_blank"
+            href="https://twitter.com/share?text=smartPointer - ohmyhsy&url=https%3A%2F%2F8bytes.top%2F2022%2F05%2F16%2FsmartPointer%2F">
+            <box-icon type='logo' name='twitter'></box-icon>
+        </a>
+        <a class="share-item" target="_blank"
+            href="https://www.facebook.com/sharer.php?title=smartPointer - ohmyhsy&u=https%3A%2F%2F8bytes.top%2F2022%2F05%2F16%2FsmartPointer%2F">
+            <box-icon name='facebook-square' type='logo' ></box-icon>
+        </a>
+        <!-- <a class="share-item" target="_blank"
+            href="https://service.weibo.com/share/share.php?title=smartPointer - ohmyhsy&url=https://8bytes.top/2022/05/16/smartPointer/&pic=">
+            <div class="n-icon n-icon-weibo"></div>
+        </a> -->
+    </section>
+
+</article>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- <script src="//unpkg.com/@waline/dist/Waline.min.js"></script> -->
+    <script src="https://unpkg.com/@waline/client@v2/dist/waline.js"></script>
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/@waline/client@v2/dist/waline.css"
+    />
+    <section class="comments">
+        <div id="waline"></div>
+    </section>
+    <script>
+        Waline.init({
+          el: '#waline',
+          serverURL: 'https://ohmyhsy.vercel.app/',
+        });
+    </script>
+
+
+
+<script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+</div>
+                </section>
+            </section>
+
+            
+            <aside class="sidebar sidebar-search-fix">
+                
+
+    <div class="search">
+    <div class="has-icon-right">
+        <input type="text" class="form-input" id="search" placeholder="SEARCH" autocomplete="off">
+        <div class="form-icon">
+            <box-icon name='search' color="#3c4859"></box-icon>
+        </div>
+    </div>
+    <div class="search-result" id="search-ps"></div>
+</div>
+
+
+<div class="widget" id="widget">
+    
+      
+  <div class="widget-wrap">
+    <div class="widget-inner">
+      <div class="toc post-toc-html"></div>
+    </div>
+  </div>
+
+    
+      
+
+    
+      
+  <div class="widget-wrap widget-tags">
+    <div class="widget-title"><span>Tags</span></div>
+    <div class="widget-inner">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c/" rel="tag">c</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cpp/" rel="tag">cpp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/exam/" rel="tag">exam</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jetbrains/" rel="tag">jetbrains</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/" rel="tag">leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ubuntu/" rel="tag">ubuntu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vscode/" rel="tag">vscode</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-recent-posts">
+    <div class="widget-title"><span>Recent Posts</span></div>
+    <div class="widget-inner">
+      <ul>
+        
+          <li>
+            <a href="/2022/06/09/text004/">text004</a>
+          </li>
+        
+          <li>
+            <a href="/2022/06/03/function5/">function5-栈</a>
+          </li>
+        
+          <li>
+            <a href="/2022/06/01/function4/">function4-本质和函数指针</a>
+          </li>
+        
+          <li>
+            <a href="/2022/05/31/function3/">function3-左值右值</a>
+          </li>
+        
+          <li>
+            <a href="/2022/05/30/function2/">function2</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget-wrap widget-archive">
+    <div class="widget-title"><span>Archive</span></div>
+    <div class="widget-inner">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/">2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/">2021</a></li></ul>
+    </div>
+  </div>
+
+
+    
+</div>
+
+<div id="backtop"><i class="icon icon-arrow-up"></i></div>
+            </aside>
+            
+        </div>
+    </div>
+
+    <footer class="footer">
+    <div class="footer-wave">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#3c4859" fill-opacity="1" d="M0,160L60,181.3C120,203,240,245,360,240C480,235,600,181,720,186.7C840,192,960,256,1080,261.3C1200,267,1320,213,1380,186.7L1440,160L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>
+    </div>
+
+    <!-- Please do not remove this -->
+    <!-- 开源不易，请勿删除 -->
+    <div class="footer-wrap">
+        <div class="footer-inner"> 
+            ohmyhsy &copy; 2022<br>
+            Powered By Hexo · Theme By <a href="https://linhong.me/" target="_blank">Aomori</a> · <a href="https://github.com/lh1me/hexo-theme-aomori" target="_blank">Github</a>
+        </div>
+    </div>
+
+</footer>
+
+
+
+
+
+
+<script src="/dist/build.js?1646451311888.js"></script>
+
+
+<script src="/dist/custom.js?1646451311888.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>

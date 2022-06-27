@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    
+    <title>smartPointer1 | ohmyhsy</title>
+
+    <meta name="description" content="&lt;h1 id=&#34;引用&#34;&gt;&lt;a href=&#34;#引用&#34; class=&#34;headerlink&#34; title=&#34;引用&#34;&gt;&lt;/a&gt;引用&lt;/h1&gt;&lt;p&gt;c++ 11：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;std::shared_ptr&lt;/li&gt;
+&lt;/ul&gt;">
+    <meta name="keywords" content="">
+
+    
+
+    <meta property="og:locale" content="en" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content= "smartPointer1 | ohmyhsy"  />
+    <meta property="og:description" content= "&lt;h1 id=&#34;引用&#34;&gt;&lt;a href=&#34;#引用&#34; class=&#34;headerlink&#34; title=&#34;引用&#34;&gt;&lt;/a&gt;引用&lt;/h1&gt;&lt;p&gt;c++ 11：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;std::shared_ptr&lt;/li&gt;
+&lt;/ul&gt;" />
+    <meta property="og:url" content="https://8bytes.top/2022/05/19/smartPointer1/index.html" />
+    <meta property="og:site_name" content="" />
+    <meta property="article:author" content="Box" />
+    <meta property="article:publisher" content="" />
+    <meta property="og:description" content="&lt;h1 id=&#34;引用&#34;&gt;&lt;a href=&#34;#引用&#34; class=&#34;headerlink&#34; title=&#34;引用&#34;&gt;&lt;/a&gt;引用&lt;/h1&gt;&lt;p&gt;c++ 11：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;std::shared_ptr&lt;/li&gt;
+&lt;/ul&gt;" />
+    <meta name="twitter:title" content="smartPointer1 | ohmyhsy"/>
+    <meta name="twitter:description" content="&lt;h1 id=&#34;引用&#34;&gt;&lt;a href=&#34;#引用&#34; class=&#34;headerlink&#34; title=&#34;引用&#34;&gt;&lt;/a&gt;引用&lt;/h1&gt;&lt;p&gt;c++ 11：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;std::shared_ptr&lt;/li&gt;
+&lt;/ul&gt;"/>
+    <script type="application/ld+json">
+        {
+            "description": "&lt;h1 id=&#34;引用&#34;&gt;&lt;a href=&#34;#引用&#34; class=&#34;headerlink&#34; title=&#34;引用&#34;&gt;&lt;/a&gt;引用&lt;/h1&gt;&lt;p&gt;c++ 11：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;std::shared_ptr&lt;/li&gt;
+&lt;/ul&gt;",
+            "author": { "@type": "Person", "name": "Box" },
+            "@type": "BlogPosting",
+            "url": "https://8bytes.top/2022/05/19/smartPointer1/index.html",
+            "publisher": {
+            "@type": "Organization",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://8bytes.topundefined"
+            },
+            "name": "Box"
+            },
+            "headline": "smartPointer1 | ohmyhsy",
+            "datePublished": "2022-05-19T13:56:38.000Z",
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "https://8bytes.top/2022/05/19/smartPointer1/index.html"
+            },
+            "@context": "http://schema.org"
+        }
+    </script>
+
+
+
+
+    
+
+    
+    <meta property="algolia:search" data-application-id="4CVCYWPWWN" data-api-key="7757db6b0a31c3f94c301c885693ed0d" data-index-name="ohmyhsy">
+    
+
+    
+
+    
+
+    
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎮</text></svg>">
+    
+
+    
+
+    
+
+    
+<link rel="stylesheet" href="/dist/build.css?v=1646451311888.css">
+
+
+    
+<link rel="stylesheet" href="/dist/custom.css?v=1646451311888.css">
+
+
+    <script>
+        window.isPost = true
+        window.aomori = {
+            
+            
+            
+        }
+        window.aomori_logo_typed_animated = true
+        window.aomori_search_algolia = true
+
+    </script>
+
+<meta name="generator" content="Hexo 5.4.1"><link rel="alternate" href="/atom.xml" title="ohmyhsy" type="application/atom+xml">
+</head>
+
+<body>
+
+    <div class="container">
+    <header class="header">
+        <div class="header-type">
+            
+            <div class="header-type-inner">
+                
+                    <div id="typed-strings" style="display:none">
+                        <p>ohmyhsy</p>
+                    </div>
+                    <a class="header-type-title" id="typed" href="/"></a>
+                
+    
+                
+            </div>
+        </div>
+        <div class="header-menu">
+            <div class="header-menu-inner">
+                
+                <a href="/">Home</a>
+                
+                <a href="/archives">Archives</a>
+                
+                <a href="/friends">Friends</a>
+                
+            </div>
+            <div class="header-menu-social">
+                
+    <a class="social" target="_blank" href="https://github.com/8bytes-code">
+        <box-icon type='logo' name='github'></box-icon>
+    </a>
+
+            </div>
+        </div>
+
+        <div class="header-menu-mobile">
+            <div class="header-menu-mobile-inner" id="mobile-menu-open">
+                <i class="icon icon-menu"></i>
+            </div>
+        </div>
+    </header>
+
+    <div class="header-menu-mobile-menu">
+        <div class="header-menu-mobile-menu-bg"></div>
+        <div class="header-menu-mobile-menu-wrap">
+            <div class="header-menu-mobile-menu-inner">
+                <div class="header-menu-mobile-menu-close" id="mobile-menu-close">
+                    <i class="icon icon-cross"></i>
+                </div>
+                <div class="header-menu-mobile-menu-list">
+                    
+                    <a href="/">Home</a>
+                    
+                    <a href="/archives">Archives</a>
+                    
+                    <a href="/friends">Friends</a>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+    <div class="container">
+        <div class="main">
+            <section class="inner">
+                <section class="inner-main">
+                    <div class="post">
+    <article id="post-cl3ixfr9800108wk68i4zdvt5" class="article article-type-post" itemscope
+    itemprop="blogPost">
+
+    <div class="article-inner">
+
+        
+          
+        
+        
+        
+
+        
+        <header class="article-header">
+            
+  
+    <h1 class="article-title" itemprop="name">
+      smartPointer1
+    </h1>
+  
+
+        </header>
+        
+
+        <div class="article-more-info article-more-info-post hairline">
+
+            <div class="article-date">
+  <time datetime="2022-05-19T13:56:38.000Z" itemprop="datePublished">2022-05-19</time>
+</div>
+
+            
+
+            
+            <div class="article-tag">
+                <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cpp/" rel="tag">cpp</a></li></ul>
+            </div>
+            
+
+            
+            <div class="article-busuanzi">
+                <span id="busuanzi_value_page_pv">N</span> 人看过
+            </div>
+            
+
+        </div>
+
+        <div class="article-entry post-inner-html hairline" itemprop="articleBody">
+            <h1 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h1><p>c++ 11：</p>
+<ul>
+<li>std::shared_ptr</li>
+</ul>
+<span id="more"></span>
+
+
+<hr>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>shared顾名思义就是共享的意思，这个共享指针当然也属于智能指针这一块。</p>
+<p>语法上:<br><code>std::shared_ptr&lt;type&gt; tyename</code><br>例如:<br><code>std::shared_ptr&lt;int&gt; a&#123;&#125;</code><br><code>std::shared_ptr&lt;int&gt; b&#123; std::make_shared&lt;int&gt;(0) &#125;</code><br><strong>注意:std::make_shared不支持数组</strong><br><code>std::shared_ptr&lt;int[]&gt; c&#123; new int[5]&#123;1,2,3,4,5&#125; &#125;</code></p>
+<hr>
+<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><pre><code class="cpp">std::shared_ptr&lt;int[]&gt; sp&#123;new int[5]&#123;1,2,3,4,5&#125;&#125;;
+std::shared_ptr&lt;int&gt; sp1&#123; std::make_shared&lt;int&gt;(5) &#125;;
+
+std::cout &lt;&lt; sp[0] &lt;&lt; std::endl;
+std::cout &lt;&lt; sp1[0] &lt;&lt; std::endl;   //与unique一样，初始化时是单个int则无法使用[]调用
+</code></pre>
+<img src="/2022/05/19/smartPointer1/000.png" class="">
+
+<p>回到起点，shared是共享的意思，也就是说，共享指针是可以被其他共享指针所指向的。</p>
+<pre><code class="cpp">std::shared_ptr&lt;int&gt; sp1&#123; std::make_shared&lt;int&gt;(5) &#125;;
+std::shared_ptr&lt;int&gt; sp2&#123; sp1 &#125;;
+std::shared_ptr&lt;int&gt; sp3&#123; sp1 &#125;;
+
+std::cout &lt;&lt; sp1 &lt;&lt; &quot; &quot; &lt;&lt; *sp1 &lt;&lt; std::endl;
+std::cout &lt;&lt; sp2 &lt;&lt; &quot; &quot; &lt;&lt; *sp2 &lt;&lt; std::endl;
+std::cout &lt;&lt; sp3 &lt;&lt; &quot; &quot; &lt;&lt; *sp3 &lt;&lt; std::endl;
+</code></pre>
+<img src="/2022/05/19/smartPointer1/001.png" class="">
+<p>可以看到sp2和sp3的地址和地址上的值都与sp1一致。</p>
+<hr>
+<h2 id="user-count"><a href="#user-count" class="headerlink" title="user_count"></a>user_count</h2><p>如果有多个共享指针指向同一地址，那么只有最后一个共享指针释放内存的时候，才能真正释放所占用的内存空间，也就这个原因，导致shared_ptr会记录这个地址被多少个智能指针调用。<br>有记录的属性，也就意味着shared_ptr会占用的更多内存。</p>
+<p>查看的方式也很简单，就是调用<code>.user_count()</code></p>
+<p>比如上面的代码，我们调用一个试试：<img src="/2022/05/19/smartPointer1/002.png" class=""><br>共享属性所以<code>.user_count()</code>在sp1或者2和3上得到的都是一个结果，因为它们指向同一块内存。</p>
+<hr>
+<h2 id="unique"><a href="#unique" class="headerlink" title="unique"></a>unique</h2><p>能统计就能判断是否被其他指针调用。<br>利用<code>.unique()</code>获取一个智能指针是否是唯一拥有该地址的。<br><strong>注：unique返回的是bool类型的值</strong></p>
+<img src="/2022/05/19/smartPointer1/003.png" class="">
+<p>这里是sp1、2、3自然不用多想都是0，也就是false。</p>
+<blockquote>
+<p>另外值得一提的是，因为这个功能稍显鸡肋，c++17的时候把它废除了。。。。。</p>
+</blockquote>
+<hr>
+<h2 id="reset"><a href="#reset" class="headerlink" title="reset"></a>reset</h2><p>在user_cout的时候说了一下，shared_ptr指针指向的内存空间只有当最后一个指向它的shared_ptr指针去释放的时候才会真正被释放掉，不然其余几个释放只是将自己置为nullptr。</p>
+<pre><code class="cpp">std::shared_ptr&lt;int&gt; sp1&#123; std::make_shared&lt;int&gt;(5) &#125;;
+std::shared_ptr&lt;int&gt; sp2&#123; sp1 &#125;;
+std::shared_ptr&lt;int&gt; sp3&#123; sp1 &#125;;
+
+std::cout &lt;&lt; sp1 &lt;&lt; std::endl;
+std::cout &lt;&lt; sp2 &lt;&lt; std::endl;
+std::cout &lt;&lt; sp3 &lt;&lt; std::endl;
+
+sp1.reset();
+
+std::cout &lt;&lt; sp1 &lt;&lt; std::endl;
+std::cout &lt;&lt; sp2 &lt;&lt; std::endl;
+std::cout &lt;&lt; sp3 &lt;&lt; std::endl;
+</code></pre>
+<img src="/2022/05/19/smartPointer1/004.png" class="">
+<p>能看到sp1自己被置空了，sp2和sp3仍然指向sp1之前指向的内存地址。<br>再把sp2reset掉后也是一个样子<img src="/2022/05/19/smartPointer1/005.png" class=""><br>所以说只有将最后一个指向那片内存区域的指针释放了才是真正意义上的释放内存空间<img src="/2022/05/19/smartPointer1/006.png" class=""></p>
+<p>当然如果有一定怀疑，还可以在reset前后看看use_count的情况</p>
+<img src="/2022/05/19/smartPointer1/007.png" class="">
+<p>例如sp1和sp2都被reset了，能看到sp3指向的内存区域现在就只有一个指针指向它。</p>
+<hr>
+<h1 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h1><p>没啥心得体会，就是感觉shared_ptr在内存占用上要么高一点，要么有一部分内存都写了特定的东西了，就比如说统计多少个指向这块内存的指针。</p>
+
+        </div>
+
+    </div>
+
+    
+
+    
+
+    
+
+    
+  <div class="article-copyright hairline">
+    <p>
+      本作品采用  <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议 (CC BY-NC-ND 4.0)</a> 进行许可。
+    </p>
+  </div>
+  
+
+    
+
+    
+<nav class="article-nav">
+  
+    <a href="/2022/05/19/string/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-caption">prossimo</div>
+      <div class="article-nav-title">
+        
+          string
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/05/16/smartPointer/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-caption">precedente</div>
+      <div class="article-nav-title">smartPointer</div>
+    </a>
+  
+</nav>
+
+
+    <section class="share">
+        <div class="share-title">share</div>
+        <a class="share-item" target="_blank"
+            href="https://twitter.com/share?text=smartPointer1 - ohmyhsy&url=https%3A%2F%2F8bytes.top%2F2022%2F05%2F19%2FsmartPointer1%2F">
+            <box-icon type='logo' name='twitter'></box-icon>
+        </a>
+        <a class="share-item" target="_blank"
+            href="https://www.facebook.com/sharer.php?title=smartPointer1 - ohmyhsy&u=https%3A%2F%2F8bytes.top%2F2022%2F05%2F19%2FsmartPointer1%2F">
+            <box-icon name='facebook-square' type='logo' ></box-icon>
+        </a>
+        <!-- <a class="share-item" target="_blank"
+            href="https://service.weibo.com/share/share.php?title=smartPointer1 - ohmyhsy&url=https://8bytes.top/2022/05/19/smartPointer1/&pic=">
+            <div class="n-icon n-icon-weibo"></div>
+        </a> -->
+    </section>
+
+</article>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- <script src="//unpkg.com/@waline/dist/Waline.min.js"></script> -->
+    <script src="https://unpkg.com/@waline/client@v2/dist/waline.js"></script>
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/@waline/client@v2/dist/waline.css"
+    />
+    <section class="comments">
+        <div id="waline"></div>
+    </section>
+    <script>
+        Waline.init({
+          el: '#waline',
+          serverURL: 'https://ohmyhsy.vercel.app/',
+        });
+    </script>
+
+
+
+<script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+</div>
+                </section>
+            </section>
+
+            
+            <aside class="sidebar sidebar-search-fix">
+                
+
+    <div class="search">
+    <div class="has-icon-right">
+        <input type="text" class="form-input" id="search" placeholder="SEARCH" autocomplete="off">
+        <div class="form-icon">
+            <box-icon name='search' color="#3c4859"></box-icon>
+        </div>
+    </div>
+    <div class="search-result" id="search-ps"></div>
+</div>
+
+
+<div class="widget" id="widget">
+    
+      
+  <div class="widget-wrap">
+    <div class="widget-inner">
+      <div class="toc post-toc-html"></div>
+    </div>
+  </div>
+
+    
+      
+
+    
+      
+  <div class="widget-wrap widget-tags">
+    <div class="widget-title"><span>Tags</span></div>
+    <div class="widget-inner">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c/" rel="tag">c</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cpp/" rel="tag">cpp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/exam/" rel="tag">exam</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jetbrains/" rel="tag">jetbrains</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/" rel="tag">leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ubuntu/" rel="tag">ubuntu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vscode/" rel="tag">vscode</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-recent-posts">
+    <div class="widget-title"><span>Recent Posts</span></div>
+    <div class="widget-inner">
+      <ul>
+        
+          <li>
+            <a href="/2022/06/09/text004/">text004</a>
+          </li>
+        
+          <li>
+            <a href="/2022/06/03/function5/">function5-栈</a>
+          </li>
+        
+          <li>
+            <a href="/2022/06/01/function4/">function4-本质和函数指针</a>
+          </li>
+        
+          <li>
+            <a href="/2022/05/31/function3/">function3-左值右值</a>
+          </li>
+        
+          <li>
+            <a href="/2022/05/30/function2/">function2</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget-wrap widget-archive">
+    <div class="widget-title"><span>Archive</span></div>
+    <div class="widget-inner">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/">2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/">2021</a></li></ul>
+    </div>
+  </div>
+
+
+    
+</div>
+
+<div id="backtop"><i class="icon icon-arrow-up"></i></div>
+            </aside>
+            
+        </div>
+    </div>
+
+    <footer class="footer">
+    <div class="footer-wave">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#3c4859" fill-opacity="1" d="M0,160L60,181.3C120,203,240,245,360,240C480,235,600,181,720,186.7C840,192,960,256,1080,261.3C1200,267,1320,213,1380,186.7L1440,160L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>
+    </div>
+
+    <!-- Please do not remove this -->
+    <!-- 开源不易，请勿删除 -->
+    <div class="footer-wrap">
+        <div class="footer-inner"> 
+            ohmyhsy &copy; 2022<br>
+            Powered By Hexo · Theme By <a href="https://linhong.me/" target="_blank">Aomori</a> · <a href="https://github.com/lh1me/hexo-theme-aomori" target="_blank">Github</a>
+        </div>
+    </div>
+
+</footer>
+
+
+
+
+
+
+<script src="/dist/build.js?1646451311888.js"></script>
+
+
+<script src="/dist/custom.js?1646451311888.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>

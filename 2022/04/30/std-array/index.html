@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    
+    <title>std::array | ohmyhsy</title>
+
+    <meta name="description" content="&lt;h1 id=&#34;参考&#34;&gt;&lt;a href=&#34;#参考&#34; class=&#34;headerlink&#34; title=&#34;参考&#34;&gt;&lt;/a&gt;参考&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;c++11标准特性&lt;/li&gt;
+&lt;li&gt;IDE:vs 2022&lt;/li&gt;
+&lt;/ul&gt;">
+    <meta name="keywords" content="">
+
+    
+
+    <meta property="og:locale" content="en" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content= "std::array | ohmyhsy"  />
+    <meta property="og:description" content= "&lt;h1 id=&#34;参考&#34;&gt;&lt;a href=&#34;#参考&#34; class=&#34;headerlink&#34; title=&#34;参考&#34;&gt;&lt;/a&gt;参考&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;c++11标准特性&lt;/li&gt;
+&lt;li&gt;IDE:vs 2022&lt;/li&gt;
+&lt;/ul&gt;" />
+    <meta property="og:url" content="https://8bytes.top/2022/04/30/std-array/index.html" />
+    <meta property="og:site_name" content="" />
+    <meta property="article:author" content="Box" />
+    <meta property="article:publisher" content="" />
+    <meta property="og:description" content="&lt;h1 id=&#34;参考&#34;&gt;&lt;a href=&#34;#参考&#34; class=&#34;headerlink&#34; title=&#34;参考&#34;&gt;&lt;/a&gt;参考&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;c++11标准特性&lt;/li&gt;
+&lt;li&gt;IDE:vs 2022&lt;/li&gt;
+&lt;/ul&gt;" />
+    <meta name="twitter:title" content="std::array | ohmyhsy"/>
+    <meta name="twitter:description" content="&lt;h1 id=&#34;参考&#34;&gt;&lt;a href=&#34;#参考&#34; class=&#34;headerlink&#34; title=&#34;参考&#34;&gt;&lt;/a&gt;参考&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;c++11标准特性&lt;/li&gt;
+&lt;li&gt;IDE:vs 2022&lt;/li&gt;
+&lt;/ul&gt;"/>
+    <script type="application/ld+json">
+        {
+            "description": "&lt;h1 id=&#34;参考&#34;&gt;&lt;a href=&#34;#参考&#34; class=&#34;headerlink&#34; title=&#34;参考&#34;&gt;&lt;/a&gt;参考&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;c++11标准特性&lt;/li&gt;
+&lt;li&gt;IDE:vs 2022&lt;/li&gt;
+&lt;/ul&gt;",
+            "author": { "@type": "Person", "name": "Box" },
+            "@type": "BlogPosting",
+            "url": "https://8bytes.top/2022/04/30/std-array/index.html",
+            "publisher": {
+            "@type": "Organization",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://8bytes.topundefined"
+            },
+            "name": "Box"
+            },
+            "headline": "std::array | ohmyhsy",
+            "datePublished": "2022-04-30T12:44:11.000Z",
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "https://8bytes.top/2022/04/30/std-array/index.html"
+            },
+            "@context": "http://schema.org"
+        }
+    </script>
+
+
+
+
+    
+
+    
+    <meta property="algolia:search" data-application-id="4CVCYWPWWN" data-api-key="7757db6b0a31c3f94c301c885693ed0d" data-index-name="ohmyhsy">
+    
+
+    
+
+    
+
+    
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎮</text></svg>">
+    
+
+    
+
+    
+
+    
+<link rel="stylesheet" href="/dist/build.css?v=1646451311888.css">
+
+
+    
+<link rel="stylesheet" href="/dist/custom.css?v=1646451311888.css">
+
+
+    <script>
+        window.isPost = true
+        window.aomori = {
+            
+            
+            
+        }
+        window.aomori_logo_typed_animated = true
+        window.aomori_search_algolia = true
+
+    </script>
+
+<meta name="generator" content="Hexo 5.4.1"><link rel="alternate" href="/atom.xml" title="ohmyhsy" type="application/atom+xml">
+</head>
+
+<body>
+
+    <div class="container">
+    <header class="header">
+        <div class="header-type">
+            
+            <div class="header-type-inner">
+                
+                    <div id="typed-strings" style="display:none">
+                        <p>ohmyhsy</p>
+                    </div>
+                    <a class="header-type-title" id="typed" href="/"></a>
+                
+    
+                
+            </div>
+        </div>
+        <div class="header-menu">
+            <div class="header-menu-inner">
+                
+                <a href="/">Home</a>
+                
+                <a href="/archives">Archives</a>
+                
+                <a href="/friends">Friends</a>
+                
+            </div>
+            <div class="header-menu-social">
+                
+    <a class="social" target="_blank" href="https://github.com/8bytes-code">
+        <box-icon type='logo' name='github'></box-icon>
+    </a>
+
+            </div>
+        </div>
+
+        <div class="header-menu-mobile">
+            <div class="header-menu-mobile-inner" id="mobile-menu-open">
+                <i class="icon icon-menu"></i>
+            </div>
+        </div>
+    </header>
+
+    <div class="header-menu-mobile-menu">
+        <div class="header-menu-mobile-menu-bg"></div>
+        <div class="header-menu-mobile-menu-wrap">
+            <div class="header-menu-mobile-menu-inner">
+                <div class="header-menu-mobile-menu-close" id="mobile-menu-close">
+                    <i class="icon icon-cross"></i>
+                </div>
+                <div class="header-menu-mobile-menu-list">
+                    
+                    <a href="/">Home</a>
+                    
+                    <a href="/archives">Archives</a>
+                    
+                    <a href="/friends">Friends</a>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+    <div class="container">
+        <div class="main">
+            <section class="inner">
+                <section class="inner-main">
+                    <div class="post">
+    <article id="post-cl3ixfr9a00158wk66915do9n" class="article article-type-post" itemscope
+    itemprop="blogPost">
+
+    <div class="article-inner">
+
+        
+          
+        
+        
+        
+
+        
+        <header class="article-header">
+            
+  
+    <h1 class="article-title" itemprop="name">
+      std::array
+    </h1>
+  
+
+        </header>
+        
+
+        <div class="article-more-info article-more-info-post hairline">
+
+            <div class="article-date">
+  <time datetime="2022-04-30T12:44:11.000Z" itemprop="datePublished">2022-04-30</time>
+</div>
+
+            
+
+            
+            <div class="article-tag">
+                <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cpp/" rel="tag">cpp</a></li></ul>
+            </div>
+            
+
+            
+            <div class="article-busuanzi">
+                <span id="busuanzi_value_page_pv">N</span> 人看过
+            </div>
+            
+
+        </div>
+
+        <div class="article-entry post-inner-html hairline" itemprop="articleBody">
+            <h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ul>
+<li>c++11标准特性</li>
+<li>IDE:vs 2022</li>
+</ul>
+<span id="more"></span>
+
+
+
+<hr>
+<h1 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h1><ul>
+<li>定义时必须指定大小，且不能使用变量指定</li>
+<li>可以通过arry构造新的array，{}也合法</li>
+<li>不可以使用数组构造，即arry &#x3D; ch是不合法的操作</li>
+<li>本质上任然是一个固定大小的数组，不能删除或者添加元素。</li>
+</ul>
+<hr>
+<h1 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h1><p>如果使用了using namespace std，则后续代码可以无视std::<br>前期先保持基础写法。</p>
+<hr>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>在c语言和c++中，传统方式上定义一个数组可以用：</p>
+<pre><code class="cpp">int ch[10] = &#123;0&#125;;
+int *ch2 = new int[10];
+</code></pre>
+<p>两者区别不大，前者由系统自动分配到栈区，后者在堆区上开辟空间并用指针指向它。</p>
+<hr>
+<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><p>使用array前，需引用头文件<array>;</p>
+<pre><code class="cpp">std::array&lt;int, 2&gt; ary = &#123; 0,1 &#125;;
+//或者不用=也一样
+std::array&lt;int, 2&gt; ary2 &#123; 0,1 &#125;;
+</code></pre>
+<hr>
+<h2 id="size"><a href="#size" class="headerlink" title="size()"></a>size()</h2><p>array内置size()方法，可以直接返回array数组有几个成员。</p>
+<p>传统上我们需要知道数组的成员个数需要通过<code>sizeof(数组)/sizeof(数组类型或者数组首成员[0])</code>。</p>
+<img src="/2022/04/30/std-array/003.png" class="">
+
+
+<hr>
+<h2 id="fill"><a href="#fill" class="headerlink" title="fill()"></a>fill()</h2><p>可以说是一个初始化方法，根据括号内的值，将array数组所有成员都设置为括号内的值。<br>当然跟传统上的方法感觉差别不大。</p>
+<img src="/2022/04/30/std-array/004.png" class="">
+
+
+<hr>
+<h2 id="at"><a href="#at" class="headerlink" title="at()"></a>at()</h2><p>具有传统意义上索引作用，传统数组使用数组[0]来获取内容，而array数组则根据at(0)来返回，当然不是说arry数组就不能使用[]了，而是多了at()方法。</p>
+<p>如果产生越界行为，如arry&lt;int,2&gt; arr，而你去访问arr.at(100),程序即产生错误抛出异常：</p>
+<img src="/2022/04/30/std-array/000.png" class="">
+
+<p>传统定义的数组去访问越界时就有可能得到不正确的值，可以说是一种不安全的行为：</p>
+<img src="/2022/04/30/std-array/001.png" class="">
+
+
+<hr>
+<h2 id="x3D-x3D-重载"><a href="#x3D-x3D-重载" class="headerlink" title="&#x3D;&#x3D;重载"></a>&#x3D;&#x3D;重载</h2><img src="/2022/04/30/std-array/005.png" class="">
+<p>可以看到有意思的是，arrary数组相比较能返回真，而相同的int数组则返回假，当然底层离不开符号重载的实现。重载后面再说，我们可以浅看一下反汇编代码：<br>先打个断点：<img src="/2022/04/30/std-array/006.png" class=""><br>然后转到反汇编：<img src="/2022/04/30/std-array/007.png" class=""></p>
+<p>首先就是array的反汇编代码比正常数组的代码少。<br>然后ch和ch1有一个cmp比较过程，但随后的jne好像是不等于就转移，然后后面就是一堆跟地址一样的操作</p>
+<blockquote>
+<p>汇编还没系统性学习，看个大概</p>
+</blockquote>
+<p>ary和ary2在call的时候有一个operator&#x3D;&#x3D;，这是符号重载的写法，也就是说这里肯定离不开重载，至于后面的目前也不是很清楚</p>
+<hr>
+<h1 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h1><p>内置的方法还有几个，涉及到容器的方面，等后面再补充吧。</p>
+<p>封装好的东西固然功能多，在各方面会更完善，但也就意味着资源消耗的也多了。不过使用的前提还是看使用者，有这么个好东西知道就行。</p>
+
+        </div>
+
+    </div>
+
+    
+
+    
+
+    
+
+    
+  <div class="article-copyright hairline">
+    <p>
+      本作品采用  <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议 (CC BY-NC-ND 4.0)</a> 进行许可。
+    </p>
+  </div>
+  
+
+    
+
+    
+<nav class="article-nav">
+  
+    <a href="/2022/04/30/std-vector/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-caption">prossimo</div>
+      <div class="article-nav-title">
+        
+          std::vector
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/04/28/cpp-cctype/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-caption">precedente</div>
+      <div class="article-nav-title">&lt;cctype&gt;</div>
+    </a>
+  
+</nav>
+
+
+    <section class="share">
+        <div class="share-title">share</div>
+        <a class="share-item" target="_blank"
+            href="https://twitter.com/share?text=std::array - ohmyhsy&url=https%3A%2F%2F8bytes.top%2F2022%2F04%2F30%2Fstd-array%2F">
+            <box-icon type='logo' name='twitter'></box-icon>
+        </a>
+        <a class="share-item" target="_blank"
+            href="https://www.facebook.com/sharer.php?title=std::array - ohmyhsy&u=https%3A%2F%2F8bytes.top%2F2022%2F04%2F30%2Fstd-array%2F">
+            <box-icon name='facebook-square' type='logo' ></box-icon>
+        </a>
+        <!-- <a class="share-item" target="_blank"
+            href="https://service.weibo.com/share/share.php?title=std::array - ohmyhsy&url=https://8bytes.top/2022/04/30/std-array/&pic=">
+            <div class="n-icon n-icon-weibo"></div>
+        </a> -->
+    </section>
+
+</article>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- <script src="//unpkg.com/@waline/dist/Waline.min.js"></script> -->
+    <script src="https://unpkg.com/@waline/client@v2/dist/waline.js"></script>
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/@waline/client@v2/dist/waline.css"
+    />
+    <section class="comments">
+        <div id="waline"></div>
+    </section>
+    <script>
+        Waline.init({
+          el: '#waline',
+          serverURL: 'https://ohmyhsy.vercel.app/',
+        });
+    </script>
+
+
+
+<script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+</div>
+                </section>
+            </section>
+
+            
+            <aside class="sidebar sidebar-search-fix">
+                
+
+    <div class="search">
+    <div class="has-icon-right">
+        <input type="text" class="form-input" id="search" placeholder="SEARCH" autocomplete="off">
+        <div class="form-icon">
+            <box-icon name='search' color="#3c4859"></box-icon>
+        </div>
+    </div>
+    <div class="search-result" id="search-ps"></div>
+</div>
+
+
+<div class="widget" id="widget">
+    
+      
+  <div class="widget-wrap">
+    <div class="widget-inner">
+      <div class="toc post-toc-html"></div>
+    </div>
+  </div>
+
+    
+      
+
+    
+      
+  <div class="widget-wrap widget-tags">
+    <div class="widget-title"><span>Tags</span></div>
+    <div class="widget-inner">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c/" rel="tag">c</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cpp/" rel="tag">cpp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/exam/" rel="tag">exam</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jetbrains/" rel="tag">jetbrains</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/" rel="tag">leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ubuntu/" rel="tag">ubuntu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vscode/" rel="tag">vscode</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-recent-posts">
+    <div class="widget-title"><span>Recent Posts</span></div>
+    <div class="widget-inner">
+      <ul>
+        
+          <li>
+            <a href="/2022/06/09/text004/">text004</a>
+          </li>
+        
+          <li>
+            <a href="/2022/06/03/function5/">function5-栈</a>
+          </li>
+        
+          <li>
+            <a href="/2022/06/01/function4/">function4-本质和函数指针</a>
+          </li>
+        
+          <li>
+            <a href="/2022/05/31/function3/">function3-左值右值</a>
+          </li>
+        
+          <li>
+            <a href="/2022/05/30/function2/">function2</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget-wrap widget-archive">
+    <div class="widget-title"><span>Archive</span></div>
+    <div class="widget-inner">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/">2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/">2021</a></li></ul>
+    </div>
+  </div>
+
+
+    
+</div>
+
+<div id="backtop"><i class="icon icon-arrow-up"></i></div>
+            </aside>
+            
+        </div>
+    </div>
+
+    <footer class="footer">
+    <div class="footer-wave">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#3c4859" fill-opacity="1" d="M0,160L60,181.3C120,203,240,245,360,240C480,235,600,181,720,186.7C840,192,960,256,1080,261.3C1200,267,1320,213,1380,186.7L1440,160L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>
+    </div>
+
+    <!-- Please do not remove this -->
+    <!-- 开源不易，请勿删除 -->
+    <div class="footer-wrap">
+        <div class="footer-inner"> 
+            ohmyhsy &copy; 2022<br>
+            Powered By Hexo · Theme By <a href="https://linhong.me/" target="_blank">Aomori</a> · <a href="https://github.com/lh1me/hexo-theme-aomori" target="_blank">Github</a>
+        </div>
+    </div>
+
+</footer>
+
+
+
+
+
+
+<script src="/dist/build.js?1646451311888.js"></script>
+
+
+<script src="/dist/custom.js?1646451311888.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>

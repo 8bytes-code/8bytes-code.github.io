@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    
+    <title>指针动态内存分配 | ohmyhsy</title>
+
+    <meta name="description" content="&lt;h1 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;在正常情况下，声明一个数组时&lt;code&gt;type arrayName [arraySize]&lt;/code&gt;：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;cpp&#34;&gt;int ch[10] = &amp;#123;0&amp;#125;; //就是将是个成员全部初始化为0
+int ch2[] = &amp;#123;1,2,3,4,5&amp;#125;; //没指定大小，但是有初始化，那么数组的大小就会根据初始化成员个数而定
+&lt;/code&gt;&lt;/pre&gt;">
+    <meta name="keywords" content="">
+
+    
+
+    <meta property="og:locale" content="en" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content= "指针动态内存分配 | ohmyhsy"  />
+    <meta property="og:description" content= "&lt;h1 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;在正常情况下，声明一个数组时&lt;code&gt;type arrayName [arraySize]&lt;/code&gt;：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;cpp&#34;&gt;int ch[10] = &amp;#123;0&amp;#125;; //就是将是个成员全部初始化为0
+int ch2[] = &amp;#123;1,2,3,4,5&amp;#125;; //没指定大小，但是有初始化，那么数组的大小就会根据初始化成员个数而定
+&lt;/code&gt;&lt;/pre&gt;" />
+    <meta property="og:url" content="https://8bytes.top/2022/05/07/dynamicsmemory/index.html" />
+    <meta property="og:site_name" content="" />
+    <meta property="article:author" content="Box" />
+    <meta property="article:publisher" content="" />
+    <meta property="og:description" content="&lt;h1 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;在正常情况下，声明一个数组时&lt;code&gt;type arrayName [arraySize]&lt;/code&gt;：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;cpp&#34;&gt;int ch[10] = &amp;#123;0&amp;#125;; //就是将是个成员全部初始化为0
+int ch2[] = &amp;#123;1,2,3,4,5&amp;#125;; //没指定大小，但是有初始化，那么数组的大小就会根据初始化成员个数而定
+&lt;/code&gt;&lt;/pre&gt;" />
+    <meta name="twitter:title" content="指针动态内存分配 | ohmyhsy"/>
+    <meta name="twitter:description" content="&lt;h1 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;在正常情况下，声明一个数组时&lt;code&gt;type arrayName [arraySize]&lt;/code&gt;：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;cpp&#34;&gt;int ch[10] = &amp;#123;0&amp;#125;; //就是将是个成员全部初始化为0
+int ch2[] = &amp;#123;1,2,3,4,5&amp;#125;; //没指定大小，但是有初始化，那么数组的大小就会根据初始化成员个数而定
+&lt;/code&gt;&lt;/pre&gt;"/>
+    <script type="application/ld+json">
+        {
+            "description": "&lt;h1 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;在正常情况下，声明一个数组时&lt;code&gt;type arrayName [arraySize]&lt;/code&gt;：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;cpp&#34;&gt;int ch[10] = &amp;#123;0&amp;#125;; //就是将是个成员全部初始化为0
+int ch2[] = &amp;#123;1,2,3,4,5&amp;#125;; //没指定大小，但是有初始化，那么数组的大小就会根据初始化成员个数而定
+&lt;/code&gt;&lt;/pre&gt;",
+            "author": { "@type": "Person", "name": "Box" },
+            "@type": "BlogPosting",
+            "url": "https://8bytes.top/2022/05/07/dynamicsmemory/index.html",
+            "publisher": {
+            "@type": "Organization",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://8bytes.topundefined"
+            },
+            "name": "Box"
+            },
+            "headline": "指针动态内存分配 | ohmyhsy",
+            "datePublished": "2022-05-06T16:57:02.000Z",
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "https://8bytes.top/2022/05/07/dynamicsmemory/index.html"
+            },
+            "@context": "http://schema.org"
+        }
+    </script>
+
+
+
+
+    
+
+    
+    <meta property="algolia:search" data-application-id="4CVCYWPWWN" data-api-key="7757db6b0a31c3f94c301c885693ed0d" data-index-name="ohmyhsy">
+    
+
+    
+
+    
+
+    
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎮</text></svg>">
+    
+
+    
+
+    
+
+    
+<link rel="stylesheet" href="/dist/build.css?v=1646451311888.css">
+
+
+    
+<link rel="stylesheet" href="/dist/custom.css?v=1646451311888.css">
+
+
+    <script>
+        window.isPost = true
+        window.aomori = {
+            
+            
+            
+        }
+        window.aomori_logo_typed_animated = true
+        window.aomori_search_algolia = true
+
+    </script>
+
+<meta name="generator" content="Hexo 5.4.1"><link rel="alternate" href="/atom.xml" title="ohmyhsy" type="application/atom+xml">
+</head>
+
+<body>
+
+    <div class="container">
+    <header class="header">
+        <div class="header-type">
+            
+            <div class="header-type-inner">
+                
+                    <div id="typed-strings" style="display:none">
+                        <p>ohmyhsy</p>
+                    </div>
+                    <a class="header-type-title" id="typed" href="/"></a>
+                
+    
+                
+            </div>
+        </div>
+        <div class="header-menu">
+            <div class="header-menu-inner">
+                
+                <a href="/">Home</a>
+                
+                <a href="/archives">Archives</a>
+                
+                <a href="/friends">Friends</a>
+                
+            </div>
+            <div class="header-menu-social">
+                
+    <a class="social" target="_blank" href="https://github.com/8bytes-code">
+        <box-icon type='logo' name='github'></box-icon>
+    </a>
+
+            </div>
+        </div>
+
+        <div class="header-menu-mobile">
+            <div class="header-menu-mobile-inner" id="mobile-menu-open">
+                <i class="icon icon-menu"></i>
+            </div>
+        </div>
+    </header>
+
+    <div class="header-menu-mobile-menu">
+        <div class="header-menu-mobile-menu-bg"></div>
+        <div class="header-menu-mobile-menu-wrap">
+            <div class="header-menu-mobile-menu-inner">
+                <div class="header-menu-mobile-menu-close" id="mobile-menu-close">
+                    <i class="icon icon-cross"></i>
+                </div>
+                <div class="header-menu-mobile-menu-list">
+                    
+                    <a href="/">Home</a>
+                    
+                    <a href="/archives">Archives</a>
+                    
+                    <a href="/friends">Friends</a>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+    <div class="container">
+        <div class="main">
+            <section class="inner">
+                <section class="inner-main">
+                    <div class="post">
+    <article id="post-cl3ixfr8y000b8wk6hdrm4faq" class="article article-type-post" itemscope
+    itemprop="blogPost">
+
+    <div class="article-inner">
+
+        
+          
+        
+        
+        
+
+        
+        <header class="article-header">
+            
+  
+    <h1 class="article-title" itemprop="name">
+      指针动态内存分配
+    </h1>
+  
+
+        </header>
+        
+
+        <div class="article-more-info article-more-info-post hairline">
+
+            <div class="article-date">
+  <time datetime="2022-05-06T16:57:02.000Z" itemprop="datePublished">2022-05-07</time>
+</div>
+
+            
+
+            
+            <div class="article-tag">
+                <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cpp/" rel="tag">cpp</a></li></ul>
+            </div>
+            
+
+            
+            <div class="article-busuanzi">
+                <span id="busuanzi_value_page_pv">N</span> 人看过
+            </div>
+            
+
+        </div>
+
+        <div class="article-entry post-inner-html hairline" itemprop="articleBody">
+            <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>在正常情况下，声明一个数组时<code>type arrayName [arraySize]</code>：</p>
+<pre><code class="cpp">int ch[10] = &#123;0&#125;; //就是将是个成员全部初始化为0
+int ch2[] = &#123;1,2,3,4,5&#125;; //没指定大小，但是有初始化，那么数组的大小就会根据初始化成员个数而定
+</code></pre>
+<span id="more"></span>
+
+
+<p>还有一种情况就是arraySize是const类型或者#define，因为在规范里定义了，声明数组大小的时候必须是常量表达式：</p>
+<pre><code class="cpp">#include&lt;iostream&gt;
+#define N 5
+
+int main()&#123;
+    int ch[N] = &#123; 0 &#125;;  //合法，N是常量
+    const int a = 5;
+    int ch2[a] = &#123; 0 &#125;; //合法，a是常量
+
+    int b = 10;
+    int ch3[b] = &#123; 0 &#125;; //不合法，b是一个变量
+
+    return 0;
+&#125;
+</code></pre>
+<img src="/2022/05/07/dynamicsmemory/000.png" class="">
+<p>至于为什么不能是变量，放到最后再说。</p>
+<hr>
+<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><h2 id="malloc"><a href="#malloc" class="headerlink" title="malloc"></a>malloc</h2><p>这就不得不提c语言的malloc函数了<code>void* malloc(size_t size)</code></p>
+<pre><code class="cpp">//malloc 是向计算机申请一片内存使用，所以参数为type*typesize
+malloc(sizeof(int)*10); //sizeof(type)更加直观，当然熟记类型大小也问题不大，就是怕在32位和64位下有区别，建议保守使用sizeof获取变量类型大小
+//然后就是如何使用这片内存，学过指针，所以我们会将地址抛给指针
+int *p = malloc(sizeof(int)*10); //这里会提示类型不符合，因为malloc原型是void*，所以需要强制转换
+int *p = (int*)malloc(sizeof(int)*10);
+
+p[0] = 1;
+p[1] = 2;
+p[2] = 1*2;
+//都是合法的，[前提是不超过分配的内存大小]，这个在指针那里就说过了为什么合法
+</code></pre>
+<p><strong>当然，malloc如果没有申请到内存就会返回0，指针得到的结果也就为0</strong></p>
+<hr>
+<h2 id="calloc"><a href="#calloc" class="headerlink" title="calloc"></a>calloc</h2><p><code>void * calloc(size_t count,size_t size)</code><br>差别到不是太大，就是两个形参，一个是个数，一个是类型大小。</p>
+<pre><code class="cpp">int *p = (int*)calloc(10,4);
+//或者
+int *p = (int*)calloc(10,sizeof(int));
+//当然10可以用变量代替
+</code></pre>
+<p><strong>同样的，如果没有成功分配到内存，返回也是0，好处是calloc分配完内存后会进行初始化，而malloc则没有这么贴心</strong></p>
+<hr>
+<h2 id="realloc"><a href="#realloc" class="headerlink" title="realloc"></a>realloc</h2><p>re可能就会联想到重新,realloc就是重新分配内存<br><code>void* realloc(voir* _Block, size_t_size)</code></p>
+<blockquote>
+<p>先判断当前的指针是否有足够的连续空间，如果有，扩大mem_address指向的地址，并且将mem_address返回，如果空间不够，先按照newsize指定的大小分配空间，将原有数据从头到尾拷贝到新分配的内存区域，而后释放原来mem_address所指内存区域（注意：原来指针是自动释放，不需要使用free），同时返回新分配的内存区域的首地址。即重新分配存储器块的地址。<br>——摘自百度百科</p>
+</blockquote>
+<pre><code class="cpp">int main()&#123;
+    int *p = (int *)malloc(sizeof(int) * 10);
+    p[0] = 1;
+
+    std::cout &lt;&lt; p &lt;&lt; std::endl;
+    std::cout &lt;&lt; p[0] &lt;&lt; std::endl;
+
+    p = (int*)realloc(p, 20);
+
+    std::cout &lt;&lt; p &lt;&lt; std::endl;
+    std::cout &lt;&lt; p[0] &lt;&lt; std::endl;
+
+    return 0;
+&#125;
+</code></pre>
+<img src="/2022/05/07/dynamicsmemory/001.png" class="">
+<blockquote>
+<p>这里可以看到经过扩容之后的内存，起始位置发生了改变，但是原本p[0]上的1还是存在</p>
+</blockquote>
+<pre><code class="cpp">int *p = (int *)malloc(sizeof(int) * 10);
+p[0] = 1;
+int *p2 = p;
+
+std::cout &lt;&lt; p &lt;&lt; std::endl;
+std::cout &lt;&lt; p[0] &lt;&lt; std::endl;
+
+p = (int*)realloc(p, 5);
+
+std::cout &lt;&lt; p &lt;&lt; std::endl;
+std::cout &lt;&lt; p2 &lt;&lt; std::endl;
+std::cout &lt;&lt; p[0] &lt;&lt; std::endl;
+</code></pre>
+<p>然后改成缩小，并且用一个指针先记录p原先的地址，在realloc前后各打印一次</p>
+<img src="/2022/05/07/dynamicsmemory/002.png" class="">
+<blockquote>
+<p>可以看到经过realloc之后指针p的首地址发生了改变。符号百度的情况</p>
+</blockquote>
+<p>但是上述两种都是基于x64编译的，试了下x86编译的，发现不论是扩大还是缩小，内存首地址居然没变化</p>
+<img src="/2022/05/07/dynamicsmemory/003.png" class="">
+
+<p>起初还以为是vs2022做了什么优化，又用了clion试了一下：</p>
+<img src="/2022/05/07/dynamicsmemory/004.png" class="">
+<blockquote>
+<p>发现好像是malloc的不够大，超过好几倍的时候才会申请新的空间拖拽，不然就是首地址往后或者前操作。</p>
+</blockquote>
+<p>回到vs2022上,将<code>p = (int*)realloc(p, 200);</code>修改成200。</p>
+<img src="/2022/05/07/dynamicsmemory/005.png" class="">
+<p>能够看到p的地址果然发生改变了。</p>
+<img src="/2022/05/07/dynamicsmemory/006.png" class="">
+<p>由大缩小后首地址不变。</p>
+<p>x64下同理：<img src="/2022/05/07/dynamicsmemory/007.png" class=""></p>
+<p><strong>那么malloc就符合之前的描述：当内存足够时，realloc的内存&#x3D;原本内存+剩余内存，当内存不够时，realloc会申请新的内存并将原来的内存拷贝到新内存里，旧的将被free掉。</strong></p>
+<hr>
+<h2 id="free"><a href="#free" class="headerlink" title="free"></a>free</h2><p><code>void free(void* _Block)</code>,_Block就是要释放的地址。</p>
+<pre><code class="cpp">int *p = (int*)malloc(10*sizeof(int));
+free(p); 
+//free完之后，原本的指针会变成悬挂指针也叫野指针，因为它现在没法用了
+//常见情况下就是要么指针没有初始化，要么指针的对象生命周期到了，也就是局部变量离开作用域后失效
+//还有一种就是free完之后，尽量将指针置空或者置零。
+p = NULL; //或者=0,以后处理的工作大了也可以定义一个宏或者函数去处理这种事件
+</code></pre>
+<p>但是连续free一块内存空间是会出点毛病的，具体要看编译器怎么处理了。</p>
+<hr>
+<h2 id="new"><a href="#new" class="headerlink" title="new"></a>new</h2><p><code>数据类型 *变量名 = new 数据类型：int *p = new int;</code><br><code>数据类型 *变量名 = new 数据类型[arraySize]: int *p = new int[5];</code></p>
+<blockquote>
+<p>老规矩分配失败返回0</p>
+</blockquote>
+<pre><code class="cpp">int *p = new int;
+int *p2 = new int[5];
+</code></pre>
+<p>其实底层还是malloc那套，我们随便打个断点反汇编进去，一步步看：</p>
+<img src="/2022/05/07/dynamicsmemory/008.png" class="">
+<p>所以万变不离其宗，封装再好，也能看到底层，我们也能模仿造轮子。</p>
+<p>其次就是之前说过的，动态分配的内存，都需要我们手动释放，malloc那些用free，而new 对应的时delete</p>
+<pre><code class="cpp">delete p;
+delete p2;    //p2是分配了五个int类型的内存，所以这里会产生警告，不然你只是delete掉p2首地址
+</code></pre>
+<img src="/2022/05/07/dynamicsmemory/009.png" class="">
+
+<p>所以数组需要加上[]消除，<code>delete []p2</code></p>
+<img src="/2022/05/07/dynamicsmemory/010.png" class="">
+<p>可以看到程序没有报错和警告。</p>
+<hr>
+<h2 id="风险"><a href="#风险" class="headerlink" title="风险"></a>风险</h2><h3 id="野指针"><a href="#野指针" class="headerlink" title="野指针"></a>野指针</h3><p>前面提到过的悬挂指针问题：</p>
+<pre><code class="cpp">int main()&#123;
+    int *p = (int *)malloc(sizeof(int) * 10);
+    p[0] = 250;
+
+    free(p);
+
+    p[2] = 99;    //编译器不一定会报错
+
+    return 0;
+&#125;
+</code></pre>
+<blockquote>
+<p>当内存空间free掉之后，指针指向的内存生命周期到了，没有了。下次程序使用的时候就有可能产生不可预料的错误。</p>
+</blockquote>
+<pre><code class="cpp">int main()&#123;
+    int *p = new int[10];
+    p[0] = 250;
+    delete[]p;
+    p[0] = 300;        //这段程序就会报错
+
+    return 0;
+&#125;
+</code></pre>
+<img src="/2022/05/07/dynamicsmemory/011.png" class="">
+<p>会报错是好事，能及时止损。</p>
+<p>还有一种情况就是你的指针备份过了：</p>
+<pre><code class="cpp">int main()&#123;
+    int *p = new int[10];
+    int *p2 = p;
+    p[0] = 250;
+    delete[]p;
+    p2[0] = 300;        //编译通过了
+&#125;
+</code></pre>
+<p>这玩意也挺狠，利用备份的指针重写，都不知道写到哪去了。</p>
+<hr>
+<h3 id="重复释放"><a href="#重复释放" class="headerlink" title="重复释放"></a>重复释放</h3><pre><code class="cpp">free(p);
+free(p);
+
+//或者
+delete p;
+delete p;
+</code></pre>
+<p>编译器会给出警告，虽然你释放过了这片区域，但是难免不保证被被人申请到，当别人申请到了之后，你又再来一下释放。。。这不是一种耍流氓行为吗，所以不可取。</p>
+<hr>
+<h3 id="内存碎片"><a href="#内存碎片" class="headerlink" title="内存碎片"></a>内存碎片</h3><p>当程序频繁申请和释放内存，就会导致产生内存碎片</p>
+<img src="/2022/05/07/dynamicsmemory/012.png" class="">
+<p>虽然释放掉的内存没有被占用，但是无法规避我们后面需要多大的空间。那么这些零散的内存就被称为内存碎片。<br>当然new和delete会尽量规避风险，有能力自己额外注意。</p>
+<hr>
+<h3 id="混用"><a href="#混用" class="headerlink" title="混用"></a>混用</h3><p>malloc申请的内存用delete释放<br>new分配的内存用free释放</p>
+<blockquote>
+<p>底层new就是通过malloc实现的，那么delete也八九不离十是free为原型的<br>但是，new毕竟是c++的产物，所以不建议混用，以免养成不好习惯或不必要的麻烦。</p>
+</blockquote>
+<hr>
+<h2 id="memcpy"><a href="#memcpy" class="headerlink" title="memcpy"></a>memcpy</h2><p>如果想要将数组复制到new出来的内存上时，最常用就是通过循环赋值</p>
+<pre><code class="cpp">int main()&#123;
+    int ch[5] = &#123; 1,2,3,4,5 &#125;;
+    int *p = new int[5];
+
+    for (int i = 0; i &lt; 5; i++)&#123;
+        p[i] = ch[i];
+    &#125;
+&#125;
+</code></pre>
+<p>那么c++也有定义好的函数<br><code>void * memcpy(void* _Dst, const void *_Src, size_t_size);</code><br>也就是将src的内存数据复制到dst上，关键是还要指定长度size</p>
+<pre><code class="cpp">int main()&#123;
+    int ch[5] = &#123; 1,2,3,4,5 &#125;;
+    int *p = new int[5];
+
+    memcpy(p, ch, sizeof(int) * 5);
+&#125;
+</code></pre>
+<p><strong>如果不想全复制，那也就是对长度做手脚，修改一下就行。往小了还行，往大了赋值只会越界，后面的内存不归你使用，所以不要傻乎乎玩这么大</strong></p>
+<hr>
+<h2 id="memset"><a href="#memset" class="headerlink" title="memset"></a>memset</h2><p>在经过memcpy之后，如果只复制几个，后面的元素又没有初始化过。就是一堆乱值。<br>memset就是将指定内存区域按每个字节的值都设置起来<br><code>void *memset(void *_Dst,int val,size_t_size);</code></p>
+<pre><code class="cpp">int *p = new int[5];
+memset(p,0,sizeof(int)*5);
+</code></pre>
+<p>for循环打印查看结果：<img src="/2022/05/07/dynamicsmemory/013.png" class=""></p>
+<p>然后就是坏事，因为memset是按照每个字节分配内存。一个字节的范围0-255，十六进制也就0xff。<br>如果val超过了255，可以看看会发生什么。</p>
+<p>val &#x3D; 0xff的情况下：<img src="/2022/05/07/dynamicsmemory/014.png" class=""><br>十进制可能不够明显，我们转换成十六进制输出<code>std::cout &lt;&lt; std::hex &lt;&lt; p[i] &lt;&lt; std::endl;</code></p>
+<img src="/2022/05/07/dynamicsmemory/015.png" class=""> 两个十六进制数一个字节
+<p>val &#x3D; 0x123456时：<img src="/2022/05/07/dynamicsmemory/016.png" class=""></p>
+<p><strong>所以建议初始化的时候，val设置为0或者0x00，就不要整别的了</strong></p>
+<hr>
+<h1 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h1><p>那么动态内存分配就到此先，凡是需要人去手动构造的都需要格外谨慎。</p>
+
+        </div>
+
+    </div>
+
+    
+
+    
+
+    
+
+    
+  <div class="article-copyright hairline">
+    <p>
+      本作品采用  <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议 (CC BY-NC-ND 4.0)</a> 进行许可。
+    </p>
+  </div>
+  
+
+    
+
+    
+<nav class="article-nav">
+  
+    <a href="/2022/05/10/quote/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-caption">prossimo</div>
+      <div class="article-nav-title">
+        
+          quote
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/05/05/pointerArray/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-caption">precedente</div>
+      <div class="article-nav-title">pointerArray</div>
+    </a>
+  
+</nav>
+
+
+    <section class="share">
+        <div class="share-title">share</div>
+        <a class="share-item" target="_blank"
+            href="https://twitter.com/share?text=指针动态内存分配 - ohmyhsy&url=https%3A%2F%2F8bytes.top%2F2022%2F05%2F07%2Fdynamicsmemory%2F">
+            <box-icon type='logo' name='twitter'></box-icon>
+        </a>
+        <a class="share-item" target="_blank"
+            href="https://www.facebook.com/sharer.php?title=指针动态内存分配 - ohmyhsy&u=https%3A%2F%2F8bytes.top%2F2022%2F05%2F07%2Fdynamicsmemory%2F">
+            <box-icon name='facebook-square' type='logo' ></box-icon>
+        </a>
+        <!-- <a class="share-item" target="_blank"
+            href="https://service.weibo.com/share/share.php?title=指针动态内存分配 - ohmyhsy&url=https://8bytes.top/2022/05/07/dynamicsmemory/&pic=">
+            <div class="n-icon n-icon-weibo"></div>
+        </a> -->
+    </section>
+
+</article>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- <script src="//unpkg.com/@waline/dist/Waline.min.js"></script> -->
+    <script src="https://unpkg.com/@waline/client@v2/dist/waline.js"></script>
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/@waline/client@v2/dist/waline.css"
+    />
+    <section class="comments">
+        <div id="waline"></div>
+    </section>
+    <script>
+        Waline.init({
+          el: '#waline',
+          serverURL: 'https://ohmyhsy.vercel.app/',
+        });
+    </script>
+
+
+
+<script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+</div>
+                </section>
+            </section>
+
+            
+            <aside class="sidebar sidebar-search-fix">
+                
+
+    <div class="search">
+    <div class="has-icon-right">
+        <input type="text" class="form-input" id="search" placeholder="SEARCH" autocomplete="off">
+        <div class="form-icon">
+            <box-icon name='search' color="#3c4859"></box-icon>
+        </div>
+    </div>
+    <div class="search-result" id="search-ps"></div>
+</div>
+
+
+<div class="widget" id="widget">
+    
+      
+  <div class="widget-wrap">
+    <div class="widget-inner">
+      <div class="toc post-toc-html"></div>
+    </div>
+  </div>
+
+    
+      
+
+    
+      
+  <div class="widget-wrap widget-tags">
+    <div class="widget-title"><span>Tags</span></div>
+    <div class="widget-inner">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c/" rel="tag">c</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cpp/" rel="tag">cpp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/exam/" rel="tag">exam</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jetbrains/" rel="tag">jetbrains</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/" rel="tag">leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ubuntu/" rel="tag">ubuntu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vscode/" rel="tag">vscode</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-recent-posts">
+    <div class="widget-title"><span>Recent Posts</span></div>
+    <div class="widget-inner">
+      <ul>
+        
+          <li>
+            <a href="/2022/06/09/text004/">text004</a>
+          </li>
+        
+          <li>
+            <a href="/2022/06/03/function5/">function5-栈</a>
+          </li>
+        
+          <li>
+            <a href="/2022/06/01/function4/">function4-本质和函数指针</a>
+          </li>
+        
+          <li>
+            <a href="/2022/05/31/function3/">function3-左值右值</a>
+          </li>
+        
+          <li>
+            <a href="/2022/05/30/function2/">function2</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget-wrap widget-archive">
+    <div class="widget-title"><span>Archive</span></div>
+    <div class="widget-inner">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/">2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/">2021</a></li></ul>
+    </div>
+  </div>
+
+
+    
+</div>
+
+<div id="backtop"><i class="icon icon-arrow-up"></i></div>
+            </aside>
+            
+        </div>
+    </div>
+
+    <footer class="footer">
+    <div class="footer-wave">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#3c4859" fill-opacity="1" d="M0,160L60,181.3C120,203,240,245,360,240C480,235,600,181,720,186.7C840,192,960,256,1080,261.3C1200,267,1320,213,1380,186.7L1440,160L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>
+    </div>
+
+    <!-- Please do not remove this -->
+    <!-- 开源不易，请勿删除 -->
+    <div class="footer-wrap">
+        <div class="footer-inner"> 
+            ohmyhsy &copy; 2022<br>
+            Powered By Hexo · Theme By <a href="https://linhong.me/" target="_blank">Aomori</a> · <a href="https://github.com/lh1me/hexo-theme-aomori" target="_blank">Github</a>
+        </div>
+    </div>
+
+</footer>
+
+
+
+
+
+
+<script src="/dist/build.js?1646451311888.js"></script>
+
+
+<script src="/dist/custom.js?1646451311888.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>

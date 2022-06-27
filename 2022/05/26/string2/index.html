@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    
+    <title>string2 | ohmyhsy</title>
+
+    <meta name="description" content="&lt;h1 id=&#34;感言&#34;&gt;&lt;a href=&#34;#感言&#34; class=&#34;headerlink&#34; title=&#34;感言&#34;&gt;&lt;/a&gt;感言&lt;/h1&gt;&lt;p&gt;自认为不是一个努力的人……虽然这些20年在b站看过黑马的教程，甚至当时在本地也写过md的文件哈哈哈哈但是一段时间不用又落下了许多，也好在没有忘得一干二净吧……看到都能想起来，只是一些内置的方法会记不太清。回看也是两天看一点看一点，加上看视频又得自己做，然后顺便写在博客上，进度确实会慢一些。&lt;br&gt;而且数据结构这一门快打工了也还没掌握……还是很惭愧的,后面要尽量补齐了。&lt;/p&gt;">
+    <meta name="keywords" content="">
+
+    
+
+    <meta property="og:locale" content="en" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content= "string2 | ohmyhsy"  />
+    <meta property="og:description" content= "&lt;h1 id=&#34;感言&#34;&gt;&lt;a href=&#34;#感言&#34; class=&#34;headerlink&#34; title=&#34;感言&#34;&gt;&lt;/a&gt;感言&lt;/h1&gt;&lt;p&gt;自认为不是一个努力的人……虽然这些20年在b站看过黑马的教程，甚至当时在本地也写过md的文件哈哈哈哈但是一段时间不用又落下了许多，也好在没有忘得一干二净吧……看到都能想起来，只是一些内置的方法会记不太清。回看也是两天看一点看一点，加上看视频又得自己做，然后顺便写在博客上，进度确实会慢一些。&lt;br&gt;而且数据结构这一门快打工了也还没掌握……还是很惭愧的,后面要尽量补齐了。&lt;/p&gt;" />
+    <meta property="og:url" content="https://8bytes.top/2022/05/26/string2/index.html" />
+    <meta property="og:site_name" content="" />
+    <meta property="article:author" content="Box" />
+    <meta property="article:publisher" content="" />
+    <meta property="og:description" content="&lt;h1 id=&#34;感言&#34;&gt;&lt;a href=&#34;#感言&#34; class=&#34;headerlink&#34; title=&#34;感言&#34;&gt;&lt;/a&gt;感言&lt;/h1&gt;&lt;p&gt;自认为不是一个努力的人……虽然这些20年在b站看过黑马的教程，甚至当时在本地也写过md的文件哈哈哈哈但是一段时间不用又落下了许多，也好在没有忘得一干二净吧……看到都能想起来，只是一些内置的方法会记不太清。回看也是两天看一点看一点，加上看视频又得自己做，然后顺便写在博客上，进度确实会慢一些。&lt;br&gt;而且数据结构这一门快打工了也还没掌握……还是很惭愧的,后面要尽量补齐了。&lt;/p&gt;" />
+    <meta name="twitter:title" content="string2 | ohmyhsy"/>
+    <meta name="twitter:description" content="&lt;h1 id=&#34;感言&#34;&gt;&lt;a href=&#34;#感言&#34; class=&#34;headerlink&#34; title=&#34;感言&#34;&gt;&lt;/a&gt;感言&lt;/h1&gt;&lt;p&gt;自认为不是一个努力的人……虽然这些20年在b站看过黑马的教程，甚至当时在本地也写过md的文件哈哈哈哈但是一段时间不用又落下了许多，也好在没有忘得一干二净吧……看到都能想起来，只是一些内置的方法会记不太清。回看也是两天看一点看一点，加上看视频又得自己做，然后顺便写在博客上，进度确实会慢一些。&lt;br&gt;而且数据结构这一门快打工了也还没掌握……还是很惭愧的,后面要尽量补齐了。&lt;/p&gt;"/>
+    <script type="application/ld+json">
+        {
+            "description": "&lt;h1 id=&#34;感言&#34;&gt;&lt;a href=&#34;#感言&#34; class=&#34;headerlink&#34; title=&#34;感言&#34;&gt;&lt;/a&gt;感言&lt;/h1&gt;&lt;p&gt;自认为不是一个努力的人……虽然这些20年在b站看过黑马的教程，甚至当时在本地也写过md的文件哈哈哈哈但是一段时间不用又落下了许多，也好在没有忘得一干二净吧……看到都能想起来，只是一些内置的方法会记不太清。回看也是两天看一点看一点，加上看视频又得自己做，然后顺便写在博客上，进度确实会慢一些。&lt;br&gt;而且数据结构这一门快打工了也还没掌握……还是很惭愧的,后面要尽量补齐了。&lt;/p&gt;",
+            "author": { "@type": "Person", "name": "Box" },
+            "@type": "BlogPosting",
+            "url": "https://8bytes.top/2022/05/26/string2/index.html",
+            "publisher": {
+            "@type": "Organization",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://8bytes.topundefined"
+            },
+            "name": "Box"
+            },
+            "headline": "string2 | ohmyhsy",
+            "datePublished": "2022-05-26T15:58:49.000Z",
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "https://8bytes.top/2022/05/26/string2/index.html"
+            },
+            "@context": "http://schema.org"
+        }
+    </script>
+
+
+
+
+    
+
+    
+    <meta property="algolia:search" data-application-id="4CVCYWPWWN" data-api-key="7757db6b0a31c3f94c301c885693ed0d" data-index-name="ohmyhsy">
+    
+
+    
+
+    
+
+    
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎮</text></svg>">
+    
+
+    
+
+    
+
+    
+<link rel="stylesheet" href="/dist/build.css?v=1646451311888.css">
+
+
+    
+<link rel="stylesheet" href="/dist/custom.css?v=1646451311888.css">
+
+
+    <script>
+        window.isPost = true
+        window.aomori = {
+            
+            
+            
+        }
+        window.aomori_logo_typed_animated = true
+        window.aomori_search_algolia = true
+
+    </script>
+
+<meta name="generator" content="Hexo 5.4.1"><link rel="alternate" href="/atom.xml" title="ohmyhsy" type="application/atom+xml">
+</head>
+
+<body>
+
+    <div class="container">
+    <header class="header">
+        <div class="header-type">
+            
+            <div class="header-type-inner">
+                
+                    <div id="typed-strings" style="display:none">
+                        <p>ohmyhsy</p>
+                    </div>
+                    <a class="header-type-title" id="typed" href="/"></a>
+                
+    
+                
+            </div>
+        </div>
+        <div class="header-menu">
+            <div class="header-menu-inner">
+                
+                <a href="/">Home</a>
+                
+                <a href="/archives">Archives</a>
+                
+                <a href="/friends">Friends</a>
+                
+            </div>
+            <div class="header-menu-social">
+                
+    <a class="social" target="_blank" href="https://github.com/8bytes-code">
+        <box-icon type='logo' name='github'></box-icon>
+    </a>
+
+            </div>
+        </div>
+
+        <div class="header-menu-mobile">
+            <div class="header-menu-mobile-inner" id="mobile-menu-open">
+                <i class="icon icon-menu"></i>
+            </div>
+        </div>
+    </header>
+
+    <div class="header-menu-mobile-menu">
+        <div class="header-menu-mobile-menu-bg"></div>
+        <div class="header-menu-mobile-menu-wrap">
+            <div class="header-menu-mobile-menu-inner">
+                <div class="header-menu-mobile-menu-close" id="mobile-menu-close">
+                    <i class="icon icon-cross"></i>
+                </div>
+                <div class="header-menu-mobile-menu-list">
+                    
+                    <a href="/">Home</a>
+                    
+                    <a href="/archives">Archives</a>
+                    
+                    <a href="/friends">Friends</a>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+    <div class="container">
+        <div class="main">
+            <section class="inner">
+                <section class="inner-main">
+                    <div class="post">
+    <article id="post-cl3q4m1tz0000pok6310j17e0" class="article article-type-post" itemscope
+    itemprop="blogPost">
+
+    <div class="article-inner">
+
+        
+          
+        
+        
+        
+
+        
+        <header class="article-header">
+            
+  
+    <h1 class="article-title" itemprop="name">
+      string2
+    </h1>
+  
+
+        </header>
+        
+
+        <div class="article-more-info article-more-info-post hairline">
+
+            <div class="article-date">
+  <time datetime="2022-05-26T15:58:49.000Z" itemprop="datePublished">2022-05-26</time>
+</div>
+
+            
+
+            
+            <div class="article-tag">
+                <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cpp/" rel="tag">cpp</a></li></ul>
+            </div>
+            
+
+            
+            <div class="article-busuanzi">
+                <span id="busuanzi_value_page_pv">N</span> 人看过
+            </div>
+            
+
+        </div>
+
+        <div class="article-entry post-inner-html hairline" itemprop="articleBody">
+            <h1 id="感言"><a href="#感言" class="headerlink" title="感言"></a>感言</h1><p>自认为不是一个努力的人……虽然这些20年在b站看过黑马的教程，甚至当时在本地也写过md的文件哈哈哈哈但是一段时间不用又落下了许多，也好在没有忘得一干二净吧……看到都能想起来，只是一些内置的方法会记不太清。回看也是两天看一点看一点，加上看视频又得自己做，然后顺便写在博客上，进度确实会慢一些。<br>而且数据结构这一门快打工了也还没掌握……还是很惭愧的,后面要尽量补齐了。</p>
+<span id="more"></span>
+
+
+<hr>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>也回顾了string的一些方法，然后小结一下string</p>
+<hr>
+<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><p>字符串之中除了指针，编码是一个无时不刻不会头疼的问题。<br>字符从存储：由表面的字符到计算机上的编码表，再到底层转换成二进制<br>读取字符串的顺序是存储的逆向顺序。</p>
+<blockquote>
+<p>常见的编码表：utf-8、utf-16、GBK、ASCII等</p>
+</blockquote>
+<hr>
+<h2 id="自制能统计带中文的字符串"><a href="#自制能统计带中文的字符串" class="headerlink" title="自制能统计带中文的字符串"></a>自制能统计带中文的字符串</h2><pre><code class="cpp">void tjsp(char *ch)&#123;
+    int n = 0;
+    while (*ch++ != &#39;\0&#39;)&#123;
+        if (*ch &lt; 0)&#123;
+            n++;
+            *ch++;
+        &#125;
+        else&#123;
+            n++;
+        &#125;
+    &#125;
+    std::cout &lt;&lt; n &lt;&lt; std::endl;
+&#125;
+</code></pre>
+<p>这是之前string回顾的时候做的一个小题目，因为gbk的情况下，中文占用两个字节，所以判断起来不一样。<br>代码目前不重要，重要的是一点，为什么要<code>*ch &lt; 0</code>。</p>
+<p>1字节的范围是-128 - 127，如果是无符号就是0-255。<br>那么现在没有指定是无符号，所以按照-128 - 127算。<br>而ascii码的范围就是0-127，超过的就代表不是英文字符，且现在是有符号类型，所以是判断这个字符是不是&lt; 0，如果小于0就说明这个字符是中文；如果是无符号类型，就是判断这个字符是不是&gt; 127，如果大于127就说明这个字符是中文。</p>
+<p>比如说<code>d5 c5</code>是中文张在gbk下的十六进制表现<br>d5拆分成二进制<code>1101 0101</code>,按照三码的规范，这其实就是个负数，那么在占用两个字节的前提下，读到一个字节十进制小于0，就可以跳过一个字节读了，也就是上述代码的写法。</p>
+<p>当然也可用for循环：</p>
+<pre><code class="cpp">void tjsp(char *ch)&#123;
+    int n = 0;
+    for(int i = 0; ch[i]; i++)&#123;
+        if(ch[i] &lt; 0)
+            i++;
+        n++;
+    &#125;
+    std::cout &lt;&lt; n &lt;&lt; std::endl;
+&#125;
+</code></pre>
+<hr>
+<h2 id="拓展"><a href="#拓展" class="headerlink" title="拓展"></a>拓展</h2><p>string那会有个把数字转换成字符串的方法<code>std::to_string(number)</code>;<br>对应的也就产生了将字符串转化成数字</p>
+<table>
+<thead>
+<tr>
+<th>作用</th>
+<th>语法</th>
+<th>用法</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>str转换成int</td>
+<td>std::stoi(string)</td>
+<td>int a &#x3D; stoi(“123”);</td>
+</tr>
+<tr>
+<td>str转换成long</td>
+<td>std::stol(string)</td>
+<td>long a &#x3D; stol(“123”);</td>
+</tr>
+<tr>
+<td>str转换成long long</td>
+<td>std::stoll(string)</td>
+<td>long long a &#x3D; stoll(“123”);</td>
+</tr>
+<tr>
+<td>str转换成unsigned long</td>
+<td>std::stoul(string)</td>
+<td>unsigned long a &#x3D; stoul(“123”)</td>
+</tr>
+<tr>
+<td>str转换成unsigned long long</td>
+<td>std::stoull(string)</td>
+<td>unsigned long long a &#x3D; stoull(“123”);</td>
+</tr>
+<tr>
+<td>str转换成float</td>
+<td>stof(string)</td>
+<td>float a &#x3D; stof(“123”);</td>
+</tr>
+<tr>
+<td>str转换成double</td>
+<td>stod(string)</td>
+<td>double a &#x3D; stod(“123”);</td>
+</tr>
+<tr>
+<td>str转换成long double</td>
+<td>stold(string)</td>
+<td>long double a &#x3D; stold(“123”)</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>也是有规律的，sto+转换成的类型首字符</p>
+</blockquote>
+<hr>
+<h2 id="stringstream流"><a href="#stringstream流" class="headerlink" title="stringstream流"></a>stringstream流</h2><p>在没有声明命名空间的时候，输入输出都是通过std::操作<br>在头文件sstream中有这么古怪玩意。。<code>std::stringstream</code><br><code>.str()会返回一个string</code></p>
+<pre><code class="cpp">std::stringstream str;
+str &lt;&lt; &quot;hello &quot; &lt;&lt; &quot;world&quot;;
+std::string str1 = str.str();
+</code></pre>
+<p>打印str1的结果就是<code>hello world</code>;</p>
+<blockquote>
+<p>这个单独的string流感觉用的也少吧，毕竟代码需要可阅读性，大家都用的会更直观</p>
+</blockquote>
+<hr>
+<h1 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h1><p>无感-</p>
+
+        </div>
+
+    </div>
+
+    
+
+    
+
+    
+
+    
+  <div class="article-copyright hairline">
+    <p>
+      本作品采用  <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议 (CC BY-NC-ND 4.0)</a> 进行许可。
+    </p>
+  </div>
+  
+
+    
+
+    
+<nav class="article-nav">
+  
+    <a href="/2022/05/27/text003/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-caption">prossimo</div>
+      <div class="article-nav-title">
+        
+          text003
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/05/26/pointerString/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-caption">precedente</div>
+      <div class="article-nav-title">pointerString</div>
+    </a>
+  
+</nav>
+
+
+    <section class="share">
+        <div class="share-title">share</div>
+        <a class="share-item" target="_blank"
+            href="https://twitter.com/share?text=string2 - ohmyhsy&url=https%3A%2F%2F8bytes.top%2F2022%2F05%2F26%2Fstring2%2F">
+            <box-icon type='logo' name='twitter'></box-icon>
+        </a>
+        <a class="share-item" target="_blank"
+            href="https://www.facebook.com/sharer.php?title=string2 - ohmyhsy&u=https%3A%2F%2F8bytes.top%2F2022%2F05%2F26%2Fstring2%2F">
+            <box-icon name='facebook-square' type='logo' ></box-icon>
+        </a>
+        <!-- <a class="share-item" target="_blank"
+            href="https://service.weibo.com/share/share.php?title=string2 - ohmyhsy&url=https://8bytes.top/2022/05/26/string2/&pic=">
+            <div class="n-icon n-icon-weibo"></div>
+        </a> -->
+    </section>
+
+</article>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- <script src="//unpkg.com/@waline/dist/Waline.min.js"></script> -->
+    <script src="https://unpkg.com/@waline/client@v2/dist/waline.js"></script>
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/@waline/client@v2/dist/waline.css"
+    />
+    <section class="comments">
+        <div id="waline"></div>
+    </section>
+    <script>
+        Waline.init({
+          el: '#waline',
+          serverURL: 'https://ohmyhsy.vercel.app/',
+        });
+    </script>
+
+
+
+<script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+</div>
+                </section>
+            </section>
+
+            
+            <aside class="sidebar sidebar-search-fix">
+                
+
+    <div class="search">
+    <div class="has-icon-right">
+        <input type="text" class="form-input" id="search" placeholder="SEARCH" autocomplete="off">
+        <div class="form-icon">
+            <box-icon name='search' color="#3c4859"></box-icon>
+        </div>
+    </div>
+    <div class="search-result" id="search-ps"></div>
+</div>
+
+
+<div class="widget" id="widget">
+    
+      
+  <div class="widget-wrap">
+    <div class="widget-inner">
+      <div class="toc post-toc-html"></div>
+    </div>
+  </div>
+
+    
+      
+
+    
+      
+  <div class="widget-wrap widget-tags">
+    <div class="widget-title"><span>Tags</span></div>
+    <div class="widget-inner">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c/" rel="tag">c</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cpp/" rel="tag">cpp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/exam/" rel="tag">exam</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jetbrains/" rel="tag">jetbrains</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/" rel="tag">leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ubuntu/" rel="tag">ubuntu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vscode/" rel="tag">vscode</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-recent-posts">
+    <div class="widget-title"><span>Recent Posts</span></div>
+    <div class="widget-inner">
+      <ul>
+        
+          <li>
+            <a href="/2022/06/09/text004/">text004</a>
+          </li>
+        
+          <li>
+            <a href="/2022/06/03/function5/">function5-栈</a>
+          </li>
+        
+          <li>
+            <a href="/2022/06/01/function4/">function4-本质和函数指针</a>
+          </li>
+        
+          <li>
+            <a href="/2022/05/31/function3/">function3-左值右值</a>
+          </li>
+        
+          <li>
+            <a href="/2022/05/30/function2/">function2</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget-wrap widget-archive">
+    <div class="widget-title"><span>Archive</span></div>
+    <div class="widget-inner">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/">2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/">2021</a></li></ul>
+    </div>
+  </div>
+
+
+    
+</div>
+
+<div id="backtop"><i class="icon icon-arrow-up"></i></div>
+            </aside>
+            
+        </div>
+    </div>
+
+    <footer class="footer">
+    <div class="footer-wave">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#3c4859" fill-opacity="1" d="M0,160L60,181.3C120,203,240,245,360,240C480,235,600,181,720,186.7C840,192,960,256,1080,261.3C1200,267,1320,213,1380,186.7L1440,160L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>
+    </div>
+
+    <!-- Please do not remove this -->
+    <!-- 开源不易，请勿删除 -->
+    <div class="footer-wrap">
+        <div class="footer-inner"> 
+            ohmyhsy &copy; 2022<br>
+            Powered By Hexo · Theme By <a href="https://linhong.me/" target="_blank">Aomori</a> · <a href="https://github.com/lh1me/hexo-theme-aomori" target="_blank">Github</a>
+        </div>
+    </div>
+
+</footer>
+
+
+
+
+
+
+<script src="/dist/build.js?1646451311888.js"></script>
+
+
+<script src="/dist/custom.js?1646451311888.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>

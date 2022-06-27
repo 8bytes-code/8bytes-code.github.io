@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    
+    <title>function3-左值右值 | ohmyhsy</title>
+
+    <meta name="description" content="&lt;h1 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;在C语言中什么叫左值和右值&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;cpp&#34;&gt;int a = 3;
+//a为左值，3为右值
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;左值一般是变量，在程序运行时有一个准确的地址和值，除了const的情况下一般都能修改。&lt;/li&gt;
+&lt;li&gt;右值则一般是常量或者临时对象，除非强转之类的操作，其它情况下一般不能修改&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;在编译报错的时候应该或多或少也见过到提示右值不可被修改&lt;/p&gt;
+&lt;/blockquote&gt;">
+    <meta name="keywords" content="">
+
+    
+
+    <meta property="og:locale" content="en" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content= "function3-左值右值 | ohmyhsy"  />
+    <meta property="og:description" content= "&lt;h1 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;在C语言中什么叫左值和右值&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;cpp&#34;&gt;int a = 3;
+//a为左值，3为右值
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;左值一般是变量，在程序运行时有一个准确的地址和值，除了const的情况下一般都能修改。&lt;/li&gt;
+&lt;li&gt;右值则一般是常量或者临时对象，除非强转之类的操作，其它情况下一般不能修改&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;在编译报错的时候应该或多或少也见过到提示右值不可被修改&lt;/p&gt;
+&lt;/blockquote&gt;" />
+    <meta property="og:url" content="https://8bytes.top/2022/05/31/function3/index.html" />
+    <meta property="og:site_name" content="" />
+    <meta property="article:author" content="Box" />
+    <meta property="article:publisher" content="" />
+    <meta property="og:description" content="&lt;h1 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;在C语言中什么叫左值和右值&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;cpp&#34;&gt;int a = 3;
+//a为左值，3为右值
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;左值一般是变量，在程序运行时有一个准确的地址和值，除了const的情况下一般都能修改。&lt;/li&gt;
+&lt;li&gt;右值则一般是常量或者临时对象，除非强转之类的操作，其它情况下一般不能修改&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;在编译报错的时候应该或多或少也见过到提示右值不可被修改&lt;/p&gt;
+&lt;/blockquote&gt;" />
+    <meta name="twitter:title" content="function3-左值右值 | ohmyhsy"/>
+    <meta name="twitter:description" content="&lt;h1 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;在C语言中什么叫左值和右值&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;cpp&#34;&gt;int a = 3;
+//a为左值，3为右值
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;左值一般是变量，在程序运行时有一个准确的地址和值，除了const的情况下一般都能修改。&lt;/li&gt;
+&lt;li&gt;右值则一般是常量或者临时对象，除非强转之类的操作，其它情况下一般不能修改&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;在编译报错的时候应该或多或少也见过到提示右值不可被修改&lt;/p&gt;
+&lt;/blockquote&gt;"/>
+    <script type="application/ld+json">
+        {
+            "description": "&lt;h1 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;在C语言中什么叫左值和右值&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;cpp&#34;&gt;int a = 3;
+//a为左值，3为右值
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;左值一般是变量，在程序运行时有一个准确的地址和值，除了const的情况下一般都能修改。&lt;/li&gt;
+&lt;li&gt;右值则一般是常量或者临时对象，除非强转之类的操作，其它情况下一般不能修改&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;在编译报错的时候应该或多或少也见过到提示右值不可被修改&lt;/p&gt;
+&lt;/blockquote&gt;",
+            "author": { "@type": "Person", "name": "Box" },
+            "@type": "BlogPosting",
+            "url": "https://8bytes.top/2022/05/31/function3/index.html",
+            "publisher": {
+            "@type": "Organization",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://8bytes.topundefined"
+            },
+            "name": "Box"
+            },
+            "headline": "function3-左值右值 | ohmyhsy",
+            "datePublished": "2022-05-30T17:25:37.000Z",
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "https://8bytes.top/2022/05/31/function3/index.html"
+            },
+            "@context": "http://schema.org"
+        }
+    </script>
+
+
+
+
+    
+
+    
+    <meta property="algolia:search" data-application-id="4CVCYWPWWN" data-api-key="7757db6b0a31c3f94c301c885693ed0d" data-index-name="ohmyhsy">
+    
+
+    
+
+    
+
+    
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎮</text></svg>">
+    
+
+    
+
+    
+
+    
+<link rel="stylesheet" href="/dist/build.css?v=1646451311888.css">
+
+
+    
+<link rel="stylesheet" href="/dist/custom.css?v=1646451311888.css">
+
+
+    <script>
+        window.isPost = true
+        window.aomori = {
+            
+            
+            
+        }
+        window.aomori_logo_typed_animated = true
+        window.aomori_search_algolia = true
+
+    </script>
+
+<meta name="generator" content="Hexo 5.4.1"><link rel="alternate" href="/atom.xml" title="ohmyhsy" type="application/atom+xml">
+</head>
+
+<body>
+
+    <div class="container">
+    <header class="header">
+        <div class="header-type">
+            
+            <div class="header-type-inner">
+                
+                    <div id="typed-strings" style="display:none">
+                        <p>ohmyhsy</p>
+                    </div>
+                    <a class="header-type-title" id="typed" href="/"></a>
+                
+    
+                
+            </div>
+        </div>
+        <div class="header-menu">
+            <div class="header-menu-inner">
+                
+                <a href="/">Home</a>
+                
+                <a href="/archives">Archives</a>
+                
+                <a href="/friends">Friends</a>
+                
+            </div>
+            <div class="header-menu-social">
+                
+    <a class="social" target="_blank" href="https://github.com/8bytes-code">
+        <box-icon type='logo' name='github'></box-icon>
+    </a>
+
+            </div>
+        </div>
+
+        <div class="header-menu-mobile">
+            <div class="header-menu-mobile-inner" id="mobile-menu-open">
+                <i class="icon icon-menu"></i>
+            </div>
+        </div>
+    </header>
+
+    <div class="header-menu-mobile-menu">
+        <div class="header-menu-mobile-menu-bg"></div>
+        <div class="header-menu-mobile-menu-wrap">
+            <div class="header-menu-mobile-menu-inner">
+                <div class="header-menu-mobile-menu-close" id="mobile-menu-close">
+                    <i class="icon icon-cross"></i>
+                </div>
+                <div class="header-menu-mobile-menu-list">
+                    
+                    <a href="/">Home</a>
+                    
+                    <a href="/archives">Archives</a>
+                    
+                    <a href="/friends">Friends</a>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+    <div class="container">
+        <div class="main">
+            <section class="inner">
+                <section class="inner-main">
+                    <div class="post">
+    <article id="post-cl405f3ma000068k68xd76swk" class="article article-type-post" itemscope
+    itemprop="blogPost">
+
+    <div class="article-inner">
+
+        
+          
+        
+        
+        
+
+        
+        <header class="article-header">
+            
+  
+    <h1 class="article-title" itemprop="name">
+      function3-左值右值
+    </h1>
+  
+
+        </header>
+        
+
+        <div class="article-more-info article-more-info-post hairline">
+
+            <div class="article-date">
+  <time datetime="2022-05-30T17:25:37.000Z" itemprop="datePublished">2022-05-31</time>
+</div>
+
+            
+
+            
+            <div class="article-tag">
+                <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cpp/" rel="tag">cpp</a></li></ul>
+            </div>
+            
+
+            
+            <div class="article-busuanzi">
+                <span id="busuanzi_value_page_pv">N</span> 人看过
+            </div>
+            
+
+        </div>
+
+        <div class="article-entry post-inner-html hairline" itemprop="articleBody">
+            <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>在C语言中什么叫左值和右值</p>
+<pre><code class="cpp">int a = 3;
+//a为左值，3为右值
+</code></pre>
+<ul>
+<li>左值一般是变量，在程序运行时有一个准确的地址和值，除了const的情况下一般都能修改。</li>
+<li>右值则一般是常量或者临时对象，除非强转之类的操作，其它情况下一般不能修改</li>
+</ul>
+<blockquote>
+<p>在编译报错的时候应该或多或少也见过到提示右值不可被修改</p>
+</blockquote>
+<span id="more"></span>
+
+
+<p>不过上述的说法也并不绝对</p>
+<pre><code class="cpp">int a = 1;
+int b = 2;
+a = b;
+</code></pre>
+<p>这里的右值b它是一个变量。</p>
+<hr>
+<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><pre><code class="cpp">void AddSum(int a)&#123;
+    std::cout &lt;&lt; a &lt;&lt; &quot;\n&quot;;
+&#125;
+
+int main()&#123;
+    int a = 10;
+    AddSum(10 + 20);
+
+    return 0;
+&#125;
+</code></pre>
+<img src="/2022/05/31/function3/000.png" class="">
+
+<blockquote>
+<p>在正常情况下，int a &#x3D; 10; 编译器把10转换成十六进制赋值给ebp-8的位置上<br>而调用函数传参的时候使用算术表达式他也会默认先算好，可能这里函数的反汇编不明显<br>稍微改动一下让a+10+20</p>
+</blockquote>
+<img src="/2022/05/31/function3/001.png" class="">
+
+<blockquote>
+<p>这里就很清楚的看到编译器先将ebp-8的地址传给eax寄存器，然后eax寄存器在加上1E,也就是30</p>
+</blockquote>
+<p>正常的变量作为左值都好解释，数组和指针的时候：</p>
+<pre><code class="cpp">int array[10];
+int *p = array;     //array是数组，默认表示数组首地址array[0]。所以不需要加&amp;。
+
+array[0];//属于一个合格的左值，有具体位置
+*p 和 p //也属于左值，*p在此处表示array[0]的地址，而p本身是个指针，指针也有他自己的地址
+
+&amp;array[0]; //就不属于了，这个标识array[0]的地址，做不了左值
+
+*(p+1); //这个就有点意思了，其实就是array[1],或者说p[1]
+p+1; //就不对头了，这只是让地址单纯偏移一个类型长度，得到的是地址，
+</code></pre>
+<hr>
+<h2 id="左值引用和右值引用"><a href="#左值引用和右值引用" class="headerlink" title="左值引用和右值引用"></a>左值引用和右值引用</h2><pre><code class="cpp">int a = 10;
+int &amp;b = a; //b引用了a
+int &amp;&amp;c = b;    //但此处引用c不能引用b，这种多级套娃的形式在指针里是可以的
+//引用的原则就是int &amp;c = b;这样是合法的。
+</code></pre>
+<img src="/2022/05/31/function3/002.png" class="">
+<p>编译器提示无法将 右值引用绑定到左值，</p>
+<p>那么两个&amp;该怎么用：</p>
+<pre><code class="cpp">int &amp;&amp;c = 150+120;
+</code></pre>
+<p>显然是给他引用一个右值为这种算术表达式。但是注意修改c没有太大意义，因为右值是固定的。<br>那么右值引用的场景在哪。</p>
+<pre><code class="cpp">void AddSum(int &amp;a)&#123;
+    std::cout &lt;&lt; a &lt;&lt; &quot;\n&quot;;
+&#125;
+
+int main()&#123;
+    int a = 10;
+    int &amp;b = a; 
+    int &amp;&amp;c = 150+120;
+    
+    AddSum(a + 150 + 200);
+
+    return 0;
+&#125;
+</code></pre>
+<img src="/2022/05/31/function3/003.png" class="">
+<p>当函数参数为左值引用时，没办法传递表达式进去，所以右值引用的场景就来了</p>
+<pre><code class="cpp">void AddSum(int &amp;&amp;a)&#123;
+    std::cout &lt;&lt; a &lt;&lt; &quot;\n&quot;;
+&#125;
+
+int main()&#123;
+    int a = 10;
+    int &amp;b = a; 
+    int &amp;&amp;c = 150+120;
+    
+    AddSum(a + 150 + 200);
+
+    return 0;
+&#125;
+</code></pre>
+<p>当然可以先用一个变量接受这个表达式：</p>
+<pre><code class="cpp">void AddSum(int &amp;a)&#123;
+    std::cout &lt;&lt; a &lt;&lt; &quot;\n&quot;;
+&#125;
+
+int main()&#123;
+    int a = 10;
+    int &amp;b = a; 
+    int &amp;&amp;c = 150+120;
+    
+    int x = a + 150 + 200;
+    AddSum(x);
+
+    return 0;
+&#125;
+</code></pre>
+<p>这个是没啥问题，语义是通顺的。</p>
+<img src="/2022/05/31/function3/004.png" class="">
+
+<img src="/2022/05/31/function3/005.png" class="">
+
+<blockquote>
+<p>int x毕竟是额外开辟了内存空间去保存这个表达式的值，虽然临时变量也会占内存，但是至少临时变量销毁比局部变量快。</p>
+</blockquote>
+<hr>
+<h2 id="题外话"><a href="#题外话" class="headerlink" title="题外话"></a>题外话</h2><p>&amp;在C语言中，我们通俗的说是取地址符，而在cpp中多了引用的概念<br>区分的方式就是 参照 &#x3D;<br>当&amp; 在变量定义区域，表示引用：<code>int &amp;b = a</code><br>当&amp; 在变量操作区域，表示取地址：<code>int *p = &amp;a;</code></p>
+<p>然后来个玄乎的 <code>&amp;*p 和 *&amp;p</code>，在变量定义区域时：</p>
+<pre><code class="cpp">int a = 10;
+int *p = &amp;a;
+
+int *&amp;p1 = p;   //合法
+int &amp;*p2 = p;   //不合法
+</code></pre>
+<p><code>int *&amp;p1 = p</code>先当与指向一个引用，指针引用。<br><code>int &amp;*p2 = p</code>引用一个指针显然是不对的。引用本身就是一个弱化版本的指针，编译器也提示错误<img src="/2022/05/31/function3/006.png" class=""></p>
+<p>在变量操作时：</p>
+<pre><code class="cpp">int a = 10;
+std::cout &lt;&lt; *&amp;a &lt;&lt; std::endl;  //合法，相当于*(&amp;a),其实就是做了一次解引用的操作，指向a的地址，使用起来就是a的值。
+std::cout &lt;&lt; &amp;*a &lt;&lt; std::endl;  //error,很简单用法问题，a是int类型的变量，直接取地址一个指针a在此处不合理。
+</code></pre>
+<p>修改成指针呢？</p>
+<pre><code class="cpp">int a = 10;
+int *p = &amp;a;
+std::cout &lt;&lt; &amp;a &lt;&lt; std::endl;
+std::cout &lt;&lt; *&amp;p &lt;&lt; std::endl;  //上述说过相当于*(&amp;p),&amp;p的地址上存放的是a的地址，*就变成解读&amp;p
+std::cout &lt;&lt; &amp;*p &lt;&lt; std::endl;  //而*p表示a的值就是10，&amp;(*p)，就是相当于&amp;a;
+</code></pre>
+<img src="/2022/05/31/function3/007.png" class="">
+<p>可以看到地址都是一样的。</p>
+<blockquote>
+<p>这个纯看理解，不行多试几个例子或者看看反汇编。重在能区分。</p>
+</blockquote>
+<hr>
+<h1 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h1><p>自古指针都是很恶心的东西，不管放到哪里。要合理区分&amp;是引用还是取地址的情况。</p>
+
+        </div>
+
+    </div>
+
+    
+
+    
+
+    
+
+    
+  <div class="article-copyright hairline">
+    <p>
+      本作品采用  <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议 (CC BY-NC-ND 4.0)</a> 进行许可。
+    </p>
+  </div>
+  
+
+    
+
+    
+<nav class="article-nav">
+  
+    <a href="/2022/06/01/function4/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-caption">prossimo</div>
+      <div class="article-nav-title">
+        
+          function4-本质和函数指针
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/05/30/function2/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-caption">precedente</div>
+      <div class="article-nav-title">function2</div>
+    </a>
+  
+</nav>
+
+
+    <section class="share">
+        <div class="share-title">share</div>
+        <a class="share-item" target="_blank"
+            href="https://twitter.com/share?text=function3-左值右值 - ohmyhsy&url=https%3A%2F%2F8bytes.top%2F2022%2F05%2F31%2Ffunction3%2F">
+            <box-icon type='logo' name='twitter'></box-icon>
+        </a>
+        <a class="share-item" target="_blank"
+            href="https://www.facebook.com/sharer.php?title=function3-左值右值 - ohmyhsy&u=https%3A%2F%2F8bytes.top%2F2022%2F05%2F31%2Ffunction3%2F">
+            <box-icon name='facebook-square' type='logo' ></box-icon>
+        </a>
+        <!-- <a class="share-item" target="_blank"
+            href="https://service.weibo.com/share/share.php?title=function3-左值右值 - ohmyhsy&url=https://8bytes.top/2022/05/31/function3/&pic=">
+            <div class="n-icon n-icon-weibo"></div>
+        </a> -->
+    </section>
+
+</article>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- <script src="//unpkg.com/@waline/dist/Waline.min.js"></script> -->
+    <script src="https://unpkg.com/@waline/client@v2/dist/waline.js"></script>
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/@waline/client@v2/dist/waline.css"
+    />
+    <section class="comments">
+        <div id="waline"></div>
+    </section>
+    <script>
+        Waline.init({
+          el: '#waline',
+          serverURL: 'https://ohmyhsy.vercel.app/',
+        });
+    </script>
+
+
+
+<script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+</div>
+                </section>
+            </section>
+
+            
+            <aside class="sidebar sidebar-search-fix">
+                
+
+    <div class="search">
+    <div class="has-icon-right">
+        <input type="text" class="form-input" id="search" placeholder="SEARCH" autocomplete="off">
+        <div class="form-icon">
+            <box-icon name='search' color="#3c4859"></box-icon>
+        </div>
+    </div>
+    <div class="search-result" id="search-ps"></div>
+</div>
+
+
+<div class="widget" id="widget">
+    
+      
+  <div class="widget-wrap">
+    <div class="widget-inner">
+      <div class="toc post-toc-html"></div>
+    </div>
+  </div>
+
+    
+      
+
+    
+      
+  <div class="widget-wrap widget-tags">
+    <div class="widget-title"><span>Tags</span></div>
+    <div class="widget-inner">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c/" rel="tag">c</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cpp/" rel="tag">cpp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/exam/" rel="tag">exam</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jetbrains/" rel="tag">jetbrains</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/" rel="tag">leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ubuntu/" rel="tag">ubuntu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vscode/" rel="tag">vscode</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-recent-posts">
+    <div class="widget-title"><span>Recent Posts</span></div>
+    <div class="widget-inner">
+      <ul>
+        
+          <li>
+            <a href="/2022/06/09/text004/">text004</a>
+          </li>
+        
+          <li>
+            <a href="/2022/06/03/function5/">function5-栈</a>
+          </li>
+        
+          <li>
+            <a href="/2022/06/01/function4/">function4-本质和函数指针</a>
+          </li>
+        
+          <li>
+            <a href="/2022/05/31/function3/">function3-左值右值</a>
+          </li>
+        
+          <li>
+            <a href="/2022/05/30/function2/">function2</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget-wrap widget-archive">
+    <div class="widget-title"><span>Archive</span></div>
+    <div class="widget-inner">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/">2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/">2021</a></li></ul>
+    </div>
+  </div>
+
+
+    
+</div>
+
+<div id="backtop"><i class="icon icon-arrow-up"></i></div>
+            </aside>
+            
+        </div>
+    </div>
+
+    <footer class="footer">
+    <div class="footer-wave">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#3c4859" fill-opacity="1" d="M0,160L60,181.3C120,203,240,245,360,240C480,235,600,181,720,186.7C840,192,960,256,1080,261.3C1200,267,1320,213,1380,186.7L1440,160L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>
+    </div>
+
+    <!-- Please do not remove this -->
+    <!-- 开源不易，请勿删除 -->
+    <div class="footer-wrap">
+        <div class="footer-inner"> 
+            ohmyhsy &copy; 2022<br>
+            Powered By Hexo · Theme By <a href="https://linhong.me/" target="_blank">Aomori</a> · <a href="https://github.com/lh1me/hexo-theme-aomori" target="_blank">Github</a>
+        </div>
+    </div>
+
+</footer>
+
+
+
+
+
+
+<script src="/dist/build.js?1646451311888.js"></script>
+
+
+<script src="/dist/custom.js?1646451311888.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    
+    <title>pointer | ohmyhsy</title>
+
+    <meta name="description" content="&lt;h1 id=&#34;c-x2F-c-的万恶之源&#34;&gt;&lt;a href=&#34;#c-x2F-c-的万恶之源&#34; class=&#34;headerlink&#34; title=&#34;c&amp;#x2F;c++的万恶之源&#34;&gt;&lt;/a&gt;c&amp;#x2F;c++的万恶之源&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;指针&lt;/li&gt;
+&lt;/ul&gt;">
+    <meta name="keywords" content="">
+
+    
+
+    <meta property="og:locale" content="en" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content= "pointer | ohmyhsy"  />
+    <meta property="og:description" content= "&lt;h1 id=&#34;c-x2F-c-的万恶之源&#34;&gt;&lt;a href=&#34;#c-x2F-c-的万恶之源&#34; class=&#34;headerlink&#34; title=&#34;c&amp;#x2F;c++的万恶之源&#34;&gt;&lt;/a&gt;c&amp;#x2F;c++的万恶之源&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;指针&lt;/li&gt;
+&lt;/ul&gt;" />
+    <meta property="og:url" content="https://8bytes.top/2022/05/02/pointer/index.html" />
+    <meta property="og:site_name" content="" />
+    <meta property="article:author" content="Box" />
+    <meta property="article:publisher" content="" />
+    <meta property="og:description" content="&lt;h1 id=&#34;c-x2F-c-的万恶之源&#34;&gt;&lt;a href=&#34;#c-x2F-c-的万恶之源&#34; class=&#34;headerlink&#34; title=&#34;c&amp;#x2F;c++的万恶之源&#34;&gt;&lt;/a&gt;c&amp;#x2F;c++的万恶之源&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;指针&lt;/li&gt;
+&lt;/ul&gt;" />
+    <meta name="twitter:title" content="pointer | ohmyhsy"/>
+    <meta name="twitter:description" content="&lt;h1 id=&#34;c-x2F-c-的万恶之源&#34;&gt;&lt;a href=&#34;#c-x2F-c-的万恶之源&#34; class=&#34;headerlink&#34; title=&#34;c&amp;#x2F;c++的万恶之源&#34;&gt;&lt;/a&gt;c&amp;#x2F;c++的万恶之源&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;指针&lt;/li&gt;
+&lt;/ul&gt;"/>
+    <script type="application/ld+json">
+        {
+            "description": "&lt;h1 id=&#34;c-x2F-c-的万恶之源&#34;&gt;&lt;a href=&#34;#c-x2F-c-的万恶之源&#34; class=&#34;headerlink&#34; title=&#34;c&amp;#x2F;c++的万恶之源&#34;&gt;&lt;/a&gt;c&amp;#x2F;c++的万恶之源&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;指针&lt;/li&gt;
+&lt;/ul&gt;",
+            "author": { "@type": "Person", "name": "Box" },
+            "@type": "BlogPosting",
+            "url": "https://8bytes.top/2022/05/02/pointer/index.html",
+            "publisher": {
+            "@type": "Organization",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://8bytes.topundefined"
+            },
+            "name": "Box"
+            },
+            "headline": "pointer | ohmyhsy",
+            "datePublished": "2022-05-02T14:51:28.000Z",
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "https://8bytes.top/2022/05/02/pointer/index.html"
+            },
+            "@context": "http://schema.org"
+        }
+    </script>
+
+
+
+
+    
+
+    
+    <meta property="algolia:search" data-application-id="4CVCYWPWWN" data-api-key="7757db6b0a31c3f94c301c885693ed0d" data-index-name="ohmyhsy">
+    
+
+    
+
+    
+
+    
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎮</text></svg>">
+    
+
+    
+
+    
+
+    
+<link rel="stylesheet" href="/dist/build.css?v=1646451311888.css">
+
+
+    
+<link rel="stylesheet" href="/dist/custom.css?v=1646451311888.css">
+
+
+    <script>
+        window.isPost = true
+        window.aomori = {
+            
+            
+            
+        }
+        window.aomori_logo_typed_animated = true
+        window.aomori_search_algolia = true
+
+    </script>
+
+<meta name="generator" content="Hexo 5.4.1"><link rel="alternate" href="/atom.xml" title="ohmyhsy" type="application/atom+xml">
+</head>
+
+<body>
+
+    <div class="container">
+    <header class="header">
+        <div class="header-type">
+            
+            <div class="header-type-inner">
+                
+                    <div id="typed-strings" style="display:none">
+                        <p>ohmyhsy</p>
+                    </div>
+                    <a class="header-type-title" id="typed" href="/"></a>
+                
+    
+                
+            </div>
+        </div>
+        <div class="header-menu">
+            <div class="header-menu-inner">
+                
+                <a href="/">Home</a>
+                
+                <a href="/archives">Archives</a>
+                
+                <a href="/friends">Friends</a>
+                
+            </div>
+            <div class="header-menu-social">
+                
+    <a class="social" target="_blank" href="https://github.com/8bytes-code">
+        <box-icon type='logo' name='github'></box-icon>
+    </a>
+
+            </div>
+        </div>
+
+        <div class="header-menu-mobile">
+            <div class="header-menu-mobile-inner" id="mobile-menu-open">
+                <i class="icon icon-menu"></i>
+            </div>
+        </div>
+    </header>
+
+    <div class="header-menu-mobile-menu">
+        <div class="header-menu-mobile-menu-bg"></div>
+        <div class="header-menu-mobile-menu-wrap">
+            <div class="header-menu-mobile-menu-inner">
+                <div class="header-menu-mobile-menu-close" id="mobile-menu-close">
+                    <i class="icon icon-cross"></i>
+                </div>
+                <div class="header-menu-mobile-menu-list">
+                    
+                    <a href="/">Home</a>
+                    
+                    <a href="/archives">Archives</a>
+                    
+                    <a href="/friends">Friends</a>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+    <div class="container">
+        <div class="main">
+            <section class="inner">
+                <section class="inner-main">
+                    <div class="post">
+    <article id="post-cl3ixfr98000x8wk61q1fcdoj" class="article article-type-post" itemscope
+    itemprop="blogPost">
+
+    <div class="article-inner">
+
+        
+          
+        
+        
+        
+
+        
+        <header class="article-header">
+            
+  
+    <h1 class="article-title" itemprop="name">
+      pointer
+    </h1>
+  
+
+        </header>
+        
+
+        <div class="article-more-info article-more-info-post hairline">
+
+            <div class="article-date">
+  <time datetime="2022-05-02T14:51:28.000Z" itemprop="datePublished">2022-05-02</time>
+</div>
+
+            
+
+            
+            <div class="article-tag">
+                <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cpp/" rel="tag">cpp</a></li></ul>
+            </div>
+            
+
+            
+            <div class="article-busuanzi">
+                <span id="busuanzi_value_page_pv">N</span> 人看过
+            </div>
+            
+
+        </div>
+
+        <div class="article-entry post-inner-html hairline" itemprop="articleBody">
+            <h1 id="c-x2F-c-的万恶之源"><a href="#c-x2F-c-的万恶之源" class="headerlink" title="c&#x2F;c++的万恶之源"></a>c&#x2F;c++的万恶之源</h1><ul>
+<li>指针</li>
+</ul>
+<span id="more"></span>
+
+
+<hr>
+<h1 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h1><p>指针，是C语言中的一个重要概念及其特点，也是掌握C语言比较困难的部分。指针也就是内存地址，指针变量是用来存放内存地址的变量，在同一CPU构架下，不同类型的指针变量所占用的存储单元长度是相同的，而存放数据的变量因数据的类型不同，所占用的存储空间长度也不同。有了指针以后，不仅可以对数据本身，也可以对存储数据的变量地址进行操作。<br>——摘自百度</p>
+<p>因为运行一个程序，需要消耗内存，程序当中的变量各自有占用的地方，通常以十六进制表示，用visual studio反汇编的时候就能看到前面有一串长的字符。</p>
+<hr>
+<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><p>不同类型的变量所占用的内存也各不相同，有基础的应该都知道，目前先不说32位操作系统的情况，以64位操作系统为例。</p>
+<blockquote>
+<p>tips:int 类型占用 4字节 &#x3D; 32比特，一个比特可以表示0或者1</p>
+</blockquote>
+<p>指针的要素就是要操作对象的内存地址和大小</p>
+<hr>
+<h2 id="基础语法"><a href="#基础语法" class="headerlink" title="基础语法"></a>基础语法</h2><pre><code class="cpp">//数据类型* 变量名称；例如：
+int *p;
+//int* p; 都可以，*在前或在后都是表示指针，取决于使用者的习惯。
+</code></pre>
+<hr>
+<h2 id="初试指针"><a href="#初试指针" class="headerlink" title="初试指针"></a>初试指针</h2><p>打开编译器，运行：</p>
+<pre><code class="cpp">int main()&#123;
+
+    int *p&#123;&#125;;
+
+    std::cout &lt;&lt; p &lt;&lt; std::endl;
+
+    return 0;
+&#125;
+</code></pre>
+<blockquote>
+<p>vs2019开始变量不初始化会报错，所以我们这里采用int *p{};</p>
+</blockquote>
+<p>可以看到：<img src="/2022/05/02/pointer/000.png" class=""><br>可以看到打印的是多个0，那么接下来可以看看一个其他变量的地址。</p>
+<pre><code class="cpp">int main()&#123;
+
+    int a = 100;
+    int *p;
+    p = &amp;a;
+    //直接int *p = &amp;a也无妨
+
+    std::cout &lt;&lt; p &lt;&lt; std::endl;
+
+    return 0;
+&#125;
+</code></pre>
+<p>可以看到结果是一个十六进制的数：<img src="/2022/05/02/pointer/001.png" class=""></p>
+<blockquote>
+<p>为什么要用&amp;呢，在学习C语言scanf语句的时候，我们知道了往一个变量写入值的时候需要知道变量的地址。此处概念相同。<br>其次，指针的类型必须和获取地址的变量类型一致。</p>
+</blockquote>
+<p>有意思的是，这个地址，每次生成程序都会发生改变，</p>
+<img src="/2022/05/02/pointer/002.png" class="">
+<p>其原因就是因为这个变量是个局部变量，将其提升为全局变量则内存地址固定。</p>
+<p>那么明白了不带*的时候输出就是地址，就可以猜到带*输出时表示为a的值：</p>
+<pre><code class="cpp">std::cout &lt;&lt; *p &lt;&lt; std::endl;
+</code></pre>
+<img src="/2022/05/02/pointer/003.png" class="">
+
+<p>有聪明的小伙伴就会想到，*p代表值，那么<code>\*p=200</code>是不是就可以修改a的值呢？</p>
+<pre><code class="cpp">int a = 100;
+int *p;
+p = &amp;a;
+
+std::cout &lt;&lt; a &lt;&lt; std::endl;
+std::cout &lt;&lt; *p &lt;&lt; std::endl;
+*p = 200;
+std::cout &lt;&lt; a &lt;&lt; std::endl;
+std::cout &lt;&lt; *p &lt;&lt; std::endl;
+</code></pre>
+<p>ok，结果当然是：<img src="/2022/05/02/pointer/004.png" class=""></p>
+<blockquote>
+<p>tips: 这里也可以不用*p &#x3D; 200, 将a &#x3D; 200；效果也一样</p>
+</blockquote>
+<p>同理，不带*的时候，可以给指针换个地址。但注意<em>不要是非地址以外的东西，并且这个地址是有意义的，避免产生不可预期的后果</em></p>
+<pre><code class="cpp">int main()&#123;
+
+    int a = 100;
+    int b = 200;
+    int *p;
+    p = &amp;a;
+
+    std::cout &lt;&lt; &amp;a &lt;&lt; std::endl;
+    std::cout &lt;&lt; &amp;b &lt;&lt; std::endl;
+    std::cout &lt;&lt; p &lt;&lt; std::endl;
+    p = &amp;b; //修改指针p的地址为变量b的地址。
+    std::cout &lt;&lt; std::endl;
+    std::cout &lt;&lt; &amp;a &lt;&lt; std::endl;
+    std::cout &lt;&lt; &amp;b &lt;&lt; std::endl;
+    std::cout &lt;&lt; p &lt;&lt; std::endl;
+
+    return 0;
+&#125;
+</code></pre>
+<p>可见效果：<img src="/2022/05/02/pointer/005.png" class=""></p>
+<blockquote>
+<p>变量b的地址一开始时FF574，指针p在初始化的时候地址是变量a的地址，我们在后面修改了指针p的地址，使其得到变量b的地址。效果在第二次打印的时候可以看出。<br>可能有的人会有点懵，这里需要自己先理一下*和&amp;的角度。</p>
+</blockquote>
+<p>简单梳理完后，我们知道&amp;也是属于单目运算符，那么指针是否也可以实现一些加减操作呢？</p>
+<pre><code class="cpp">int main()&#123;
+
+    int a = 100;
+    int *p;
+    p = &amp;a;
+
+    std::cout &lt;&lt; &amp;a &lt;&lt; std::endl;
+    std::cout &lt;&lt; p &lt;&lt; std::endl;
+    std::cout &lt;&lt; a &lt;&lt; std::endl;
+    std::cout &lt;&lt; *p &lt;&lt; std::endl;
+
+    *p--;
+    std::cout &lt;&lt; std::endl;
+    
+    std::cout &lt;&lt; &amp;a &lt;&lt; std::endl;
+    std::cout &lt;&lt; p &lt;&lt; std::endl;
+    std::cout &lt;&lt; a &lt;&lt; std::endl;
+    std::cout &lt;&lt; *p &lt;&lt; std::endl;
+
+    return 0;
+&#125;
+</code></pre>
+<p>如果我们直接对指针–操作：<img src="/2022/05/02/pointer/006.png" class=""><br>编译器其实也给出了警告：<img src="/2022/05/02/pointer/007.png" class=""></p>
+<ol>
+<li>这里能看出来p和a地址之间差了4？</li>
+<li>a的值能够正常输出，指针却不能显示正确的值了？</li>
+</ol>
+<p>首先为什么会差了4，这跟类型占用空间有关。<br>为什么不能输出a的值了，原因在于，少了4之后的内存地址，我们没有给它赋值过，程序也不知道那一段数据有什么，万一前面的空间占了8字节，而我们只截取了一部分，那么数据也就是不完整的了。</p>
+<blockquote>
+<p>所以指针要慎用，你要明确的知道你这个指针的操作是有什么目的。</p>
+</blockquote>
+<p>至于为什么<code>p--</code>是修改地址而不是对a进行操作，这也跟运算符的优先级有关，我们将指针p用括号括起来看看效果：</p>
+<pre><code class="cpp">int main()&#123;
+
+    int a = 100;
+    int *p;
+    p = &amp;a;
+
+    std::cout &lt;&lt; &amp;a &lt;&lt; std::endl;
+    std::cout &lt;&lt; p &lt;&lt; std::endl;
+    std::cout &lt;&lt; a &lt;&lt; std::endl;
+    std::cout &lt;&lt; *p &lt;&lt; std::endl;
+
+    (*p)--;
+    std::cout &lt;&lt; std::endl;
+    
+    std::cout &lt;&lt; &amp;a &lt;&lt; std::endl;
+    std::cout &lt;&lt; p &lt;&lt; std::endl;    
+    std::cout &lt;&lt; a &lt;&lt; std::endl;
+    std::cout &lt;&lt; *p &lt;&lt; std::endl;
+
+    return 0;
+&#125;
+</code></pre>
+<p>可以看到，<code>(*p)--</code>之后，a的值同样发生了改变：<img src="/2022/05/02/pointer/008.png" class=""><br>这也意味着<code>(*p)-- == a--</code>，能减自然也能加，能–在后，也能–放在前。</p>
+<hr>
+<h2 id="指针数组"><a href="#指针数组" class="headerlink" title="指针数组"></a>指针数组</h2><h3 id="基本定义"><a href="#基本定义" class="headerlink" title="基本定义"></a>基本定义</h3><p>跟数组一样，在变量名前加个*，例如：</p>
+<pre><code class="cpp">int *pCh[10];   //代表声明了10个int类型的指针
+</code></pre>
+<p>在此之前，我们先验证一下正常的数组的内存地址是否是连续的：</p>
+<pre><code class="cpp">int ch[10] = &#123; 1,2,3,4,5,6,7,8,9,10 &#125;;
+
+for (int i = 0; i &lt; 10; i++)&#123;
+    std::cout &lt;&lt; &amp;ch[i] &lt;&lt; std::endl;
+&#125;
+</code></pre>
+<p>可以看到：<img src="/2022/05/02/pointer/009.png" class=""></p>
+<blockquote>
+<p>16进制，A&#x3D;10,B&#x3D;11。。。F&#x3D;15</p>
+</blockquote>
+<p>这个一维数组的内存地址也让我们很好理解了，上述对单个指针–操作的时候为什么地址少了4，原因离不开变量的类型。<br>二维数组以至于多维数组的地址也都是连续的。</p>
+<hr>
+<h2 id="指针大小"><a href="#指针大小" class="headerlink" title="指针大小"></a>指针大小</h2><p>利用<code>sizeof()</code>同样可以测出指针的大小</p>
+<pre><code class="cpp">int main()&#123;
+    int *p&#123;&#125;;
+    std::cout &lt;&lt; sizeof(p) &lt;&lt; std::endl;
+
+    return 0;
+&#125;
+</code></pre>
+<p>结果是：<img src="/2022/05/02/pointer/010.png" class=""><br>看到是8，很多人会想到可能跟变量类型有关。那如果是char类型的指针呢？</p>
+<pre><code class="cpp">int main()&#123;
+    int *p&#123;&#125;;
+    char *cp&#123;&#125;;
+    std::cout &lt;&lt; sizeof(p) &lt;&lt; std::endl;
+    std::cout &lt;&lt; sizeof(cp) &lt;&lt; std::endl;
+
+    return 0;
+&#125;
+</code></pre>
+<p>结果是：<img src="/2022/05/02/pointer/012.png" class=""><br>两者都是8，说明了一个问题，指针它声明的时候他自己其实也是个变量，是变量就需要占用内存空间。</p>
+<blockquote>
+<p>tips: 默认vs2022 是使用x64编译，你可以尝试一下x86编译后。</p>
+</blockquote>
+<img src="/2022/05/02/pointer/011.png" class="">
+<p>可以看到在x86下编译执行后，指针的占用空间变成4字节了，这其实跟操作系统位数有关：</p>
+<hr>
+<h3 id="操作系统位数的影响"><a href="#操作系统位数的影响" class="headerlink" title="操作系统位数的影响"></a>操作系统位数的影响</h3><p>32位的操作系统下，寻址范围是32位，也就是32bit，等于4byte。<br>64位的操作系统下，寻址能力是64位，也就是64bit，等于8byte。</p>
+<blockquote>
+<p>这里先不扯寄存器和地址总线的问题，一旦深究，会发现和现实情况有所出入，目前先代入理解指针为什么一会占用4字节一会占用8字节。</p>
+</blockquote>
+<p>我们在x86下打印指针p的地址看一看：<img src="/2022/05/02/pointer/013.png" class=""></p>
+<p>16进制两位等于一字节，这里有8位 &#x2F; 2 &#x3D; 4，也就是4字节。<br>转换成x64下再印呢？<img src="/2022/05/02/pointer/014.png" class=""><br>这里一共16位 &#x2F; 2 &#x3D; 8，也就是8字节。</p>
+<blockquote>
+<p>为什么不打印char *指针的地址呢，首先我们要明白一个事，指针内存占用是4字节或者8字节了，但是char本身只占用一个字节的空间。那么将char类型的地址赋给char *就会产生一个问题，char*可以表示出char，但是你直接打印char *的时候，四字节只有一个字节是有明确含义的地址，就会导致乱码。</p>
+</blockquote>
+<pre><code class="cpp">int main()&#123;
+    int a = 100;
+    char c = &#39;A&#39;;
+    int *p = &amp;a;
+    char *cp = &amp;c;
+    std::cout &lt;&lt; sizeof(p) &lt;&lt; std::endl;
+    std::cout &lt;&lt; sizeof(cp) &lt;&lt; std::endl;
+    std::cout &lt;&lt; p &lt;&lt; std::endl;
+    std::cout &lt;&lt; cp &lt;&lt; std::endl;
+
+    return 0;
+&#125;
+</code></pre>
+<p>打印后可以很清楚的看到：<img src="/2022/05/02/pointer/015.png" class=""><br>A是打印了，但是后面都是乱码。</p>
+<hr>
+<p>然后回到上文：我们继续探讨指针</p>
+<p>想必几个简单的案例，就能看出指针的强大之处。可是越强大就越不好掌握。</p>
+<p>再往下看</p>
+<img src="/2022/05/02/pointer/016.png" class="">
+<p>首先，不同类型隐式转换肯定不成功，那么我们就用强制转换</p>
+<pre><code class="cpp">unsigned ui = 999;
+int *p = (int*) &amp;ui;
+</code></pre>
+<img src="/2022/05/02/pointer/017.png" class="">
+<p>值都是正常的，我们说unsigned是无符号的意思，也就是说ui不能表示为负数</p>
+<pre><code class="cpp">*p = -1;
+</code></pre>
+<p>输出ui的时候发现，ui变得很大，这是因为变量都有固定的大小，四字节的时候，2^32次-1正好就是这个数。</p>
+<blockquote>
+<p>如果使用更大类型或者更小类型去强转，则会发生不可预料的情况，因为ui默认只占了四字节，多了或少了系统读取的内存不一样了，内容也会各不相同。</p>
+</blockquote>
+<img src="/2022/05/02/pointer/018.png" class="">
+<p>但是我们再输出*p:<img src="/2022/05/02/pointer/019.png" class=""><br>发现正常输出-1了，这是因为指针就是int类型，而ui却是unsigned。可想而知，计算机太单纯了，他单纯的表示二进制，符号位也是我们强加的，因此指针的类型不但在于它占用多少空间，更是为了让计算机怎么去处理这个指针的内容。</p>
+<hr>
+<h2 id="练习一下"><a href="#练习一下" class="headerlink" title="练习一下"></a>练习一下</h2><h3 id="1—"><a href="#1—" class="headerlink" title="1—"></a>1—</h3><pre><code class="cpp">int a[] &#123;10001,20001,30001,40001&#125;;
+int *p = &amp;a[0];
+
+//(*p)++ or *p++的结果
+</code></pre>
+<p>首先*p 目前是a[0]的地址，可以打印出10001。<br>()阔号的优先级更高，所以先在内存中读出10001，然后在进行++操作，故此(*p)++ &#x3D; 10002，但是由于直接打印，++在右边，所以先输出10001，然后在自增。</p>
+<p>而*p++呢，没有修改优先级，相当于地址+1，那么默认在p的地址上+4，为什么加4前面说过了，int类型占用四字节，地址自增，就是每次往后移动四字节【根据类型】。所以这里*p++的结果为20001。但是同理，++在右，先运算在自增。由于之前(*p)++了，所以这里的*p的值默认变成了10002，但是对于地址而言，移动四字节变成了a[1]:20001的地址。</p>
+<blockquote>
+<p>这里不好理解的话，再解释一下，int类型的指针默认占用4字节，x86的情况下，当计算机去读取的时候肯定也是四个字节来读，那么指针+1，他肯定是要按照它本身地址+类型占用空间，通俗的话说这个1就是它自己<br>+1 就使得p的地址移动到了20001的地址，那么从a[0]开始+2，p就会移动到30001的地址</p>
+</blockquote>
+<img src="/2022/05/02/pointer/020.png" class="">
+<p>当然这个可能看上去不直观，那么修改一下先输出数组所有元素的地址</p>
+<img src="/2022/05/02/pointer/021.png" class="">
+
+<p>然后的然后我们就可以开始套娃了：<br>是变量都会有占用空间，都会有内存地址，那么指针变量也不例外</p>
+<pre><code class="cpp">std::cout &lt;&lt; &amp;p &lt;&lt; std::endl;
+</code></pre>
+<p>就可以输出指针的地址了，以上述的题打样：</p>
+<img src="/2022/05/02/pointer/022.png" class="">
+<p>应该是能清楚看到p的地址比数组成员都要大，当然这是因为数组先声明，在内存中肯定早点申请了空间。</p>
+<h3 id="2—"><a href="#2—" class="headerlink" title="2—"></a>2—</h3><p>回归正题，*p 能操作同类型的地址，那么如何操作*p的地址呢。<br>有意思的衍生出了二级指针</p>
+<pre><code class="cpp">int **p2;
+</code></pre>
+<p>需要注意的是：</p>
+<ul>
+<li>二级指针只能指向一级指针的地址，不能指向单纯的变量地址</li>
+<li>不用尝试&amp;&amp;去获取变量的地址，无效套娃</li>
+</ul>
+<img src="/2022/05/02/pointer/023.png" class="">
+
+<img src="/2022/05/02/pointer/024.png" class="">
+
+<img src="/2022/05/02/pointer/025.png" class="">
+
+<pre><code class="cpp">std::cout &lt;&lt; p &lt;&lt; std::endl;
+std::cout &lt;&lt; *p2 &lt;&lt; std::endl;
+</code></pre>
+<p>输出p的地址和*p2的地址是相同的：<img src="/2022/05/02/pointer/026.png" class=""><br>那么**p2的值就是*p代表的值了：<img src="/2022/05/02/pointer/027.png" class=""></p>
+<blockquote>
+<p>反复提醒：变量存在于局部时，每次运行分配的地址与之前不同。</p>
+</blockquote>
+<p>如果你想要整一个int ***p3和int ****p4，ok都没关系，都可以操作，只是相应的，要注意高级别的指针只能指向低一级的地址。【多维数组与多级指针息息相关】</p>
+<h3 id="3—"><a href="#3—" class="headerlink" title="3—"></a>3—</h3><p>补充一个东西，const 是限定一个变量为常量，即初始化后不可以修改。</p>
+<pre><code class="cpp">const int a = 100;
+const int b = 200;
+int *p = &amp;a;    //肯定会报错，因为二者类型不相同
+</code></pre>
+<p>所以指针也要变成const</p>
+<pre><code class="cpp">const int a = 100;
+const int b = 200;
+const int *p = &amp;a;    //这样才合法
+</code></pre>
+<p>const是限定了一个常量。那么常量指针还能从而修改值吗？<br>答案是不能：<img src="/2022/05/02/pointer/028.png" class=""><br>但是，常量指针可以重新指向别的常量：<img src="/2022/05/02/pointer/029.png" class=""></p>
+<blockquote>
+<p>const int *p 的当const在前的时候即限定了这个指针不能修改地址里面的值，只能换地址<br>随记表面 const能放后面。int *const p<br>脑袋肯定晕乎乎了。。。不过const在前时指针称为常量指针，const在后时称为指针常量</p>
+</blockquote>
+<p>先看指针常量：<br>当const出现在变量名前面的时候，就已经是常量了，说明了这个指针初始化后肯定是不能修改地址了。<br>不过还是能修改初始化时地址的变量。</p>
+<pre><code class="cpp">int a = 100;
+int b = 200;
+int *const p = &amp;a;
+
+p = &amp;b;        //error：左值是常量不可修改
+*p = 300;    //合法，因为指针常量指向的仍然是一个变量
+</code></pre>
+<p>还没完！！！！！！<br>const前后都放过了，那如果前后都存在呢？</p>
+<pre><code class="cpp">const int a = 100;
+const int b = 200;
+const int *const p = &amp;a;
+
+p = &amp;b;        //error
+*p = 300;    //error
+</code></pre>
+<p>当出现两个const的时候，称之为指向常量的常量指针，也就说当这个指针初始化后，既不可以修改指向的内存地址，也不可以修改内存地址上的数据。<br>说人话就是这种限定完之后啥都不能改了。</p>
+<hr>
+<h2 id="强制转换"><a href="#强制转换" class="headerlink" title="强制转换"></a>强制转换</h2><p>强制转换用到的地方也不少，在两个类型不相同的变量传递之间，隐式转换不起作用那么就需要我们手动强制转换，指针也不例外。</p>
+<pre><code class="cpp">const int a = 1000;
+
+int *p = &amp;a;    //error，因为类型不一致
+</code></pre>
+<img src="/2022/05/02/pointer/030.png" class="">
+<p>将其修改为：</p>
+<pre><code class="cpp">const int a = 1000;
+
+int *p = (int *) &amp;a;
+</code></pre>
+<p>然后印证指针p指向的是a的地址：<code>std::cout &lt;&lt; *p &lt;&lt; std::endl;</code></p>
+<img src="/2022/05/02/pointer/031.png" class="">
+<p>打印出来的也是1000，说明没啥问题。</p>
+<p>如果我们修改指针的值呢，发现也的确可以修改：</p>
+<img src="/2022/05/02/pointer/032.png" class="">
+<p>但是有个问题了，a是什么，a是一个常量，它的值会改变吗？</p>
+<img src="/2022/05/02/pointer/033.png" class="">
+
+<p>打上断点转到反汇编浅看一下：</p>
+<img src="/2022/05/02/pointer/034.png" class="">
+<ol>
+<li>在初始化a的时候，将[3E8h]转成十进制就是1000 mov到 a的地址上。</li>
+<li>然后将a强转给指针p的时候，编译器先把a的地址存到rax寄存器上</li>
+<li>*p&#x3D;250的时候，又把p的地址 mov到 rax寄存器上，然后将[0FAh]这个十六进制转换成十进制就是250 mov到rax寄存器的地址上。</li>
+<li>然后打印*p的时候，又先将指针p的地址mov到rax上，在将rax的地址mov到rdx上；打印a的时候则是直接将[3E8h] 1000的值 mov到rdx上。</li>
+</ol>
+<blockquote>
+<p>虽然对于汇编知识较为欠缺，但是凭大概看法就是，编译器是修改了*p的值，但是他也记住了a本身的值一样，就是类似于宏定义，这样不论什么时候调用a，他都直接以3E8h的值进行传递。</p>
+</blockquote>
+<hr>
+<h1 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h1><p>指针还是很神奇的东西。。以后不少地方还会用到，得好好摸索摸索。</p>
+
+        </div>
+
+    </div>
+
+    
+
+    
+
+    
+
+    
+  <div class="article-copyright hairline">
+    <p>
+      本作品采用  <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议 (CC BY-NC-ND 4.0)</a> 进行许可。
+    </p>
+  </div>
+  
+
+    
+
+    
+<nav class="article-nav">
+  
+    <a href="/2022/05/05/pointerArray/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-caption">prossimo</div>
+      <div class="article-nav-title">
+        
+          pointerArray
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/04/30/std-vector/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-caption">precedente</div>
+      <div class="article-nav-title">std::vector</div>
+    </a>
+  
+</nav>
+
+
+    <section class="share">
+        <div class="share-title">share</div>
+        <a class="share-item" target="_blank"
+            href="https://twitter.com/share?text=pointer - ohmyhsy&url=https%3A%2F%2F8bytes.top%2F2022%2F05%2F02%2Fpointer%2F">
+            <box-icon type='logo' name='twitter'></box-icon>
+        </a>
+        <a class="share-item" target="_blank"
+            href="https://www.facebook.com/sharer.php?title=pointer - ohmyhsy&u=https%3A%2F%2F8bytes.top%2F2022%2F05%2F02%2Fpointer%2F">
+            <box-icon name='facebook-square' type='logo' ></box-icon>
+        </a>
+        <!-- <a class="share-item" target="_blank"
+            href="https://service.weibo.com/share/share.php?title=pointer - ohmyhsy&url=https://8bytes.top/2022/05/02/pointer/&pic=">
+            <div class="n-icon n-icon-weibo"></div>
+        </a> -->
+    </section>
+
+</article>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- <script src="//unpkg.com/@waline/dist/Waline.min.js"></script> -->
+    <script src="https://unpkg.com/@waline/client@v2/dist/waline.js"></script>
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/@waline/client@v2/dist/waline.css"
+    />
+    <section class="comments">
+        <div id="waline"></div>
+    </section>
+    <script>
+        Waline.init({
+          el: '#waline',
+          serverURL: 'https://ohmyhsy.vercel.app/',
+        });
+    </script>
+
+
+
+<script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+</div>
+                </section>
+            </section>
+
+            
+            <aside class="sidebar sidebar-search-fix">
+                
+
+    <div class="search">
+    <div class="has-icon-right">
+        <input type="text" class="form-input" id="search" placeholder="SEARCH" autocomplete="off">
+        <div class="form-icon">
+            <box-icon name='search' color="#3c4859"></box-icon>
+        </div>
+    </div>
+    <div class="search-result" id="search-ps"></div>
+</div>
+
+
+<div class="widget" id="widget">
+    
+      
+  <div class="widget-wrap">
+    <div class="widget-inner">
+      <div class="toc post-toc-html"></div>
+    </div>
+  </div>
+
+    
+      
+
+    
+      
+  <div class="widget-wrap widget-tags">
+    <div class="widget-title"><span>Tags</span></div>
+    <div class="widget-inner">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c/" rel="tag">c</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cpp/" rel="tag">cpp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/exam/" rel="tag">exam</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jetbrains/" rel="tag">jetbrains</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/" rel="tag">leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ubuntu/" rel="tag">ubuntu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vscode/" rel="tag">vscode</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-recent-posts">
+    <div class="widget-title"><span>Recent Posts</span></div>
+    <div class="widget-inner">
+      <ul>
+        
+          <li>
+            <a href="/2022/06/09/text004/">text004</a>
+          </li>
+        
+          <li>
+            <a href="/2022/06/03/function5/">function5-栈</a>
+          </li>
+        
+          <li>
+            <a href="/2022/06/01/function4/">function4-本质和函数指针</a>
+          </li>
+        
+          <li>
+            <a href="/2022/05/31/function3/">function3-左值右值</a>
+          </li>
+        
+          <li>
+            <a href="/2022/05/30/function2/">function2</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget-wrap widget-archive">
+    <div class="widget-title"><span>Archive</span></div>
+    <div class="widget-inner">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/">2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/">2021</a></li></ul>
+    </div>
+  </div>
+
+
+    
+</div>
+
+<div id="backtop"><i class="icon icon-arrow-up"></i></div>
+            </aside>
+            
+        </div>
+    </div>
+
+    <footer class="footer">
+    <div class="footer-wave">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#3c4859" fill-opacity="1" d="M0,160L60,181.3C120,203,240,245,360,240C480,235,600,181,720,186.7C840,192,960,256,1080,261.3C1200,267,1320,213,1380,186.7L1440,160L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>
+    </div>
+
+    <!-- Please do not remove this -->
+    <!-- 开源不易，请勿删除 -->
+    <div class="footer-wrap">
+        <div class="footer-inner"> 
+            ohmyhsy &copy; 2022<br>
+            Powered By Hexo · Theme By <a href="https://linhong.me/" target="_blank">Aomori</a> · <a href="https://github.com/lh1me/hexo-theme-aomori" target="_blank">Github</a>
+        </div>
+    </div>
+
+</footer>
+
+
+
+
+
+
+<script src="/dist/build.js?1646451311888.js"></script>
+
+
+<script src="/dist/custom.js?1646451311888.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>
