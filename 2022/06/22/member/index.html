@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    
+    <title>成员函数 | ohmyhsy</title>
+
+    <meta name="description" content="&lt;h1 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;pre&gt;&lt;code class=&#34;cpp&#34;&gt;class ROLE&amp;#123;
+public:
+    int hp;             //成员变量
+    int mp;             //成员变量
+
+    void Init()&amp;#123;        //成员函数
+        hpadd = 3;
+    &amp;#125;
+private:
+    int hpadd;          //成员变量
+&amp;#125;;
+&lt;/code&gt;&lt;/pre&gt;">
+    <meta name="keywords" content="">
+
+    
+
+    <meta property="og:locale" content="en" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content= "成员函数 | ohmyhsy"  />
+    <meta property="og:description" content= "&lt;h1 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;pre&gt;&lt;code class=&#34;cpp&#34;&gt;class ROLE&amp;#123;
+public:
+    int hp;             //成员变量
+    int mp;             //成员变量
+
+    void Init()&amp;#123;        //成员函数
+        hpadd = 3;
+    &amp;#125;
+private:
+    int hpadd;          //成员变量
+&amp;#125;;
+&lt;/code&gt;&lt;/pre&gt;" />
+    <meta property="og:url" content="https://8bytes.top/2022/06/22/member/index.html" />
+    <meta property="og:site_name" content="" />
+    <meta property="article:author" content="Box" />
+    <meta property="article:publisher" content="" />
+    <meta property="og:description" content="&lt;h1 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;pre&gt;&lt;code class=&#34;cpp&#34;&gt;class ROLE&amp;#123;
+public:
+    int hp;             //成员变量
+    int mp;             //成员变量
+
+    void Init()&amp;#123;        //成员函数
+        hpadd = 3;
+    &amp;#125;
+private:
+    int hpadd;          //成员变量
+&amp;#125;;
+&lt;/code&gt;&lt;/pre&gt;" />
+    <meta name="twitter:title" content="成员函数 | ohmyhsy"/>
+    <meta name="twitter:description" content="&lt;h1 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;pre&gt;&lt;code class=&#34;cpp&#34;&gt;class ROLE&amp;#123;
+public:
+    int hp;             //成员变量
+    int mp;             //成员变量
+
+    void Init()&amp;#123;        //成员函数
+        hpadd = 3;
+    &amp;#125;
+private:
+    int hpadd;          //成员变量
+&amp;#125;;
+&lt;/code&gt;&lt;/pre&gt;"/>
+    <script type="application/ld+json">
+        {
+            "description": "&lt;h1 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;pre&gt;&lt;code class=&#34;cpp&#34;&gt;class ROLE&amp;#123;
+public:
+    int hp;             //成员变量
+    int mp;             //成员变量
+
+    void Init()&amp;#123;        //成员函数
+        hpadd = 3;
+    &amp;#125;
+private:
+    int hpadd;          //成员变量
+&amp;#125;;
+&lt;/code&gt;&lt;/pre&gt;",
+            "author": { "@type": "Person", "name": "Box" },
+            "@type": "BlogPosting",
+            "url": "https://8bytes.top/2022/06/22/member/index.html",
+            "publisher": {
+            "@type": "Organization",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://8bytes.topundefined"
+            },
+            "name": "Box"
+            },
+            "headline": "成员函数 | ohmyhsy",
+            "datePublished": "2022-06-22T12:01:09.000Z",
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "https://8bytes.top/2022/06/22/member/index.html"
+            },
+            "@context": "http://schema.org"
+        }
+    </script>
+
+
+
+
+    
+
+    
+    <meta property="algolia:search" data-application-id="4CVCYWPWWN" data-api-key="7757db6b0a31c3f94c301c885693ed0d" data-index-name="ohmyhsy">
+    
+
+    
+
+    
+
+    
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎮</text></svg>">
+    
+
+    
+
+    
+
+    
+<link rel="stylesheet" href="/dist/build.css?v=1646451311888.css">
+
+
+    
+<link rel="stylesheet" href="/dist/custom.css?v=1646451311888.css">
+
+
+    <script>
+        window.isPost = true
+        window.aomori = {
+            
+            
+            
+        }
+        window.aomori_logo_typed_animated = true
+        window.aomori_search_algolia = true
+
+    </script>
+
+<meta name="generator" content="Hexo 5.4.1"><link rel="alternate" href="/atom.xml" title="ohmyhsy" type="application/atom+xml">
+</head>
+
+<body>
+
+    <div class="container">
+    <header class="header">
+        <div class="header-type">
+            
+            <div class="header-type-inner">
+                
+                    <div id="typed-strings" style="display:none">
+                        <p>ohmyhsy</p>
+                    </div>
+                    <a class="header-type-title" id="typed" href="/"></a>
+                
+    
+                
+            </div>
+        </div>
+        <div class="header-menu">
+            <div class="header-menu-inner">
+                
+                <a href="/">Home</a>
+                
+                <a href="/archives">Archives</a>
+                
+                <a href="/friends">Friends</a>
+                
+            </div>
+            <div class="header-menu-social">
+                
+    <a class="social" target="_blank" href="https://github.com/8bytes-code">
+        <box-icon type='logo' name='github'></box-icon>
+    </a>
+
+            </div>
+        </div>
+
+        <div class="header-menu-mobile">
+            <div class="header-menu-mobile-inner" id="mobile-menu-open">
+                <i class="icon icon-menu"></i>
+            </div>
+        </div>
+    </header>
+
+    <div class="header-menu-mobile-menu">
+        <div class="header-menu-mobile-menu-bg"></div>
+        <div class="header-menu-mobile-menu-wrap">
+            <div class="header-menu-mobile-menu-inner">
+                <div class="header-menu-mobile-menu-close" id="mobile-menu-close">
+                    <i class="icon icon-cross"></i>
+                </div>
+                <div class="header-menu-mobile-menu-list">
+                    
+                    <a href="/">Home</a>
+                    
+                    <a href="/archives">Archives</a>
+                    
+                    <a href="/friends">Friends</a>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+    <div class="container">
+        <div class="main">
+            <section class="inner">
+                <section class="inner-main">
+                    <div class="post">
+    <article id="post-cl4wvfegs00290sk671fh6h6h" class="article article-type-post" itemscope
+    itemprop="blogPost">
+
+    <div class="article-inner">
+
+        
+          
+        
+        
+        
+
+        
+        <header class="article-header">
+            
+  
+    <h1 class="article-title" itemprop="name">
+      成员函数
+    </h1>
+  
+
+        </header>
+        
+
+        <div class="article-more-info article-more-info-post hairline">
+
+            <div class="article-date">
+  <time datetime="2022-06-22T12:01:09.000Z" itemprop="datePublished">2022-06-22</time>
+</div>
+
+            
+
+            
+            <div class="article-tag">
+                <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cpp/" rel="tag">cpp</a></li></ul>
+            </div>
+            
+
+            
+            <div class="article-busuanzi">
+                <span id="busuanzi_value_page_pv">N</span> views
+            </div>
+            
+
+        </div>
+
+        <div class="article-entry post-inner-html hairline" itemprop="articleBody">
+            <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><pre><code class="cpp">class ROLE&#123;
+public:
+    int hp;             //成员变量
+    int mp;             //成员变量
+
+    void Init()&#123;        //成员函数
+        hpadd = 3;
+    &#125;
+private:
+    int hpadd;          //成员变量
+&#125;;
+</code></pre>
+<span id="more"></span>
+
+
+<blockquote>
+<p>谁的成员，无非就是要知道作用域在哪里。</p>
+</blockquote>
+<hr>
+<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><p>与常规函数不同</p>
+<pre><code class="cpp">#include&lt;iostream&gt;
+
+int add(int a,int b)&#123;
+    return a + b;
+&#125;
+
+int main()&#123;
+
+    return 0;
+&#125;
+</code></pre>
+<p>这个时候函数add是全局函数，搁哪调用都没问题。<br>相反的，类中的成员函数，就只能被这个类调用。</p>
+<pre><code class="cpp">class Box&#123;
+public:
+    void test()&#123;
+        std::cout &lt;&lt; &quot;hello Box\n&quot;;
+    &#125;
+&#125;;
+
+void test()&#123;
+    std::cout &lt;&lt; &quot;hello ::\n&quot;;
+&#125;
+</code></pre>
+<p>这种时候在主函数中调用test()想都不用想调用的是外面的全局函数</p>
+<img src="/2022/06/22/member/000.png" class="">
+
+<p><code>::</code>之前说过前面没有东西时就代表全局作用域，那么要调用Box的test就要<code>Box::test();</code><br>不过由于没有实例化，所以没意义，顶多在外面修改函数</p>
+<pre><code class="cpp">class Box&#123;
+public:
+    void test();
+&#125;;
+
+void test()&#123;
+    std::cout &lt;&lt; &quot;hello ::\n&quot;;
+&#125;
+
+void Box::test()&#123;
+    std::cout &lt;&lt; &quot;hello ::Box\n&quot;;
+&#125;
+
+int main()&#123;
+    test();
+    Box b;
+    b.test();
+
+    return 0;
+&#125;
+</code></pre>
+<img src="/2022/06/22/member/001.png" class="">
+
+<p><strong>注意box类中的函数，定义要通过Box::写在外面的话，那么类中的函数只能是声明，否则会报错已有主体</strong><br>这里就是想在外面写，所以去掉了类中的函数主体。</p>
+<hr>
+<h2 id="成员函数的大小"><a href="#成员函数的大小" class="headerlink" title="成员函数的大小"></a>成员函数的大小</h2><p>可能这种写法刚从c风格过渡而来时会不习惯，但是一般类中的成员初始化或者函数定义都是写在外面的。</p>
+<p>结构体的内存占用存在对齐情况，2 4 8的倍数，这是板上钉钉的事实。<br>但是类的内存占用呢，变量没办法，声明了就有，但是成员函数，不是每个对象都需要，它的内存占用该怎么办</p>
+<pre><code class="cpp">class Box&#123;
+public:
+    int a;
+    int b;
+    void test();
+&#125;;
+int main()&#123;
+    std::cout &lt;&lt; sizeof(Box);
+
+    return 0;    
+&#125;
+</code></pre>
+<img src="/2022/06/22/member/002.png" class="">
+<p>发现他在统计类的内存大小的时候，忽略掉了函数？</p>
+<p>如果是以为没定义的话其实也陷进去了。</p>
+<pre><code class="cpp">class Box&#123;
+public:
+    int a;
+    int b;
+    void test()&#123;
+        std::cout &lt;&lt; &quot;hello \n&quot;;
+    &#125;
+&#125;;
+</code></pre>
+<img src="/2022/06/22/member/003.png" class="">
+<p>发现还是忽略的。</p>
+<p><strong>但是要注意：虽然统计类的大小时不计函数，但是函数本质上还是有占用的</strong></p>
+<p>对象的大小按照数据成员所占空间之和算，和结构体类似。但是类中的函数，是类通用的，所以不算做对象的占用，因此成员函数也不存在对象的内存空间。换言之就可能在调用时才跳转到代码区什么的找到函数的地址。</p>
+<hr>
+<h2 id="空类的大小"><a href="#空类的大小" class="headerlink" title="空类的大小"></a>空类的大小</h2><p>然后就是另一个有意思的地方。当类是空的时候它的占用会是0吗</p>
+<blockquote>
+<p>ps: C++的空类是指这个类不带任何数据，即类中没有非静态(non-static)数据成员变量，没有虚函数(virtual function)，也没有虚基类(virtual base class)。 </p>
+</blockquote>
+<pre><code class="cpp">class hack&#123;
+
+&#125;;
+</code></pre>
+<img src="/2022/06/22/member/004.png" class="">
+<p>可以看到结果是1.</p>
+<p>其实也是因为<code>C++标准规定，凡是一个独立的(非附属)对象都必须具有非零大小。</code></p>
+<p>不然这个类创建多个对象的时候，这几个不同的对象的内存地址是一样的不是很荒唐吗</p>
+<pre><code class="cpp">hack h1, h2;
+std::cout &lt;&lt; &amp;h1 &lt;&lt; std::endl;
+std::cout &lt;&lt; &amp;h2 &lt;&lt; std::endl;
+</code></pre>
+<img src="/2022/06/22/member/005.png" class="">
+<p>切成release模式才会相邻，debug可能还有啥没优化的挡着了。</p>
+<hr>
+<h2 id="构建class文件"><a href="#构建class文件" class="headerlink" title="构建class文件"></a>构建class文件</h2><p>vs的操作流程吧，因为类可能单独写在一个文件[一个源文件+一个头文件]里</p>
+<img src="/2022/06/22/member/006.png" class="">
+<img src="/2022/06/22/member/007.png" class="">
+
+
+<p>就会得到一个源文件和一个头文件，这里Class类名以Hack举例</p>
+<pre><code class="cpp">//Hack.cpp
+#include &quot;Hack.h&quot;
+</code></pre>
+<pre><code class="cpp">//Hack.h
+#pragma once
+class Hack
+&#123;
+&#125;;
+</code></pre>
+<p>然后可以用main.cpp 引入Hack的头文件，这样就能访问类。</p>
+<pre><code class="cpp">#pragma once
+class Hack&#123;
+public:
+    int hp;
+    int mp;
+    void test();
+&#125;;
+</code></pre>
+<pre><code class="cpp">#include&lt;iostream&gt;
+#include &quot;Hack.h&quot;
+
+void Hack::test()&#123;
+    std::cout &lt;&lt; &quot;test&quot; &lt;&lt; std::endl;
+&#125;
+</code></pre>
+<blockquote>
+<p>这样函数的定义部分也可在源文件操作。除了内联函数以外，我们尽量将内联函数写在头文件中，毕竟这个内联的简易的话它是直接拿来替换的，没必要让他翻几个文件再替换。</p>
+</blockquote>
+<hr>
+<h2 id="重写原则"><a href="#重写原则" class="headerlink" title="重写原则"></a>重写原则</h2><p>因为函数可以只先声明，而后定义，所以最后参考的是定义部分</p>
+<pre><code class="cpp">#pragma once
+class Hack&#123;
+public:
+    int hp;
+    int mp;
+    void test();
+    int add(int a,int b,int c);
+&#125;;
+</code></pre>
+<pre><code class="cpp">#include&lt;iostream&gt;
+#include &quot;Hack.h&quot;
+
+void Hack::test()&#123;
+    std::cout &lt;&lt; &quot;test&quot; &lt;&lt; std::endl;
+&#125;
+
+int Hack::add(int a,int b,int c = 3)&#123;    //假如声明的时候已经给c做了默认值，那么此处在定义默认值就会报错
+    return hp + mp;
+&#125;
+</code></pre>
+<p>其实本质上是要注意默认参数的情况，虽然我们形参习惯放于函数声明的部分。<br>但是默认参数其实也可以放在声明的地方。</p>
+<p>当默认参数放在声明部分时，定义的时候就不可以再重复出现默认参数了，否则会产生错误。</p>
+<p>所以原则上：</p>
+<ol>
+<li>当定义和声明分开时，参数的默认值就尽量放在声明</li>
+<li>定义和声明不分开的时候，就老老实实放着就行了。</li>
+</ol>
+<hr>
+<h2 id="this"><a href="#this" class="headerlink" title="this"></a>this</h2><pre><code class="cpp">#include&lt;iostream&gt;
+#include &quot;Hack.h&quot;
+
+void Hack::test()&#123;
+    this-&gt;hp = 200;
+    this-&gt;mp = 300;
+    std::cout &lt;&lt; &quot;test&quot; &lt;&lt; std::endl;
+&#125;
+</code></pre>
+<p>如果只在此处初始化的话其实跟<code>hp=200;</code>差别不大。</p>
+<p>但是this的意义肯定不在于此，不然早就被废弃了。</p>
+<blockquote>
+<p>this指针是一个自动生成、自动隐藏的成员，当一个对象被实例化时，this指针自动指向对象的首地址</p>
+</blockquote>
+<p>比如说比较两个对象的某个参数，然后返回指针。</p>
+<pre><code class="cpp">#pragma once
+class Hack&#123;
+public:
+    int hp;
+    int mp;
+    int lv;
+    Hack *Hmax(Hack *ha);
+&#125;;
+</code></pre>
+<pre><code class="cpp">#include&lt;iostream&gt;
+#include &quot;Hack.h&quot;
+
+Hack* Hack::Hmax(Hack *ha)&#123;
+    return ha-&gt;lv &gt; lv ? ha : this;
+&#125;
+</code></pre>
+<p>如果说没有this指针，就不好确定比较的对象的地址。</p>
+<pre><code class="cpp">int main()&#123;
+    Hack ha;
+    Hack hc;
+
+    hc.Hmax(&amp;hc);
+&#125;
+</code></pre>
+<p>这样返回的还是一个指针，我们可以去接受它做其它有意义的事情。</p>
+<hr>
+<p>还有就是比如说传值初始化的时候this可以区分出来</p>
+<pre><code class="cpp">void Hack::setHp(int hp)&#123;
+    hp = hp;
+&#125;
+</code></pre>
+<p>当形参名没有考究，跟类的成员名一样的时候，其实就给编译器整活了。但是你加上this的话就一目了然</p>
+<pre><code class="cpp">void Hack::setHp(int hp)&#123;
+    this-&gt;hp = hp;
+&#125;
+</code></pre>
+<hr>
+<p>this还有一种套娃用法。</p>
+<pre><code class="cpp">#pragma once
+class Hack&#123;
+public:
+    int hp;
+    int mp;
+    int lv;
+
+    Hack &amp;setHp(int hp);
+    Hack &amp;setMp(int mp);
+    Hack &amp;setLv(int lv);
+&#125;;
+</code></pre>
+<pre><code class="cpp">#include&lt;iostream&gt;
+#include &quot;Hack.h&quot;
+
+Hack&amp; Hack::setHp(int hp)&#123;
+    this-&gt;hp = hp;
+    return *this;
+&#125;
+Hack &amp;Hack::setMp(int mp)&#123;
+    this-&gt;mp = mp;
+    return *this;
+&#125;
+Hack &amp;Hack::setLv(int lv)&#123;
+    this-&gt;lv = lv;
+    return *this;
+&#125;
+</code></pre>
+<pre><code class="cpp">int main()&#123;
+    Hack ha;
+    ha.setHp(200).setMp(300).setLv(1);
+&#125;
+</code></pre>
+<p>会发现可以连起来用。因为它的返回值是this指针，所以当ha开始调用的时候，只要后面的参数也返回的this指针就可以一直套娃套下去。这一种就像类的连续初始化版~</p>
+<p>当然还是要归功于引用这一特性，如果没有引用，就没法返回一个解引用之后还原成this的指针。<br>不能返回指针，而是返回类的话，是会存在大量的内存消耗的一个问题。<br>就跟结构体那会提到的类似，返回一个结构体和返回一个结构体指针肯定是不一样的，返回结构体指针还原出本身，和新建临时对象返回。</p>
+<hr>
+<h1 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h1><p>熟悉下定义类的成员函数定义方式，和this指针的巧妙运用。</p>
+
+        </div>
+
+    </div>
+
+    
+
+    
+
+    
+
+    
+  <div class="article-copyright hairline">
+    <p>
+      本記事は  <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">「表示 - 非営利 - 改変禁止 4.0 国際 (CC BY-NC-ND 4.0)」</a> を採用。
+    </p>
+  </div>
+  
+
+    
+
+    
+<nav class="article-nav">
+  
+    <a href="/2022/06/22/const/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-caption">prossimo</div>
+      <div class="article-nav-title">
+        
+          const类
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/06/22/oop/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-caption">precedente</div>
+      <div class="article-nav-title">面向对象</div>
+    </a>
+  
+</nav>
+
+
+    <section class="share">
+        <div class="share-title">share</div>
+        <a class="share-item" target="_blank"
+            href="https://twitter.com/share?text=成员函数 - ohmyhsy&url=https%3A%2F%2F8bytes.top%2F2022%2F06%2F22%2Fmember%2F">
+            <box-icon type='logo' name='twitter'></box-icon>
+        </a>
+        <a class="share-item" target="_blank"
+            href="https://www.facebook.com/sharer.php?title=成员函数 - ohmyhsy&u=https%3A%2F%2F8bytes.top%2F2022%2F06%2F22%2Fmember%2F">
+            <box-icon name='facebook-square' type='logo' ></box-icon>
+        </a>
+        <!-- <a class="share-item" target="_blank"
+            href="https://service.weibo.com/share/share.php?title=成员函数 - ohmyhsy&url=https://8bytes.top/2022/06/22/member/&pic=">
+            <div class="n-icon n-icon-weibo"></div>
+        </a> -->
+    </section>
+
+</article>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- <script src="//unpkg.com/@waline/dist/Waline.min.js"></script> -->
+    <script src="https://unpkg.com/@waline/client@v2/dist/waline.js"></script>
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/@waline/client@v2/dist/waline.css"
+    />
+    <section class="comments">
+        <div id="waline"></div>
+    </section>
+    <script>
+        Waline.init({
+          el: '#waline',
+          serverURL: 'https://ohmyhsy.vercel.app/',
+        });
+    </script>
+
+
+
+<script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+</div>
+                </section>
+            </section>
+
+            
+            <aside class="sidebar sidebar-search-fix">
+                
+
+    <div class="search">
+    <div class="has-icon-right">
+        <input type="text" class="form-input" id="search" placeholder="SEARCH" autocomplete="off">
+        <div class="form-icon">
+            <box-icon name='search' color="#3c4859"></box-icon>
+        </div>
+    </div>
+    <div class="search-result" id="search-ps"></div>
+</div>
+
+
+<div class="widget" id="widget">
+    
+      
+  <div class="widget-wrap">
+    <div class="widget-inner">
+      <div class="toc post-toc-html"></div>
+    </div>
+  </div>
+
+    
+      
+
+    
+      
+  <div class="widget-wrap widget-tags">
+    <div class="widget-title"><span>Tags</span></div>
+    <div class="widget-inner">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c/" rel="tag">c</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/compiler/" rel="tag">compiler</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cpp/" rel="tag">cpp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/exam/" rel="tag">exam</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jetbrains/" rel="tag">jetbrains</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/" rel="tag">leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ubuntu/" rel="tag">ubuntu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/visual-studio-2022/" rel="tag">visual studio 2022</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vscode/" rel="tag">vscode</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-recent-posts">
+    <div class="widget-title"><span>Recent Posts</span></div>
+    <div class="widget-inner">
+      <ul>
+        
+          <li>
+            <a href="/2022/06/23/hstring/">hstring</a>
+          </li>
+        
+          <li>
+            <a href="/2022/06/23/destructor/">析构函数</a>
+          </li>
+        
+          <li>
+            <a href="/2022/06/23/Constructor1/">构造函数+1</a>
+          </li>
+        
+          <li>
+            <a href="/2022/06/23/Constructor/">构造函数</a>
+          </li>
+        
+          <li>
+            <a href="/2022/06/22/const/">const类</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget-wrap widget-archive">
+    <div class="widget-title"><span>Archive</span></div>
+    <div class="widget-inner">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/">2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/">2021</a></li></ul>
+    </div>
+  </div>
+
+
+    
+</div>
+
+<div id="backtop"><i class="icon icon-arrow-up"></i></div>
+            </aside>
+            
+        </div>
+    </div>
+
+    <footer class="footer">
+    <div class="footer-wave">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#3c4859" fill-opacity="1" d="M0,160L60,181.3C120,203,240,245,360,240C480,235,600,181,720,186.7C840,192,960,256,1080,261.3C1200,267,1320,213,1380,186.7L1440,160L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>
+    </div>
+
+    <!-- Please do not remove this -->
+    <!-- 开源不易，请勿删除 -->
+    <div class="footer-wrap">
+        <div class="footer-inner"> 
+            ohmyhsy &copy; 2022<br>
+            Powered By Hexo · Theme By <a href="https://linhong.me/" target="_blank">Aomori</a> · <a href="https://github.com/lh1me/hexo-theme-aomori" target="_blank">Github</a>
+        </div>
+    </div>
+
+</footer>
+
+
+
+
+
+
+<script src="/dist/build.js?1646451311888.js"></script>
+
+
+<script src="/dist/custom.js?1646451311888.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>

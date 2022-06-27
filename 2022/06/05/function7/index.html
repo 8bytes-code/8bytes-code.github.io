@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    
+    <title>function7-模板 | ohmyhsy</title>
+
+    <meta name="description" content="&lt;h1 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;重载回顾完之后&lt;br&gt;虽然说让一个函数名有了多个功能，但是每次都要多写一个函数还是挺麻烦的。&lt;br&gt;而模板功能是为了提升复用性的功能。&lt;/p&gt;">
+    <meta name="keywords" content="">
+
+    
+
+    <meta property="og:locale" content="en" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content= "function7-模板 | ohmyhsy"  />
+    <meta property="og:description" content= "&lt;h1 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;重载回顾完之后&lt;br&gt;虽然说让一个函数名有了多个功能，但是每次都要多写一个函数还是挺麻烦的。&lt;br&gt;而模板功能是为了提升复用性的功能。&lt;/p&gt;" />
+    <meta property="og:url" content="https://8bytes.top/2022/06/05/function7/index.html" />
+    <meta property="og:site_name" content="" />
+    <meta property="article:author" content="Box" />
+    <meta property="article:publisher" content="" />
+    <meta property="og:description" content="&lt;h1 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;重载回顾完之后&lt;br&gt;虽然说让一个函数名有了多个功能，但是每次都要多写一个函数还是挺麻烦的。&lt;br&gt;而模板功能是为了提升复用性的功能。&lt;/p&gt;" />
+    <meta name="twitter:title" content="function7-模板 | ohmyhsy"/>
+    <meta name="twitter:description" content="&lt;h1 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;重载回顾完之后&lt;br&gt;虽然说让一个函数名有了多个功能，但是每次都要多写一个函数还是挺麻烦的。&lt;br&gt;而模板功能是为了提升复用性的功能。&lt;/p&gt;"/>
+    <script type="application/ld+json">
+        {
+            "description": "&lt;h1 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;重载回顾完之后&lt;br&gt;虽然说让一个函数名有了多个功能，但是每次都要多写一个函数还是挺麻烦的。&lt;br&gt;而模板功能是为了提升复用性的功能。&lt;/p&gt;",
+            "author": { "@type": "Person", "name": "Box" },
+            "@type": "BlogPosting",
+            "url": "https://8bytes.top/2022/06/05/function7/index.html",
+            "publisher": {
+            "@type": "Organization",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://8bytes.topundefined"
+            },
+            "name": "Box"
+            },
+            "headline": "function7-模板 | ohmyhsy",
+            "datePublished": "2022-06-05T07:58:37.000Z",
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "https://8bytes.top/2022/06/05/function7/index.html"
+            },
+            "@context": "http://schema.org"
+        }
+    </script>
+
+
+
+
+    
+
+    
+    <meta property="algolia:search" data-application-id="4CVCYWPWWN" data-api-key="7757db6b0a31c3f94c301c885693ed0d" data-index-name="ohmyhsy">
+    
+
+    
+
+    
+
+    
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎮</text></svg>">
+    
+
+    
+
+    
+
+    
+<link rel="stylesheet" href="/dist/build.css?v=1646451311888.css">
+
+
+    
+<link rel="stylesheet" href="/dist/custom.css?v=1646451311888.css">
+
+
+    <script>
+        window.isPost = true
+        window.aomori = {
+            
+            
+            
+        }
+        window.aomori_logo_typed_animated = true
+        window.aomori_search_algolia = true
+
+    </script>
+
+<meta name="generator" content="Hexo 5.4.1"><link rel="alternate" href="/atom.xml" title="ohmyhsy" type="application/atom+xml">
+</head>
+
+<body>
+
+    <div class="container">
+    <header class="header">
+        <div class="header-type">
+            
+            <div class="header-type-inner">
+                
+                    <div id="typed-strings" style="display:none">
+                        <p>ohmyhsy</p>
+                    </div>
+                    <a class="header-type-title" id="typed" href="/"></a>
+                
+    
+                
+            </div>
+        </div>
+        <div class="header-menu">
+            <div class="header-menu-inner">
+                
+                <a href="/">Home</a>
+                
+                <a href="/archives">Archives</a>
+                
+                <a href="/friends">Friends</a>
+                
+            </div>
+            <div class="header-menu-social">
+                
+    <a class="social" target="_blank" href="https://github.com/8bytes-code">
+        <box-icon type='logo' name='github'></box-icon>
+    </a>
+
+            </div>
+        </div>
+
+        <div class="header-menu-mobile">
+            <div class="header-menu-mobile-inner" id="mobile-menu-open">
+                <i class="icon icon-menu"></i>
+            </div>
+        </div>
+    </header>
+
+    <div class="header-menu-mobile-menu">
+        <div class="header-menu-mobile-menu-bg"></div>
+        <div class="header-menu-mobile-menu-wrap">
+            <div class="header-menu-mobile-menu-inner">
+                <div class="header-menu-mobile-menu-close" id="mobile-menu-close">
+                    <i class="icon icon-cross"></i>
+                </div>
+                <div class="header-menu-mobile-menu-list">
+                    
+                    <a href="/">Home</a>
+                    
+                    <a href="/archives">Archives</a>
+                    
+                    <a href="/friends">Friends</a>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+    <div class="container">
+        <div class="main">
+            <section class="inner">
+                <section class="inner-main">
+                    <div class="post">
+    <article id="post-cl4wvfegj001h0sk6e82e8h5p" class="article article-type-post" itemscope
+    itemprop="blogPost">
+
+    <div class="article-inner">
+
+        
+          
+        
+        
+        
+
+        
+        <header class="article-header">
+            
+  
+    <h1 class="article-title" itemprop="name">
+      function7-模板
+    </h1>
+  
+
+        </header>
+        
+
+        <div class="article-more-info article-more-info-post hairline">
+
+            <div class="article-date">
+  <time datetime="2022-06-05T07:58:37.000Z" itemprop="datePublished">2022-06-05</time>
+</div>
+
+            
+
+            
+            <div class="article-tag">
+                <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cpp/" rel="tag">cpp</a></li></ul>
+            </div>
+            
+
+            
+            <div class="article-busuanzi">
+                <span id="busuanzi_value_page_pv">N</span> views
+            </div>
+            
+
+        </div>
+
+        <div class="article-entry post-inner-html hairline" itemprop="articleBody">
+            <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>重载回顾完之后<br>虽然说让一个函数名有了多个功能，但是每次都要多写一个函数还是挺麻烦的。<br>而模板功能是为了提升复用性的功能。</p>
+<span id="more"></span>
+
+
+
+<hr>
+<h1 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h1><p>关键字：</p>
+<ul>
+<li>template</li>
+</ul>
+<hr>
+<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><pre><code class="cpp">int Ave(int a, int b, int c)&#123;
+    return (a + b + c) / 3;
+&#125;
+float Ave(float a, float b, float c)&#123;
+    return (a + b + c) / 3;
+&#125;
+</code></pre>
+<p>假如有这么个函数是求三个数的平均值，抛开类型，算法逻辑是相同的操作。重载也合理。<br>但是如果要对每一个类型都写一个这样的函数，就会变得很麻烦。</p>
+<pre><code class="cpp">template &lt;typename type&gt; type Ave(type a, type b, type c)&#123;
+    return (a + b + c) / 3;
+&#125;
+//或者template声明完模板后换行写也可以
+template &lt;typename type&gt; 
+type Ave(type a, type b, type c)&#123;
+    return (a + b + c) / 3;
+&#125;
+</code></pre>
+<p><strong>typename 后面跟的名称就像是自定义的关键词auto一般，后面写的函数使用这个变量名，就代表他是这个类型的函数</strong></p>
+<p>使用起来也很方便：<img src="/2022/06/05/function7/000.png" class=""><br>char类型也没问题，你用什么类型的参数他就会返回什么类型的值：<img src="/2022/06/05/function7/001.png" class=""></p>
+<pre><code class="cpp">template &lt;typename type&gt; 
+type Ave(type a, type b, type c)&#123;
+    type x = a + b;
+    type ch[10] = &#123;0&#125;;
+    return (a + b + c) / 3;
+&#125;
+</code></pre>
+<blockquote>
+<p>既然说type是一个类型名，那么其实也可以在模板里面用它来定义变量。<br>甚至引用或者指针也ok。</p>
+</blockquote>
+<hr>
+<h2 id="指定模板类型"><a href="#指定模板类型" class="headerlink" title="指定模板类型"></a>指定模板类型</h2><p>既然模板可以自适应，又为啥会用到指定？原因也就是形参类型不一的时候，没法主动去转换，需要人为干预。</p>
+<pre><code class="cpp">template &lt;typename type&gt; 
+type Ave(type a, type b, type c)&#123;
+    return (a + b + c) / 3;
+&#125;
+int main()&#123;
+    std::cout &lt;&lt; Ave(26, 78.9f, 25.8f) &lt;&lt; std::endl;
+    return 0;
+&#125;
+</code></pre>
+<p>当参数不一致的时候：<img src="/2022/06/05/function7/002.png" class=""> 编译器就会给出错误提示<br><code>std::cout &lt;&lt; Ave&lt;int&gt;(26, 78.9f, 25.8f) &lt;&lt; std::endl;</code>当指定类型之后：</p>
+<img src="/2022/06/05/function7/003.png" class="">
+<p>能看到这个函数模板就变成int的类型的函数了。</p>
+<hr>
+<h2 id="指针引用"><a href="#指针引用" class="headerlink" title="指针引用"></a>指针引用</h2><pre><code class="cpp">template&lt;typename T&gt;
+T toMax(T a, T b)&#123;
+    return a &gt; b ? a : b;
+&#125;
+</code></pre>
+<img src="/2022/06/05/function7/004.png" class="">
+<p>可看到被实例化成int*类型的函数了，但其实传递地址没有进行很好的处理，所以指很有可能是错的。</p>
+<img src="/2022/06/05/function7/005.png" class="">
+<p>可当传递是引用时，发现并没有实例化成引用类型，而是普通的int类型。</p>
+<p>而且const好像也不当回事：</p>
+<img src="/2022/06/05/function7/006.png" class="">
+
+<hr>
+<h1 id="函数模板重载"><a href="#函数模板重载" class="headerlink" title="函数模板重载"></a>函数模板重载</h1><p>在经过一些例子尝试后，发现模板对于普通的类型转换是没有问题的，但是对于指针相关的操作可能就会有点不灵清。</p>
+<img src="/2022/06/05/function7/007.png" class="">
+<p>就拿之前指针的问题，返回值甚至不是大的一方，只是单纯的返回了a。</p>
+<p>解决的方法就是针对模板之外的情况附带一个指定的：</p>
+<pre><code class="cpp">template&lt;typename T&gt;
+T toMax(T a, T b)&#123;
+    return a &gt; b ? a : b;
+&#125;
+template&lt;&gt;
+int *toMax(int *a, int *b)&#123;
+    return *a &gt; *b ? a : b;
+&#125;
+</code></pre>
+<img src="/2022/06/05/function7/008.png" class="">
+<p>可以看到输出正常了，也匹配到了后面指针那个模板:</p>
+<img src="/2022/06/05/function7/009.png" class="">
+
+<p><strong>但是倒霉的又来了，我们这里的指针函数是int类型的，就失去了模板之前自动根据参数识别的情况，但是可以用函数重载去弥补一些损失</strong></p>
+<pre><code class="cpp">template&lt;typename T&gt;
+T toMax(T a, T b)&#123;
+    return a &gt; b ? a : b;
+&#125;
+int *toMax(int *a, int *b)&#123;
+    return *a &gt; *b ? a : b;
+&#125;
+float *toMax(float *a, float *b)&#123;
+    return *a &gt; *b ? a : b;
+&#125;
+</code></pre>
+<p>重载的时候就到了，不过要记住优先级，<strong>函数重载的优先级大于函数模板</strong></p>
+<pre><code class="cpp">template&lt;typename T&gt;
+T toMax(T a, T b)&#123;
+    return a &gt; b ? a : b;
+&#125;
+int toMax(int a, int b)&#123;
+    return a &gt; b ? a : b;
+&#125;
+int *toMax(int *a, int *b)&#123;
+    return *a &gt; *b ? a : b;
+&#125;
+</code></pre>
+<p>不相信的就自己动手，看看匹配到了那个：</p>
+<img src="/2022/06/05/function7/010.png" class="">
+
+<p>如果是模板的话函数名后会有一个<code>&lt;&gt;</code>符号去匹配类型：</p>
+<img src="/2022/06/05/function7/011.png" class="">
+
+
+<hr>
+<p>然后就是模板的重载，函数的重载是通过参数比较的，模板是否也相同</p>
+<pre><code class="cpp">template &lt;typename type&gt; 
+type Ave(type a, type b, type c)&#123;
+    return (a + b + c) / 3;
+&#125;
+template &lt;typename type&gt;
+type Ave(type a, type b, type c)&#123;
+    return (a + b + c) / 3;
+&#125;
+</code></pre>
+<img src="/2022/06/05/function7/012.png" class="">
+<p>报错来得很快，直接说他重复了。<br>我们将其变化一下：</p>
+<pre><code class="cpp">template &lt;typename type&gt; 
+type Ave(type a, type b, type c)&#123;
+    return (a + b + c) / 3;
+&#125;
+template &lt;typename type&gt;
+type Ave(type a, type b, )&#123;
+    return (a + b ) / 2;
+&#125;
+</code></pre>
+<p>可以看到调用的时候明显就区分开了：</p>
+<img src="/2022/06/05/function7/013.png" class="">
+<img src="/2022/06/05/function7/014.png" class="">
+
+<hr>
+<h1 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h1><p>函数重载能理解，模板重载就没啥太大问题，性质差不多。除了模板还有个例外情况可以写。</p>
+
+        </div>
+
+    </div>
+
+    
+
+    
+
+    
+
+    
+  <div class="article-copyright hairline">
+    <p>
+      本記事は  <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">「表示 - 非営利 - 改変禁止 4.0 国際 (CC BY-NC-ND 4.0)」</a> を採用。
+    </p>
+  </div>
+  
+
+    
+
+    
+<nav class="article-nav">
+  
+    <a href="/2022/06/06/function8/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-caption">prossimo</div>
+      <div class="article-nav-title">
+        
+          function8-auto/decltype
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/06/04/function6/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-caption">precedente</div>
+      <div class="article-nav-title">function6-重载</div>
+    </a>
+  
+</nav>
+
+
+    <section class="share">
+        <div class="share-title">share</div>
+        <a class="share-item" target="_blank"
+            href="https://twitter.com/share?text=function7-模板 - ohmyhsy&url=https%3A%2F%2F8bytes.top%2F2022%2F06%2F05%2Ffunction7%2F">
+            <box-icon type='logo' name='twitter'></box-icon>
+        </a>
+        <a class="share-item" target="_blank"
+            href="https://www.facebook.com/sharer.php?title=function7-模板 - ohmyhsy&u=https%3A%2F%2F8bytes.top%2F2022%2F06%2F05%2Ffunction7%2F">
+            <box-icon name='facebook-square' type='logo' ></box-icon>
+        </a>
+        <!-- <a class="share-item" target="_blank"
+            href="https://service.weibo.com/share/share.php?title=function7-模板 - ohmyhsy&url=https://8bytes.top/2022/06/05/function7/&pic=">
+            <div class="n-icon n-icon-weibo"></div>
+        </a> -->
+    </section>
+
+</article>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- <script src="//unpkg.com/@waline/dist/Waline.min.js"></script> -->
+    <script src="https://unpkg.com/@waline/client@v2/dist/waline.js"></script>
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/@waline/client@v2/dist/waline.css"
+    />
+    <section class="comments">
+        <div id="waline"></div>
+    </section>
+    <script>
+        Waline.init({
+          el: '#waline',
+          serverURL: 'https://ohmyhsy.vercel.app/',
+        });
+    </script>
+
+
+
+<script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+</div>
+                </section>
+            </section>
+
+            
+            <aside class="sidebar sidebar-search-fix">
+                
+
+    <div class="search">
+    <div class="has-icon-right">
+        <input type="text" class="form-input" id="search" placeholder="SEARCH" autocomplete="off">
+        <div class="form-icon">
+            <box-icon name='search' color="#3c4859"></box-icon>
+        </div>
+    </div>
+    <div class="search-result" id="search-ps"></div>
+</div>
+
+
+<div class="widget" id="widget">
+    
+      
+  <div class="widget-wrap">
+    <div class="widget-inner">
+      <div class="toc post-toc-html"></div>
+    </div>
+  </div>
+
+    
+      
+
+    
+      
+  <div class="widget-wrap widget-tags">
+    <div class="widget-title"><span>Tags</span></div>
+    <div class="widget-inner">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c/" rel="tag">c</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/compiler/" rel="tag">compiler</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cpp/" rel="tag">cpp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/exam/" rel="tag">exam</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jetbrains/" rel="tag">jetbrains</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/" rel="tag">leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ubuntu/" rel="tag">ubuntu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/visual-studio-2022/" rel="tag">visual studio 2022</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vscode/" rel="tag">vscode</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-recent-posts">
+    <div class="widget-title"><span>Recent Posts</span></div>
+    <div class="widget-inner">
+      <ul>
+        
+          <li>
+            <a href="/2022/06/23/hstring/">hstring</a>
+          </li>
+        
+          <li>
+            <a href="/2022/06/23/destructor/">析构函数</a>
+          </li>
+        
+          <li>
+            <a href="/2022/06/23/Constructor1/">构造函数+1</a>
+          </li>
+        
+          <li>
+            <a href="/2022/06/23/Constructor/">构造函数</a>
+          </li>
+        
+          <li>
+            <a href="/2022/06/22/const/">const类</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget-wrap widget-archive">
+    <div class="widget-title"><span>Archive</span></div>
+    <div class="widget-inner">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/">2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/">2021</a></li></ul>
+    </div>
+  </div>
+
+
+    
+</div>
+
+<div id="backtop"><i class="icon icon-arrow-up"></i></div>
+            </aside>
+            
+        </div>
+    </div>
+
+    <footer class="footer">
+    <div class="footer-wave">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#3c4859" fill-opacity="1" d="M0,160L60,181.3C120,203,240,245,360,240C480,235,600,181,720,186.7C840,192,960,256,1080,261.3C1200,267,1320,213,1380,186.7L1440,160L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>
+    </div>
+
+    <!-- Please do not remove this -->
+    <!-- 开源不易，请勿删除 -->
+    <div class="footer-wrap">
+        <div class="footer-inner"> 
+            ohmyhsy &copy; 2022<br>
+            Powered By Hexo · Theme By <a href="https://linhong.me/" target="_blank">Aomori</a> · <a href="https://github.com/lh1me/hexo-theme-aomori" target="_blank">Github</a>
+        </div>
+    </div>
+
+</footer>
+
+
+
+
+
+
+<script src="/dist/build.js?1646451311888.js"></script>
+
+
+<script src="/dist/custom.js?1646451311888.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>

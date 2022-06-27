@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    
+    <title>const类 | ohmyhsy</title>
+
+    <meta name="description" content="&lt;h1 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;const肤浅的时候就是定义常量，跟&lt;code&gt;#define&lt;/code&gt;类似。&lt;br&gt;但是当实例化的类被限定为const类型的时候，又是一个搞怪点&lt;/p&gt;">
+    <meta name="keywords" content="">
+
+    
+
+    <meta property="og:locale" content="en" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content= "const类 | ohmyhsy"  />
+    <meta property="og:description" content= "&lt;h1 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;const肤浅的时候就是定义常量，跟&lt;code&gt;#define&lt;/code&gt;类似。&lt;br&gt;但是当实例化的类被限定为const类型的时候，又是一个搞怪点&lt;/p&gt;" />
+    <meta property="og:url" content="https://8bytes.top/2022/06/22/const/index.html" />
+    <meta property="og:site_name" content="" />
+    <meta property="article:author" content="Box" />
+    <meta property="article:publisher" content="" />
+    <meta property="og:description" content="&lt;h1 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;const肤浅的时候就是定义常量，跟&lt;code&gt;#define&lt;/code&gt;类似。&lt;br&gt;但是当实例化的类被限定为const类型的时候，又是一个搞怪点&lt;/p&gt;" />
+    <meta name="twitter:title" content="const类 | ohmyhsy"/>
+    <meta name="twitter:description" content="&lt;h1 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;const肤浅的时候就是定义常量，跟&lt;code&gt;#define&lt;/code&gt;类似。&lt;br&gt;但是当实例化的类被限定为const类型的时候，又是一个搞怪点&lt;/p&gt;"/>
+    <script type="application/ld+json">
+        {
+            "description": "&lt;h1 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;const肤浅的时候就是定义常量，跟&lt;code&gt;#define&lt;/code&gt;类似。&lt;br&gt;但是当实例化的类被限定为const类型的时候，又是一个搞怪点&lt;/p&gt;",
+            "author": { "@type": "Person", "name": "Box" },
+            "@type": "BlogPosting",
+            "url": "https://8bytes.top/2022/06/22/const/index.html",
+            "publisher": {
+            "@type": "Organization",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://8bytes.topundefined"
+            },
+            "name": "Box"
+            },
+            "headline": "const类 | ohmyhsy",
+            "datePublished": "2022-06-22T14:22:58.000Z",
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "https://8bytes.top/2022/06/22/const/index.html"
+            },
+            "@context": "http://schema.org"
+        }
+    </script>
+
+
+
+
+    
+
+    
+    <meta property="algolia:search" data-application-id="4CVCYWPWWN" data-api-key="7757db6b0a31c3f94c301c885693ed0d" data-index-name="ohmyhsy">
+    
+
+    
+
+    
+
+    
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎮</text></svg>">
+    
+
+    
+
+    
+
+    
+<link rel="stylesheet" href="/dist/build.css?v=1646451311888.css">
+
+
+    
+<link rel="stylesheet" href="/dist/custom.css?v=1646451311888.css">
+
+
+    <script>
+        window.isPost = true
+        window.aomori = {
+            
+            
+            
+        }
+        window.aomori_logo_typed_animated = true
+        window.aomori_search_algolia = true
+
+    </script>
+
+<meta name="generator" content="Hexo 5.4.1"><link rel="alternate" href="/atom.xml" title="ohmyhsy" type="application/atom+xml">
+</head>
+
+<body>
+
+    <div class="container">
+    <header class="header">
+        <div class="header-type">
+            
+            <div class="header-type-inner">
+                
+                    <div id="typed-strings" style="display:none">
+                        <p>ohmyhsy</p>
+                    </div>
+                    <a class="header-type-title" id="typed" href="/"></a>
+                
+    
+                
+            </div>
+        </div>
+        <div class="header-menu">
+            <div class="header-menu-inner">
+                
+                <a href="/">Home</a>
+                
+                <a href="/archives">Archives</a>
+                
+                <a href="/friends">Friends</a>
+                
+            </div>
+            <div class="header-menu-social">
+                
+    <a class="social" target="_blank" href="https://github.com/8bytes-code">
+        <box-icon type='logo' name='github'></box-icon>
+    </a>
+
+            </div>
+        </div>
+
+        <div class="header-menu-mobile">
+            <div class="header-menu-mobile-inner" id="mobile-menu-open">
+                <i class="icon icon-menu"></i>
+            </div>
+        </div>
+    </header>
+
+    <div class="header-menu-mobile-menu">
+        <div class="header-menu-mobile-menu-bg"></div>
+        <div class="header-menu-mobile-menu-wrap">
+            <div class="header-menu-mobile-menu-inner">
+                <div class="header-menu-mobile-menu-close" id="mobile-menu-close">
+                    <i class="icon icon-cross"></i>
+                </div>
+                <div class="header-menu-mobile-menu-list">
+                    
+                    <a href="/">Home</a>
+                    
+                    <a href="/archives">Archives</a>
+                    
+                    <a href="/friends">Friends</a>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+    <div class="container">
+        <div class="main">
+            <section class="inner">
+                <section class="inner-main">
+                    <div class="post">
+    <article id="post-cl4wvfeg6000e0sk6eqx74lt4" class="article article-type-post" itemscope
+    itemprop="blogPost">
+
+    <div class="article-inner">
+
+        
+          
+        
+        
+        
+
+        
+        <header class="article-header">
+            
+  
+    <h1 class="article-title" itemprop="name">
+      const类
+    </h1>
+  
+
+        </header>
+        
+
+        <div class="article-more-info article-more-info-post hairline">
+
+            <div class="article-date">
+  <time datetime="2022-06-22T14:22:58.000Z" itemprop="datePublished">2022-06-22</time>
+</div>
+
+            
+
+            
+            <div class="article-tag">
+                <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cpp/" rel="tag">cpp</a></li></ul>
+            </div>
+            
+
+            
+            <div class="article-busuanzi">
+                <span id="busuanzi_value_page_pv">N</span> views
+            </div>
+            
+
+        </div>
+
+        <div class="article-entry post-inner-html hairline" itemprop="articleBody">
+            <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>const肤浅的时候就是定义常量，跟<code>#define</code>类似。<br>但是当实例化的类被限定为const类型的时候，又是一个搞怪点</p>
+<span id="more"></span>
+
+
+<hr>
+<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><pre><code class="cpp">//Hack.h
+#pragma once
+class Hack&#123;
+public:
+    int hp;
+    int mp;
+    int lv;
+&#125;;
+</code></pre>
+<pre><code class="cpp">#include&lt;iostream&gt;
+#include&quot;Hack.h&quot;
+
+int main()&#123;
+    const Hack hc;
+    hc.hp = 100;    //error
+
+    return 0;
+&#125;
+</code></pre>
+<p>因为实例化的类被限定为了const，所以它也无法修改成员。</p>
+<p>当然要修改一个const对象的时候，可以用指针+强转去逆它。</p>
+<pre><code class="cpp">const Hack *HCP = &amp;hc;
+HCP-&gt;hp = 100;
+</code></pre>
+<blockquote>
+<p>这种方式仍然是不可取的，因为指针也被const修饰了，所以它也无法修改成员。<br>还好前面指针还有印象，知道怎么玩</p>
+</blockquote>
+<pre><code class="cpp">Hack *HCP = (Hack*) &amp;hc;
+HCP-&gt;hp = 100;
+</code></pre>
+<p>然后打印一下hc.hp发现的确被修改了</p>
+<img src="/2022/06/22/const/000.png" class="">
+
+<p>当然这种方法有效，虽然还不知道有没有危害。</p>
+<hr>
+<h2 id="const的成员函数"><a href="#const的成员函数" class="headerlink" title="const的成员函数"></a>const的成员函数</h2><p>当const修饰过的类后，这个类同时也直接无法访问成员函数了。</p>
+<pre><code class="cpp">#pragma once
+class Hack&#123;
+public:
+    int hp;
+    int mp;
+    int lv;
+
+    int test()&#123;
+        return hp;
+    &#125;
+&#125;;
+</code></pre>
+<img src="/2022/06/22/const/001.png" class="">
+
+<p>然后就有一种方式可以将函数也修饰成const类型。</p>
+<pre><code class="cpp">#pragma once
+#include&lt;iostream&gt;
+class Hack&#123;
+public:
+    int hp;
+    int mp;
+    int lv;
+
+    int test() const&#123;
+        return hp;
+    &#125;
+&#125;;
+</code></pre>
+<p>然后调用是能调用了，但是一看好像被优化成内联函数了</p>
+<img src="/2022/06/22/const/002.png" class="">
+
+<p>感觉有点怪异，找了个正常实例化的类的对象访问看看。</p>
+<img src="/2022/06/22/const/003.png" class="">
+<p>看到结果都是一样的内联的函数，想了想可能是因为函数是不像成员变量没生成一个就要重新划分内存，函数是可以放在代码区，等待调用的，而且这个函数正好也简单，被编译器优化了也有可能。毕竟内联就是替换简单的方法。</p>
+<p><strong>而且不知道为啥，函数还必须是有返回值的，void类型的函数好像没有用</strong></p>
+<blockquote>
+<p>至于const为什么不加前面，那是因为前面代表返回值类型，const在前面，哪有返回一个什么const类型的值的道理。</p>
+</blockquote>
+<hr>
+<p>所以const成员就不能被改变了，在这个规则下，const对象只能调用const函数。<br>且this指针会自适应成const，也就是说直接修改，或者在函数里修改，或者通过this指针修改均无法生效。</p>
+<blockquote>
+<p>骚操作可以…比如我上面那种强转指针哈哈，但是先基于逻辑上来讲是不能被修改的。</p>
+</blockquote>
+<hr>
+<p>不过万一真的有需求要用const类。。。那么在一些常规的成员函数上就可能要尽量加上const，以保证const类对象能调用。</p>
+<p>或者就是重载。</p>
+<pre><code class="cpp">#pragma once
+#include&lt;iostream&gt;
+class Hack&#123;
+public:
+    int hp;
+    int mp;
+    int lv;
+
+    int test() const&#123;
+        return hp;
+    &#125;
+
+    int test()&#123;
+        return hp;
+    &#125;
+&#125;;
+</code></pre>
+<img src="/2022/06/22/const/004.png" class="">
+<img src="/2022/06/22/const/005.png" class="">
+<p>可以看到const类对象和正常构造的对象所调用的test是不一样的。</p>
+<p>然后就是不同方法写在不同的地方就行了。虽然在没用到之前很鸡肋，要重复copy代码。</p>
+<hr>
+<h2 id="指针强转"><a href="#指针强转" class="headerlink" title="指针强转"></a>指针强转</h2><p>然后就是之前说的通过强转指针改变</p>
+<pre><code class="c">(Hack*)&amp;ha;
+</code></pre>
+<p>这种方式是C语言风格的强转</p>
+<pre><code class="cpp">const_cast&lt;Hack*&gt;(&amp;ha);
+</code></pre>
+<p>c++的风格。。额感觉可能还是习惯C语言风格的。</p>
+<p>反正都是那个味，效果都一样，只是正常逻辑下不期望有另类修改途径。</p>
+<hr>
+<h2 id="mutable"><a href="#mutable" class="headerlink" title="mutable"></a>mutable</h2><p>被mutable修饰的成员变量可以被const成员函数修改~</p>
+<p>这个就感觉稍微滑稽了一点，也就累加的时候玩玩</p>
+<img src="/2022/06/22/const/006.png" class="">
+<p>当正常声明的成员变量，是肯定无法再const的函数下修改的。</p>
+<p>但是加上mutable之后就行了。</p>
+<img src="/2022/06/22/const/007.png" class="">
+
+<blockquote>
+<p>表面上看着有点抽风，都让const成员无法修改了，还加个mutable玩<br>不过真到需要被修改的地方感觉也是debug的时候。</p>
+</blockquote>
+<hr>
+<h1 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h1><p>const类还挺鸡肋~</p>
+
+        </div>
+
+    </div>
+
+    
+
+    
+
+    
+
+    
+  <div class="article-copyright hairline">
+    <p>
+      本記事は  <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">「表示 - 非営利 - 改変禁止 4.0 国際 (CC BY-NC-ND 4.0)」</a> を採用。
+    </p>
+  </div>
+  
+
+    
+
+    
+<nav class="article-nav">
+  
+    <a href="/2022/06/23/Constructor/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-caption">prossimo</div>
+      <div class="article-nav-title">
+        
+          构造函数
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/06/22/member/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-caption">precedente</div>
+      <div class="article-nav-title">成员函数</div>
+    </a>
+  
+</nav>
+
+
+    <section class="share">
+        <div class="share-title">share</div>
+        <a class="share-item" target="_blank"
+            href="https://twitter.com/share?text=const类 - ohmyhsy&url=https%3A%2F%2F8bytes.top%2F2022%2F06%2F22%2Fconst%2F">
+            <box-icon type='logo' name='twitter'></box-icon>
+        </a>
+        <a class="share-item" target="_blank"
+            href="https://www.facebook.com/sharer.php?title=const类 - ohmyhsy&u=https%3A%2F%2F8bytes.top%2F2022%2F06%2F22%2Fconst%2F">
+            <box-icon name='facebook-square' type='logo' ></box-icon>
+        </a>
+        <!-- <a class="share-item" target="_blank"
+            href="https://service.weibo.com/share/share.php?title=const类 - ohmyhsy&url=https://8bytes.top/2022/06/22/const/&pic=">
+            <div class="n-icon n-icon-weibo"></div>
+        </a> -->
+    </section>
+
+</article>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- <script src="//unpkg.com/@waline/dist/Waline.min.js"></script> -->
+    <script src="https://unpkg.com/@waline/client@v2/dist/waline.js"></script>
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/@waline/client@v2/dist/waline.css"
+    />
+    <section class="comments">
+        <div id="waline"></div>
+    </section>
+    <script>
+        Waline.init({
+          el: '#waline',
+          serverURL: 'https://ohmyhsy.vercel.app/',
+        });
+    </script>
+
+
+
+<script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+</div>
+                </section>
+            </section>
+
+            
+            <aside class="sidebar sidebar-search-fix">
+                
+
+    <div class="search">
+    <div class="has-icon-right">
+        <input type="text" class="form-input" id="search" placeholder="SEARCH" autocomplete="off">
+        <div class="form-icon">
+            <box-icon name='search' color="#3c4859"></box-icon>
+        </div>
+    </div>
+    <div class="search-result" id="search-ps"></div>
+</div>
+
+
+<div class="widget" id="widget">
+    
+      
+  <div class="widget-wrap">
+    <div class="widget-inner">
+      <div class="toc post-toc-html"></div>
+    </div>
+  </div>
+
+    
+      
+
+    
+      
+  <div class="widget-wrap widget-tags">
+    <div class="widget-title"><span>Tags</span></div>
+    <div class="widget-inner">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c/" rel="tag">c</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/compiler/" rel="tag">compiler</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cpp/" rel="tag">cpp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/exam/" rel="tag">exam</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jetbrains/" rel="tag">jetbrains</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/" rel="tag">leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ubuntu/" rel="tag">ubuntu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/visual-studio-2022/" rel="tag">visual studio 2022</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vscode/" rel="tag">vscode</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-recent-posts">
+    <div class="widget-title"><span>Recent Posts</span></div>
+    <div class="widget-inner">
+      <ul>
+        
+          <li>
+            <a href="/2022/06/23/hstring/">hstring</a>
+          </li>
+        
+          <li>
+            <a href="/2022/06/23/destructor/">析构函数</a>
+          </li>
+        
+          <li>
+            <a href="/2022/06/23/Constructor1/">构造函数+1</a>
+          </li>
+        
+          <li>
+            <a href="/2022/06/23/Constructor/">构造函数</a>
+          </li>
+        
+          <li>
+            <a href="/2022/06/22/const/">const类</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget-wrap widget-archive">
+    <div class="widget-title"><span>Archive</span></div>
+    <div class="widget-inner">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/">2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/">2021</a></li></ul>
+    </div>
+  </div>
+
+
+    
+</div>
+
+<div id="backtop"><i class="icon icon-arrow-up"></i></div>
+            </aside>
+            
+        </div>
+    </div>
+
+    <footer class="footer">
+    <div class="footer-wave">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#3c4859" fill-opacity="1" d="M0,160L60,181.3C120,203,240,245,360,240C480,235,600,181,720,186.7C840,192,960,256,1080,261.3C1200,267,1320,213,1380,186.7L1440,160L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>
+    </div>
+
+    <!-- Please do not remove this -->
+    <!-- 开源不易，请勿删除 -->
+    <div class="footer-wrap">
+        <div class="footer-inner"> 
+            ohmyhsy &copy; 2022<br>
+            Powered By Hexo · Theme By <a href="https://linhong.me/" target="_blank">Aomori</a> · <a href="https://github.com/lh1me/hexo-theme-aomori" target="_blank">Github</a>
+        </div>
+    </div>
+
+</footer>
+
+
+
+
+
+
+<script src="/dist/build.js?1646451311888.js"></script>
+
+
+<script src="/dist/custom.js?1646451311888.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>

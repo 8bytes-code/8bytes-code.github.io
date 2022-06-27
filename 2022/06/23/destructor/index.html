@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    
+    <title>析构函数 | ohmyhsy</title>
+
+    <meta name="description" content="&lt;h1 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;构造函数是在类对象创建时就调用，一般的用途就是初始化对象。&lt;br&gt;而析构函数相反，它是在类的对象结束生命周期才自动执行，一般就是清理之类的，最常见就是释放掉new的空间&lt;/p&gt;">
+    <meta name="keywords" content="">
+
+    
+
+    <meta property="og:locale" content="en" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content= "析构函数 | ohmyhsy"  />
+    <meta property="og:description" content= "&lt;h1 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;构造函数是在类对象创建时就调用，一般的用途就是初始化对象。&lt;br&gt;而析构函数相反，它是在类的对象结束生命周期才自动执行，一般就是清理之类的，最常见就是释放掉new的空间&lt;/p&gt;" />
+    <meta property="og:url" content="https://8bytes.top/2022/06/23/destructor/index.html" />
+    <meta property="og:site_name" content="" />
+    <meta property="article:author" content="Box" />
+    <meta property="article:publisher" content="" />
+    <meta property="og:description" content="&lt;h1 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;构造函数是在类对象创建时就调用，一般的用途就是初始化对象。&lt;br&gt;而析构函数相反，它是在类的对象结束生命周期才自动执行，一般就是清理之类的，最常见就是释放掉new的空间&lt;/p&gt;" />
+    <meta name="twitter:title" content="析构函数 | ohmyhsy"/>
+    <meta name="twitter:description" content="&lt;h1 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;构造函数是在类对象创建时就调用，一般的用途就是初始化对象。&lt;br&gt;而析构函数相反，它是在类的对象结束生命周期才自动执行，一般就是清理之类的，最常见就是释放掉new的空间&lt;/p&gt;"/>
+    <script type="application/ld+json">
+        {
+            "description": "&lt;h1 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;构造函数是在类对象创建时就调用，一般的用途就是初始化对象。&lt;br&gt;而析构函数相反，它是在类的对象结束生命周期才自动执行，一般就是清理之类的，最常见就是释放掉new的空间&lt;/p&gt;",
+            "author": { "@type": "Person", "name": "Box" },
+            "@type": "BlogPosting",
+            "url": "https://8bytes.top/2022/06/23/destructor/index.html",
+            "publisher": {
+            "@type": "Organization",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://8bytes.topundefined"
+            },
+            "name": "Box"
+            },
+            "headline": "析构函数 | ohmyhsy",
+            "datePublished": "2022-06-23T12:55:23.000Z",
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "https://8bytes.top/2022/06/23/destructor/index.html"
+            },
+            "@context": "http://schema.org"
+        }
+    </script>
+
+
+
+
+    
+
+    
+    <meta property="algolia:search" data-application-id="4CVCYWPWWN" data-api-key="7757db6b0a31c3f94c301c885693ed0d" data-index-name="ohmyhsy">
+    
+
+    
+
+    
+
+    
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎮</text></svg>">
+    
+
+    
+
+    
+
+    
+<link rel="stylesheet" href="/dist/build.css?v=1646451311888.css">
+
+
+    
+<link rel="stylesheet" href="/dist/custom.css?v=1646451311888.css">
+
+
+    <script>
+        window.isPost = true
+        window.aomori = {
+            
+            
+            
+        }
+        window.aomori_logo_typed_animated = true
+        window.aomori_search_algolia = true
+
+    </script>
+
+<meta name="generator" content="Hexo 5.4.1"><link rel="alternate" href="/atom.xml" title="ohmyhsy" type="application/atom+xml">
+</head>
+
+<body>
+
+    <div class="container">
+    <header class="header">
+        <div class="header-type">
+            
+            <div class="header-type-inner">
+                
+                    <div id="typed-strings" style="display:none">
+                        <p>ohmyhsy</p>
+                    </div>
+                    <a class="header-type-title" id="typed" href="/"></a>
+                
+    
+                
+            </div>
+        </div>
+        <div class="header-menu">
+            <div class="header-menu-inner">
+                
+                <a href="/">Home</a>
+                
+                <a href="/archives">Archives</a>
+                
+                <a href="/friends">Friends</a>
+                
+            </div>
+            <div class="header-menu-social">
+                
+    <a class="social" target="_blank" href="https://github.com/8bytes-code">
+        <box-icon type='logo' name='github'></box-icon>
+    </a>
+
+            </div>
+        </div>
+
+        <div class="header-menu-mobile">
+            <div class="header-menu-mobile-inner" id="mobile-menu-open">
+                <i class="icon icon-menu"></i>
+            </div>
+        </div>
+    </header>
+
+    <div class="header-menu-mobile-menu">
+        <div class="header-menu-mobile-menu-bg"></div>
+        <div class="header-menu-mobile-menu-wrap">
+            <div class="header-menu-mobile-menu-inner">
+                <div class="header-menu-mobile-menu-close" id="mobile-menu-close">
+                    <i class="icon icon-cross"></i>
+                </div>
+                <div class="header-menu-mobile-menu-list">
+                    
+                    <a href="/">Home</a>
+                    
+                    <a href="/archives">Archives</a>
+                    
+                    <a href="/friends">Friends</a>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+    <div class="container">
+        <div class="main">
+            <section class="inner">
+                <section class="inner-main">
+                    <div class="post">
+    <article id="post-cl4wvfegb000o0sk6h1ftafsq" class="article article-type-post" itemscope
+    itemprop="blogPost">
+
+    <div class="article-inner">
+
+        
+          
+        
+        
+        
+
+        
+        <header class="article-header">
+            
+  
+    <h1 class="article-title" itemprop="name">
+      析构函数
+    </h1>
+  
+
+        </header>
+        
+
+        <div class="article-more-info article-more-info-post hairline">
+
+            <div class="article-date">
+  <time datetime="2022-06-23T12:55:23.000Z" itemprop="datePublished">2022-06-23</time>
+</div>
+
+            
+
+            
+            <div class="article-tag">
+                <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cpp/" rel="tag">cpp</a></li></ul>
+            </div>
+            
+
+            
+            <div class="article-busuanzi">
+                <span id="busuanzi_value_page_pv">N</span> views
+            </div>
+            
+
+        </div>
+
+        <div class="article-entry post-inner-html hairline" itemprop="articleBody">
+            <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>构造函数是在类对象创建时就调用，一般的用途就是初始化对象。<br>而析构函数相反，它是在类的对象结束生命周期才自动执行，一般就是清理之类的，最常见就是释放掉new的空间</p>
+<span id="more"></span>
+
+
+<p>格式也挺特殊，是在类名前加一个<code>~</code><br>全称：<code>~类名()&#123;&#125;</code></p>
+<hr>
+<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><p>析构函数名也应与类名相同，只是在函数名前面加一个位取反符<del>，例如</del>stud( )，以区别于构造函数。它不能带任何参数，也没有返回值（包括void类型）。只能有一个析构函数，不能重载。如果用户没有编写析构函数，编译系统会自动生成一个缺省的析构函数（即使自定义了析构函数，编译器也总是会为我们合成一个析构函数，并且如果自定义了析构函数，编译器在执行时会先调用自定义的析构函数再调用合成的析构函数），它也不进行任何操作。所以许多简单的类中没有用显式的析构函数。——百度</p>
+<p>这个析构主要就是应对动态分配的内存，需要手动销毁，因为其它的成员变量该结束编译器会自动处理掉。</p>
+<pre><code class="cpp">#include&lt;iostream&gt;
+
+class Box&#123;
+public:
+    Box()&#123;
+        std::cout &lt;&lt; &quot;默认构造函数执行&quot; &lt;&lt; std::endl;
+    &#125;
+
+    ~Box()&#123;
+        std::cout &lt;&lt; &quot;析构函数执行&quot; &lt;&lt; std::endl;
+    &#125;
+&#125;;
+
+
+int main()&#123;
+    Box box;
+
+    return 0;
+&#125;
+</code></pre>
+<img src="/2022/06/23/destructor/000.png" class="">
+<p>看到实例化一个类的时候他就会顺序执行构造函数和析构函数。</p>
+<p>这样可能不够直观，因为就之创建了一个类，可以简单在main函数里输出点什么。</p>
+<pre><code class="cpp">int main()&#123;
+    Box box;
+
+    std::cout &lt;&lt; &quot;hhhh&quot; &lt;&lt; std::endl;
+    std::cout &lt;&lt; &quot;hhhh&quot; &lt;&lt; std::endl;
+    std::cout &lt;&lt; &quot;hhhh&quot; &lt;&lt; std::endl;
+    std::cout &lt;&lt; &quot;hhhh&quot; &lt;&lt; std::endl;
+
+    return 0;
+&#125;
+</code></pre>
+<img src="/2022/06/23/destructor/001.png" class="">
+<p>也就是说当这个程序即将结束时，它会自动调用类中的析构函数，释放掉该释放的东西，当然这里因为还没动态分配只是做个示范。</p>
+<pre><code class="cpp">class Box&#123;
+public:
+    int *ch;
+    Box()&#123;
+        ch = new int[100];
+        std::cout &lt;&lt; &quot;默认构造函数执行&quot; &lt;&lt; std::endl;
+    &#125;
+
+    ~Box()&#123;
+        delete[] ch;
+        std::cout &lt;&lt; &quot;析构函数执行&quot; &lt;&lt; std::endl;
+    &#125;
+&#125;;
+</code></pre>
+<p>当类中声明了一个指针，然后在构造函数里动态分配内存，如果析构函数不执行delete。那么内存就会一直堆积下去。</p>
+<p>因为虽然对象会自动释放，但是它释放的都是存在栈中的内存，这里的指针ch会释放，但是分配给它的100*4的内存不会主动释放。这块内存在正常情况下就不能被访问了。</p>
+<p>然后前面构造函数有个default关键字保留，析构也能用。</p>
+<pre><code class="cpp">class Box&#123;
+public:
+    Box()&#123;
+        std::cout &lt;&lt; &quot;默认构造函数执行&quot; &lt;&lt; std::endl;
+    &#125;
+
+    ~Box() = default;
+&#125;;
+</code></pre>
+<p>当然效果都差不多，如果函数里要写东西自然就不用这种方式。</p>
+<blockquote>
+<p>再次重复：&#x3D;default 是c++11的特性，目的就是会自动生成函数体，在不需要写内容的时候效率更高。</p>
+</blockquote>
+<hr>
+<h1 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h1><p>析构函数雀食没啥好讲的。</p>
+<p>学到此处就是知道编译器会自动对类生成构造函数、副本构造函数、析构函数。</p>
+<p>副本构造或者拷贝构造叫法都差不多~</p>
+
+        </div>
+
+    </div>
+
+    
+
+    
+
+    
+
+    
+  <div class="article-copyright hairline">
+    <p>
+      本記事は  <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">「表示 - 非営利 - 改変禁止 4.0 国際 (CC BY-NC-ND 4.0)」</a> を採用。
+    </p>
+  </div>
+  
+
+    
+
+    
+<nav class="article-nav">
+  
+    <a href="/2022/06/23/hstring/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-caption">prossimo</div>
+      <div class="article-nav-title">
+        
+          hstring
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/06/23/Constructor1/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-caption">precedente</div>
+      <div class="article-nav-title">构造函数+1</div>
+    </a>
+  
+</nav>
+
+
+    <section class="share">
+        <div class="share-title">share</div>
+        <a class="share-item" target="_blank"
+            href="https://twitter.com/share?text=析构函数 - ohmyhsy&url=https%3A%2F%2F8bytes.top%2F2022%2F06%2F23%2Fdestructor%2F">
+            <box-icon type='logo' name='twitter'></box-icon>
+        </a>
+        <a class="share-item" target="_blank"
+            href="https://www.facebook.com/sharer.php?title=析构函数 - ohmyhsy&u=https%3A%2F%2F8bytes.top%2F2022%2F06%2F23%2Fdestructor%2F">
+            <box-icon name='facebook-square' type='logo' ></box-icon>
+        </a>
+        <!-- <a class="share-item" target="_blank"
+            href="https://service.weibo.com/share/share.php?title=析构函数 - ohmyhsy&url=https://8bytes.top/2022/06/23/destructor/&pic=">
+            <div class="n-icon n-icon-weibo"></div>
+        </a> -->
+    </section>
+
+</article>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- <script src="//unpkg.com/@waline/dist/Waline.min.js"></script> -->
+    <script src="https://unpkg.com/@waline/client@v2/dist/waline.js"></script>
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/@waline/client@v2/dist/waline.css"
+    />
+    <section class="comments">
+        <div id="waline"></div>
+    </section>
+    <script>
+        Waline.init({
+          el: '#waline',
+          serverURL: 'https://ohmyhsy.vercel.app/',
+        });
+    </script>
+
+
+
+<script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+</div>
+                </section>
+            </section>
+
+            
+            <aside class="sidebar sidebar-search-fix">
+                
+
+    <div class="search">
+    <div class="has-icon-right">
+        <input type="text" class="form-input" id="search" placeholder="SEARCH" autocomplete="off">
+        <div class="form-icon">
+            <box-icon name='search' color="#3c4859"></box-icon>
+        </div>
+    </div>
+    <div class="search-result" id="search-ps"></div>
+</div>
+
+
+<div class="widget" id="widget">
+    
+      
+  <div class="widget-wrap">
+    <div class="widget-inner">
+      <div class="toc post-toc-html"></div>
+    </div>
+  </div>
+
+    
+      
+
+    
+      
+  <div class="widget-wrap widget-tags">
+    <div class="widget-title"><span>Tags</span></div>
+    <div class="widget-inner">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c/" rel="tag">c</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/compiler/" rel="tag">compiler</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cpp/" rel="tag">cpp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/exam/" rel="tag">exam</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jetbrains/" rel="tag">jetbrains</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/" rel="tag">leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ubuntu/" rel="tag">ubuntu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/visual-studio-2022/" rel="tag">visual studio 2022</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vscode/" rel="tag">vscode</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-recent-posts">
+    <div class="widget-title"><span>Recent Posts</span></div>
+    <div class="widget-inner">
+      <ul>
+        
+          <li>
+            <a href="/2022/06/23/hstring/">hstring</a>
+          </li>
+        
+          <li>
+            <a href="/2022/06/23/destructor/">析构函数</a>
+          </li>
+        
+          <li>
+            <a href="/2022/06/23/Constructor1/">构造函数+1</a>
+          </li>
+        
+          <li>
+            <a href="/2022/06/23/Constructor/">构造函数</a>
+          </li>
+        
+          <li>
+            <a href="/2022/06/22/const/">const类</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget-wrap widget-archive">
+    <div class="widget-title"><span>Archive</span></div>
+    <div class="widget-inner">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/">2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/">2021</a></li></ul>
+    </div>
+  </div>
+
+
+    
+</div>
+
+<div id="backtop"><i class="icon icon-arrow-up"></i></div>
+            </aside>
+            
+        </div>
+    </div>
+
+    <footer class="footer">
+    <div class="footer-wave">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#3c4859" fill-opacity="1" d="M0,160L60,181.3C120,203,240,245,360,240C480,235,600,181,720,186.7C840,192,960,256,1080,261.3C1200,267,1320,213,1380,186.7L1440,160L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>
+    </div>
+
+    <!-- Please do not remove this -->
+    <!-- 开源不易，请勿删除 -->
+    <div class="footer-wrap">
+        <div class="footer-inner"> 
+            ohmyhsy &copy; 2022<br>
+            Powered By Hexo · Theme By <a href="https://linhong.me/" target="_blank">Aomori</a> · <a href="https://github.com/lh1me/hexo-theme-aomori" target="_blank">Github</a>
+        </div>
+    </div>
+
+</footer>
+
+
+
+
+
+
+<script src="/dist/build.js?1646451311888.js"></script>
+
+
+<script src="/dist/custom.js?1646451311888.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>

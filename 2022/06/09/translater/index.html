@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    
+    <title>translater-定义/声明/文件 | ohmyhsy</title>
+
+    <meta name="description" content="&lt;h1 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;声明&lt;/li&gt;
+&lt;li&gt;定义&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;#pragma once是一个比较常用的C&amp;#x2F;C++预处理指令，只要在头文件的最开始加入这条预处理指令，就能够保证头文件只被编译一次。&lt;br&gt;#pragma once是编译器相关的，有的编译器支持，有的编译器不支持，具体情况请查看编译器API文档，不过大部分编译器都有这个预处理指令了。&lt;br&gt;#ifndef，#define，#endif是C&amp;#x2F;C++语言中的宏定义，通过宏定义避免文件多次编译。所以在所有支持C++语言的编译器上都是有效的，如果写的程序要跨平台，最好使用这种方式。&lt;br&gt;#ifdef 和 #define 显然 if 有define这个宏，才会执行里面的内容&lt;/p&gt;
+&lt;/blockquote&gt;">
+    <meta name="keywords" content="">
+
+    
+
+    <meta property="og:locale" content="en" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content= "translater-定义/声明/文件 | ohmyhsy"  />
+    <meta property="og:description" content= "&lt;h1 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;声明&lt;/li&gt;
+&lt;li&gt;定义&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;#pragma once是一个比较常用的C&amp;#x2F;C++预处理指令，只要在头文件的最开始加入这条预处理指令，就能够保证头文件只被编译一次。&lt;br&gt;#pragma once是编译器相关的，有的编译器支持，有的编译器不支持，具体情况请查看编译器API文档，不过大部分编译器都有这个预处理指令了。&lt;br&gt;#ifndef，#define，#endif是C&amp;#x2F;C++语言中的宏定义，通过宏定义避免文件多次编译。所以在所有支持C++语言的编译器上都是有效的，如果写的程序要跨平台，最好使用这种方式。&lt;br&gt;#ifdef 和 #define 显然 if 有define这个宏，才会执行里面的内容&lt;/p&gt;
+&lt;/blockquote&gt;" />
+    <meta property="og:url" content="https://8bytes.top/2022/06/09/translater/index.html" />
+    <meta property="og:site_name" content="" />
+    <meta property="article:author" content="Box" />
+    <meta property="article:publisher" content="" />
+    <meta property="og:description" content="&lt;h1 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;声明&lt;/li&gt;
+&lt;li&gt;定义&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;#pragma once是一个比较常用的C&amp;#x2F;C++预处理指令，只要在头文件的最开始加入这条预处理指令，就能够保证头文件只被编译一次。&lt;br&gt;#pragma once是编译器相关的，有的编译器支持，有的编译器不支持，具体情况请查看编译器API文档，不过大部分编译器都有这个预处理指令了。&lt;br&gt;#ifndef，#define，#endif是C&amp;#x2F;C++语言中的宏定义，通过宏定义避免文件多次编译。所以在所有支持C++语言的编译器上都是有效的，如果写的程序要跨平台，最好使用这种方式。&lt;br&gt;#ifdef 和 #define 显然 if 有define这个宏，才会执行里面的内容&lt;/p&gt;
+&lt;/blockquote&gt;" />
+    <meta name="twitter:title" content="translater-定义/声明/文件 | ohmyhsy"/>
+    <meta name="twitter:description" content="&lt;h1 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;声明&lt;/li&gt;
+&lt;li&gt;定义&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;#pragma once是一个比较常用的C&amp;#x2F;C++预处理指令，只要在头文件的最开始加入这条预处理指令，就能够保证头文件只被编译一次。&lt;br&gt;#pragma once是编译器相关的，有的编译器支持，有的编译器不支持，具体情况请查看编译器API文档，不过大部分编译器都有这个预处理指令了。&lt;br&gt;#ifndef，#define，#endif是C&amp;#x2F;C++语言中的宏定义，通过宏定义避免文件多次编译。所以在所有支持C++语言的编译器上都是有效的，如果写的程序要跨平台，最好使用这种方式。&lt;br&gt;#ifdef 和 #define 显然 if 有define这个宏，才会执行里面的内容&lt;/p&gt;
+&lt;/blockquote&gt;"/>
+    <script type="application/ld+json">
+        {
+            "description": "&lt;h1 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;声明&lt;/li&gt;
+&lt;li&gt;定义&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;#pragma once是一个比较常用的C&amp;#x2F;C++预处理指令，只要在头文件的最开始加入这条预处理指令，就能够保证头文件只被编译一次。&lt;br&gt;#pragma once是编译器相关的，有的编译器支持，有的编译器不支持，具体情况请查看编译器API文档，不过大部分编译器都有这个预处理指令了。&lt;br&gt;#ifndef，#define，#endif是C&amp;#x2F;C++语言中的宏定义，通过宏定义避免文件多次编译。所以在所有支持C++语言的编译器上都是有效的，如果写的程序要跨平台，最好使用这种方式。&lt;br&gt;#ifdef 和 #define 显然 if 有define这个宏，才会执行里面的内容&lt;/p&gt;
+&lt;/blockquote&gt;",
+            "author": { "@type": "Person", "name": "Box" },
+            "@type": "BlogPosting",
+            "url": "https://8bytes.top/2022/06/09/translater/index.html",
+            "publisher": {
+            "@type": "Organization",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://8bytes.topundefined"
+            },
+            "name": "Box"
+            },
+            "headline": "translater-定义/声明/文件 | ohmyhsy",
+            "datePublished": "2022-06-09T05:17:15.000Z",
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "https://8bytes.top/2022/06/09/translater/index.html"
+            },
+            "@context": "http://schema.org"
+        }
+    </script>
+
+
+
+
+    
+
+    
+    <meta property="algolia:search" data-application-id="4CVCYWPWWN" data-api-key="7757db6b0a31c3f94c301c885693ed0d" data-index-name="ohmyhsy">
+    
+
+    
+
+    
+
+    
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎮</text></svg>">
+    
+
+    
+
+    
+
+    
+<link rel="stylesheet" href="/dist/build.css?v=1646451311888.css">
+
+
+    
+<link rel="stylesheet" href="/dist/custom.css?v=1646451311888.css">
+
+
+    <script>
+        window.isPost = true
+        window.aomori = {
+            
+            
+            
+        }
+        window.aomori_logo_typed_animated = true
+        window.aomori_search_algolia = true
+
+    </script>
+
+<meta name="generator" content="Hexo 5.4.1"><link rel="alternate" href="/atom.xml" title="ohmyhsy" type="application/atom+xml">
+</head>
+
+<body>
+
+    <div class="container">
+    <header class="header">
+        <div class="header-type">
+            
+            <div class="header-type-inner">
+                
+                    <div id="typed-strings" style="display:none">
+                        <p>ohmyhsy</p>
+                    </div>
+                    <a class="header-type-title" id="typed" href="/"></a>
+                
+    
+                
+            </div>
+        </div>
+        <div class="header-menu">
+            <div class="header-menu-inner">
+                
+                <a href="/">Home</a>
+                
+                <a href="/archives">Archives</a>
+                
+                <a href="/friends">Friends</a>
+                
+            </div>
+            <div class="header-menu-social">
+                
+    <a class="social" target="_blank" href="https://github.com/8bytes-code">
+        <box-icon type='logo' name='github'></box-icon>
+    </a>
+
+            </div>
+        </div>
+
+        <div class="header-menu-mobile">
+            <div class="header-menu-mobile-inner" id="mobile-menu-open">
+                <i class="icon icon-menu"></i>
+            </div>
+        </div>
+    </header>
+
+    <div class="header-menu-mobile-menu">
+        <div class="header-menu-mobile-menu-bg"></div>
+        <div class="header-menu-mobile-menu-wrap">
+            <div class="header-menu-mobile-menu-inner">
+                <div class="header-menu-mobile-menu-close" id="mobile-menu-close">
+                    <i class="icon icon-cross"></i>
+                </div>
+                <div class="header-menu-mobile-menu-list">
+                    
+                    <a href="/">Home</a>
+                    
+                    <a href="/archives">Archives</a>
+                    
+                    <a href="/friends">Friends</a>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+    <div class="container">
+        <div class="main">
+            <section class="inner">
+                <section class="inner-main">
+                    <div class="post">
+    <article id="post-cl4wvfehb003q0sk6b8hd70c1" class="article article-type-post" itemscope
+    itemprop="blogPost">
+
+    <div class="article-inner">
+
+        
+          
+        
+        
+        
+
+        
+        <header class="article-header">
+            
+  
+    <h1 class="article-title" itemprop="name">
+      translater-定义/声明/文件
+    </h1>
+  
+
+        </header>
+        
+
+        <div class="article-more-info article-more-info-post hairline">
+
+            <div class="article-date">
+  <time datetime="2022-06-09T05:17:15.000Z" itemprop="datePublished">2022-06-09</time>
+</div>
+
+            
+
+            
+            <div class="article-tag">
+                <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cpp/" rel="tag">cpp</a></li></ul>
+            </div>
+            
+
+            
+            <div class="article-busuanzi">
+                <span id="busuanzi_value_page_pv">N</span> views
+            </div>
+            
+
+        </div>
+
+        <div class="article-entry post-inner-html hairline" itemprop="articleBody">
+            <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><ul>
+<li>声明</li>
+<li>定义</li>
+</ul>
+<blockquote>
+<p>#pragma once是一个比较常用的C&#x2F;C++预处理指令，只要在头文件的最开始加入这条预处理指令，就能够保证头文件只被编译一次。<br>#pragma once是编译器相关的，有的编译器支持，有的编译器不支持，具体情况请查看编译器API文档，不过大部分编译器都有这个预处理指令了。<br>#ifndef，#define，#endif是C&#x2F;C++语言中的宏定义，通过宏定义避免文件多次编译。所以在所有支持C++语言的编译器上都是有效的，如果写的程序要跨平台，最好使用这种方式。<br>#ifdef 和 #define 显然 if 有define这个宏，才会执行里面的内容</p>
+</blockquote>
+<span id="more"></span>
+
+
+<hr>
+<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><p><strong>一般情况下：声明就是告诉编译器存在这么一个东西，就有点像函数；而定义则是申请了内存，就像用到了变量。</strong><br>但是并不是绝对的，概念性的东西还是看人为理解。</p>
+<hr>
+<h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><pre><code class="cpp">#include&lt;iostream&gt;
+using std::cout;
+using std::endl;
+
+
+int main()&#123;
+    int x = add(1, 2);
+
+    return 0;
+&#125;
+int add(int a, int b)&#123;
+    return a + b;
+&#125;
+</code></pre>
+<p>在学c的时候就知道编译的时候是逐条执行，程序运行先从主函数开始，所以当自定义函数写于主函数之后时你去调用，编译器找不到这个函数的声明，他不知道这个函数在哪，函数有几个形参，函数里面要进行什么操作，函数要返回什么值。<br>解决方法就是要么将自定义函数全写在主函数之上，或者在主函数前或里面声明。</p>
+<pre><code class="cpp">int add(int a,int b);   
+
+int main()&#123;
+    //int add(int a,int b);
+    int x = add(1, 2);
+
+    return 0;
+&#125;
+</code></pre>
+<p>也就是说<code>int add(int a,int b); </code>这一句就是函数的声明，那么定义自然就是{}里面的内容</p>
+<blockquote>
+<p>ps：声明的时候可以不写函数形参的变量名~ 反正这个变量名只有在实现的时候才用到。<br>所以int add(int a,int b); 在声明的时候可以写成int add(int,int);<br>甚至说声明的时候变量名和定义的时候不一样也没啥太大关系</p>
+</blockquote>
+<p>除了主函数调用其他函数的时候要声明，函数之间的互相调用如果不是正常顺序也要提前声明</p>
+<pre><code class="cpp">void abc()&#123;
+    cout &lt;&lt; &quot;hhhhhabc&quot; &lt;&lt; endl;
+    cba();
+&#125;
+void cba()&#123;
+    cout &lt;&lt; &quot;cbahhhhh&quot; &lt;&lt; endl;
+&#125;
+</code></pre>
+<p>这样肯定会报错，因为abc在cba之前声明和定义了，解决方法也跟主函数那会说的一样。</p>
+<hr>
+<h2 id="变量-extern"><a href="#变量-extern" class="headerlink" title="变量-extern"></a>变量-extern</h2><p>我们常说定义一个变量而非声明一个变量<br>是因为定义变量的时候一般都进行初始化或者赋值操作了，他不是一个模板一样的存在，而是已经实际开辟了空间。</p>
+<pre><code class="cpp">int a = 100;
+//int a; 也不算声明
+</code></pre>
+<p>写在哪里不重要，对于变量而言默认就是定义。<strong>拿初值这个东西来判断变量是声明还是定义是不靠谱的，因为变量即使不初始化也会有值，只不过是随机产生的垃圾值罢了</strong><br>当然作为变量想要去做声明，需要用到extern关键词。</p>
+<pre><code class="cpp">extern int a;
+int main()&#123;
+    return 0;
+&#125;
+int a = 100;
+</code></pre>
+<p>但其实extern的本意是在全局的情况下做声明，目的自然是为了让其他函数或者其他文件能发现这个变量。<br>所以extern没必要放在函数里去用，而函数声明的时候其实自带了extern，不需要手动设定了，也就说函数自带全局特性。</p>
+<hr>
+<h2 id="内存分配"><a href="#内存分配" class="headerlink" title="内存分配"></a>内存分配</h2><p>已知的有栈区和堆区<br>那么全局变量也有对应占用的地方<br>源代码也会有占用的地方</p>
+<p>网上的图可能比较高级和详细：</p>
+<img src="/2022/06/09/translater/000.jpg" class="">
+
+
+<p>之所以会划分，是因为总不能运行一个程序就把所有内存都给他，那这样一下子就爆内存了。。<br>显然是挨个映射到各个区，不用就销毁来得自然。</p>
+<p>x86的内存那会最高是4g，实际上倒是达不到，然后内核吃了一大部分，剩下的是给用户的。</p>
+<p>内存简图没找到合适的，看什么时候有个合适的好理解。</p>
+<hr>
+<h2 id="头文件和源文件"><a href="#头文件和源文件" class="headerlink" title="头文件和源文件"></a>头文件和源文件</h2><p>在C语言中：<code>.h</code>的是头文件，<code>.c</code>就是源文件<br>而c++其实引用的标准头文件已经不怎么看到<code>.h</code>了，事实上也没差；源文件也就是<code>.cpp</code>的文件。</p>
+<pre><code class="c">//hello.c
+#include&lt;stdio.h&gt;
+
+int main()&#123;
+    printf(&quot;hello world!\n&quot;);
+    return 0;
+&#125;
+</code></pre>
+<pre><code class="cpp">//hello.cpp
+#include&lt;iostream&gt;
+
+int main()&#123;
+    std::cout &lt;&lt; &quot;hello world!&quot; &lt;&lt; std::endl;
+    return 0;
+&#125;
+</code></pre>
+<p>两种语言引用的标准头文件不同，输入输出自然也不相同，但是c++是C语言的超集，他可以套用c语言的内容，但是反过来C语言不能套用c++；</p>
+<p>简单玩一下分文件写法：</p>
+<pre><code class="cpp">//function.cpp
+int Ave(int a, int b)&#123;
+    return (a + b) / 2;
+&#125;
+
+int Add(int a, int b)&#123;
+    return a + b;
+&#125;
+</code></pre>
+<pre><code class="cpp">//main.cpp
+#include&lt;iostream&gt;
+using std::cout;
+using std::endl;
+
+int main()&#123;
+
+    return 0;
+&#125;
+</code></pre>
+<p>创建两个源文件叫啥无所谓，但是记住一个程序只有一个main函数，所以分文件写也要注意不要出现多个main。<br>其次就是因为是项目文件，编译的时候一起编译了，但是如何在main.cpp使用function的函数呢？<br>前面提到过函数本身具有全局性，但是要先有一个声明.</p>
+<pre><code class="cpp">#include&lt;iostream&gt;
+using std::cout;
+using std::endl;
+
+int Ave(int a, int b);
+int Add(int a, int b);
+
+int main()&#123;
+    cout &lt;&lt; Ave(3, 8) &lt;&lt; endl;
+    cout &lt;&lt; Add(5, 10) &lt;&lt; endl;
+
+    return 0;
+&#125;
+</code></pre>
+<img src="/2022/06/09/translater/000.png" class="">
+<p>可以看到声明之后确实能用了，但是如果有很多很多函数，在不同文件想使用它们，每次都要声明一堆也很麻烦，这就要归功于inclue了，将这个文件当头文件引用之后就省去了许多麻烦。</p>
+<p>创建一个function.h的文件，将函数声明放置其中。</p>
+<pre><code class="cpp">//function.h
+#pragma once
+int Ave(int a, int b);
+int Add(int a, int b);
+
+//除了声明，其实定义也可以直接写在这里。但是为什么少用看后面编译过程~
+</code></pre>
+<p>在main.cpp文件中引用头文件<code>#include&quot;function.h&quot;</code>;</p>
+<blockquote>
+<p>“”和&lt;&gt;的区别其实就在于前者是引用非库文件，后者引用的都是库里标准的头文件</p>
+</blockquote>
+<p>插一嘴C语言编译过程的四个步骤：<br>C语⾔编译过程分成四个步骤：</p>
+<ol>
+<li>由.c⽂件到.i⽂件，这个过程叫预处理</li>
+<li>由.i⽂件到.s⽂件，这个过程叫编译</li>
+<li>由.s⽂件到.o⽂件，这个过程叫汇编</li>
+<li>由.o⽂件到可执⾏⽂件，这个过程叫链接</li>
+</ol>
+<p>那么预处理的时候，它会将所有include的头文件或者宏定义替换展开成真正的内容，就比如头文件里面的声明和定义等。<br>编译事实上就是将高级语言逐步翻译成机器语言的过程，这里先翻译成汇编代码。【高级语言-&gt;汇编-&gt;机器码(2进制)。】<br>汇编也就是将汇编代码翻译成之前说的机器码。<br>链接过程使用链接器将该目标文件与其他目标文件、库文件、启动文件等链接起来生成可执行文件。</p>
+<p>也说明了头文件不会主动编译，因为只有它被调用编译之后才会展开。这也就回到上面为什么不推荐头文件直接写定义，当另一个cpp文件也去包含这个头文件，编译的时候展开，会有多个函数发生重复定义现象。<br>如果能保证不被多次调用倒是能直接定义。</p>
+<p>那么哪些适合写在头文件：</p>
+<hr>
+<h3 id="static"><a href="#static" class="headerlink" title="static"></a>static</h3><pre><code class="cpp">static void hhh()&#123;
+
+&#125;
+</code></pre>
+<p>由于static的限制，它只能在文件所在的编译单位内使用，不能在其它编译单位内使用。<br>也就是说写于头文件的静态函数，被其他文件引用后，不会互相访问，包括静态变量。</p>
+<hr>
+<h3 id="inline"><a href="#inline" class="headerlink" title="inline"></a>inline</h3><pre><code class="cpp">inline void hhh()&#123;
+
+&#125;
+</code></pre>
+<p>内联就更不用说了，本身结构简单的话就直接被替换了，算是一种老式优化，所以也不存在冲突的问题，但是通过替换简单的代码，无非就是以空间换时间的做法。</p>
+<hr>
+<h1 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h1><p>有的时候编译器能稍微人性化</p>
+
+        </div>
+
+    </div>
+
+    
+
+    
+
+    
+
+    
+  <div class="article-copyright hairline">
+    <p>
+      本記事は  <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">「表示 - 非営利 - 改変禁止 4.0 国際 (CC BY-NC-ND 4.0)」</a> を採用。
+    </p>
+  </div>
+  
+
+    
+
+    
+<nav class="article-nav">
+  
+    <a href="/2022/06/11/extern/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-caption">prossimo</div>
+      <div class="article-nav-title">
+        
+          extern
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/06/09/function10/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-caption">precedente</div>
+      <div class="article-nav-title">function10-static/inline</div>
+    </a>
+  
+</nav>
+
+
+    <section class="share">
+        <div class="share-title">share</div>
+        <a class="share-item" target="_blank"
+            href="https://twitter.com/share?text=translater-定义/声明/文件 - ohmyhsy&url=https%3A%2F%2F8bytes.top%2F2022%2F06%2F09%2Ftranslater%2F">
+            <box-icon type='logo' name='twitter'></box-icon>
+        </a>
+        <a class="share-item" target="_blank"
+            href="https://www.facebook.com/sharer.php?title=translater-定义/声明/文件 - ohmyhsy&u=https%3A%2F%2F8bytes.top%2F2022%2F06%2F09%2Ftranslater%2F">
+            <box-icon name='facebook-square' type='logo' ></box-icon>
+        </a>
+        <!-- <a class="share-item" target="_blank"
+            href="https://service.weibo.com/share/share.php?title=translater-定义/声明/文件 - ohmyhsy&url=https://8bytes.top/2022/06/09/translater/&pic=">
+            <div class="n-icon n-icon-weibo"></div>
+        </a> -->
+    </section>
+
+</article>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- <script src="//unpkg.com/@waline/dist/Waline.min.js"></script> -->
+    <script src="https://unpkg.com/@waline/client@v2/dist/waline.js"></script>
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/@waline/client@v2/dist/waline.css"
+    />
+    <section class="comments">
+        <div id="waline"></div>
+    </section>
+    <script>
+        Waline.init({
+          el: '#waline',
+          serverURL: 'https://ohmyhsy.vercel.app/',
+        });
+    </script>
+
+
+
+<script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+</div>
+                </section>
+            </section>
+
+            
+            <aside class="sidebar sidebar-search-fix">
+                
+
+    <div class="search">
+    <div class="has-icon-right">
+        <input type="text" class="form-input" id="search" placeholder="SEARCH" autocomplete="off">
+        <div class="form-icon">
+            <box-icon name='search' color="#3c4859"></box-icon>
+        </div>
+    </div>
+    <div class="search-result" id="search-ps"></div>
+</div>
+
+
+<div class="widget" id="widget">
+    
+      
+  <div class="widget-wrap">
+    <div class="widget-inner">
+      <div class="toc post-toc-html"></div>
+    </div>
+  </div>
+
+    
+      
+
+    
+      
+  <div class="widget-wrap widget-tags">
+    <div class="widget-title"><span>Tags</span></div>
+    <div class="widget-inner">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c/" rel="tag">c</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/compiler/" rel="tag">compiler</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cpp/" rel="tag">cpp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/exam/" rel="tag">exam</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jetbrains/" rel="tag">jetbrains</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/" rel="tag">leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ubuntu/" rel="tag">ubuntu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/visual-studio-2022/" rel="tag">visual studio 2022</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vscode/" rel="tag">vscode</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-recent-posts">
+    <div class="widget-title"><span>Recent Posts</span></div>
+    <div class="widget-inner">
+      <ul>
+        
+          <li>
+            <a href="/2022/06/23/hstring/">hstring</a>
+          </li>
+        
+          <li>
+            <a href="/2022/06/23/destructor/">析构函数</a>
+          </li>
+        
+          <li>
+            <a href="/2022/06/23/Constructor1/">构造函数+1</a>
+          </li>
+        
+          <li>
+            <a href="/2022/06/23/Constructor/">构造函数</a>
+          </li>
+        
+          <li>
+            <a href="/2022/06/22/const/">const类</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget-wrap widget-archive">
+    <div class="widget-title"><span>Archive</span></div>
+    <div class="widget-inner">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/">2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/">2021</a></li></ul>
+    </div>
+  </div>
+
+
+    
+</div>
+
+<div id="backtop"><i class="icon icon-arrow-up"></i></div>
+            </aside>
+            
+        </div>
+    </div>
+
+    <footer class="footer">
+    <div class="footer-wave">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#3c4859" fill-opacity="1" d="M0,160L60,181.3C120,203,240,245,360,240C480,235,600,181,720,186.7C840,192,960,256,1080,261.3C1200,267,1320,213,1380,186.7L1440,160L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>
+    </div>
+
+    <!-- Please do not remove this -->
+    <!-- 开源不易，请勿删除 -->
+    <div class="footer-wrap">
+        <div class="footer-inner"> 
+            ohmyhsy &copy; 2022<br>
+            Powered By Hexo · Theme By <a href="https://linhong.me/" target="_blank">Aomori</a> · <a href="https://github.com/lh1me/hexo-theme-aomori" target="_blank">Github</a>
+        </div>
+    </div>
+
+</footer>
+
+
+
+
+
+
+<script src="/dist/build.js?1646451311888.js"></script>
+
+
+<script src="/dist/custom.js?1646451311888.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>

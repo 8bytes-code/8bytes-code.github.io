@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    
+    <title>构造函数+1 | ohmyhsy</title>
+
+    <meta name="description" content="&lt;h1 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;继续了解构造函数&lt;/p&gt;">
+    <meta name="keywords" content="">
+
+    
+
+    <meta property="og:locale" content="en" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content= "构造函数+1 | ohmyhsy"  />
+    <meta property="og:description" content= "&lt;h1 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;继续了解构造函数&lt;/p&gt;" />
+    <meta property="og:url" content="https://8bytes.top/2022/06/23/Constructor1/index.html" />
+    <meta property="og:site_name" content="" />
+    <meta property="article:author" content="Box" />
+    <meta property="article:publisher" content="" />
+    <meta property="og:description" content="&lt;h1 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;继续了解构造函数&lt;/p&gt;" />
+    <meta name="twitter:title" content="构造函数+1 | ohmyhsy"/>
+    <meta name="twitter:description" content="&lt;h1 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;继续了解构造函数&lt;/p&gt;"/>
+    <script type="application/ld+json">
+        {
+            "description": "&lt;h1 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;继续了解构造函数&lt;/p&gt;",
+            "author": { "@type": "Person", "name": "Box" },
+            "@type": "BlogPosting",
+            "url": "https://8bytes.top/2022/06/23/Constructor1/index.html",
+            "publisher": {
+            "@type": "Organization",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://8bytes.topundefined"
+            },
+            "name": "Box"
+            },
+            "headline": "构造函数+1 | ohmyhsy",
+            "datePublished": "2022-06-23T06:34:17.000Z",
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "https://8bytes.top/2022/06/23/Constructor1/index.html"
+            },
+            "@context": "http://schema.org"
+        }
+    </script>
+
+
+
+
+    
+
+    
+    <meta property="algolia:search" data-application-id="4CVCYWPWWN" data-api-key="7757db6b0a31c3f94c301c885693ed0d" data-index-name="ohmyhsy">
+    
+
+    
+
+    
+
+    
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎮</text></svg>">
+    
+
+    
+
+    
+
+    
+<link rel="stylesheet" href="/dist/build.css?v=1646451311888.css">
+
+
+    
+<link rel="stylesheet" href="/dist/custom.css?v=1646451311888.css">
+
+
+    <script>
+        window.isPost = true
+        window.aomori = {
+            
+            
+            
+        }
+        window.aomori_logo_typed_animated = true
+        window.aomori_search_algolia = true
+
+    </script>
+
+<meta name="generator" content="Hexo 5.4.1"><link rel="alternate" href="/atom.xml" title="ohmyhsy" type="application/atom+xml">
+</head>
+
+<body>
+
+    <div class="container">
+    <header class="header">
+        <div class="header-type">
+            
+            <div class="header-type-inner">
+                
+                    <div id="typed-strings" style="display:none">
+                        <p>ohmyhsy</p>
+                    </div>
+                    <a class="header-type-title" id="typed" href="/"></a>
+                
+    
+                
+            </div>
+        </div>
+        <div class="header-menu">
+            <div class="header-menu-inner">
+                
+                <a href="/">Home</a>
+                
+                <a href="/archives">Archives</a>
+                
+                <a href="/friends">Friends</a>
+                
+            </div>
+            <div class="header-menu-social">
+                
+    <a class="social" target="_blank" href="https://github.com/8bytes-code">
+        <box-icon type='logo' name='github'></box-icon>
+    </a>
+
+            </div>
+        </div>
+
+        <div class="header-menu-mobile">
+            <div class="header-menu-mobile-inner" id="mobile-menu-open">
+                <i class="icon icon-menu"></i>
+            </div>
+        </div>
+    </header>
+
+    <div class="header-menu-mobile-menu">
+        <div class="header-menu-mobile-menu-bg"></div>
+        <div class="header-menu-mobile-menu-wrap">
+            <div class="header-menu-mobile-menu-inner">
+                <div class="header-menu-mobile-menu-close" id="mobile-menu-close">
+                    <i class="icon icon-cross"></i>
+                </div>
+                <div class="header-menu-mobile-menu-list">
+                    
+                    <a href="/">Home</a>
+                    
+                    <a href="/archives">Archives</a>
+                    
+                    <a href="/friends">Friends</a>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+    <div class="container">
+        <div class="main">
+            <section class="inner">
+                <section class="inner-main">
+                    <div class="post">
+    <article id="post-cl4wvfeg300070sk625m9grhl" class="article article-type-post" itemscope
+    itemprop="blogPost">
+
+    <div class="article-inner">
+
+        
+          
+        
+        
+        
+
+        
+        <header class="article-header">
+            
+  
+    <h1 class="article-title" itemprop="name">
+      构造函数+1
+    </h1>
+  
+
+        </header>
+        
+
+        <div class="article-more-info article-more-info-post hairline">
+
+            <div class="article-date">
+  <time datetime="2022-06-23T06:34:17.000Z" itemprop="datePublished">2022-06-23</time>
+</div>
+
+            
+
+            
+            <div class="article-tag">
+                <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cpp/" rel="tag">cpp</a></li></ul>
+            </div>
+            
+
+            
+            <div class="article-busuanzi">
+                <span id="busuanzi_value_page_pv">N</span> views
+            </div>
+            
+
+        </div>
+
+        <div class="article-entry post-inner-html hairline" itemprop="articleBody">
+            <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>继续了解构造函数</p>
+<span id="more"></span>
+
+
+<hr>
+<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><h2 id="列表初始化"><a href="#列表初始化" class="headerlink" title="列表初始化"></a>列表初始化</h2><p>构造函数最直接的就是初始化成员变量</p>
+<pre><code class="cpp">#pragma once
+class Hack&#123;
+public:
+    int hp;
+    int mp;
+
+    Hack(int hp,int mp)&#123;
+        this-&gt;hp = hp;
+        this-&gt;mp = mp;
+    &#125;
+&#125;;
+</code></pre>
+<p>除了在函数里面初始化，还可以使用列表方式</p>
+<pre><code class="cpp">#pragma once
+class Hack&#123;
+public:
+    int hp;
+    int mp;
+
+    Hack(int _hp, int _mp) :hp&#123; _hp &#125;,mp&#123;_mp&#125;&#123;
+    
+    &#125;
+&#125;;
+</code></pre>
+<p><strong>列表初始化的话就不能用this指针了，所以你要手动去区分开形参和成员变量，就是不要起一个名字</strong></p>
+<p>那么说这两种都是初始化的方法，谁更好<br>答案是列表更好</p>
+<ol>
+<li>效率高</li>
+<li>在某些情况下只能用列表初始化</li>
+</ol>
+<pre><code class="cpp">#pragma once
+class Hack&#123;
+public:
+    int hp=100;
+    int mp=200;
+
+    Hack(int _hp, int _mp)&#123;
+        
+        std::cout &lt;&lt; hp &lt;&lt; &quot; &quot; &lt;&lt; mp &lt;&lt; std::endl;
+        this-&gt;hp = _hp;
+        this-&gt;mp = _mp;
+        std::cout &lt;&lt; hp &lt;&lt; &quot; &quot; &lt;&lt; mp &lt;&lt; std::endl;
+    &#125;
+&#125;;
+</code></pre>
+<p>当hp和mp有初始值，我们去看看执行的效果</p>
+<img src="/2022/06/23/Constructor1/000.png" class="">
+<p>可以看到先打印初始值在打印修改后的值<br>说明构造函数需要跳转需要空间。</p>
+<p>再看看列表的情况。</p>
+<pre><code class="cpp">#pragma once
+#include&lt;iostream&gt;
+class Hack&#123;
+public:
+    int hp=100;
+    int mp=200;
+
+    Hack(int _hp, int _mp):hp&#123; _hp &#125;,mp&#123;_mp&#125;&#123;    
+        std::cout &lt;&lt; hp &lt;&lt; &quot; &quot; &lt;&lt; mp &lt;&lt; std::endl;
+        std::cout &lt;&lt; hp &lt;&lt; &quot; &quot; &lt;&lt; mp &lt;&lt; std::endl;
+    &#125;
+&#125;;
+</code></pre>
+<img src="/2022/06/23/Constructor1/001.png" class="">
+<p>看到都是实例化对象时候的值。<br>说明列表的方法实现是在执行函数之前完成的。</p>
+<blockquote>
+<p>说明列表初始化的效率比传统在构造函数里初始化要快<br>至于某些情况要到继承的时候才知道</p>
+</blockquote>
+<p>有优势就有劣势，在劣势方面，因为成员变量是顺序初始化，他没有等函数入栈前去看默认的值，但是如果调用的是未初始化的然后用来赋值就会造成问题</p>
+<pre><code class="cpp">#pragma once
+#include&lt;iostream&gt;
+class Hack&#123;
+public:
+    int h;
+    int hp=100;
+    int mp=200;
+    
+
+    Hack(int _hp, int _mp) :hp&#123; _hp &#125;, mp&#123; _mp &#125;, h&#123; mp * 3 &#125;&#123;        
+        std::cout &lt;&lt; hp &lt;&lt; &quot; &quot; &lt;&lt; mp &lt;&lt; &quot; &quot; &lt;&lt; h &lt;&lt; std::endl;
+        std::cout &lt;&lt; hp &lt;&lt; &quot; &quot; &lt;&lt; mp &lt;&lt; &quot; &quot; &lt;&lt; h &lt;&lt; std::endl;
+    &#125;
+&#125;;
+</code></pre>
+<img src="/2022/06/23/Constructor1/002.png" class="">
+<p>会发现h肯定不会这么大。说明传递的时候mp的值不正常。</p>
+<p>原理就是，传参是从右往左传递，h声明的比mp早，mp还没完成初始化是个随机值，如果h声明在mp之下，那值就正常了。</p>
+<img src="/2022/06/23/Constructor1/003.png" class="">
+<p>只不过这种方式只是治标不治本，因为成员变量一多，没人回去顾及这些顺序问题，</p>
+<p><strong>所以列表初始化的顺序是从右往左的，传统构造函数内初始化是因为调用函数之前，成员变量都已经完成了各自的初始化</strong></p>
+<hr>
+<h2 id="委托构造"><a href="#委托构造" class="headerlink" title="委托构造"></a>委托构造</h2><pre><code class="cpp">#pragma once
+#include&lt;iostream&gt;
+class Hack&#123;
+public:
+    
+    int hp=100;
+    int mp=200;
+    int h;
+
+    Hack(int _h, int _hp):Hack(_h) &#123;        
+        std::cout &lt;&lt; h &lt;&lt; &quot; &quot; &lt;&lt; hp &lt;&lt; std::endl;
+        std::cout &lt;&lt; h &lt;&lt; &quot; &quot; &lt;&lt; hp &lt;&lt; std::endl;
+    &#125;
+
+    Hack(int _h) :h&#123; _h &#125;&#123;
+        std::cout &lt;&lt; &quot;hack _h&quot; &lt;&lt; std::endl;
+    &#125;
+&#125;;
+</code></pre>
+<img src="/2022/06/23/Constructor1/004.png" class="">
+<p>会发现他先执行了<code>_h</code>的构造函数。</p>
+<p><strong>委托构造函数只能用一个，且使用了委托构造之后不能再用列表初始化的方式了</strong></p>
+<hr>
+<h2 id="副本构造函数"><a href="#副本构造函数" class="headerlink" title="副本构造函数"></a>副本构造函数</h2><p>之前也用到过</p>
+<pre><code class="cpp">Hack ha;
+Hack hc(ha);
+</code></pre>
+<p>其实就是一种拷贝的操作，编译器也同样为类指定了一个默认的副本构造函数，当然也可以手动指定。</p>
+<img src="/2022/06/23/Constructor1/005.png" class="">
+<p>看到这种右值引用的类型是我们没有写过的，这就是编译器自动产生的副本构造。</p>
+<p>手写起来也不难</p>
+<pre><code class="cpp">Hack(Hack &amp;hack)&#123;
+    this-&gt;hp = hack.hp;
+    this-&gt;mp = hack.mp;
+    this-&gt;h = hack.h;
+&#125;
+</code></pre>
+<p>如果秉持不想改变这个传递的hack对象，也可以加上<code>const</code>。取决于个人严谨程度，毕竟只是为了拷贝，万一被修改了也怪麻烦的。</p>
+<p>然后就是利用列表的形式：</p>
+<pre><code class="cpp">Hack(Hack &amp;hack) :hp&#123; hack.hp &#125;, mp&#123; hack.mp &#125;, h&#123; hack.h &#125;&#123;
+
+&#125;
+</code></pre>
+<p>活学活用。</p>
+<blockquote>
+<p>虽然&#x3D;也是会默认调用副本构造，但是第二次在使用&#x3D;意义不同，因为第一次才是真正的构造这个类，第二次只是修改或者替换。</p>
+</blockquote>
+<hr>
+<h1 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h1><p>同类型的类，在构造函数里是可以访问私有成员的。<br>构造函数目的就是初始化构造一个类。</p>
+
+        </div>
+
+    </div>
+
+    
+
+    
+
+    
+
+    
+  <div class="article-copyright hairline">
+    <p>
+      本記事は  <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">「表示 - 非営利 - 改変禁止 4.0 国際 (CC BY-NC-ND 4.0)」</a> を採用。
+    </p>
+  </div>
+  
+
+    
+
+    
+<nav class="article-nav">
+  
+    <a href="/2022/06/23/destructor/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-caption">prossimo</div>
+      <div class="article-nav-title">
+        
+          析构函数
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/06/23/Constructor/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-caption">precedente</div>
+      <div class="article-nav-title">构造函数</div>
+    </a>
+  
+</nav>
+
+
+    <section class="share">
+        <div class="share-title">share</div>
+        <a class="share-item" target="_blank"
+            href="https://twitter.com/share?text=构造函数+1 - ohmyhsy&url=https%3A%2F%2F8bytes.top%2F2022%2F06%2F23%2FConstructor1%2F">
+            <box-icon type='logo' name='twitter'></box-icon>
+        </a>
+        <a class="share-item" target="_blank"
+            href="https://www.facebook.com/sharer.php?title=构造函数+1 - ohmyhsy&u=https%3A%2F%2F8bytes.top%2F2022%2F06%2F23%2FConstructor1%2F">
+            <box-icon name='facebook-square' type='logo' ></box-icon>
+        </a>
+        <!-- <a class="share-item" target="_blank"
+            href="https://service.weibo.com/share/share.php?title=构造函数+1 - ohmyhsy&url=https://8bytes.top/2022/06/23/Constructor1/&pic=">
+            <div class="n-icon n-icon-weibo"></div>
+        </a> -->
+    </section>
+
+</article>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- <script src="//unpkg.com/@waline/dist/Waline.min.js"></script> -->
+    <script src="https://unpkg.com/@waline/client@v2/dist/waline.js"></script>
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/@waline/client@v2/dist/waline.css"
+    />
+    <section class="comments">
+        <div id="waline"></div>
+    </section>
+    <script>
+        Waline.init({
+          el: '#waline',
+          serverURL: 'https://ohmyhsy.vercel.app/',
+        });
+    </script>
+
+
+
+<script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+</div>
+                </section>
+            </section>
+
+            
+            <aside class="sidebar sidebar-search-fix">
+                
+
+    <div class="search">
+    <div class="has-icon-right">
+        <input type="text" class="form-input" id="search" placeholder="SEARCH" autocomplete="off">
+        <div class="form-icon">
+            <box-icon name='search' color="#3c4859"></box-icon>
+        </div>
+    </div>
+    <div class="search-result" id="search-ps"></div>
+</div>
+
+
+<div class="widget" id="widget">
+    
+      
+  <div class="widget-wrap">
+    <div class="widget-inner">
+      <div class="toc post-toc-html"></div>
+    </div>
+  </div>
+
+    
+      
+
+    
+      
+  <div class="widget-wrap widget-tags">
+    <div class="widget-title"><span>Tags</span></div>
+    <div class="widget-inner">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c/" rel="tag">c</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/compiler/" rel="tag">compiler</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cpp/" rel="tag">cpp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/exam/" rel="tag">exam</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jetbrains/" rel="tag">jetbrains</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/" rel="tag">leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ubuntu/" rel="tag">ubuntu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/visual-studio-2022/" rel="tag">visual studio 2022</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vscode/" rel="tag">vscode</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-recent-posts">
+    <div class="widget-title"><span>Recent Posts</span></div>
+    <div class="widget-inner">
+      <ul>
+        
+          <li>
+            <a href="/2022/06/23/hstring/">hstring</a>
+          </li>
+        
+          <li>
+            <a href="/2022/06/23/destructor/">析构函数</a>
+          </li>
+        
+          <li>
+            <a href="/2022/06/23/Constructor1/">构造函数+1</a>
+          </li>
+        
+          <li>
+            <a href="/2022/06/23/Constructor/">构造函数</a>
+          </li>
+        
+          <li>
+            <a href="/2022/06/22/const/">const类</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget-wrap widget-archive">
+    <div class="widget-title"><span>Archive</span></div>
+    <div class="widget-inner">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/">2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/">2021</a></li></ul>
+    </div>
+  </div>
+
+
+    
+</div>
+
+<div id="backtop"><i class="icon icon-arrow-up"></i></div>
+            </aside>
+            
+        </div>
+    </div>
+
+    <footer class="footer">
+    <div class="footer-wave">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#3c4859" fill-opacity="1" d="M0,160L60,181.3C120,203,240,245,360,240C480,235,600,181,720,186.7C840,192,960,256,1080,261.3C1200,267,1320,213,1380,186.7L1440,160L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>
+    </div>
+
+    <!-- Please do not remove this -->
+    <!-- 开源不易，请勿删除 -->
+    <div class="footer-wrap">
+        <div class="footer-inner"> 
+            ohmyhsy &copy; 2022<br>
+            Powered By Hexo · Theme By <a href="https://linhong.me/" target="_blank">Aomori</a> · <a href="https://github.com/lh1me/hexo-theme-aomori" target="_blank">Github</a>
+        </div>
+    </div>
+
+</footer>
+
+
+
+
+
+
+<script src="/dist/build.js?1646451311888.js"></script>
+
+
+<script src="/dist/custom.js?1646451311888.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>

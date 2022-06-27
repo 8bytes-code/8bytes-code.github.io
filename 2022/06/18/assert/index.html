@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    
+    <title>assert | ohmyhsy</title>
+
+    <meta name="description" content="&lt;h1 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;assert, 翻译可能是断言，本质是个宏定义，不是函数&lt;br&gt;在C++中要使用assert需要将头文件&amp;lt;cassert&amp;gt;引入，虽然cassert本质上引用的是&amp;lt;assert.h&amp;gt;&lt;/p&gt;">
+    <meta name="keywords" content="">
+
+    
+
+    <meta property="og:locale" content="en" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content= "assert | ohmyhsy"  />
+    <meta property="og:description" content= "&lt;h1 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;assert, 翻译可能是断言，本质是个宏定义，不是函数&lt;br&gt;在C++中要使用assert需要将头文件&amp;lt;cassert&amp;gt;引入，虽然cassert本质上引用的是&amp;lt;assert.h&amp;gt;&lt;/p&gt;" />
+    <meta property="og:url" content="https://8bytes.top/2022/06/18/assert/index.html" />
+    <meta property="og:site_name" content="" />
+    <meta property="article:author" content="Box" />
+    <meta property="article:publisher" content="" />
+    <meta property="og:description" content="&lt;h1 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;assert, 翻译可能是断言，本质是个宏定义，不是函数&lt;br&gt;在C++中要使用assert需要将头文件&amp;lt;cassert&amp;gt;引入，虽然cassert本质上引用的是&amp;lt;assert.h&amp;gt;&lt;/p&gt;" />
+    <meta name="twitter:title" content="assert | ohmyhsy"/>
+    <meta name="twitter:description" content="&lt;h1 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;assert, 翻译可能是断言，本质是个宏定义，不是函数&lt;br&gt;在C++中要使用assert需要将头文件&amp;lt;cassert&amp;gt;引入，虽然cassert本质上引用的是&amp;lt;assert.h&amp;gt;&lt;/p&gt;"/>
+    <script type="application/ld+json">
+        {
+            "description": "&lt;h1 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;assert, 翻译可能是断言，本质是个宏定义，不是函数&lt;br&gt;在C++中要使用assert需要将头文件&amp;lt;cassert&amp;gt;引入，虽然cassert本质上引用的是&amp;lt;assert.h&amp;gt;&lt;/p&gt;",
+            "author": { "@type": "Person", "name": "Box" },
+            "@type": "BlogPosting",
+            "url": "https://8bytes.top/2022/06/18/assert/index.html",
+            "publisher": {
+            "@type": "Organization",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://8bytes.topundefined"
+            },
+            "name": "Box"
+            },
+            "headline": "assert | ohmyhsy",
+            "datePublished": "2022-06-18T07:31:29.000Z",
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "https://8bytes.top/2022/06/18/assert/index.html"
+            },
+            "@context": "http://schema.org"
+        }
+    </script>
+
+
+
+
+    
+
+    
+    <meta property="algolia:search" data-application-id="4CVCYWPWWN" data-api-key="7757db6b0a31c3f94c301c885693ed0d" data-index-name="ohmyhsy">
+    
+
+    
+
+    
+
+    
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎮</text></svg>">
+    
+
+    
+
+    
+
+    
+<link rel="stylesheet" href="/dist/build.css?v=1646451311888.css">
+
+
+    
+<link rel="stylesheet" href="/dist/custom.css?v=1646451311888.css">
+
+
+    <script>
+        window.isPost = true
+        window.aomori = {
+            
+            
+            
+        }
+        window.aomori_logo_typed_animated = true
+        window.aomori_search_algolia = true
+
+    </script>
+
+<meta name="generator" content="Hexo 5.4.1"><link rel="alternate" href="/atom.xml" title="ohmyhsy" type="application/atom+xml">
+</head>
+
+<body>
+
+    <div class="container">
+    <header class="header">
+        <div class="header-type">
+            
+            <div class="header-type-inner">
+                
+                    <div id="typed-strings" style="display:none">
+                        <p>ohmyhsy</p>
+                    </div>
+                    <a class="header-type-title" id="typed" href="/"></a>
+                
+    
+                
+            </div>
+        </div>
+        <div class="header-menu">
+            <div class="header-menu-inner">
+                
+                <a href="/">Home</a>
+                
+                <a href="/archives">Archives</a>
+                
+                <a href="/friends">Friends</a>
+                
+            </div>
+            <div class="header-menu-social">
+                
+    <a class="social" target="_blank" href="https://github.com/8bytes-code">
+        <box-icon type='logo' name='github'></box-icon>
+    </a>
+
+            </div>
+        </div>
+
+        <div class="header-menu-mobile">
+            <div class="header-menu-mobile-inner" id="mobile-menu-open">
+                <i class="icon icon-menu"></i>
+            </div>
+        </div>
+    </header>
+
+    <div class="header-menu-mobile-menu">
+        <div class="header-menu-mobile-menu-bg"></div>
+        <div class="header-menu-mobile-menu-wrap">
+            <div class="header-menu-mobile-menu-inner">
+                <div class="header-menu-mobile-menu-close" id="mobile-menu-close">
+                    <i class="icon icon-cross"></i>
+                </div>
+                <div class="header-menu-mobile-menu-list">
+                    
+                    <a href="/">Home</a>
+                    
+                    <a href="/archives">Archives</a>
+                    
+                    <a href="/friends">Friends</a>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+    <div class="container">
+        <div class="main">
+            <section class="inner">
+                <section class="inner-main">
+                    <div class="post">
+    <article id="post-cl4wvfeg4000a0sk62uik7qdf" class="article article-type-post" itemscope
+    itemprop="blogPost">
+
+    <div class="article-inner">
+
+        
+          
+        
+        
+        
+
+        
+        <header class="article-header">
+            
+  
+    <h1 class="article-title" itemprop="name">
+      assert
+    </h1>
+  
+
+        </header>
+        
+
+        <div class="article-more-info article-more-info-post hairline">
+
+            <div class="article-date">
+  <time datetime="2022-06-18T07:31:29.000Z" itemprop="datePublished">2022-06-18</time>
+</div>
+
+            
+
+            
+            <div class="article-tag">
+                <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/compiler/" rel="tag">compiler</a></li></ul>
+            </div>
+            
+
+            
+            <div class="article-busuanzi">
+                <span id="busuanzi_value_page_pv">N</span> views
+            </div>
+            
+
+        </div>
+
+        <div class="article-entry post-inner-html hairline" itemprop="articleBody">
+            <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>assert, 翻译可能是断言，本质是个宏定义，不是函数<br>在C++中要使用assert需要将头文件&lt;cassert&gt;引入，虽然cassert本质上引用的是&lt;assert.h&gt;</p>
+<span id="more"></span>
+
+
+<p>它的作用在其他语言中是一样的，就是说如果他里面的条件返回错误，代码会终止运行并且将源文件以及错误的代码和行号都输出出来。</p>
+<hr>
+<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><pre><code class="cpp">#include&lt;iostream&gt;
+#include&lt;cassert&gt;
+
+int main()&#123;
+
+    assert(false);
+
+    return 0;
+&#125;
+</code></pre>
+<img src="/2022/06/18/assert/000.png" class="">
+<p>弹出的类似这样。</p>
+<p>像一些特殊场景我们想要输入的时候不为0，以便参与下一次运算。当然debug模式和release模式情况可能稍有不同，因为release模式下会自动屏蔽掉assert的功能。<br>但是通过assert在debug下直接弹出一个警告框效果也不错。</p>
+<pre><code class="cpp">#include&lt;iostream&gt;
+#include&lt;cassert&gt;
+
+int main()&#123;
+    int x;
+    std::cout &lt;&lt; &quot;请输入一个数:&quot;;
+    std::cin &gt;&gt; x;
+    assert(x);
+    std::cout &lt;&lt; 1000 / x;
+
+    return 0;
+&#125;
+</code></pre>
+<img src="/2022/06/18/assert/001.png" class="">
+<p>这其实跟try一个异常有些许类似。</p>
+<p>重试的话就是重新运行，忽略的话下面的cout还是有问题会打断。结束就是结束运行了。</p>
+<blockquote>
+<p>应用场景远不止仅限于此。</p>
+</blockquote>
+<hr>
+<p>屏蔽assert的话，可以定义一个宏。<br><code>#define NDEBUG</code></p>
+<p>但是宏定义需要在引入头文件&lt;cassert&gt;之前。否则按顺序展开的话不起作用。<br>用这个的原因也是因为有的时候不需要去看这个异常，一般这种都是为了debug调试用的。</p>
+<img src="/2022/06/18/assert/002.png" class="">
+<p>转到定义后，可以看到其实也是利用了一些编译器提供好的功能</p>
+<hr>
+<h2 id="static-assert"><a href="#static-assert" class="headerlink" title="static_assert"></a>static_assert</h2><p>static_assert 用于编译时检查条件<br><code>static_assert(bool表达式，”错误信息“);</code></p>
+<p>c++17的新语法中：<br><code>static_assert(bool表达式);</code><br>与assert不同，static_assert主要是用来在编译时检查重要的条件<br>因此检查的bool表达式中，只能用于</p>
+<blockquote>
+<p>static_assert不需要头文件cassert</p>
+</blockquote>
+<pre><code class="cpp">static_assert(0, &quot;this is 0&quot;);
+</code></pre>
+<img src="/2022/06/18/assert/003.png" class="">
+
+<p><strong>注意，表达式的位置必须是常量或者表达式</strong></p>
+<p>如果想用它判断编译环境，比如x86还是x64 可以用之前预定义的宏</p>
+<pre><code class="cpp">static_assert(_WIN32, &quot;this is 0&quot;);
+</code></pre>
+<p>像这种情况，我们处于x86模式编译自然会通过。如果改成<code>_WIN64</code>的话</p>
+<pre><code class="cpp">static_assert(_WIN64, &quot;this is 0&quot;);
+</code></pre>
+<p>在x86下，会提示未定义：</p>
+<img src="/2022/06/18/assert/004.png" class="">
+<p>改成x64运行就没问题了。</p>
+<p>当然这个属于msvc的预定义宏，想要更直观的，也可以通过sizeof看指针的大小去判断环境</p>
+<pre><code class="cpp">static_assert(sizeof(int*)==4, &quot;it&#39;s not 4&quot;);
+</code></pre>
+<p>在x86下 指针大小是四字节所以没问题<br>如果是x64下 指针大小占用八字节 所以会报错。</p>
+<img src="/2022/06/18/assert/005.png" class="">
+
+<hr>
+<h1 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h1><p>那么相比较之下，<code>static_assert</code>似乎还好用点，也不用引用头文件就能调用，而且debug的时候不一定需要这种弹窗效果，能产生报错信息不错了。</p>
+
+        </div>
+
+    </div>
+
+    
+
+    
+
+    
+
+    
+  <div class="article-copyright hairline">
+    <p>
+      本記事は  <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">「表示 - 非営利 - 改変禁止 4.0 国際 (CC BY-NC-ND 4.0)」</a> を採用。
+    </p>
+  </div>
+  
+
+    
+
+    
+<nav class="article-nav">
+  
+    <a href="/2022/06/21/text007/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-caption">prossimo</div>
+      <div class="article-nav-title">
+        
+          ohheheheh
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/06/18/debug/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-caption">precedente</div>
+      <div class="article-nav-title">debug</div>
+    </a>
+  
+</nav>
+
+
+    <section class="share">
+        <div class="share-title">share</div>
+        <a class="share-item" target="_blank"
+            href="https://twitter.com/share?text=assert - ohmyhsy&url=https%3A%2F%2F8bytes.top%2F2022%2F06%2F18%2Fassert%2F">
+            <box-icon type='logo' name='twitter'></box-icon>
+        </a>
+        <a class="share-item" target="_blank"
+            href="https://www.facebook.com/sharer.php?title=assert - ohmyhsy&u=https%3A%2F%2F8bytes.top%2F2022%2F06%2F18%2Fassert%2F">
+            <box-icon name='facebook-square' type='logo' ></box-icon>
+        </a>
+        <!-- <a class="share-item" target="_blank"
+            href="https://service.weibo.com/share/share.php?title=assert - ohmyhsy&url=https://8bytes.top/2022/06/18/assert/&pic=">
+            <div class="n-icon n-icon-weibo"></div>
+        </a> -->
+    </section>
+
+</article>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- <script src="//unpkg.com/@waline/dist/Waline.min.js"></script> -->
+    <script src="https://unpkg.com/@waline/client@v2/dist/waline.js"></script>
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/@waline/client@v2/dist/waline.css"
+    />
+    <section class="comments">
+        <div id="waline"></div>
+    </section>
+    <script>
+        Waline.init({
+          el: '#waline',
+          serverURL: 'https://ohmyhsy.vercel.app/',
+        });
+    </script>
+
+
+
+<script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+</div>
+                </section>
+            </section>
+
+            
+            <aside class="sidebar sidebar-search-fix">
+                
+
+    <div class="search">
+    <div class="has-icon-right">
+        <input type="text" class="form-input" id="search" placeholder="SEARCH" autocomplete="off">
+        <div class="form-icon">
+            <box-icon name='search' color="#3c4859"></box-icon>
+        </div>
+    </div>
+    <div class="search-result" id="search-ps"></div>
+</div>
+
+
+<div class="widget" id="widget">
+    
+      
+  <div class="widget-wrap">
+    <div class="widget-inner">
+      <div class="toc post-toc-html"></div>
+    </div>
+  </div>
+
+    
+      
+
+    
+      
+  <div class="widget-wrap widget-tags">
+    <div class="widget-title"><span>Tags</span></div>
+    <div class="widget-inner">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c/" rel="tag">c</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/compiler/" rel="tag">compiler</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cpp/" rel="tag">cpp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/exam/" rel="tag">exam</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jetbrains/" rel="tag">jetbrains</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/" rel="tag">leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ubuntu/" rel="tag">ubuntu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/visual-studio-2022/" rel="tag">visual studio 2022</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vscode/" rel="tag">vscode</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-recent-posts">
+    <div class="widget-title"><span>Recent Posts</span></div>
+    <div class="widget-inner">
+      <ul>
+        
+          <li>
+            <a href="/2022/06/23/hstring/">hstring</a>
+          </li>
+        
+          <li>
+            <a href="/2022/06/23/destructor/">析构函数</a>
+          </li>
+        
+          <li>
+            <a href="/2022/06/23/Constructor1/">构造函数+1</a>
+          </li>
+        
+          <li>
+            <a href="/2022/06/23/Constructor/">构造函数</a>
+          </li>
+        
+          <li>
+            <a href="/2022/06/22/const/">const类</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget-wrap widget-archive">
+    <div class="widget-title"><span>Archive</span></div>
+    <div class="widget-inner">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/">2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/">2021</a></li></ul>
+    </div>
+  </div>
+
+
+    
+</div>
+
+<div id="backtop"><i class="icon icon-arrow-up"></i></div>
+            </aside>
+            
+        </div>
+    </div>
+
+    <footer class="footer">
+    <div class="footer-wave">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#3c4859" fill-opacity="1" d="M0,160L60,181.3C120,203,240,245,360,240C480,235,600,181,720,186.7C840,192,960,256,1080,261.3C1200,267,1320,213,1380,186.7L1440,160L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>
+    </div>
+
+    <!-- Please do not remove this -->
+    <!-- 开源不易，请勿删除 -->
+    <div class="footer-wrap">
+        <div class="footer-inner"> 
+            ohmyhsy &copy; 2022<br>
+            Powered By Hexo · Theme By <a href="https://linhong.me/" target="_blank">Aomori</a> · <a href="https://github.com/lh1me/hexo-theme-aomori" target="_blank">Github</a>
+        </div>
+    </div>
+
+</footer>
+
+
+
+
+
+
+<script src="/dist/build.js?1646451311888.js"></script>
+
+
+<script src="/dist/custom.js?1646451311888.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>

@@ -162,7 +162,7 @@
             <section class="inner">
                 <section class="inner-main">
                     <div class="post">
-    <article id="post-cl45txeo500006sk66b9c544k" class="article article-type-post" itemscope
+    <article id="post-cl4wvfegm001p0sk61sdzcvht" class="article article-type-post" itemscope
     itemprop="blogPost">
 
     <div class="article-inner">
@@ -201,7 +201,7 @@
 
             
             <div class="article-busuanzi">
-                <span id="busuanzi_value_page_pv">N</span> 人看过
+                <span id="busuanzi_value_page_pv">N</span> views
             </div>
             
 
@@ -227,6 +227,67 @@
 <li>如果一部分变量系统分配，一部分自主分配，系统分配的系统会自动清理</li>
 </ol>
 <p>那么结果肯定是3好。</p>
+<hr>
+<pre><code class="cpp">#include&lt;iostream&gt;
+
+int hh(int a, int b)&#123;
+    a += 1000;
+    return a + b;
+&#125;
+
+int Add(int a, int b)&#123;
+    int c = 100;
+    int d = hh(a, b);
+    c += d;
+    return c;
+&#125;
+
+int main()&#123;
+
+    std::cout &lt;&lt; Add &lt;&lt; std::endl;
+    int x = Add(250, 150);
+
+    return 0;
+&#125;
+</code></pre>
+<p>寄存器在x86反汇编的时候已经看到过ebp，esp，eax，edx之类的了，那么细分的话：</p>
+<ul>
+<li>32位通用寄存器有：4个数据寄存器<code>(EAX,EBX,ECX,EDX)</code>,2个变址寄存器<code>(ESI,EDI)</code>和2个指针寄存器<code>(ESP,EBP)</code></li>
+<li>6个段寄存器<code>(ES,CS,SS,DS,FS,GS)</code></li>
+<li>1个指令指针寄存器<code>(EIP)</code></li>
+<li>1个标志寄存器<code>(EFLAGS)</code></li>
+</ul>
+<p>打断点到<code>int x = Add(250, 150);</code>上反汇编查看：</p>
+<img src="/2022/06/03/function5/000.png" class="">
+
+<p>画图是比较直观的操作，所以继续画画看：<img src="/2022/06/03/function5/001.png" class=""><br>十六进制转十进制不会的就用计算器<br><code>00A41A25  push        96h </code><br><code>00A41A2A  push        0FAh </code><br>参数从右往左进栈，每push一次esp的地址就等于 <code>esp -= 4</code>，这不是一次重复说明了，常量也会占用内存，之所以减法是因为内存模型是从高地址到低地址，比如0xfffd5 ~ 0xfffa1,所以esp通过减法使得上升，至于-4可能是跟32位的地址大小相关吧。<br><code>00A41A2F   call    00A411C7</code> 跳转到Add函数位置处，其实也不难看出一点，每一条指令最左边的地址都相差4，例如A25 和 A2A ，A就是表示10，中间隔了[26 27 28 29]</p>
+<img src="/2022/06/03/function5/002.png" class="">
+
+<p>往上找一下add的位置，这里call的地方看不太懂变成了什么。</p>
+<img src="/2022/06/03/function5/003.png" class="">
+<p>找到后关闭源代码，发现挺长的。</p>
+<p>不过慢慢看，发现这个函数的第一步也还是push ebp，将ebp压入栈中，但是这个时候ebp的值就不确定了。然后mov ebp,esp让esp上来，<code>sub esp,0D8h</code> esp-216我就不知道为啥偏移这么多了。<br>即使配合源码从后面的00731849到00731860我倒是没看明白干了什么。<br>00731865开始给ebp-8的位置传64h，也就是100，也就是<code>int c = 100</code>;那句源代码。<br><code>int d = hh(a,b)</code>; a和b都是我们传递的，所以两个mov都没啥问题，就是把eax和ecx在压入栈跳转到hh函数的位置，同样的这个地址跳转的也不是函数内容，更像是在实现的过程。明明已经禁用优化了，换成release的话也不对头，int x&#x3D;Add那句好像因为没有调用，甚至都没有反汇编。<br>就不管call，看<code>add esp，8</code>，推测是释放形参用的。然后<code>mov  eax</code>的值给ebp-14，ebp-14就是变量d的位置，eax先前说到一般存储可能为返回值。<br>然后<code>c += d</code>,表达式就是<code>c = c+d</code>, 现在已知这俩的位置，先将ebp-8也就是c的值传给eax寄存器，然后eax寄存器在加上ebp-14里的值，也就是d的值。因为结果是相加后重新赋给c，所以最后还有一步，将eax相加之和的结果在传给ebp-8；<br>return c就很直接了，把ebp-8的值传给eax。<br>后面的pop弹出栈还看不明白。反正ret最后回到main函数里就对了，因为函数里面pop ebp的时候，esp应该就会+4回到之前的地址了。</p>
+<img src="/2022/06/03/function5/004.png" class="">
+<p>但是函数里面怎么画就不知道了，这个反汇编还是有点问题不太直观。可能还得借助其他工具分析。</p>
+<hr>
+<p>通过esp和ebp来回移动可以保持栈平衡，虽然esp到达过的地方数据短时间不会被清除，但是按照固定逻辑，正常情况下esp也不会回头访问了，除非下次用到那块地址了又擦写数据让esp顶上。</p>
+<p>这样栈溢出会好理解一点，就比如数组，他是一片连续的内存空间，如果输入的时候不控制，那么后面溢出的入栈之后造成的问题就会五花八门，最常见就是改变程序运行位置，本来连续空间正常执行，一个溢出，导致后面执行位置或者返回位置被修改了。程序未能如期运行可以说是。</p>
+<p>这种可控的情况下，vs就搞了那套函数后面带_s的安全函数，只要提前限定长度就能减少溢出的问题，当然不可能完全解决的。</p>
+<hr>
+<h1 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h1><ol>
+<li>栈的空间提前分配好了。局部变量通常就入栈，栈通过esp实现局部变量的创建和释放</li>
+<li>栈平衡破坏了，函数在某一段可能不能返回到预期的位置，利用这个原理，可以来实现对目标操作系统的控制权限。</li>
+<li>sub esp，x 这个x有可能就能知道有多少个局部变量</li>
+<li>目前常见寄存器：<ol>
+<li>ebp 栈底</li>
+<li>esp 栈顶，栈顶以下的值或是局部变量之类的</li>
+<li>eax 函数返回值通常由eax传递</li>
+<li>eip 属于cpu执行的位置</li>
+<li>ecx,edx 也是存放临时变量的</li>
+</ol>
+</li>
+</ol>
+<p>不过说实在还是挺失败的~纯纯的理论者，真到了实操怎么去控制一个栈溢出都不知道。。。惭愧哦</p>
 
         </div>
 
@@ -241,7 +302,7 @@
     
   <div class="article-copyright hairline">
     <p>
-      本作品采用  <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议 (CC BY-NC-ND 4.0)</a> 进行许可。
+      本記事は  <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">「表示 - 非営利 - 改変禁止 4.0 国際 (CC BY-NC-ND 4.0)」</a> を採用。
     </p>
   </div>
   
@@ -251,11 +312,11 @@
     
 <nav class="article-nav">
   
-    <a href="/2022/06/09/text004/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2022/06/04/function6/" id="article-nav-newer" class="article-nav-link-wrap">
       <div class="article-nav-caption">prossimo</div>
       <div class="article-nav-title">
         
-          text004
+          function6-重载
         
       </div>
     </a>
@@ -358,7 +419,7 @@
   <div class="widget-wrap widget-tags">
     <div class="widget-title"><span>Tags</span></div>
     <div class="widget-inner">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c/" rel="tag">c</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cpp/" rel="tag">cpp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/exam/" rel="tag">exam</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jetbrains/" rel="tag">jetbrains</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/" rel="tag">leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ubuntu/" rel="tag">ubuntu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vscode/" rel="tag">vscode</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c/" rel="tag">c</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/compiler/" rel="tag">compiler</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cpp/" rel="tag">cpp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/exam/" rel="tag">exam</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jetbrains/" rel="tag">jetbrains</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/" rel="tag">leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ubuntu/" rel="tag">ubuntu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/visual-studio-2022/" rel="tag">visual studio 2022</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vscode/" rel="tag">vscode</a></li></ul>
     </div>
   </div>
 
@@ -371,23 +432,23 @@
       <ul>
         
           <li>
-            <a href="/2022/06/09/text004/">text004</a>
+            <a href="/2022/06/23/hstring/">hstring</a>
           </li>
         
           <li>
-            <a href="/2022/06/03/function5/">function5-栈</a>
+            <a href="/2022/06/23/destructor/">析构函数</a>
           </li>
         
           <li>
-            <a href="/2022/06/01/function4/">function4-本质和函数指针</a>
+            <a href="/2022/06/23/Constructor1/">构造函数+1</a>
           </li>
         
           <li>
-            <a href="/2022/05/31/function3/">function3-左值右值</a>
+            <a href="/2022/06/23/Constructor/">构造函数</a>
           </li>
         
           <li>
-            <a href="/2022/05/30/function2/">function2</a>
+            <a href="/2022/06/22/const/">const类</a>
           </li>
         
       </ul>

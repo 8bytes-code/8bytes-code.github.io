@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    
+    <title>ODR | ohmyhsy</title>
+
+    <meta name="description" content="&lt;h1 id=&#34;引言&#34;&gt;&lt;a href=&#34;#引言&#34; class=&#34;headerlink&#34; title=&#34;引言&#34;&gt;&lt;/a&gt;引言&lt;/h1&gt;&lt;p&gt;全称为&lt;code&gt;One Definition Rule&lt;/code&gt;，可以说是单定义原则或者规则&lt;br&gt;是为c++的语法规则，这个规则指出变量只能有一次定义。&lt;/p&gt;">
+    <meta name="keywords" content="">
+
+    
+
+    <meta property="og:locale" content="en" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content= "ODR | ohmyhsy"  />
+    <meta property="og:description" content= "&lt;h1 id=&#34;引言&#34;&gt;&lt;a href=&#34;#引言&#34; class=&#34;headerlink&#34; title=&#34;引言&#34;&gt;&lt;/a&gt;引言&lt;/h1&gt;&lt;p&gt;全称为&lt;code&gt;One Definition Rule&lt;/code&gt;，可以说是单定义原则或者规则&lt;br&gt;是为c++的语法规则，这个规则指出变量只能有一次定义。&lt;/p&gt;" />
+    <meta property="og:url" content="https://8bytes.top/2022/06/15/ODR/index.html" />
+    <meta property="og:site_name" content="" />
+    <meta property="article:author" content="Box" />
+    <meta property="article:publisher" content="" />
+    <meta property="og:description" content="&lt;h1 id=&#34;引言&#34;&gt;&lt;a href=&#34;#引言&#34; class=&#34;headerlink&#34; title=&#34;引言&#34;&gt;&lt;/a&gt;引言&lt;/h1&gt;&lt;p&gt;全称为&lt;code&gt;One Definition Rule&lt;/code&gt;，可以说是单定义原则或者规则&lt;br&gt;是为c++的语法规则，这个规则指出变量只能有一次定义。&lt;/p&gt;" />
+    <meta name="twitter:title" content="ODR | ohmyhsy"/>
+    <meta name="twitter:description" content="&lt;h1 id=&#34;引言&#34;&gt;&lt;a href=&#34;#引言&#34; class=&#34;headerlink&#34; title=&#34;引言&#34;&gt;&lt;/a&gt;引言&lt;/h1&gt;&lt;p&gt;全称为&lt;code&gt;One Definition Rule&lt;/code&gt;，可以说是单定义原则或者规则&lt;br&gt;是为c++的语法规则，这个规则指出变量只能有一次定义。&lt;/p&gt;"/>
+    <script type="application/ld+json">
+        {
+            "description": "&lt;h1 id=&#34;引言&#34;&gt;&lt;a href=&#34;#引言&#34; class=&#34;headerlink&#34; title=&#34;引言&#34;&gt;&lt;/a&gt;引言&lt;/h1&gt;&lt;p&gt;全称为&lt;code&gt;One Definition Rule&lt;/code&gt;，可以说是单定义原则或者规则&lt;br&gt;是为c++的语法规则，这个规则指出变量只能有一次定义。&lt;/p&gt;",
+            "author": { "@type": "Person", "name": "Box" },
+            "@type": "BlogPosting",
+            "url": "https://8bytes.top/2022/06/15/ODR/index.html",
+            "publisher": {
+            "@type": "Organization",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://8bytes.topundefined"
+            },
+            "name": "Box"
+            },
+            "headline": "ODR | ohmyhsy",
+            "datePublished": "2022-06-15T15:16:55.000Z",
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "https://8bytes.top/2022/06/15/ODR/index.html"
+            },
+            "@context": "http://schema.org"
+        }
+    </script>
+
+
+
+
+    
+
+    
+    <meta property="algolia:search" data-application-id="4CVCYWPWWN" data-api-key="7757db6b0a31c3f94c301c885693ed0d" data-index-name="ohmyhsy">
+    
+
+    
+
+    
+
+    
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎮</text></svg>">
+    
+
+    
+
+    
+
+    
+<link rel="stylesheet" href="/dist/build.css?v=1646451311888.css">
+
+
+    
+<link rel="stylesheet" href="/dist/custom.css?v=1646451311888.css">
+
+
+    <script>
+        window.isPost = true
+        window.aomori = {
+            
+            
+            
+        }
+        window.aomori_logo_typed_animated = true
+        window.aomori_search_algolia = true
+
+    </script>
+
+<meta name="generator" content="Hexo 5.4.1"><link rel="alternate" href="/atom.xml" title="ohmyhsy" type="application/atom+xml">
+</head>
+
+<body>
+
+    <div class="container">
+    <header class="header">
+        <div class="header-type">
+            
+            <div class="header-type-inner">
+                
+                    <div id="typed-strings" style="display:none">
+                        <p>ohmyhsy</p>
+                    </div>
+                    <a class="header-type-title" id="typed" href="/"></a>
+                
+    
+                
+            </div>
+        </div>
+        <div class="header-menu">
+            <div class="header-menu-inner">
+                
+                <a href="/">Home</a>
+                
+                <a href="/archives">Archives</a>
+                
+                <a href="/friends">Friends</a>
+                
+            </div>
+            <div class="header-menu-social">
+                
+    <a class="social" target="_blank" href="https://github.com/8bytes-code">
+        <box-icon type='logo' name='github'></box-icon>
+    </a>
+
+            </div>
+        </div>
+
+        <div class="header-menu-mobile">
+            <div class="header-menu-mobile-inner" id="mobile-menu-open">
+                <i class="icon icon-menu"></i>
+            </div>
+        </div>
+    </header>
+
+    <div class="header-menu-mobile-menu">
+        <div class="header-menu-mobile-menu-bg"></div>
+        <div class="header-menu-mobile-menu-wrap">
+            <div class="header-menu-mobile-menu-inner">
+                <div class="header-menu-mobile-menu-close" id="mobile-menu-close">
+                    <i class="icon icon-cross"></i>
+                </div>
+                <div class="header-menu-mobile-menu-list">
+                    
+                    <a href="/">Home</a>
+                    
+                    <a href="/archives">Archives</a>
+                    
+                    <a href="/friends">Friends</a>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+    <div class="container">
+        <div class="main">
+            <section class="inner">
+                <section class="inner-main">
+                    <div class="post">
+    <article id="post-cl4wvfeg200050sk65v1a6dx0" class="article article-type-post" itemscope
+    itemprop="blogPost">
+
+    <div class="article-inner">
+
+        
+          
+        
+        
+        
+
+        
+        <header class="article-header">
+            
+  
+    <h1 class="article-title" itemprop="name">
+      ODR
+    </h1>
+  
+
+        </header>
+        
+
+        <div class="article-more-info article-more-info-post hairline">
+
+            <div class="article-date">
+  <time datetime="2022-06-15T15:16:55.000Z" itemprop="datePublished">2022-06-15</time>
+</div>
+
+            
+
+            
+            <div class="article-tag">
+                <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/compiler/" rel="tag">compiler</a></li></ul>
+            </div>
+            
+
+            
+            <div class="article-busuanzi">
+                <span id="busuanzi_value_page_pv">N</span> views
+            </div>
+            
+
+        </div>
+
+        <div class="article-entry post-inner-html hairline" itemprop="articleBody">
+            <h1 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h1><p>全称为<code>One Definition Rule</code>，可以说是单定义原则或者规则<br>是为c++的语法规则，这个规则指出变量只能有一次定义。</p>
+<span id="more"></span>
+
+
+<hr>
+<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><h2 id="编译过程"><a href="#编译过程" class="headerlink" title="编译过程"></a>编译过程</h2><p>回顾编译的四大过程。预处理，编译，汇编，链接。<br>预处理 就是替换所有的宏定义，展开include的头文件，去掉注释和一些无关的。[由.c&#x2F;.cpp 到 .i]<br>编译 就是将高级语言的代码转换成机器语言的过程，主要进行语法之类的分析，优化成汇编。 [由.i 到 .s]<br>汇编 就是将源文件翻译成二进制，Windows会转换成.obj文件，类unix的为.o文件。 [.o文件时机器码所以纯文本无法正常显示]<br>链接 就是将.o文件和库文件绑定到一起，最终形成所谓的可执行程序。</p>
+<p>这里的编译器用的visual studio了。<br>抽象上，.c&#x2F;.cpp + include&lt;.h&gt; 合并后称为转换单元<br>然后转换成.obj之类的，因为是windows平台。<br>最后链接成可执行程序.exe<br>当一切顺利时，自然不会有问题。语法上的编译器在编译器之前就能给出错误和警告。</p>
+<pre><code class="cpp">#include&lt;iostream&gt;
+
+void test()&#123;
+    std::cout &lt;&lt; &quot;hhh&quot; &lt;&lt; std::endl;
+&#125;
+
+int main() &#123;
+    test();
+
+    return 0;
+&#125;
+</code></pre>
+<p>主函数调用了一个函数，这个函数在编译的时候会先取一个别名，然后再去替换内存地址。如果不存在就会看到一个lnk类型的报错：</p>
+<pre><code class="cpp">#include&lt;iostream&gt;
+
+void test()&#123;
+    std::cout &lt;&lt; &quot;hhh&quot; &lt;&lt; std::endl;
+&#125;
+
+extern void hh();
+
+int main() &#123;
+    test();
+    hh();
+
+    return 0;
+&#125;
+</code></pre>
+<p>可以看到hh函数其实没有定义过，也未在其他文件有过声明，我们直接调用就会</p>
+<img src="/2022/06/15/ODR/000.png" class="">
+<p>也就是link链接的时候发生的错误。<br>如果这个函数没有被调用其实就不会报错了。</p>
+<hr>
+<h2 id="未定义行为"><a href="#未定义行为" class="headerlink" title="未定义行为"></a>未定义行为</h2><p>c++标准未作规定的行为被称为未定义行为，未定义行为的结果是不确定的，具体表现在不同编译器之间。</p>
+<ol>
+<li>c &#x3D; 2*a++ + ++a*6</li>
+<li>int x &#x3D; -25602; x &#x3D; x &gt;&gt; 2;</li>
+</ol>
+<p>拿1来说，a++是规定好的语法，x + a++的话是规定好了，先算x+a，再让a++; 这种简单的复合运算通过提前规定好而规避错误。但是人总是闲的蛋疼，就会整出一些无理由的题，这些题目不能百分之百的给你一个完美的解。<br>而例1的写法，谁能知道先算a++还是++a呢，如果++a先被计算了，那么前面的值肯定偏大了。抛开被优化了之后，有些可能交给寄存器处理了，所以意义不同了。</p>
+<p>例2 纠结之处在于 负数有符号位，补0和1的时候结果大不相同，所以位运算尽量交给正数。</p>
+<hr>
+<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>那么ODR的体现就在于程序中定义的每个对象都有自己的规则。<br>在c++20中 任何变量、函数、类、枚举、模板在每个转换单元中都只允许有一个定义；<br>在c++17中非inline的函数或者变量在程序中有且只有一个定义；</p>
+<p>什么叫定义和声明应该不用多做赘述</p>
+<pre><code class="cpp">void test();
+void test();
+void test();
+void test();
+void test()&#123;
+    std::cout &lt;&lt; &quot;hello&quot; &lt;&lt; std::endl;
+&#125;
+</code></pre>
+<p>像这种多个声明但是只有一个定义就没什么事，否则编译器就会给出报错。</p>
+<img src="/2022/06/15/ODR/001.png" class="">
+
+<pre><code class="cpp">static int a = 250;
+const int a = 250;
+inline int a = 250; //c++17
+</code></pre>
+<p>以上几个在一个项目里多个源文件重复定义了才不会报错，因为它们都有各自的内存空间。</p>
+<hr>
+<h2 id="链接属性"><a href="#链接属性" class="headerlink" title="链接属性"></a>链接属性</h2><p>之前看到过报错信息，函数在链接的时候的名字，c语言是直接在函数名前加了一个_，而c++ 因为有重载，所以要把类型参数等信息表现出来。</p>
+<p>链接属性：</p>
+<ol>
+<li>内部链接属性：就是说这个名称只在本转换单元有效</li>
+<li>外部链接属性：就是说这个名称在其他的转换单元中也有效</li>
+<li>无链接属性：就是说这个名称只在作用域内访问</li>
+</ol>
+<p>这些个点在函数和变量上都能有所表现。</p>
+<pre><code class="cpp">static hhh()&#123;
+
+&#125;
+const int h = 100;
+static int a = 200;
+int main()&#123;...&#125;
+</code></pre>
+<blockquote>
+<p>静态的函数，肯定是内部链接属性，他无法被其他文件调用<br>静态变量或者const常量，也同样是内部连接属性，在其他文件定义相同名称的并不影响编译</p>
+</blockquote>
+<pre><code class="cpp">int x = 100;
+hhh()&#123;
+
+&#125;
+int main()&#123;...&#125;
+</code></pre>
+<blockquote>
+<p>这种正常的全局函数或者变量就具有外部链接属性，在本质上他其实在编译的时候就加上了extern，作为外部声明。<br>所以一个const变量，也可以通过extern 被外部所发现。但是还是少用吧。</p>
+</blockquote>
+<p>如果就是希望这个变量或者函数没有外部属性，最常见就是static限定。<br>但是c++后期标准不推荐使用static，而是推荐一个未命名空间。<br>当然标准是一代一代继承的，不可能直接否定掉以前的办法。</p>
+<hr>
+<h3 id="inline和static"><a href="#inline和static" class="headerlink" title="inline和static"></a>inline和static</h3><p>在c++17之后才出现的inline 变量的写法。<br>先前的static 变量和函数都是没有问题的。<br>所以要特别注意下，开发的时候规定项目语法标准，免得有争议。</p>
+<pre><code class="cpp">//main.cpp
+#include&lt;iostream&gt;
+
+inline int a = 350;
+void test();
+int main()&#123;
+    std::cout &lt;&lt; a &lt;&lt; &quot;\n&quot;;
+    test();
+&#125;
+</code></pre>
+<pre><code class="cpp">//test.cpp
+#include&lt;iostream&gt;
+
+inline int a = 1000;
+void test()&#123;
+    std::cout &lt;&lt; a &lt;&lt; &quot;\n&quot;;
+&#125;
+</code></pre>
+<p>在这种情况下，inline的a还能不一样吗？</p>
+<img src="/2022/06/15/ODR/002.png" class="">
+<p>看到a的值都是main.cpp中定义的。</p>
+<pre><code class="cpp">//test.cppp
+#include&lt;iostream&gt;
+
+inline int a = 1000;
+static int b = 2000;
+void test()&#123;
+    std::cout &lt;&lt; a &lt;&lt; &quot; &quot; &lt;&lt; b &lt;&lt; &quot;\n&quot;;
+&#125;
+</code></pre>
+<pre><code class="cpp">//main.cpp
+#include&lt;iostream&gt;
+
+inline int a = 350;
+static int b = 250;
+void test();
+
+int main() &#123;
+    std::cout &lt;&lt; a &lt;&lt; &quot; &quot; &lt;&lt; b &lt;&lt; &quot;\n&quot;;
+    test();
+
+    return 0;
+&#125;
+</code></pre>
+<p>再看static的情况</p>
+<img src="/2022/06/15/ODR/003.png" class="">
+
+
+<p><strong>说明inline仍然是外部链接属性，static才是内部链接属性</strong><br>也就是为什么之前c++17提到非inline的才只有一个定义。</p>
+<p>避免的方式也有，就是写进头文件，因为一般定义头文件的时候都会有<code>#pragma once</code>这种防重的，这样的话就不会管其他地方定义的是什么样的，只看头文件里面就好了。</p>
+<p>变量已是如此，函数当然亦是如此~</p>
+<pre><code class="cpp">//test.cpp
+#include&lt;iostream&gt;
+
+inline int a = 1000;
+static int b = 2000;
+static void Test()&#123;
+    std::cout &lt;&lt; a &lt;&lt; &quot; &quot; &lt;&lt; b &lt;&lt; &quot;\n&quot;;
+&#125;
+void testp()&#123;
+    Test();
+&#125;
+</code></pre>
+<pre><code class="cpp">#include&lt;iostream&gt;
+
+inline int a = 350;
+static int b = 250;
+void testp();
+static void Test()&#123;
+    std::cout &lt;&lt; a &lt;&lt; &quot; &quot; &lt;&lt; b &lt;&lt; &quot;\n&quot;;
+&#125;
+
+int main() &#123;
+    std::cout &lt;&lt; a &lt;&lt; &quot; &quot; &lt;&lt; b &lt;&lt; &quot;\n&quot;;
+    testp();
+    Test();
+
+    return 0;
+&#125;
+</code></pre>
+<img src="/2022/06/15/ODR/004.png" class="">
+<p>能够看到main.cpp的static void Test写法跟test.cpp没啥差别，但是两个函数作用在不同的文件。<br>也就说明了static的变量或函数都有不同的内存分配。</p>
+<p>函数改成inline结果也不用多想，就会按照main.cpp的来了</p>
+<img src="/2022/06/15/ODR/005.png" class="">
+
+<hr>
+<h1 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h1><p>倒也不是啥大事，一些编译器和语法标准的问题。</p>
+
+        </div>
+
+    </div>
+
+    
+
+    
+
+    
+
+    
+  <div class="article-copyright hairline">
+    <p>
+      本記事は  <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">「表示 - 非営利 - 改変禁止 4.0 国際 (CC BY-NC-ND 4.0)」</a> を採用。
+    </p>
+  </div>
+  
+
+    
+
+    
+<nav class="article-nav">
+  
+    <a href="/2022/06/16/text006/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-caption">prossimo</div>
+      <div class="article-nav-title">
+        
+          text006
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/06/14/function12/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-caption">precedente</div>
+      <div class="article-nav-title">递归函数</div>
+    </a>
+  
+</nav>
+
+
+    <section class="share">
+        <div class="share-title">share</div>
+        <a class="share-item" target="_blank"
+            href="https://twitter.com/share?text=ODR - ohmyhsy&url=https%3A%2F%2F8bytes.top%2F2022%2F06%2F15%2FODR%2F">
+            <box-icon type='logo' name='twitter'></box-icon>
+        </a>
+        <a class="share-item" target="_blank"
+            href="https://www.facebook.com/sharer.php?title=ODR - ohmyhsy&u=https%3A%2F%2F8bytes.top%2F2022%2F06%2F15%2FODR%2F">
+            <box-icon name='facebook-square' type='logo' ></box-icon>
+        </a>
+        <!-- <a class="share-item" target="_blank"
+            href="https://service.weibo.com/share/share.php?title=ODR - ohmyhsy&url=https://8bytes.top/2022/06/15/ODR/&pic=">
+            <div class="n-icon n-icon-weibo"></div>
+        </a> -->
+    </section>
+
+</article>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- <script src="//unpkg.com/@waline/dist/Waline.min.js"></script> -->
+    <script src="https://unpkg.com/@waline/client@v2/dist/waline.js"></script>
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/@waline/client@v2/dist/waline.css"
+    />
+    <section class="comments">
+        <div id="waline"></div>
+    </section>
+    <script>
+        Waline.init({
+          el: '#waline',
+          serverURL: 'https://ohmyhsy.vercel.app/',
+        });
+    </script>
+
+
+
+<script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+</div>
+                </section>
+            </section>
+
+            
+            <aside class="sidebar sidebar-search-fix">
+                
+
+    <div class="search">
+    <div class="has-icon-right">
+        <input type="text" class="form-input" id="search" placeholder="SEARCH" autocomplete="off">
+        <div class="form-icon">
+            <box-icon name='search' color="#3c4859"></box-icon>
+        </div>
+    </div>
+    <div class="search-result" id="search-ps"></div>
+</div>
+
+
+<div class="widget" id="widget">
+    
+      
+  <div class="widget-wrap">
+    <div class="widget-inner">
+      <div class="toc post-toc-html"></div>
+    </div>
+  </div>
+
+    
+      
+
+    
+      
+  <div class="widget-wrap widget-tags">
+    <div class="widget-title"><span>Tags</span></div>
+    <div class="widget-inner">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c/" rel="tag">c</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/compiler/" rel="tag">compiler</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cpp/" rel="tag">cpp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/exam/" rel="tag">exam</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jetbrains/" rel="tag">jetbrains</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/" rel="tag">leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ubuntu/" rel="tag">ubuntu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/visual-studio-2022/" rel="tag">visual studio 2022</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vscode/" rel="tag">vscode</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-recent-posts">
+    <div class="widget-title"><span>Recent Posts</span></div>
+    <div class="widget-inner">
+      <ul>
+        
+          <li>
+            <a href="/2022/06/23/hstring/">hstring</a>
+          </li>
+        
+          <li>
+            <a href="/2022/06/23/destructor/">析构函数</a>
+          </li>
+        
+          <li>
+            <a href="/2022/06/23/Constructor1/">构造函数+1</a>
+          </li>
+        
+          <li>
+            <a href="/2022/06/23/Constructor/">构造函数</a>
+          </li>
+        
+          <li>
+            <a href="/2022/06/22/const/">const类</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget-wrap widget-archive">
+    <div class="widget-title"><span>Archive</span></div>
+    <div class="widget-inner">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/">2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/">2021</a></li></ul>
+    </div>
+  </div>
+
+
+    
+</div>
+
+<div id="backtop"><i class="icon icon-arrow-up"></i></div>
+            </aside>
+            
+        </div>
+    </div>
+
+    <footer class="footer">
+    <div class="footer-wave">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#3c4859" fill-opacity="1" d="M0,160L60,181.3C120,203,240,245,360,240C480,235,600,181,720,186.7C840,192,960,256,1080,261.3C1200,267,1320,213,1380,186.7L1440,160L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>
+    </div>
+
+    <!-- Please do not remove this -->
+    <!-- 开源不易，请勿删除 -->
+    <div class="footer-wrap">
+        <div class="footer-inner"> 
+            ohmyhsy &copy; 2022<br>
+            Powered By Hexo · Theme By <a href="https://linhong.me/" target="_blank">Aomori</a> · <a href="https://github.com/lh1me/hexo-theme-aomori" target="_blank">Github</a>
+        </div>
+    </div>
+
+</footer>
+
+
+
+
+
+
+<script src="/dist/build.js?1646451311888.js"></script>
+
+
+<script src="/dist/custom.js?1646451311888.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>
