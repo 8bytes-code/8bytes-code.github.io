@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    
+    <title>windows窗口 | ohmyhsy</title>
+
+    <meta name="description" content="&lt;h1 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;额总的来说c++的语法是又看了一遍~~猪脑子啊有些就是没记住。&lt;br&gt;先看看windows的api，然后玩玩老的mfc先吧。&lt;/p&gt;">
+    <meta name="keywords" content="8bytes-blog">
+
+    
+
+    <meta property="og:locale" content="cn" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content= "windows窗口 | ohmyhsy"  />
+    <meta property="og:description" content= "&lt;h1 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;额总的来说c++的语法是又看了一遍~~猪脑子啊有些就是没记住。&lt;br&gt;先看看windows的api，然后玩玩老的mfc先吧。&lt;/p&gt;" />
+    <meta property="og:url" content="https://8bytes.top/2022/07/07/win-windows/index.html" />
+    <meta property="og:site_name" content="" />
+    <meta property="article:author" content="Box" />
+    <meta property="article:publisher" content="" />
+    <meta property="og:description" content="&lt;h1 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;额总的来说c++的语法是又看了一遍~~猪脑子啊有些就是没记住。&lt;br&gt;先看看windows的api，然后玩玩老的mfc先吧。&lt;/p&gt;" />
+    <meta name="twitter:title" content="windows窗口 | ohmyhsy"/>
+    <meta name="twitter:description" content="&lt;h1 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;额总的来说c++的语法是又看了一遍~~猪脑子啊有些就是没记住。&lt;br&gt;先看看windows的api，然后玩玩老的mfc先吧。&lt;/p&gt;"/>
+    <script type="application/ld+json">
+        {
+            "description": "&lt;h1 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;额总的来说c++的语法是又看了一遍~~猪脑子啊有些就是没记住。&lt;br&gt;先看看windows的api，然后玩玩老的mfc先吧。&lt;/p&gt;",
+            "author": { "@type": "Person", "name": "Box" },
+            "@type": "BlogPosting",
+            "url": "https://8bytes.top/2022/07/07/win-windows/index.html",
+            "publisher": {
+            "@type": "Organization",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://8bytes.topundefined"
+            },
+            "name": "Box"
+            },
+            "headline": "windows窗口 | ohmyhsy",
+            "datePublished": "2022-07-07T10:28:09.000Z",
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "https://8bytes.top/2022/07/07/win-windows/index.html"
+            },
+            "@context": "http://schema.org"
+        }
+    </script>
+
+
+
+
+    
+
+    
+    <meta property="algolia:search" data-application-id="4CVCYWPWWN" data-api-key="7757db6b0a31c3f94c301c885693ed0d" data-index-name="ohmyhsy">
+    
+
+    
+
+    
+
+    
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎮</text></svg>">
+    
+
+    
+
+    
+
+    
+<link rel="stylesheet" href="/dist/build.css?v=1646451311888.css">
+
+
+    
+<link rel="stylesheet" href="/dist/custom.css?v=1646451311888.css">
+
+
+    <script>
+        window.isPost = true
+        window.aomori = {
+            
+            
+            
+        }
+        window.aomori_logo_typed_animated = true
+        window.aomori_search_algolia = true
+
+    </script>
+
+<meta name="generator" content="Hexo 5.4.1"><link rel="alternate" href="/atom.xml" title="ohmyhsy" type="application/atom+xml">
+</head>
+
+<body>
+
+    <div class="container">
+    <header class="header">
+        <div class="header-type">
+            
+            <div class="header-type-inner">
+                
+                    <div id="typed-strings" style="display:none">
+                        <p>ohmyhsy</p>
+                    </div>
+                    <a class="header-type-title" id="typed" href="/"></a>
+                
+    
+                
+            </div>
+        </div>
+        <div class="header-menu">
+            <div class="header-menu-inner">
+                
+                <a href="/">Home</a>
+                
+                <a href="/archives">Archives</a>
+                
+                <a href="/friends">Friends</a>
+                
+                <a href="/collect">Collect</a>
+                
+                <a href="/photography">Phtotgraphy</a>
+                
+            </div>
+            <div class="header-menu-social">
+                
+    <a class="social" target="_blank" href="https://github.com/8bytes-code">
+        <box-icon type='logo' name='github'></box-icon>
+    </a>
+
+            </div>
+        </div>
+
+        <div class="header-menu-mobile">
+            <div class="header-menu-mobile-inner" id="mobile-menu-open">
+                <i class="icon icon-menu"></i>
+            </div>
+        </div>
+    </header>
+
+    <div class="header-menu-mobile-menu">
+        <div class="header-menu-mobile-menu-bg"></div>
+        <div class="header-menu-mobile-menu-wrap">
+            <div class="header-menu-mobile-menu-inner">
+                <div class="header-menu-mobile-menu-close" id="mobile-menu-close">
+                    <i class="icon icon-cross"></i>
+                </div>
+                <div class="header-menu-mobile-menu-list">
+                    
+                    <a href="/">Home</a>
+                    
+                    <a href="/archives">Archives</a>
+                    
+                    <a href="/friends">Friends</a>
+                    
+                    <a href="/collect">Collect</a>
+                    
+                    <a href="/photography">Phtotgraphy</a>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+    <div class="container">
+        <div class="main">
+            <section class="inner">
+                <section class="inner-main">
+                    <div class="post">
+    <article id="post-cl7vfxqv30077bw9c7gcx0lek" class="article article-type-post" itemscope
+    itemprop="blogPost">
+
+    <div class="article-inner">
+
+        
+          
+        
+        
+        
+
+        
+        <header class="article-header">
+            
+  
+    <h1 class="article-title" itemprop="name">
+      windows窗口
+    </h1>
+  
+
+        </header>
+        
+
+        <div class="article-more-info article-more-info-post hairline">
+
+            <div class="article-date">
+  <time datetime="2022-07-07T10:28:09.000Z" itemprop="datePublished">2022-07-07</time>
+</div>
+
+            
+
+            
+            <div class="article-tag">
+                <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/windows/" rel="tag">windows</a></li></ul>
+            </div>
+            
+
+            
+            <div class="article-busuanzi">
+                <span id="busuanzi_value_page_pv">N</span> 人看过
+            </div>
+            
+
+        </div>
+
+        <div class="article-entry post-inner-html hairline" itemprop="articleBody">
+            <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>额总的来说c++的语法是又看了一遍~~猪脑子啊有些就是没记住。<br>先看看windows的api，然后玩玩老的mfc先吧。</p>
+<span id="more"></span>
+
+
+<hr>
+<h1 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h1><ul>
+<li>微软开发文档<br><a target="_blank" rel="noopener" href="https://docs.microsoft.com/zh-cn/">文档地址</a></li>
+</ul>
+<hr>
+<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><p>白天没起来，下午game了一会，然后又刷手机。</p>
+<hr>
+<p>windows程序设计就是c++类的形式封装成windowsAPI，然后设计的应用程序框架。减少程序开发的工作量。</p>
+<p>对于没有图形化的命令行界面，程序入口都在main函数<br>而对于windows而言，它的入口在WinMain。</p>
+<p>对于winmain的介绍，在没有引用文件下，可以去官方文档查看</p>
+<img src="/2022/07/07/win-windows/000.png" class="">
+
+<pre><code class="cpp">int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PWSTR pCmdLine, int nCmdShow);
+</code></pre>
+<ul>
+<li>hInstance 称为“实例句柄”或“模块句柄”。操作系统使用此值在内存中加载可执行文件时标识可执行文件 (EXE) 。 某些Windows函数需要实例句柄，例如加载图标或位图。</li>
+<li>hPrevInstance 没有意义。 它在 16 位Windows中使用，但现在始终为零。</li>
+<li>pCmdLine 包含命令行参数作为 Unicode 字符串。</li>
+<li>nCmdShow 是一个标志，指示主应用程序窗口是最小化、最大化还是正常显示。</li>
+</ul>
+<p>这是大概的情况。然后要使用windows的功能，自然要引用头文件<code>windows.h</code></p>
+<pre><code class="cpp">#include&lt;Windows.h&gt;
+
+int WINAPI WinMain()&#123;
+
+&#125;
+</code></pre>
+<p>参数暂时没有做，然后如果想要标准输入输出也可以用<code>&lt;stdio.h&gt;</code>or<code>&lt;iostream&gt;</code></p>
+<p>因为是以c++类的方式封装，在名字上会有相似</p>
+<pre><code class="cpp">#include&lt;Windows.h&gt;
+
+int WINAPI WinMain()&#123;
+    WNDCLASS wndclass;
+&#125;
+</code></pre>
+<p>可以右键一直查询定义，也可以直接在文档搜，本质上是一个结构体。</p>
+<pre><code class="cpp">typedef struct _WNDCLASS &#123;
+ UINT style; 
+ WNDPROC lpfnWndProc; 
+ int cbClsExtra; 
+ int cbWndExtra; 
+ HANDLE hInstance; 
+ HICON hIcon; 
+ HCURSOR hCursor; 
+ HBRUSH hbrBackground; 
+ LPCTSTR lpszMenuName; 
+ LPCTSTR lpszClassName; &#125; WNDCLASS ;
+</code></pre>
+<p><strong>英语不好多翻译一下。。。windows的封装一堆参数太哈人了。</strong></p>
+<hr>
+<p>题外话，空项目创建写代码如果编译有问题，可以看我另一篇的解决方法。</p>
+<hr>
+<img src="/2022/07/07/win-windows/004.png" class="">
+<p>可以打开这个功能，有的时候方便直接看封装好的是如何定义的。</p>
+<hr>
+<pre><code class="cpp">#include &lt;Windows.h&gt;
+#include &lt;stdio.h&gt;
+
+LPCTSTR clsName = &quot;my&quot;;
+LPCTSTR msgName = &quot;xuexi&quot;;
+
+LRESULT CALLBACK MyWinProc(
+    HWND hwnd,      // handle to window
+    UINT uMsg,      // message identifier
+    WPARAM wParam,  // first message parameter
+    LPARAM lParam   // second message parameter
+);
+
+//windows主函数入口
+int WINAPI WinMain(
+    HINSTANCE hInstance,
+    HINSTANCE hPrevInstance,
+    PSTR lpCmdLine,
+    INT nCmdShow
+)&#123;
+    // windows对象，设计窗口类
+    WNDCLASS wndclass;
+    wndclass.cbClsExtra = NULL;
+    wndclass.cbWndExtra = NULL;
+    wndclass.hbrBackground = (HBRUSH)GetStockObject(WHITE_BRUSH);
+    wndclass.hCursor = LoadCursor(NULL, IDC_ARROW);
+    wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
+    wndclass.hInstance = hInstance;
+    //定义交互响应
+    wndclass.lpfnWndProc = MyWinProc;  //回调
+    //定义窗口代号
+    wndclass.lpszClassName = clsName;
+    wndclass.lpszMenuName = NULL;
+    wndclass.style = CS_HREDRAW | CS_VREDRAW;
+
+    //注册窗口类
+    RegisterClass(&amp;wndclass);
+
+    //创建窗口
+    HWND hwnd;
+    hwnd = CreateWindow(
+        clsName, msgName, WS_OVERLAPPEDWINDOW, CW_USEDEFAULT,
+        CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT, NULL, NULL,
+        hInstance, NULL
+    );
+
+    //显示窗口和刷新窗口
+    ShowWindow(hwnd, SW_SHOWNORMAL);
+    UpdateWindow(hwnd);
+
+    //消息循环
+    MSG msg;
+    while (GetMessage(&amp;msg,NULL,NULL,NULL))&#123;    //得到消息
+        TranslateMessage(&amp;msg);                    //翻译消息为字符
+        DispatchMessage(&amp;msg);                    //分派消息
+    &#125;
+
+    return msg.wParam;
+&#125;
+
+LRESULT CALLBACK MyWinProc(
+    HWND hwnd,      // handle to window
+    UINT uMsg,      // message identifier
+    WPARAM wParam,  // first message parameter
+    LPARAM lParam   // second message parameter
+)&#123;
+    // uMsg 消息类型
+    int ret = 0;
+    HDC hdc;
+    switch (uMsg)&#123;
+        case WM_CHAR:
+            char szChar[20];
+            sprintf_s(szChar, &quot;您刚才按下了：%c&quot;, wParam);
+            MessageBox(hwnd,szChar,&quot;char&quot;,NULL);
+            break;
+        case WM_LBUTTONDOWN:
+            MessageBox(hwnd, &quot;检测鼠标左键按下&quot;, &quot;msg&quot;,NULL);
+            break;
+        case WM_PAINT:
+            PAINTSTRUCT ps;
+            hdc = BeginPaint(hwnd, &amp;ps);
+            TextOut(hdc, 0, 0, &quot;www.baidu.com&quot;, strlen(&quot;www.baidu.com&quot;));
+            EndPaint(hwnd, &amp;ps);
+            MessageBox(hwnd, &quot;重绘&quot;, &quot;msg&quot;, NULL);
+            break;
+        case WM_CLOSE:
+            ret = MessageBox(hwnd, &quot;是否真的结束?&quot;, &quot;msg&quot;, MB_YESNO);
+            if (ret == IDYES)&#123;
+                DestroyWindow(hwnd);            //如果选择yes则销毁窗口
+            &#125;
+            break;
+        case WM_DESTROY:
+            PostQuitMessage(0);
+            break;
+        default:
+            return DefWindowProc(hwnd,uMsg,wParam,lParam);
+            //break;
+    &#125;
+    return 0;
+&#125;
+</code></pre>
+<hr>
+<p>窗口就是这玩意，不难理解也不难看出</p>
+<img src="/2022/07/07/win-windows/005.png" class="">
+
+<blockquote>
+<p>句柄[handle]：二级指针、资源的编号。窗口句柄、文件句柄、数据库连结句柄。</p>
+</blockquote>
+<p>至于c++窗口类对象和窗口之间的关系，就是对象内置窗口句柄，窗口点击关闭之后，对象不一定就释放了，但是对象的生命周期结束了，窗口就一定销毁了。</p>
+<hr>
+<h2 id="windows常见数据类型"><a href="#windows常见数据类型" class="headerlink" title="windows常见数据类型"></a>windows常见数据类型</h2><table>
+<thead>
+<tr>
+<th>code</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>DWORD</td>
+<td>32字节无符号整型数据</td>
+</tr>
+<tr>
+<td>DWORD32</td>
+<td>32字节无符号整型数据</td>
+</tr>
+<tr>
+<td>DWORD64</td>
+<td>64字节无符号整型数据</td>
+</tr>
+<tr>
+<td>HANDLE</td>
+<td>对象句柄，最基本的句柄类型</td>
+</tr>
+<tr>
+<td>HICON</td>
+<td>图标的句柄</td>
+</tr>
+<tr>
+<td>HINSTANCE</td>
+<td>程序实例的句柄</td>
+</tr>
+<tr>
+<td>HKEY</td>
+<td>注册表键的句柄</td>
+</tr>
+<tr>
+<td>HMODULE</td>
+<td>模块的句柄</td>
+</tr>
+<tr>
+<td>HWND</td>
+<td>窗口的句柄</td>
+</tr>
+<tr>
+<td>INT</td>
+<td>32位符号整型数据类型</td>
+</tr>
+<tr>
+<td>INT_PTR</td>
+<td>指向INT的指针类型</td>
+</tr>
+<tr>
+<td>INT32</td>
+<td>32位符号整型</td>
+</tr>
+<tr>
+<td>INT64</td>
+<td>64位符号整型</td>
+</tr>
+<tr>
+<td>LONG32</td>
+<td>32位符号整型</td>
+</tr>
+<tr>
+<td>LONG64</td>
+<td>64位符号整型</td>
+</tr>
+<tr>
+<td>LPARAM</td>
+<td>消息的L参数</td>
+</tr>
+<tr>
+<td>WPARAM</td>
+<td>消息的w参数</td>
+</tr>
+<tr>
+<td>LPCSTR</td>
+<td>windows，ANSI，字符串常量</td>
+</tr>
+<tr>
+<td>LPCTSTR</td>
+<td>根据环境配置，如果定义了Unicode宏，则是LPCWSTR，否则LPCSTR</td>
+</tr>
+<tr>
+<td>LPCWSTR</td>
+<td>Unicode字符串常量</td>
+</tr>
+<tr>
+<td>LPDWORD</td>
+<td>指向DWORD类型的指针</td>
+</tr>
+<tr>
+<td>LPSTR</td>
+<td>windows，ANSI，字符串变量</td>
+</tr>
+<tr>
+<td>LPTSTR</td>
+<td>根据环境配置，如果定义了Unicode宏，则是LPWSTR，否则LPSTR类型</td>
+</tr>
+<tr>
+<td>LPWSTR</td>
+<td>Unicode字符串变量</td>
+</tr>
+<tr>
+<td>SIZE_T</td>
+<td>表示内存大小，以字节位单位，其最大值是CPU最大寻址范围</td>
+</tr>
+<tr>
+<td>TCHAR</td>
+<td>如果定义了Unicode，则为WCHAR</td>
+</tr>
+<tr>
+<td>WCHAR</td>
+<td>16位Unicode字符</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="windows命名"><a href="#windows命名" class="headerlink" title="windows命名"></a>windows命名</h2><table>
+<thead>
+<tr>
+<th>前缀</th>
+<th>含义</th>
+<th>前缀</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>a</td>
+<td>数组array</td>
+<td>b</td>
+<td>布尔值bool</td>
+</tr>
+<tr>
+<td>by</td>
+<td>无符号字符[字节]</td>
+<td>c</td>
+<td>字符[字节]</td>
+</tr>
+<tr>
+<td>cb</td>
+<td>字节计数</td>
+<td>rgb</td>
+<td>保存颜色值的长整型</td>
+</tr>
+<tr>
+<td>cx，cy</td>
+<td>短整型[计算x，y的长度]</td>
+<td>dw</td>
+<td>无符号长整型</td>
+</tr>
+<tr>
+<td>fn</td>
+<td>函数</td>
+<td>h</td>
+<td>句柄</td>
+</tr>
+<tr>
+<td>i</td>
+<td>整型</td>
+<td>m_</td>
+<td>类的数据成员member</td>
+</tr>
+<tr>
+<td>n</td>
+<td>短整型或整型</td>
+<td>np</td>
+<td>近指针</td>
+</tr>
+<tr>
+<td>p</td>
+<td>指针</td>
+<td>l</td>
+<td>长整型</td>
+</tr>
+<tr>
+<td>lp</td>
+<td>长指针</td>
+<td>s</td>
+<td>字符串string</td>
+</tr>
+<tr>
+<td>sz</td>
+<td>以0结尾的字符串</td>
+<td>tm</td>
+<td>正文大小</td>
+</tr>
+<tr>
+<td>w</td>
+<td>无符号整型</td>
+<td>x，y</td>
+<td>无符号整型[表示x，y的坐标]</td>
+</tr>
+</tbody></table>
+<hr>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>用空项目套窗口太累了。。。基础窗口全要自己写，而且参数是真的多。<br>先了解基本原理吧。</p>
+
+        </div>
+
+    </div>
+
+    
+
+    
+
+    
+
+    
+  <div class="article-copyright hairline">
+    <p>
+      本作品采用  <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议 (CC BY-NC-ND 4.0)</a> 进行许可。
+    </p>
+  </div>
+  
+
+    
+
+    
+<nav class="article-nav">
+  
+    <a href="/2022/07/07/winNewNulProj/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-caption">下一篇</div>
+      <div class="article-nav-title">
+        
+          vs2022空项目构建windows窗口报错
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/07/06/text011/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-caption">上一篇</div>
+      <div class="article-nav-title">text011</div>
+    </a>
+  
+</nav>
+
+
+    <section class="share">
+        <div class="share-title">分享</div>
+        <a class="share-item" target="_blank"
+            href="https://twitter.com/share?text=windows窗口 - ohmyhsy&url=https%3A%2F%2F8bytes.top%2F2022%2F07%2F07%2Fwin-windows%2F">
+            <box-icon type='logo' name='twitter'></box-icon>
+        </a>
+        <a class="share-item" target="_blank"
+            href="https://www.facebook.com/sharer.php?title=windows窗口 - ohmyhsy&u=https%3A%2F%2F8bytes.top%2F2022%2F07%2F07%2Fwin-windows%2F">
+            <box-icon name='facebook-square' type='logo' ></box-icon>
+        </a>
+        <!-- <a class="share-item" target="_blank"
+            href="https://service.weibo.com/share/share.php?title=windows窗口 - ohmyhsy&url=https://8bytes.top/2022/07/07/win-windows/&pic=">
+            <div class="n-icon n-icon-weibo"></div>
+        </a> -->
+    </section>
+
+</article>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- <script src="//unpkg.com/@waline/dist/Waline.min.js"></script> -->
+    <script src="https://unpkg.com/@waline/client@v2/dist/waline.js"></script>
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/@waline/client@v2/dist/waline.css"
+    />
+    <section class="comments">
+        <div id="waline"></div>
+    </section>
+    <script>
+        Waline.init({
+          el: '#waline',
+          serverURL: 'https://ohmyhsy.vercel.app/',
+        });
+    </script>
+
+
+
+<script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+</div>
+
+                </section>
+            </section>
+
+            
+            <aside class="sidebar sidebar-search-fix">
+                
+
+    <div class="search">
+    <div class="has-icon-right">
+        <input type="text" class="form-input" id="search" placeholder="SEARCH" autocomplete="off">
+        <div class="form-icon">
+            <box-icon name='search' color="#3c4859"></box-icon>
+        </div>
+    </div>
+    <div class="search-result" id="search-ps"></div>
+</div>
+
+
+<div class="widget" id="widget">
+    
+      
+  <div class="widget-wrap">
+    <div class="widget-inner">
+      <div class="toc post-toc-html"></div>
+    </div>
+  </div>
+
+    
+      
+
+    
+      
+  <div class="widget-wrap widget-tags">
+    <div class="widget-title"><span>Tags</span></div>
+    <div class="widget-inner">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/MFC/" rel="tag">MFC</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NoteBook/" rel="tag">NoteBook</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RemoteControl/" rel="tag">RemoteControl</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c/" rel="tag">c</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cheat-engine/" rel="tag">cheat engine</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/compiler/" rel="tag">compiler</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cpp/" rel="tag">cpp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/exam/" rel="tag">exam</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jetbrains/" rel="tag">jetbrains</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/" rel="tag">leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/life/" rel="tag">life</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/phone/" rel="tag">phone</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ubuntu/" rel="tag">ubuntu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/visual-studio-2022/" rel="tag">visual studio 2022</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vscode/" rel="tag">vscode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/windows/" rel="tag">windows</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-recent-posts">
+    <div class="widget-title"><span>Recent Posts</span></div>
+    <div class="widget-inner">
+      <ul>
+        
+          <li>
+            <a href="/2022/09/16/phoneTest/">给爪机上点科技</a>
+          </li>
+        
+          <li>
+            <a href="/2022/09/15/%E8%BF%9C%E6%8E%A7%E9%97%AE%E9%A2%98%E9%9B%86/">远控问题集</a>
+          </li>
+        
+          <li>
+            <a href="/2022/09/10/text021/">text021</a>
+          </li>
+        
+          <li>
+            <a href="/2022/09/10/text020/">text020</a>
+          </li>
+        
+          <li>
+            <a href="/2022/09/05/text019/">text019</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget-wrap widget-archive">
+    <div class="widget-title"><span>Archive</span></div>
+    <div class="widget-inner">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/">2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/">2021</a></li></ul>
+    </div>
+  </div>
+
+
+    
+</div>
+
+<div id="backtop"><i class="icon icon-arrow-up"></i></div>
+            </aside>
+            
+        </div>
+    </div>
+
+    <footer class="footer">
+    <div class="footer-wave">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#3c4859" fill-opacity="1" d="M0,160L60,181.3C120,203,240,245,360,240C480,235,600,181,720,186.7C840,192,960,256,1080,261.3C1200,267,1320,213,1380,186.7L1440,160L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>
+    </div>
+
+    <!-- Please do not remove this -->
+    <!-- 开源不易，请勿删除 -->
+    <div class="footer-wrap">
+        <div class="footer-inner"> 
+            ohmyhsy &copy; 2022<br>
+            Powered By Hexo · Theme By <a href="https://linhong.me/" target="_blank">Aomori</a> · <a href="https://github.com/lh1me/hexo-theme-aomori" target="_blank">Github</a>
+        </div>
+    </div>
+
+</footer>
+
+
+
+
+
+
+<script src="/dist/build.js?1646451311888.js"></script>
+
+
+<script src="/dist/custom.js?1646451311888.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>

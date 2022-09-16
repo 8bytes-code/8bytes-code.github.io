@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    
+    <title>远控问题集 | ohmyhsy</title>
+
+    <meta name="description" content="&lt;h1 id=&#34;记录远控所产生的bug&#34;&gt;&lt;a href=&#34;#记录远控所产生的bug&#34; class=&#34;headerlink&#34; title=&#34;记录远控所产生的bug&#34;&gt;&lt;/a&gt;记录远控所产生的bug&lt;/h1&gt;&lt;p style=&#34;font-size:12px; text-align:right;&#34;&gt;—— 记录我的尴尬&lt;/p&gt;">
+    <meta name="keywords" content="8bytes-blog">
+
+    
+
+    <meta property="og:locale" content="cn" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content= "远控问题集 | ohmyhsy"  />
+    <meta property="og:description" content= "&lt;h1 id=&#34;记录远控所产生的bug&#34;&gt;&lt;a href=&#34;#记录远控所产生的bug&#34; class=&#34;headerlink&#34; title=&#34;记录远控所产生的bug&#34;&gt;&lt;/a&gt;记录远控所产生的bug&lt;/h1&gt;&lt;p style=&#34;font-size:12px; text-align:right;&#34;&gt;—— 记录我的尴尬&lt;/p&gt;" />
+    <meta property="og:url" content="https://8bytes.top/2022/09/15/%E8%BF%9C%E6%8E%A7%E9%97%AE%E9%A2%98%E9%9B%86/index.html" />
+    <meta property="og:site_name" content="" />
+    <meta property="article:author" content="Box" />
+    <meta property="article:publisher" content="" />
+    <meta property="og:description" content="&lt;h1 id=&#34;记录远控所产生的bug&#34;&gt;&lt;a href=&#34;#记录远控所产生的bug&#34; class=&#34;headerlink&#34; title=&#34;记录远控所产生的bug&#34;&gt;&lt;/a&gt;记录远控所产生的bug&lt;/h1&gt;&lt;p style=&#34;font-size:12px; text-align:right;&#34;&gt;—— 记录我的尴尬&lt;/p&gt;" />
+    <meta name="twitter:title" content="远控问题集 | ohmyhsy"/>
+    <meta name="twitter:description" content="&lt;h1 id=&#34;记录远控所产生的bug&#34;&gt;&lt;a href=&#34;#记录远控所产生的bug&#34; class=&#34;headerlink&#34; title=&#34;记录远控所产生的bug&#34;&gt;&lt;/a&gt;记录远控所产生的bug&lt;/h1&gt;&lt;p style=&#34;font-size:12px; text-align:right;&#34;&gt;—— 记录我的尴尬&lt;/p&gt;"/>
+    <script type="application/ld+json">
+        {
+            "description": "&lt;h1 id=&#34;记录远控所产生的bug&#34;&gt;&lt;a href=&#34;#记录远控所产生的bug&#34; class=&#34;headerlink&#34; title=&#34;记录远控所产生的bug&#34;&gt;&lt;/a&gt;记录远控所产生的bug&lt;/h1&gt;&lt;p style=&#34;font-size:12px; text-align:right;&#34;&gt;—— 记录我的尴尬&lt;/p&gt;",
+            "author": { "@type": "Person", "name": "Box" },
+            "@type": "BlogPosting",
+            "url": "https://8bytes.top/2022/09/15/%E8%BF%9C%E6%8E%A7%E9%97%AE%E9%A2%98%E9%9B%86/index.html",
+            "publisher": {
+            "@type": "Organization",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://8bytes.topundefined"
+            },
+            "name": "Box"
+            },
+            "headline": "远控问题集 | ohmyhsy",
+            "datePublished": "2022-09-15T12:24:52.000Z",
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "https://8bytes.top/2022/09/15/%E8%BF%9C%E6%8E%A7%E9%97%AE%E9%A2%98%E9%9B%86/index.html"
+            },
+            "@context": "http://schema.org"
+        }
+    </script>
+
+
+
+
+    
+
+    
+    <meta property="algolia:search" data-application-id="4CVCYWPWWN" data-api-key="7757db6b0a31c3f94c301c885693ed0d" data-index-name="ohmyhsy">
+    
+
+    
+
+    
+
+    
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎮</text></svg>">
+    
+
+    
+
+    
+
+    
+<link rel="stylesheet" href="/dist/build.css?v=1646451311888.css">
+
+
+    
+<link rel="stylesheet" href="/dist/custom.css?v=1646451311888.css">
+
+
+    <script>
+        window.isPost = true
+        window.aomori = {
+            
+            
+            
+        }
+        window.aomori_logo_typed_animated = true
+        window.aomori_search_algolia = true
+
+    </script>
+
+<meta name="generator" content="Hexo 5.4.1"><link rel="alternate" href="/atom.xml" title="ohmyhsy" type="application/atom+xml">
+</head>
+
+<body>
+
+    <div class="container">
+    <header class="header">
+        <div class="header-type">
+            
+            <div class="header-type-inner">
+                
+                    <div id="typed-strings" style="display:none">
+                        <p>ohmyhsy</p>
+                    </div>
+                    <a class="header-type-title" id="typed" href="/"></a>
+                
+    
+                
+            </div>
+        </div>
+        <div class="header-menu">
+            <div class="header-menu-inner">
+                
+                <a href="/">Home</a>
+                
+                <a href="/archives">Archives</a>
+                
+                <a href="/friends">Friends</a>
+                
+                <a href="/collect">Collect</a>
+                
+                <a href="/photography">Phtotgraphy</a>
+                
+            </div>
+            <div class="header-menu-social">
+                
+    <a class="social" target="_blank" href="https://github.com/8bytes-code">
+        <box-icon type='logo' name='github'></box-icon>
+    </a>
+
+            </div>
+        </div>
+
+        <div class="header-menu-mobile">
+            <div class="header-menu-mobile-inner" id="mobile-menu-open">
+                <i class="icon icon-menu"></i>
+            </div>
+        </div>
+    </header>
+
+    <div class="header-menu-mobile-menu">
+        <div class="header-menu-mobile-menu-bg"></div>
+        <div class="header-menu-mobile-menu-wrap">
+            <div class="header-menu-mobile-menu-inner">
+                <div class="header-menu-mobile-menu-close" id="mobile-menu-close">
+                    <i class="icon icon-cross"></i>
+                </div>
+                <div class="header-menu-mobile-menu-list">
+                    
+                    <a href="/">Home</a>
+                    
+                    <a href="/archives">Archives</a>
+                    
+                    <a href="/friends">Friends</a>
+                    
+                    <a href="/collect">Collect</a>
+                    
+                    <a href="/photography">Phtotgraphy</a>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+    <div class="container">
+        <div class="main">
+            <section class="inner">
+                <section class="inner-main">
+                    <div class="post">
+    <article id="post-cl830ye600000rk9c07mwflaa" class="article article-type-post" itemscope
+    itemprop="blogPost">
+
+    <div class="article-inner">
+
+        
+          
+        
+        
+        
+
+        
+        <header class="article-header">
+            
+  
+    <h1 class="article-title" itemprop="name">
+      远控问题集
+    </h1>
+  
+
+        </header>
+        
+
+        <div class="article-more-info article-more-info-post hairline">
+
+            <div class="article-date">
+  <time datetime="2022-09-15T12:24:52.000Z" itemprop="datePublished">2022-09-15</time>
+</div>
+
+            
+
+            
+            <div class="article-tag">
+                <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/RemoteControl/" rel="tag">RemoteControl</a></li></ul>
+            </div>
+            
+
+            
+            <div class="article-busuanzi">
+                <span id="busuanzi_value_page_pv">N</span> 人看过
+            </div>
+            
+
+        </div>
+
+        <div class="article-entry post-inner-html hairline" itemprop="articleBody">
+            <h1 id="记录远控所产生的bug"><a href="#记录远控所产生的bug" class="headerlink" title="记录远控所产生的bug"></a>记录远控所产生的bug</h1><p style="font-size:12px; text-align:right;">—— 记录我的尴尬</p>
+
+
+<span id="more"></span>
+
+
+<hr>
+<h1 id="问题集"><a href="#问题集" class="headerlink" title="问题集"></a>问题集</h1><h2 id="问题1"><a href="#问题1" class="headerlink" title="问题1"></a>问题1</h2><p>关于远控服务端客户端联调时</p>
+<h3 id="情景"><a href="#情景" class="headerlink" title="情景"></a>情景</h3><img src="/2022/09/15/%E8%BF%9C%E6%8E%A7%E9%97%AE%E9%A2%98%E9%9B%86/002.png" class="">
+<p>需要通过查看文件信息按钮，响应之后应该是在下面的框中显示出此电脑的磁盘信息</p>
+<h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><p>并没有显示，而是弹出了一个命令处理失败。显然是<code>SendCommandPacket</code>函数出了问题</p>
+<h3 id="debug"><a href="#debug" class="headerlink" title="debug"></a>debug</h3><p>经过debug之后发现<code>int cmd = pClient-&gt;DealCommand();</code>,返回值cmd值不正常<br>单步到<code>DealCommand时</code>发现<code>size_t len = recv(m_sock, buffer, BUFFER_SIZE - index, 0);</code>，此时len的返回值是0，这说明服务端可能发包存在问题。</p>
+<h3 id="快速定位"><a href="#快速定位" class="headerlink" title="快速定位"></a>快速定位</h3><p>原来是<code>MakeDriverInfo()</code>函数中，之前测试的时候注释掉了<code>CServerSocket::getInstance()-&gt;Send(pack);</code>因为没有发包，所以自然得不到任何数据。</p>
+<h3 id="小意外又来了-修补"><a href="#小意外又来了-修补" class="headerlink" title="小意外又来了+修补"></a>小意外又来了+修补</h3><p>修改完之后还是提示命令处理失败，继续回溯<br>发现在<code>DealCommand函数中</code>运行到这步的时候</p>
+<img src="/2022/09/15/%E8%BF%9C%E6%8E%A7%E9%97%AE%E9%A2%98%E9%9B%86/000.png" class="">
+<img src="/2022/09/15/%E8%BF%9C%E6%8E%A7%E9%97%AE%E9%A2%98%E9%9B%86/001.png" class="">
+<p>len和index明明是有值的，但是一经过<code>m_packet = CPacket((BYTE*)buffer, len);</code>,len就变成0了，奶奶的，只好从CPacket设计找起。。。</p>
+<p>然后就是一个尴尬的问题</p>
+<pre><code class="cpp">CPacket(const BYTE* pData, size_t&amp; nSize) &#123;
+        size_t i = 0;
+        for (; i &lt; nSize; i++) &#123;
+            if (*(WORD*)(pData + i) == 0xFEFF) &#123;
+                sHead = *(WORD*)(pData + i);
+                //i+=2 避免空包时读到后面的数据
+                i += 2;
+                break;
+            &#125;
+        &#125;
+
+        //此处长度参考包的设计
+        if ((i + 4 + 2 + 2) &gt; nSize) &#123;    //包数据可能不全，或者包头未能全部接收到
+            nSize = 0;
+            return;
+        &#125;
+        nLength = *(WORD*)(pData + i); i += 4;
+        if (nLength + i &gt; nSize) &#123;        //包未完全接受，解析失败就返回
+            nSize = 0;
+            return;
+        &#125;
+        sCmd = *(WORD*)(pData + i);  i += 2;
+
+        if (nLength &gt; 4) &#123;
+            strData.resize(nLength - sCmd - 2 - 2);
+            memcpy((void*)strData.c_str(), pData + i, nLength - 4);
+            i += nLength - 4;
+        &#125;
+
+        sSum = *(WORD*)(pData + i); i += 2;
+        WORD sum = 0;
+        for (size_t j = 0; j &lt; strData.size(); j++) &#123;
+            sum += BYTE(strData[j]) &amp; 0xFF;
+        &#125;
+
+        if (sum == sSum) &#123;
+            nSize = i;    //head length...
+            return;
+        &#125;
+
+        //nSize = 0;
+    &#125;
+</code></pre>
+<p>我抄代码的时候居然不记得底下有个<code>nSize=0</code>，tmd，难怪每次包收到了之后len变成0了。</p>
+<h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><p>抄代码要仔细。。注释和不注释要看清楚。</p>
+<hr>
+<h2 id="问题2"><a href="#问题2" class="headerlink" title="问题2"></a>问题2</h2><h3 id="情景-1"><a href="#情景-1" class="headerlink" title="情景"></a>情景</h3><p>接上文，按下按钮之后可以显示出磁盘了，但是少了一个盘</p>
+<img src="/2022/09/15/%E8%BF%9C%E6%8E%A7%E9%97%AE%E9%A2%98%E9%9B%86/003.png" class="">
+
+<h3 id="问题-1"><a href="#问题-1" class="headerlink" title="问题"></a>问题</h3><p>记得之前测试的时候都是好好的，而且老师虽然收到的盘是全的，打印出来的又不全，算是两个小问题</p>
+<h3 id="debug-1"><a href="#debug-1" class="headerlink" title="debug"></a>debug</h3><p>直接打断点到<code>MakeDriverInfo</code>上<br>经过循环可以看到</p>
+<img src="/2022/09/15/%E8%BF%9C%E6%8E%A7%E9%97%AE%E9%A2%98%E9%9B%86/004.png" class="">
+<p>此时result的值是完全没有问题的。</p>
+<img src="/2022/09/15/%E8%BF%9C%E6%8E%A7%E9%97%AE%E9%A2%98%E9%9B%86/005.png" class="">
+<img src="/2022/09/15/%E8%BF%9C%E6%8E%A7%E9%97%AE%E9%A2%98%E9%9B%86/006.png" class="">
+<img src="/2022/09/15/%E8%BF%9C%E6%8E%A7%E9%97%AE%E9%A2%98%E9%9B%86/007.png" class="">
+<img src="/2022/09/15/%E8%BF%9C%E6%8E%A7%E9%97%AE%E9%A2%98%E9%9B%86/008.png" class="">
+<p>到这里为止，服务端肯定没发错。</p>
+
+        </div>
+
+    </div>
+
+    
+
+    
+
+    
+
+    
+  <div class="article-copyright hairline">
+    <p>
+      本作品采用  <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议 (CC BY-NC-ND 4.0)</a> 进行许可。
+    </p>
+  </div>
+  
+
+    
+
+    
+<nav class="article-nav">
+  
+    <a href="/2022/09/16/phoneTest/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-caption">下一篇</div>
+      <div class="article-nav-title">
+        
+          给爪机上点科技
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/09/10/text021/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-caption">上一篇</div>
+      <div class="article-nav-title">text021</div>
+    </a>
+  
+</nav>
+
+
+    <section class="share">
+        <div class="share-title">分享</div>
+        <a class="share-item" target="_blank"
+            href="https://twitter.com/share?text=远控问题集 - ohmyhsy&url=https%3A%2F%2F8bytes.top%2F2022%2F09%2F15%2F%25E8%25BF%259C%25E6%258E%25A7%25E9%2597%25AE%25E9%25A2%2598%25E9%259B%2586%2F">
+            <box-icon type='logo' name='twitter'></box-icon>
+        </a>
+        <a class="share-item" target="_blank"
+            href="https://www.facebook.com/sharer.php?title=远控问题集 - ohmyhsy&u=https%3A%2F%2F8bytes.top%2F2022%2F09%2F15%2F%25E8%25BF%259C%25E6%258E%25A7%25E9%2597%25AE%25E9%25A2%2598%25E9%259B%2586%2F">
+            <box-icon name='facebook-square' type='logo' ></box-icon>
+        </a>
+        <!-- <a class="share-item" target="_blank"
+            href="https://service.weibo.com/share/share.php?title=远控问题集 - ohmyhsy&url=https://8bytes.top/2022/09/15/%E8%BF%9C%E6%8E%A7%E9%97%AE%E9%A2%98%E9%9B%86/&pic=">
+            <div class="n-icon n-icon-weibo"></div>
+        </a> -->
+    </section>
+
+</article>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- <script src="//unpkg.com/@waline/dist/Waline.min.js"></script> -->
+    <script src="https://unpkg.com/@waline/client@v2/dist/waline.js"></script>
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/@waline/client@v2/dist/waline.css"
+    />
+    <section class="comments">
+        <div id="waline"></div>
+    </section>
+    <script>
+        Waline.init({
+          el: '#waline',
+          serverURL: 'https://ohmyhsy.vercel.app/',
+        });
+    </script>
+
+
+
+<script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+</div>
+
+                </section>
+            </section>
+
+            
+            <aside class="sidebar sidebar-search-fix">
+                
+
+    <div class="search">
+    <div class="has-icon-right">
+        <input type="text" class="form-input" id="search" placeholder="SEARCH" autocomplete="off">
+        <div class="form-icon">
+            <box-icon name='search' color="#3c4859"></box-icon>
+        </div>
+    </div>
+    <div class="search-result" id="search-ps"></div>
+</div>
+
+
+<div class="widget" id="widget">
+    
+      
+  <div class="widget-wrap">
+    <div class="widget-inner">
+      <div class="toc post-toc-html"></div>
+    </div>
+  </div>
+
+    
+      
+
+    
+      
+  <div class="widget-wrap widget-tags">
+    <div class="widget-title"><span>Tags</span></div>
+    <div class="widget-inner">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/MFC/" rel="tag">MFC</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NoteBook/" rel="tag">NoteBook</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RemoteControl/" rel="tag">RemoteControl</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c/" rel="tag">c</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cheat-engine/" rel="tag">cheat engine</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/compiler/" rel="tag">compiler</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cpp/" rel="tag">cpp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/exam/" rel="tag">exam</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jetbrains/" rel="tag">jetbrains</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/" rel="tag">leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/life/" rel="tag">life</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/phone/" rel="tag">phone</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ubuntu/" rel="tag">ubuntu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/visual-studio-2022/" rel="tag">visual studio 2022</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vscode/" rel="tag">vscode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/windows/" rel="tag">windows</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-recent-posts">
+    <div class="widget-title"><span>Recent Posts</span></div>
+    <div class="widget-inner">
+      <ul>
+        
+          <li>
+            <a href="/2022/09/16/phoneTest/">给爪机上点科技</a>
+          </li>
+        
+          <li>
+            <a href="/2022/09/15/%E8%BF%9C%E6%8E%A7%E9%97%AE%E9%A2%98%E9%9B%86/">远控问题集</a>
+          </li>
+        
+          <li>
+            <a href="/2022/09/10/text021/">text021</a>
+          </li>
+        
+          <li>
+            <a href="/2022/09/10/text020/">text020</a>
+          </li>
+        
+          <li>
+            <a href="/2022/09/05/text019/">text019</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget-wrap widget-archive">
+    <div class="widget-title"><span>Archive</span></div>
+    <div class="widget-inner">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/">2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/">2021</a></li></ul>
+    </div>
+  </div>
+
+
+    
+</div>
+
+<div id="backtop"><i class="icon icon-arrow-up"></i></div>
+            </aside>
+            
+        </div>
+    </div>
+
+    <footer class="footer">
+    <div class="footer-wave">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#3c4859" fill-opacity="1" d="M0,160L60,181.3C120,203,240,245,360,240C480,235,600,181,720,186.7C840,192,960,256,1080,261.3C1200,267,1320,213,1380,186.7L1440,160L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>
+    </div>
+
+    <!-- Please do not remove this -->
+    <!-- 开源不易，请勿删除 -->
+    <div class="footer-wrap">
+        <div class="footer-inner"> 
+            ohmyhsy &copy; 2022<br>
+            Powered By Hexo · Theme By <a href="https://linhong.me/" target="_blank">Aomori</a> · <a href="https://github.com/lh1me/hexo-theme-aomori" target="_blank">Github</a>
+        </div>
+    </div>
+
+</footer>
+
+
+
+
+
+
+<script src="/dist/build.js?1646451311888.js"></script>
+
+
+<script src="/dist/custom.js?1646451311888.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>

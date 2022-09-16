@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    
+    <title>UB未定义行为 | ohmyhsy</title>
+
+    <meta name="description" content="&lt;h1 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;额。。惭愧，今天在群里听到UB，我还以为是啥咋没听过。&lt;/p&gt;
+&lt;p&gt;UB:&lt;code&gt;undefined behaviour&lt;/code&gt;，简称：&lt;code&gt;未定义行为&lt;/code&gt;。&lt;br&gt;不过u1s1啊。undefined，这个经常见，所以一听就知道，组合词确实是我孤陋寡闻了。&lt;/p&gt;">
+    <meta name="keywords" content="8bytes-blog">
+
+    
+
+    <meta property="og:locale" content="cn" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content= "UB未定义行为 | ohmyhsy"  />
+    <meta property="og:description" content= "&lt;h1 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;额。。惭愧，今天在群里听到UB，我还以为是啥咋没听过。&lt;/p&gt;
+&lt;p&gt;UB:&lt;code&gt;undefined behaviour&lt;/code&gt;，简称：&lt;code&gt;未定义行为&lt;/code&gt;。&lt;br&gt;不过u1s1啊。undefined，这个经常见，所以一听就知道，组合词确实是我孤陋寡闻了。&lt;/p&gt;" />
+    <meta property="og:url" content="https://8bytes.top/2022/08/24/undefinedbehaviour/index.html" />
+    <meta property="og:site_name" content="" />
+    <meta property="article:author" content="Box" />
+    <meta property="article:publisher" content="" />
+    <meta property="og:description" content="&lt;h1 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;额。。惭愧，今天在群里听到UB，我还以为是啥咋没听过。&lt;/p&gt;
+&lt;p&gt;UB:&lt;code&gt;undefined behaviour&lt;/code&gt;，简称：&lt;code&gt;未定义行为&lt;/code&gt;。&lt;br&gt;不过u1s1啊。undefined，这个经常见，所以一听就知道，组合词确实是我孤陋寡闻了。&lt;/p&gt;" />
+    <meta name="twitter:title" content="UB未定义行为 | ohmyhsy"/>
+    <meta name="twitter:description" content="&lt;h1 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;额。。惭愧，今天在群里听到UB，我还以为是啥咋没听过。&lt;/p&gt;
+&lt;p&gt;UB:&lt;code&gt;undefined behaviour&lt;/code&gt;，简称：&lt;code&gt;未定义行为&lt;/code&gt;。&lt;br&gt;不过u1s1啊。undefined，这个经常见，所以一听就知道，组合词确实是我孤陋寡闻了。&lt;/p&gt;"/>
+    <script type="application/ld+json">
+        {
+            "description": "&lt;h1 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;额。。惭愧，今天在群里听到UB，我还以为是啥咋没听过。&lt;/p&gt;
+&lt;p&gt;UB:&lt;code&gt;undefined behaviour&lt;/code&gt;，简称：&lt;code&gt;未定义行为&lt;/code&gt;。&lt;br&gt;不过u1s1啊。undefined，这个经常见，所以一听就知道，组合词确实是我孤陋寡闻了。&lt;/p&gt;",
+            "author": { "@type": "Person", "name": "Box" },
+            "@type": "BlogPosting",
+            "url": "https://8bytes.top/2022/08/24/undefinedbehaviour/index.html",
+            "publisher": {
+            "@type": "Organization",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://8bytes.topundefined"
+            },
+            "name": "Box"
+            },
+            "headline": "UB未定义行为 | ohmyhsy",
+            "datePublished": "2022-08-24T15:17:13.000Z",
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "https://8bytes.top/2022/08/24/undefinedbehaviour/index.html"
+            },
+            "@context": "http://schema.org"
+        }
+    </script>
+
+
+
+
+    
+
+    
+    <meta property="algolia:search" data-application-id="4CVCYWPWWN" data-api-key="7757db6b0a31c3f94c301c885693ed0d" data-index-name="ohmyhsy">
+    
+
+    
+
+    
+
+    
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎮</text></svg>">
+    
+
+    
+
+    
+
+    
+<link rel="stylesheet" href="/dist/build.css?v=1646451311888.css">
+
+
+    
+<link rel="stylesheet" href="/dist/custom.css?v=1646451311888.css">
+
+
+    <script>
+        window.isPost = true
+        window.aomori = {
+            
+            
+            
+        }
+        window.aomori_logo_typed_animated = true
+        window.aomori_search_algolia = true
+
+    </script>
+
+<meta name="generator" content="Hexo 5.4.1"><link rel="alternate" href="/atom.xml" title="ohmyhsy" type="application/atom+xml">
+</head>
+
+<body>
+
+    <div class="container">
+    <header class="header">
+        <div class="header-type">
+            
+            <div class="header-type-inner">
+                
+                    <div id="typed-strings" style="display:none">
+                        <p>ohmyhsy</p>
+                    </div>
+                    <a class="header-type-title" id="typed" href="/"></a>
+                
+    
+                
+            </div>
+        </div>
+        <div class="header-menu">
+            <div class="header-menu-inner">
+                
+                <a href="/">Home</a>
+                
+                <a href="/archives">Archives</a>
+                
+                <a href="/friends">Friends</a>
+                
+                <a href="/collect">Collect</a>
+                
+                <a href="/photography">Phtotgraphy</a>
+                
+            </div>
+            <div class="header-menu-social">
+                
+    <a class="social" target="_blank" href="https://github.com/8bytes-code">
+        <box-icon type='logo' name='github'></box-icon>
+    </a>
+
+            </div>
+        </div>
+
+        <div class="header-menu-mobile">
+            <div class="header-menu-mobile-inner" id="mobile-menu-open">
+                <i class="icon icon-menu"></i>
+            </div>
+        </div>
+    </header>
+
+    <div class="header-menu-mobile-menu">
+        <div class="header-menu-mobile-menu-bg"></div>
+        <div class="header-menu-mobile-menu-wrap">
+            <div class="header-menu-mobile-menu-inner">
+                <div class="header-menu-mobile-menu-close" id="mobile-menu-close">
+                    <i class="icon icon-cross"></i>
+                </div>
+                <div class="header-menu-mobile-menu-list">
+                    
+                    <a href="/">Home</a>
+                    
+                    <a href="/archives">Archives</a>
+                    
+                    <a href="/friends">Friends</a>
+                    
+                    <a href="/collect">Collect</a>
+                    
+                    <a href="/photography">Phtotgraphy</a>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+    <div class="container">
+        <div class="main">
+            <section class="inner">
+                <section class="inner-main">
+                    <div class="post">
+    <article id="post-cl7vfxqv0006qbw9c3ap36ft5" class="article article-type-post" itemscope
+    itemprop="blogPost">
+
+    <div class="article-inner">
+
+        
+          
+        
+        
+        
+
+        
+        <header class="article-header">
+            
+  
+    <h1 class="article-title" itemprop="name">
+      UB未定义行为
+    </h1>
+  
+
+        </header>
+        
+
+        <div class="article-more-info article-more-info-post hairline">
+
+            <div class="article-date">
+  <time datetime="2022-08-24T15:17:13.000Z" itemprop="datePublished">2022-08-24</time>
+</div>
+
+            
+
+            
+            <div class="article-tag">
+                <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cpp/" rel="tag">cpp</a></li></ul>
+            </div>
+            
+
+            
+            <div class="article-busuanzi">
+                <span id="busuanzi_value_page_pv">N</span> 人看过
+            </div>
+            
+
+        </div>
+
+        <div class="article-entry post-inner-html hairline" itemprop="articleBody">
+            <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>额。。惭愧，今天在群里听到UB，我还以为是啥咋没听过。</p>
+<p>UB:<code>undefined behaviour</code>，简称：<code>未定义行为</code>。<br>不过u1s1啊。undefined，这个经常见，所以一听就知道，组合词确实是我孤陋寡闻了。</p>
+<span id="more"></span>
+
+
+<hr>
+<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><img src="/2022/08/24/undefinedbehaviour/000.png" class="">
+<p>这是当时群里的题</p>
+<p>不过借此，也可以适当进一步了解未定义行为。</p>
+<p>首先，未定义行为怎么来的？也不合适，应该是先考虑定义。<br>所谓的语言标准，自然有自己的标准委员会提出，也就是c++ iso的说法，即c++11、c++14巴拉巴拉的，除去这一层，不同的编译器也可能自己做了优化，又多了一层定义。那么这层定义就比较搞了，因为相同的代码在不同编译器下就很有可能出问题。所以尽量不要再这上面钻牛角尖。</p>
+<blockquote>
+<p>未定义行为：可以说是语言标准没有规定，编译器自行决定的行为，而且在不同的编译器上有时会有不同的结果。</p>
+</blockquote>
+<hr>
+<h2 id="例一"><a href="#例一" class="headerlink" title="例一"></a>例一</h2><p>就是很无聊的++问题</p>
+<pre><code class="cpp">int i = 0;
+i = i++;
+</code></pre>
+<p>在我们的印象里，后置递增，先操作后自增。即<code>i=i; i++</code><br>但是还有一种恶心的情况，<code>i++; i=i </code></p>
+<p>当然这里能想到后者就完犊子了，肯定是先赋值后递增，所以i&#x3D;1</p>
+<p>然后就来了</p>
+<pre><code class="cpp">int i = 0;
+int j = 0;
+i = i+++j;
+</code></pre>
+<p>问？正常情况下你觉得是<code>i=(i++)+j</code>还是<code>i=i+(++j)</code></p>
+<p>让我们瞅瞅vs的反汇编</p>
+<pre><code class="shell">00007FF72C6A1E22  mov         eax,dword ptr [j]  
+00007FF72C6A1E25  mov         ecx,dword ptr [i]  
+00007FF72C6A1E28  add         ecx,eax  
+00007FF72C6A1E2A  mov         eax,ecx  
+00007FF72C6A1E2C  mov         dword ptr [i],eax  
+00007FF72C6A1E2F  mov         eax,dword ptr [i]  
+00007FF72C6A1E32  inc         eax  
+00007FF72C6A1E34  mov         dword ptr [i],eax 
+</code></pre>
+<blockquote>
+<p>汇编指令inc 是让操作数+1</p>
+</blockquote>
+<p>首先把j的值传给eax，把i的值传给ecx，然后ecx+eax，再把ecx的值传给eax，也就是i+j，<br>然后把eax的值传回给变量i，变量i的值又传给eax，然后eax 完成inc，也就是自增，最后再把eax的值传回变量i。也就是后面的自增。</p>
+<p>显然在vs中，<code>i = (i++)+j</code>。</p>
+<p><strong>tips：这里其实也有个小坑，就是运算符优先级，他会优先处理掉高等级的，所以在有的时候你不要去让编译器考虑优先级，你应该加括号自己先预演好优先级</strong></p>
+<p>还有一种吊炸天的问题</p>
+<pre><code class="cpp">int i = 0;
+int j = 0;
+i = i+++++j;
+std::cout &lt;&lt; i;
+</code></pre>
+<p>你说是<code>i+ (++(++j))</code>还是<code>i++ + ++j</code><br>很无厘头啊，虽然现在的vs会要求你有格式控制，一整串他是不认账的。</p>
+<p>但是你要放在试卷上，就是铁nt行为。</p>
+<p>像已知的，gcc、msvc、clang他们的支持就有区别了。<br>这种无厘头的说实在没有必要太纠结，开发这么写要给打死。<br>也别只拿vs的反汇编说话，虽然能给出一个答案，但是不管从什么角度而言这种题目都很反人类。</p>
+<hr>
+<h2 id="例二"><a href="#例二" class="headerlink" title="例二"></a>例二</h2><p>标准定义，常量是在初始化也可以说定义后是不能被修改的</p>
+<pre><code class="cpp">const int a = 1;
+int *b = (int*)&amp;a;
+*b = 2;
+</code></pre>
+<p>那么a的值？</p>
+<p>在iso硬性规定常量不能被修改，因为常量被当成右值了。<br>当我们强制转换成整型指针然后取他的地址。就变相的控制了</p>
+<p>很显然这也是未定义行为，不过有些时候还真有这么用的，但是不太好。毕竟万一常量释放了，这个指针又不知道搞哪去了。</p>
+<hr>
+<h2 id="例三"><a href="#例三" class="headerlink" title="例三"></a>例三</h2><p>就是重复释放</p>
+<pre><code class="cpp">int *p = new int;
+delete p;
+
+delete p;
+</code></pre>
+<p>编译器不会报错，但不能保证会不会出现别的结果。</p>
+<hr>
+<h2 id="总而言之"><a href="#总而言之" class="headerlink" title="总而言之"></a>总而言之</h2><p>我所知道的都是比较浅薄的，百度一搜都有很多高端的东西，像是容器+算法然后整的活。可能这才是真正的程序员吧，还要翻阅文献什么的确实太顶了。。<br>严格意义上，未定义行为不算一个详细的知识体系，你不可能记住所有的未定义行为吧。。。毕竟是叫未定义啊，有些指不定还是你整的活。</p>
+<p>常见的反正就是那么几种</p>
+<ol>
+<li>有符号类型赋值的时候超出范围</li>
+<li>函数体之间忘记初始化之类的</li>
+<li>算术表达式写的不好就会产生未定义的结果</li>
+<li>数学性质除以0</li>
+<li>经典溢出，有的时候溢出是不一定会报错的</li>
+</ol>
+<hr>
+<h1 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h1><p>坦白的说，还不够深入了解<br>但是一码归一码，像这种未定义行为可能还是因为c&#x2F;c++比较自由<br>还得努力学啊~~~感觉自己就是废物</p>
+
+        </div>
+
+    </div>
+
+    
+
+    
+
+    
+
+    
+  <div class="article-copyright hairline">
+    <p>
+      本作品采用  <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议 (CC BY-NC-ND 4.0)</a> 进行许可。
+    </p>
+  </div>
+  
+
+    
+
+    
+<nav class="article-nav">
+  
+    <a href="/2022/08/31/text018/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-caption">下一篇</div>
+      <div class="article-nav-title">
+        
+          text018
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/08/20/text017/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-caption">上一篇</div>
+      <div class="article-nav-title">text017</div>
+    </a>
+  
+</nav>
+
+
+    <section class="share">
+        <div class="share-title">分享</div>
+        <a class="share-item" target="_blank"
+            href="https://twitter.com/share?text=UB未定义行为 - ohmyhsy&url=https%3A%2F%2F8bytes.top%2F2022%2F08%2F24%2Fundefinedbehaviour%2F">
+            <box-icon type='logo' name='twitter'></box-icon>
+        </a>
+        <a class="share-item" target="_blank"
+            href="https://www.facebook.com/sharer.php?title=UB未定义行为 - ohmyhsy&u=https%3A%2F%2F8bytes.top%2F2022%2F08%2F24%2Fundefinedbehaviour%2F">
+            <box-icon name='facebook-square' type='logo' ></box-icon>
+        </a>
+        <!-- <a class="share-item" target="_blank"
+            href="https://service.weibo.com/share/share.php?title=UB未定义行为 - ohmyhsy&url=https://8bytes.top/2022/08/24/undefinedbehaviour/&pic=">
+            <div class="n-icon n-icon-weibo"></div>
+        </a> -->
+    </section>
+
+</article>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- <script src="//unpkg.com/@waline/dist/Waline.min.js"></script> -->
+    <script src="https://unpkg.com/@waline/client@v2/dist/waline.js"></script>
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/@waline/client@v2/dist/waline.css"
+    />
+    <section class="comments">
+        <div id="waline"></div>
+    </section>
+    <script>
+        Waline.init({
+          el: '#waline',
+          serverURL: 'https://ohmyhsy.vercel.app/',
+        });
+    </script>
+
+
+
+<script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+</div>
+
+                </section>
+            </section>
+
+            
+            <aside class="sidebar sidebar-search-fix">
+                
+
+    <div class="search">
+    <div class="has-icon-right">
+        <input type="text" class="form-input" id="search" placeholder="SEARCH" autocomplete="off">
+        <div class="form-icon">
+            <box-icon name='search' color="#3c4859"></box-icon>
+        </div>
+    </div>
+    <div class="search-result" id="search-ps"></div>
+</div>
+
+
+<div class="widget" id="widget">
+    
+      
+  <div class="widget-wrap">
+    <div class="widget-inner">
+      <div class="toc post-toc-html"></div>
+    </div>
+  </div>
+
+    
+      
+
+    
+      
+  <div class="widget-wrap widget-tags">
+    <div class="widget-title"><span>Tags</span></div>
+    <div class="widget-inner">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/MFC/" rel="tag">MFC</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NoteBook/" rel="tag">NoteBook</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RemoteControl/" rel="tag">RemoteControl</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c/" rel="tag">c</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cheat-engine/" rel="tag">cheat engine</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/compiler/" rel="tag">compiler</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cpp/" rel="tag">cpp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/exam/" rel="tag">exam</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jetbrains/" rel="tag">jetbrains</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/" rel="tag">leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/life/" rel="tag">life</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/phone/" rel="tag">phone</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ubuntu/" rel="tag">ubuntu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/visual-studio-2022/" rel="tag">visual studio 2022</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vscode/" rel="tag">vscode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/windows/" rel="tag">windows</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-recent-posts">
+    <div class="widget-title"><span>Recent Posts</span></div>
+    <div class="widget-inner">
+      <ul>
+        
+          <li>
+            <a href="/2022/09/16/phoneTest/">给爪机上点科技</a>
+          </li>
+        
+          <li>
+            <a href="/2022/09/15/%E8%BF%9C%E6%8E%A7%E9%97%AE%E9%A2%98%E9%9B%86/">远控问题集</a>
+          </li>
+        
+          <li>
+            <a href="/2022/09/10/text021/">text021</a>
+          </li>
+        
+          <li>
+            <a href="/2022/09/10/text020/">text020</a>
+          </li>
+        
+          <li>
+            <a href="/2022/09/05/text019/">text019</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget-wrap widget-archive">
+    <div class="widget-title"><span>Archive</span></div>
+    <div class="widget-inner">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/">2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/">2021</a></li></ul>
+    </div>
+  </div>
+
+
+    
+</div>
+
+<div id="backtop"><i class="icon icon-arrow-up"></i></div>
+            </aside>
+            
+        </div>
+    </div>
+
+    <footer class="footer">
+    <div class="footer-wave">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#3c4859" fill-opacity="1" d="M0,160L60,181.3C120,203,240,245,360,240C480,235,600,181,720,186.7C840,192,960,256,1080,261.3C1200,267,1320,213,1380,186.7L1440,160L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>
+    </div>
+
+    <!-- Please do not remove this -->
+    <!-- 开源不易，请勿删除 -->
+    <div class="footer-wrap">
+        <div class="footer-inner"> 
+            ohmyhsy &copy; 2022<br>
+            Powered By Hexo · Theme By <a href="https://linhong.me/" target="_blank">Aomori</a> · <a href="https://github.com/lh1me/hexo-theme-aomori" target="_blank">Github</a>
+        </div>
+    </div>
+
+</footer>
+
+
+
+
+
+
+<script src="/dist/build.js?1646451311888.js"></script>
+
+
+<script src="/dist/custom.js?1646451311888.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    
+    <title>多态+虚函数的问题 | ohmyhsy</title>
+
+    <meta name="description" content="&lt;h1 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;自虚函数之后，多态会带来一些小问题&lt;/p&gt;">
+    <meta name="keywords" content="8bytes-blog">
+
+    
+
+    <meta property="og:locale" content="cn" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content= "多态+虚函数的问题 | ohmyhsy"  />
+    <meta property="og:description" content= "&lt;h1 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;自虚函数之后，多态会带来一些小问题&lt;/p&gt;" />
+    <meta property="og:url" content="https://8bytes.top/2022/07/02/Polymorphic1/index.html" />
+    <meta property="og:site_name" content="" />
+    <meta property="article:author" content="Box" />
+    <meta property="article:publisher" content="" />
+    <meta property="og:description" content="&lt;h1 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;自虚函数之后，多态会带来一些小问题&lt;/p&gt;" />
+    <meta name="twitter:title" content="多态+虚函数的问题 | ohmyhsy"/>
+    <meta name="twitter:description" content="&lt;h1 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;自虚函数之后，多态会带来一些小问题&lt;/p&gt;"/>
+    <script type="application/ld+json">
+        {
+            "description": "&lt;h1 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;自虚函数之后，多态会带来一些小问题&lt;/p&gt;",
+            "author": { "@type": "Person", "name": "Box" },
+            "@type": "BlogPosting",
+            "url": "https://8bytes.top/2022/07/02/Polymorphic1/index.html",
+            "publisher": {
+            "@type": "Organization",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://8bytes.topundefined"
+            },
+            "name": "Box"
+            },
+            "headline": "多态+虚函数的问题 | ohmyhsy",
+            "datePublished": "2022-07-02T11:23:00.000Z",
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "https://8bytes.top/2022/07/02/Polymorphic1/index.html"
+            },
+            "@context": "http://schema.org"
+        }
+    </script>
+
+
+
+
+    
+
+    
+    <meta property="algolia:search" data-application-id="4CVCYWPWWN" data-api-key="7757db6b0a31c3f94c301c885693ed0d" data-index-name="ohmyhsy">
+    
+
+    
+
+    
+
+    
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎮</text></svg>">
+    
+
+    
+
+    
+
+    
+<link rel="stylesheet" href="/dist/build.css?v=1646451311888.css">
+
+
+    
+<link rel="stylesheet" href="/dist/custom.css?v=1646451311888.css">
+
+
+    <script>
+        window.isPost = true
+        window.aomori = {
+            
+            
+            
+        }
+        window.aomori_logo_typed_animated = true
+        window.aomori_search_algolia = true
+
+    </script>
+
+<meta name="generator" content="Hexo 5.4.1"><link rel="alternate" href="/atom.xml" title="ohmyhsy" type="application/atom+xml">
+</head>
+
+<body>
+
+    <div class="container">
+    <header class="header">
+        <div class="header-type">
+            
+            <div class="header-type-inner">
+                
+                    <div id="typed-strings" style="display:none">
+                        <p>ohmyhsy</p>
+                    </div>
+                    <a class="header-type-title" id="typed" href="/"></a>
+                
+    
+                
+            </div>
+        </div>
+        <div class="header-menu">
+            <div class="header-menu-inner">
+                
+                <a href="/">Home</a>
+                
+                <a href="/archives">Archives</a>
+                
+                <a href="/friends">Friends</a>
+                
+                <a href="/collect">Collect</a>
+                
+                <a href="/photography">Phtotgraphy</a>
+                
+            </div>
+            <div class="header-menu-social">
+                
+    <a class="social" target="_blank" href="https://github.com/8bytes-code">
+        <box-icon type='logo' name='github'></box-icon>
+    </a>
+
+            </div>
+        </div>
+
+        <div class="header-menu-mobile">
+            <div class="header-menu-mobile-inner" id="mobile-menu-open">
+                <i class="icon icon-menu"></i>
+            </div>
+        </div>
+    </header>
+
+    <div class="header-menu-mobile-menu">
+        <div class="header-menu-mobile-menu-bg"></div>
+        <div class="header-menu-mobile-menu-wrap">
+            <div class="header-menu-mobile-menu-inner">
+                <div class="header-menu-mobile-menu-close" id="mobile-menu-close">
+                    <i class="icon icon-cross"></i>
+                </div>
+                <div class="header-menu-mobile-menu-list">
+                    
+                    <a href="/">Home</a>
+                    
+                    <a href="/archives">Archives</a>
+                    
+                    <a href="/friends">Friends</a>
+                    
+                    <a href="/collect">Collect</a>
+                    
+                    <a href="/photography">Phtotgraphy</a>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+    <div class="container">
+        <div class="main">
+            <section class="inner">
+                <section class="inner-main">
+                    <div class="post">
+    <article id="post-cl7vfxqto000lbw9cb6dg6jx6" class="article article-type-post" itemscope
+    itemprop="blogPost">
+
+    <div class="article-inner">
+
+        
+          
+        
+        
+        
+
+        
+        <header class="article-header">
+            
+  
+    <h1 class="article-title" itemprop="name">
+      多态+虚函数的问题
+    </h1>
+  
+
+        </header>
+        
+
+        <div class="article-more-info article-more-info-post hairline">
+
+            <div class="article-date">
+  <time datetime="2022-07-02T11:23:00.000Z" itemprop="datePublished">2022-07-02</time>
+</div>
+
+            
+
+            
+            <div class="article-tag">
+                <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cpp/" rel="tag">cpp</a></li></ul>
+            </div>
+            
+
+            
+            <div class="article-busuanzi">
+                <span id="busuanzi_value_page_pv">N</span> 人看过
+            </div>
+            
+
+        </div>
+
+        <div class="article-entry post-inner-html hairline" itemprop="articleBody">
+            <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>自虚函数之后，多态会带来一些小问题</p>
+<span id="more"></span>
+
+
+<hr>
+<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><pre><code class="cpp">class father&#123;
+public:
+    int x;
+    int y;
+
+    virtual void Move()&#123;
+        std::cout &lt;&lt; &quot;father move\n&quot;;
+    &#125;
+    void test()&#123;
+        Move();
+    &#125;
+&#125;;
+
+class son :public father&#123;
+public:
+    void Move() override&#123;
+        std::cout &lt;&lt; &quot;son move\n&quot;;
+    &#125;
+&#125;;
+</code></pre>
+<p>当我们实例化son，并且调用test的时候，这个test当然是继承过来的。</p>
+<pre><code class="cpp">son s1;
+s1.test();
+</code></pre>
+<p>第一感觉可能会以为输出father的move。<br>但是，这个test是被继承过来的，son类中也有一个move函数，这个move是通过虚函数继承的，也就是说move只要在这个派生类中重写了，那么就不会跟基类的move冲突。</p>
+<img src="/2022/07/02/Polymorphic1/000.png" class="">
+
+<pre><code class="cpp">class father&#123;
+public:
+    int x;
+    int y;
+
+    virtual void Move()&#123;
+        std::cout &lt;&lt; &quot;father move\n&quot;;
+    &#125;
+    void test()&#123;
+        Move();
+    &#125;
+
+    father()&#123;
+        std::cout &lt;&lt; this &lt;&lt; std::endl;
+    &#125;
+&#125;;
+
+class son :public father&#123;
+public:
+    void Move() override&#123;
+        std::cout &lt;&lt; &quot;son move\n&quot;;
+    &#125;
+    son()&#123;
+        std::cout &lt;&lt; this &lt;&lt; std::endl;
+    &#125;
+&#125;;
+</code></pre>
+<p>为了好的了解，分别在构造函数的时候打印this指针。</p>
+<img src="/2022/07/02/Polymorphic1/001.png" class="">
+<p>可以看到打印的this指针的地址是相同的。</p>
+<img src="/2022/07/02/Polymorphic1/002.png" class="">
+<p>随便画个草图，基类的属性通过继承就像拷贝到派生类中一样，当实例化这个派生类的时候，由于发生了继承，基类要先完成构造，然后把这个x和y传给son。<br>然后还是实例化，这里实例化的是谁，son，那么this指针就是从son的地址开始的，所以两次this都是一样的。</p>
+<p><strong>注意派生类不会继承基类的构造函数，但是派生类在类中是可以访问的</strong></p>
+<hr>
+<pre><code class="cpp">class father&#123;
+public:
+    int x;
+    int y;
+
+    virtual void Move()&#123;
+        std::cout &lt;&lt; &quot;father move\n&quot;;
+    &#125;
+    void test()&#123;
+        this-&gt;Move();
+    &#125;
+
+    father()&#123;
+        std::cout &lt;&lt; this &lt;&lt; std::endl;
+        this-&gt;Move();                                //基类构造函数中也调用一次move
+    &#125;
+&#125;;
+
+class son :public father&#123;
+public:
+    void Move() override&#123;
+        std::cout &lt;&lt; &quot;son move\n&quot;;
+    &#125;
+    son()&#123;
+        std::cout &lt;&lt; this &lt;&lt; std::endl;
+    &#125;
+&#125;;
+</code></pre>
+<p>当我们在基类的构造函数中也调用一次move函数。<br>然后实例化son执行test。又会发生不同的情况。</p>
+<img src="/2022/07/02/Polymorphic1/003.png" class="">
+
+<p>可以看到，他居然执行了基类的move函数。</p>
+<p>原因也在构造函数上，继承的时候，基类先完成初始化，所以在基类的构造函数里面调用move，它只能找到自己成员中的move函数。而后面test调用的move是因为派生类完成构造了，它里面重写了虚函数，这样就可以指定成自己的move函数了。</p>
+<pre><code class="cpp">class son :public father&#123;
+public:
+    void Move() override&#123;
+        std::cout &lt;&lt; &quot;son move\n&quot;;
+    &#125;
+    son()&#123;
+        std::cout &lt;&lt; this &lt;&lt; std::endl;
+        son::test();
+    &#125;
+&#125;;
+</code></pre>
+<img src="/2022/07/02/Polymorphic1/004.png" class="">
+<p>作用域指定调用肯定是调用自己，且不说派生类已经完成构造了。</p>
+<pre><code class="cpp">class son :public father&#123;
+public:
+    void Move() override&#123;
+        std::cout &lt;&lt; &quot;son move\n&quot;;
+    &#125;
+    son()&#123;
+        std::cout &lt;&lt; this &lt;&lt; std::endl;
+        father::test();
+    &#125;
+&#125;;
+</code></pre>
+<img src="/2022/07/02/Polymorphic1/005.png" class="">
+<p>因为虚函数被重写了，所以即便是通过基类调用test还是调用派生类重写的move。</p>
+<pre><code class="cpp">class son :public father&#123;
+public:
+    //void Move() override&#123;
+    //    std::cout &lt;&lt; &quot;son move\n&quot;;
+    //&#125;
+    son()&#123;
+        std::cout &lt;&lt; this &lt;&lt; std::endl;
+        father::test();
+    &#125;
+&#125;;
+</code></pre>
+<p>当注释掉son类中的move，自然没有重写的部分，就只能继承基类的move函数。</p>
+<img src="/2022/07/02/Polymorphic1/006.png" class="">
+
+<pre><code class="cpp">class father&#123;
+public:
+    int x;
+    int y;
+
+    virtual void Move()&#123;
+        std::cout &lt;&lt; &quot;father move\n&quot;;
+    &#125;
+    void test()&#123;
+        this-&gt;Move();
+    &#125;
+
+    father()&#123;
+        std::cout &lt;&lt; this &lt;&lt; std::endl;
+        this-&gt;Move();
+    &#125;
+    ~father()&#123;
+        Move();
+    &#125;
+&#125;;
+
+class son :public father&#123;
+public:
+    void Move() override&#123;
+        std::cout &lt;&lt; &quot;son move\n&quot;;
+    &#125;
+    son()&#123;
+        std::cout &lt;&lt; this &lt;&lt; std::endl;
+        father::test();
+    &#125;
+    ~son()&#123;
+        Move();
+    &#125;
+&#125;;
+</code></pre>
+<p>当增加了析构函数之后，再依次执行move函数。<br>顺序其实也很好猜，从son实例化，基类先完成构造，派生类在完成构造，派生类先完成释放，基类在完成释放。<br>所以说，father析构函数调用的move是基类中的move，而son的析构函数则还是调用自己的。</p>
+<img src="/2022/07/02/Polymorphic1/007.png" class="">
+
+<p>并且析构函数是类结束生命周期的象征，所以基本上都是属于静态绑定了，即便是this指针也还是自己。</p>
+<p>如果真的要调用基类的虚函数，就直接通过作用域访问就像了</p>
+<img src="/2022/07/02/Polymorphic1/008.png" class="">
+
+
+<hr>
+<h2 id="虚函数默认参数"><a href="#虚函数默认参数" class="headerlink" title="虚函数默认参数"></a>虚函数默认参数</h2><pre><code class="cpp">virtual void AutoMove(int step = 2)&#123;
+    std::cout &lt;&lt; &quot;auto move&quot; &lt;&lt; step &lt;&lt; std::endl;
+&#125;
+</code></pre>
+<p>往father类中添加个带默认参数的虚函数，然后在类中重写。</p>
+<pre><code class="cpp">void AutoMove(int step = 3)&#123;
+    std::cout &lt;&lt; &quot;--auto move&quot; &lt;&lt; step &lt;&lt; std::endl;
+&#125;
+</code></pre>
+<img src="/2022/07/02/Polymorphic1/009.png" class="">
+
+<p>看到automove的step是2，却不是3，我们指针指向son的对象了。</p>
+<p><strong>虚函数的默认参数，即使函数被重写了，也不会改变这个默认参数</strong></p>
+<hr>
+<h2 id="析构问题"><a href="#析构问题" class="headerlink" title="析构问题"></a>析构问题</h2><pre><code class="cpp">son s1;
+father *p = new son();
+p-&gt;AutoMove();
+delete p;
+</code></pre>
+<img src="/2022/07/02/Polymorphic1/010.png" class="">
+<p>看到他先执行的father的析构函数，但是我们这个指针是指向son类的。</p>
+<p>这是因为指针是father类型的，delete p就相当于调用了p的析构函数，所以调用的是father的析构函数。<br>当然这会造成一个内存泄漏的问题，son类作为派生类，谁能保证成员是不是多一点，至少会比基类大点，而释放的大小是参考father的。</p>
+<p>所以虚函数又派上了用场。</p>
+<pre><code class="cpp">virtual ~father()&#123;
+    std::cout &lt;&lt; &quot;~father\n&quot;;
+    Move();
+&#125;
+</code></pre>
+<img src="/2022/07/02/Polymorphic1/011.png" class="">
+<p>看到将析构函数也设置成虚析构函数之后，son类型的析构函数也会继承，这样一来释放的时候就会参考new的类型。</p>
+<hr>
+<h1 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h1><p>虚继承这种动态的绑定关系真的要好好理一理。。<br>至于虚析构函数，如果没有特定内容，我们也可以用default指定。<code>virtual ~father() = default;</code></p>
+
+        </div>
+
+    </div>
+
+    
+
+    
+
+    
+
+    
+  <div class="article-copyright hairline">
+    <p>
+      本作品采用  <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议 (CC BY-NC-ND 4.0)</a> 进行许可。
+    </p>
+  </div>
+  
+
+    
+
+    
+<nav class="article-nav">
+  
+    <a href="/2022/07/03/text010/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-caption">下一篇</div>
+      <div class="article-nav-title">
+        
+          text010
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/07/02/virtualFunction/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-caption">上一篇</div>
+      <div class="article-nav-title">虚函数</div>
+    </a>
+  
+</nav>
+
+
+    <section class="share">
+        <div class="share-title">分享</div>
+        <a class="share-item" target="_blank"
+            href="https://twitter.com/share?text=多态+虚函数的问题 - ohmyhsy&url=https%3A%2F%2F8bytes.top%2F2022%2F07%2F02%2FPolymorphic1%2F">
+            <box-icon type='logo' name='twitter'></box-icon>
+        </a>
+        <a class="share-item" target="_blank"
+            href="https://www.facebook.com/sharer.php?title=多态+虚函数的问题 - ohmyhsy&u=https%3A%2F%2F8bytes.top%2F2022%2F07%2F02%2FPolymorphic1%2F">
+            <box-icon name='facebook-square' type='logo' ></box-icon>
+        </a>
+        <!-- <a class="share-item" target="_blank"
+            href="https://service.weibo.com/share/share.php?title=多态+虚函数的问题 - ohmyhsy&url=https://8bytes.top/2022/07/02/Polymorphic1/&pic=">
+            <div class="n-icon n-icon-weibo"></div>
+        </a> -->
+    </section>
+
+</article>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- <script src="//unpkg.com/@waline/dist/Waline.min.js"></script> -->
+    <script src="https://unpkg.com/@waline/client@v2/dist/waline.js"></script>
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/@waline/client@v2/dist/waline.css"
+    />
+    <section class="comments">
+        <div id="waline"></div>
+    </section>
+    <script>
+        Waline.init({
+          el: '#waline',
+          serverURL: 'https://ohmyhsy.vercel.app/',
+        });
+    </script>
+
+
+
+<script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+</div>
+
+                </section>
+            </section>
+
+            
+            <aside class="sidebar sidebar-search-fix">
+                
+
+    <div class="search">
+    <div class="has-icon-right">
+        <input type="text" class="form-input" id="search" placeholder="SEARCH" autocomplete="off">
+        <div class="form-icon">
+            <box-icon name='search' color="#3c4859"></box-icon>
+        </div>
+    </div>
+    <div class="search-result" id="search-ps"></div>
+</div>
+
+
+<div class="widget" id="widget">
+    
+      
+  <div class="widget-wrap">
+    <div class="widget-inner">
+      <div class="toc post-toc-html"></div>
+    </div>
+  </div>
+
+    
+      
+
+    
+      
+  <div class="widget-wrap widget-tags">
+    <div class="widget-title"><span>Tags</span></div>
+    <div class="widget-inner">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/MFC/" rel="tag">MFC</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NoteBook/" rel="tag">NoteBook</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RemoteControl/" rel="tag">RemoteControl</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c/" rel="tag">c</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cheat-engine/" rel="tag">cheat engine</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/compiler/" rel="tag">compiler</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cpp/" rel="tag">cpp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/exam/" rel="tag">exam</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jetbrains/" rel="tag">jetbrains</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/" rel="tag">leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/life/" rel="tag">life</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/phone/" rel="tag">phone</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ubuntu/" rel="tag">ubuntu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/visual-studio-2022/" rel="tag">visual studio 2022</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vscode/" rel="tag">vscode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/windows/" rel="tag">windows</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-recent-posts">
+    <div class="widget-title"><span>Recent Posts</span></div>
+    <div class="widget-inner">
+      <ul>
+        
+          <li>
+            <a href="/2022/09/16/phoneTest/">给爪机上点科技</a>
+          </li>
+        
+          <li>
+            <a href="/2022/09/15/%E8%BF%9C%E6%8E%A7%E9%97%AE%E9%A2%98%E9%9B%86/">远控问题集</a>
+          </li>
+        
+          <li>
+            <a href="/2022/09/10/text021/">text021</a>
+          </li>
+        
+          <li>
+            <a href="/2022/09/10/text020/">text020</a>
+          </li>
+        
+          <li>
+            <a href="/2022/09/05/text019/">text019</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget-wrap widget-archive">
+    <div class="widget-title"><span>Archive</span></div>
+    <div class="widget-inner">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/">2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/">2021</a></li></ul>
+    </div>
+  </div>
+
+
+    
+</div>
+
+<div id="backtop"><i class="icon icon-arrow-up"></i></div>
+            </aside>
+            
+        </div>
+    </div>
+
+    <footer class="footer">
+    <div class="footer-wave">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#3c4859" fill-opacity="1" d="M0,160L60,181.3C120,203,240,245,360,240C480,235,600,181,720,186.7C840,192,960,256,1080,261.3C1200,267,1320,213,1380,186.7L1440,160L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>
+    </div>
+
+    <!-- Please do not remove this -->
+    <!-- 开源不易，请勿删除 -->
+    <div class="footer-wrap">
+        <div class="footer-inner"> 
+            ohmyhsy &copy; 2022<br>
+            Powered By Hexo · Theme By <a href="https://linhong.me/" target="_blank">Aomori</a> · <a href="https://github.com/lh1me/hexo-theme-aomori" target="_blank">Github</a>
+        </div>
+    </div>
+
+</footer>
+
+
+
+
+
+
+<script src="/dist/build.js?1646451311888.js"></script>
+
+
+<script src="/dist/custom.js?1646451311888.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>

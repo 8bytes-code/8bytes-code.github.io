@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    
+    <title>静态成员变量和函数 | ohmyhsy</title>
+
+    <meta name="description" content="&lt;h1 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;成员变量就是class中定义的变量，不论是public下还是private下，都是这个类的成员变量&lt;br&gt;那么静态成员变量，就是加上关键字&lt;code&gt;static&lt;/code&gt;。&lt;/p&gt;">
+    <meta name="keywords" content="8bytes-blog">
+
+    
+
+    <meta property="og:locale" content="cn" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content= "静态成员变量和函数 | ohmyhsy"  />
+    <meta property="og:description" content= "&lt;h1 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;成员变量就是class中定义的变量，不论是public下还是private下，都是这个类的成员变量&lt;br&gt;那么静态成员变量，就是加上关键字&lt;code&gt;static&lt;/code&gt;。&lt;/p&gt;" />
+    <meta property="og:url" content="https://8bytes.top/2022/06/24/staticmember/index.html" />
+    <meta property="og:site_name" content="" />
+    <meta property="article:author" content="Box" />
+    <meta property="article:publisher" content="" />
+    <meta property="og:description" content="&lt;h1 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;成员变量就是class中定义的变量，不论是public下还是private下，都是这个类的成员变量&lt;br&gt;那么静态成员变量，就是加上关键字&lt;code&gt;static&lt;/code&gt;。&lt;/p&gt;" />
+    <meta name="twitter:title" content="静态成员变量和函数 | ohmyhsy"/>
+    <meta name="twitter:description" content="&lt;h1 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;成员变量就是class中定义的变量，不论是public下还是private下，都是这个类的成员变量&lt;br&gt;那么静态成员变量，就是加上关键字&lt;code&gt;static&lt;/code&gt;。&lt;/p&gt;"/>
+    <script type="application/ld+json">
+        {
+            "description": "&lt;h1 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;成员变量就是class中定义的变量，不论是public下还是private下，都是这个类的成员变量&lt;br&gt;那么静态成员变量，就是加上关键字&lt;code&gt;static&lt;/code&gt;。&lt;/p&gt;",
+            "author": { "@type": "Person", "name": "Box" },
+            "@type": "BlogPosting",
+            "url": "https://8bytes.top/2022/06/24/staticmember/index.html",
+            "publisher": {
+            "@type": "Organization",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://8bytes.topundefined"
+            },
+            "name": "Box"
+            },
+            "headline": "静态成员变量和函数 | ohmyhsy",
+            "datePublished": "2022-06-24T04:12:17.000Z",
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "https://8bytes.top/2022/06/24/staticmember/index.html"
+            },
+            "@context": "http://schema.org"
+        }
+    </script>
+
+
+
+
+    
+
+    
+    <meta property="algolia:search" data-application-id="4CVCYWPWWN" data-api-key="7757db6b0a31c3f94c301c885693ed0d" data-index-name="ohmyhsy">
+    
+
+    
+
+    
+
+    
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎮</text></svg>">
+    
+
+    
+
+    
+
+    
+<link rel="stylesheet" href="/dist/build.css?v=1646451311888.css">
+
+
+    
+<link rel="stylesheet" href="/dist/custom.css?v=1646451311888.css">
+
+
+    <script>
+        window.isPost = true
+        window.aomori = {
+            
+            
+            
+        }
+        window.aomori_logo_typed_animated = true
+        window.aomori_search_algolia = true
+
+    </script>
+
+<meta name="generator" content="Hexo 5.4.1"><link rel="alternate" href="/atom.xml" title="ohmyhsy" type="application/atom+xml">
+</head>
+
+<body>
+
+    <div class="container">
+    <header class="header">
+        <div class="header-type">
+            
+            <div class="header-type-inner">
+                
+                    <div id="typed-strings" style="display:none">
+                        <p>ohmyhsy</p>
+                    </div>
+                    <a class="header-type-title" id="typed" href="/"></a>
+                
+    
+                
+            </div>
+        </div>
+        <div class="header-menu">
+            <div class="header-menu-inner">
+                
+                <a href="/">Home</a>
+                
+                <a href="/archives">Archives</a>
+                
+                <a href="/friends">Friends</a>
+                
+                <a href="/collect">Collect</a>
+                
+                <a href="/photography">Phtotgraphy</a>
+                
+            </div>
+            <div class="header-menu-social">
+                
+    <a class="social" target="_blank" href="https://github.com/8bytes-code">
+        <box-icon type='logo' name='github'></box-icon>
+    </a>
+
+            </div>
+        </div>
+
+        <div class="header-menu-mobile">
+            <div class="header-menu-mobile-inner" id="mobile-menu-open">
+                <i class="icon icon-menu"></i>
+            </div>
+        </div>
+    </header>
+
+    <div class="header-menu-mobile-menu">
+        <div class="header-menu-mobile-menu-bg"></div>
+        <div class="header-menu-mobile-menu-wrap">
+            <div class="header-menu-mobile-menu-inner">
+                <div class="header-menu-mobile-menu-close" id="mobile-menu-close">
+                    <i class="icon icon-cross"></i>
+                </div>
+                <div class="header-menu-mobile-menu-list">
+                    
+                    <a href="/">Home</a>
+                    
+                    <a href="/archives">Archives</a>
+                    
+                    <a href="/friends">Friends</a>
+                    
+                    <a href="/collect">Collect</a>
+                    
+                    <a href="/photography">Phtotgraphy</a>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+    <div class="container">
+        <div class="main">
+            <section class="inner">
+                <section class="inner-main">
+                    <div class="post">
+    <article id="post-cl7vfxquo0059bw9cc9fl2i45" class="article article-type-post" itemscope
+    itemprop="blogPost">
+
+    <div class="article-inner">
+
+        
+          
+        
+        
+        
+
+        
+        <header class="article-header">
+            
+  
+    <h1 class="article-title" itemprop="name">
+      静态成员变量和函数
+    </h1>
+  
+
+        </header>
+        
+
+        <div class="article-more-info article-more-info-post hairline">
+
+            <div class="article-date">
+  <time datetime="2022-06-24T04:12:17.000Z" itemprop="datePublished">2022-06-24</time>
+</div>
+
+            
+
+            
+            <div class="article-tag">
+                <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cpp/" rel="tag">cpp</a></li></ul>
+            </div>
+            
+
+            
+            <div class="article-busuanzi">
+                <span id="busuanzi_value_page_pv">N</span> 人看过
+            </div>
+            
+
+        </div>
+
+        <div class="article-entry post-inner-html hairline" itemprop="articleBody">
+            <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>成员变量就是class中定义的变量，不论是public下还是private下，都是这个类的成员变量<br>那么静态成员变量，就是加上关键字<code>static</code>。</p>
+<span id="more"></span>
+
+
+<hr>
+<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><hr>
+<h2 id="静态成员变量"><a href="#静态成员变量" class="headerlink" title="静态成员变量"></a>静态成员变量</h2><p>静态变量的生命周期会随着程序结束才释放，而是脱离<code>&#123;&#125;</code>作用域。<br>不过c++处理这种可能还是希望放在未命名的命名空间里。</p>
+<p>因为static的生命周期要等到程序结束，所以说</p>
+<ol>
+<li>所有类在实例化之后，共享类中的静态成员变量</li>
+<li>而且类在没有实例化的情况下，静态变量已经有了空间，仍然可以访问到</li>
+<li>那么可以说类的静态成员变量并不是完全属于类，就跟成员函数有点相似</li>
+</ol>
+<pre><code class="cpp">#pragma once
+class Box&#123;
+public:
+    static int count;
+&#125;;
+</code></pre>
+<p>因为类的特殊性，所以静态成员变量也是无法直接初始化的。</p>
+<img src="/2022/06/24/staticmember/000.png" class="">
+<p>你可以选择在外部初始化</p>
+<pre><code class="cpp">int Box::count = 100;
+</code></pre>
+<p>但是注意，这里是在Box类这个作用域下的count<br>如果你是<code>int count=100;</code> 这是两个不相干的变量。</p>
+<hr>
+<h3 id="第一个特性"><a href="#第一个特性" class="headerlink" title="第一个特性"></a>第一个特性</h3><p>其次是共享静态成员变量。也就是说当你某个实例化对象改变了count的值，其它的实例化对象中的count也会发生改变，因为它们本身就是一个东西。</p>
+<pre><code class="cpp">Box b1, b2, b3, b4;
+b1.count++;
+</code></pre>
+<img src="/2022/06/24/staticmember/001.png" class="">
+<p>通过改变实例b1，发现b3的count值也改变，有疑虑最直接的就是打印地址</p>
+<img src="/2022/06/24/staticmember/002.png" class="">
+<p>b2和b3的count地址是一样的。<strong>足以说明静态成员变量共享内存</strong></p>
+<blockquote>
+<p>其实就是一个没有外部属性的全局变量hh。</p>
+</blockquote>
+<hr>
+<h3 id="第二个特性"><a href="#第二个特性" class="headerlink" title="第二个特性"></a>第二个特性</h3><p>说没有实例化时也能访问count，这个其实在刚才外部初始化的时候就说明了这个问题<br><code>int Box::count = 100;</code></p>
+<p>那么我们的印证方法也是修改它</p>
+<pre><code class="cpp">Box::count = 200;
+std::cout &lt;&lt; Box::count &lt;&lt; std::endl;
+std::cout &lt;&lt; b1.count &lt;&lt; std::endl;
+</code></pre>
+<img src="/2022/06/24/staticmember/003.png" class="">
+<p>显然在<code>Box::</code>下可以直接访问，我们在类中再定义一个正常的成员变量</p>
+<pre><code class="cpp">#pragma once
+class Box&#123;
+public:
+    static int count;
+    int hp;
+&#125;;
+</code></pre>
+<img src="/2022/06/24/staticmember/004.png" class="">
+<p>报错也说了，非静态成员必须与特定对象相对，就是说要实例化后才能用。</p>
+<hr>
+<h3 id="第三个特性"><a href="#第三个特性" class="headerlink" title="第三个特性"></a>第三个特性</h3><p>按照常规惯例sizeof查看一个类可以直接算，但是包含静态变量的时候</p>
+<pre><code class="cpp">#pragma once
+class Box&#123;
+public:
+    static int count;
+    int hp;
+&#125;;
+</code></pre>
+<p>你会发现是个4。</p>
+<img src="/2022/06/24/staticmember/005.png" class="">
+
+<p>有疑虑注释掉hp变量再看。</p>
+<img src="/2022/06/24/staticmember/006.png" class="">
+<blockquote>
+<p>这个1前面说过，是为了防止空类多个实例化的时候共用一个地址导致逻辑混乱的问题</p>
+</blockquote>
+<p>不过就足以说明第三个特性，静态成员变量不完全属于类，本质上就是一个没有外部属性的全局变量。只不过给他套上了类的作用域。</p>
+<hr>
+<h3 id="新特性初始化静态成员变量"><a href="#新特性初始化静态成员变量" class="headerlink" title="新特性初始化静态成员变量"></a>新特性初始化静态成员变量</h3><p>在c++17中我们学过它除了内联函数还可以内联变量。</p>
+<pre><code class="cpp">#pragma once
+class Box&#123;
+public:
+    inline static int count&#123;100&#125;;
+    //int hp;
+&#125;;
+</code></pre>
+<p><strong>注意要将项目属性切到c++17标准</strong></p>
+<p>不过毕竟是新特性，有些项目还是遵循老版本，所以不建议乱用。</p>
+<p>内联变量的起因就是ODR一次定义原则，一个变量或者实体只能出现在一个编译单元内，除非这个变量用inline修饰。<br>就是眼下这种场景，一个类中有一个静态成员变量，而且在外部进行了一次初始化，本身是符合ODR一次定义原则。但是多个.cpp源文件同时包含这个头文件的时候，编译器在链接阶段就会发生报错。</p>
+<hr>
+<h3 id="套构造和析构"><a href="#套构造和析构" class="headerlink" title="套构造和析构"></a>套构造和析构</h3><p>既然静态成员变量共享的，就可以用它判断一共实例化了几个对象。</p>
+<pre><code class="cpp">#pragma once
+class Box&#123;
+public:
+    inline static int count&#123;&#125;;
+    //int hp;
+
+    Box()&#123;
+        this-&gt;count++;
+    &#125;
+
+    int getCount()&#123;
+        return this-&gt;count;
+    &#125;
+&#125;;
+</code></pre>
+<img src="/2022/06/24/staticmember/007.png" class="">
+<p>看到实例化了4个对象，打印也是4。没啥问题。</p>
+<p>但是，没啥问题就是有大问题，我们知道有声明周期这个东西，目前的实例都是在main函数发生的，如果在其他地方也发生过实例化，那么count还是会自增，就不符合逻辑。</p>
+<pre><code class="cpp">void test()&#123;
+    Box b1, b2, b3, b4;
+&#125;
+</code></pre>
+<img src="/2022/06/24/staticmember/008.png" class="">
+<p>按道理离开了test函数里面的就释放了，但是count没有减去。</p>
+<p>当然解决方法就在析构函数上，构造的时候自增了，析构就自减就行了。</p>
+<pre><code class="cpp">#pragma once
+class Box&#123;
+public:
+    inline static int count&#123;&#125;;
+    //int hp;
+
+    Box()&#123;
+        this-&gt;count++;
+    &#125;
+
+    int getCount()&#123;
+        return this-&gt;count;
+    &#125;
+
+    ~Box()&#123;
+        this-&gt;count--;
+    &#125;
+&#125;;
+</code></pre>
+<p>再回过头来看，发现符合预期效果了。</p>
+<img src="/2022/06/24/staticmember/009.png" class="">
+
+<hr>
+<h3 id="const"><a href="#const" class="headerlink" title="const"></a>const</h3><pre><code class="cpp">#pragma once
+class Box&#123;
+public:
+    const static int count&#123;&#125;;
+    //int hp;
+
+    Box()&#123;
+        this-&gt;count++; //error
+    &#125;
+
+    int getCount()&#123;
+        return this-&gt;count;
+    &#125;
+
+    ~Box()&#123;
+        this-&gt;count--; //error
+    &#125;
+&#125;;
+</code></pre>
+<p>const修饰过之后是可以直接在里面初始化。但是构造和析构就无法改变了，因为是一个常量。</p>
+<p>然而在类外初始化<code>const int Box::count&#123;&#125;;</code><br>也还是要注意上面说的问题，ODR一次定义原则，定义在外面，被多个源文件包含，在链接阶段会产生错误。</p>
+<p>解决办法也还是要么在类中就初始化限定了，要么就是使用c++17的特性 inline变量。<br>即<code>inline const static int count&#123;&#125;;</code></p>
+<p>虽然很臭屁，但是还是要知道。</p>
+<hr>
+<h2 id="静态成员函数"><a href="#静态成员函数" class="headerlink" title="静态成员函数"></a>静态成员函数</h2><pre><code class="cpp">static void test()&#123;
+
+&#125;
+</code></pre>
+<p>模板就这样，多个static关键字修饰。</p>
+<ol>
+<li>不管有没有实例化类，也是都可以访问静态成员函数</li>
+<li>类的静态成员函数不能访问非静态的成员变量</li>
+<li>类的静态成员函数不能是const</li>
+<li>类的静态成员函数不能使用this指针</li>
+</ol>
+<hr>
+<h3 id="第一特性"><a href="#第一特性" class="headerlink" title="第一特性"></a>第一特性</h3><p>很简单。。就跟之前访问静态成员变量一个操作：</p>
+<pre><code class="cpp">static void test()&#123;
+    std::cout &lt;&lt; &quot;static function&quot; &lt;&lt; std::endl;
+&#125;
+</code></pre>
+<img src="/2022/06/24/staticmember/010.png" class="">
+
+<p>就这样就完事了。</p>
+<hr>
+<h3 id="第二特性"><a href="#第二特性" class="headerlink" title="第二特性"></a>第二特性</h3><img src="/2022/06/24/staticmember/011.png" class="">
+
+<p>因为静态成员函数不需要实例化就能调用，但是hp是只有实例化后能会分配内存空间，才能调用的。<br>所以静态成员函数只能访问静态成员变量，因为二者都是不需要实例化就能调用，底层来讲就是内存都早早分配了。</p>
+<hr>
+<h3 id="第三特性"><a href="#第三特性" class="headerlink" title="第三特性"></a>第三特性</h3><p>与其说不能是const，或者应该说用不到const。<br>我们说const实例化一个对象，只能调用const的函数，但是静态成员函数不需要实例化就能调用，所以即便不是const函数，他也能调用。</p>
+<img src="/2022/06/24/staticmember/012.png" class="">
+
+<hr>
+<h3 id="第四特性"><a href="#第四特性" class="headerlink" title="第四特性"></a>第四特性</h3><p>这个和老二有相似处，因为静态成员函数不需要实例化就能调用，它无法正常的访问一个需要实例化才能调用的成员变量，既然访问不了需要实例化才能访问的，那么this指针也就用不到了，无效了。</p>
+<hr>
+<h1 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h1><p>内存分配还是绕来绕去</p>
+
+        </div>
+
+    </div>
+
+    
+
+    
+
+    
+
+    
+  <div class="article-copyright hairline">
+    <p>
+      本作品采用  <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议 (CC BY-NC-ND 4.0)</a> 进行许可。
+    </p>
+  </div>
+  
+
+    
+
+    
+<nav class="article-nav">
+  
+    <a href="/2022/06/24/friend/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-caption">下一篇</div>
+      <div class="article-nav-title">
+        
+          友元
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/06/23/text008/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-caption">上一篇</div>
+      <div class="article-nav-title">text008</div>
+    </a>
+  
+</nav>
+
+
+    <section class="share">
+        <div class="share-title">分享</div>
+        <a class="share-item" target="_blank"
+            href="https://twitter.com/share?text=静态成员变量和函数 - ohmyhsy&url=https%3A%2F%2F8bytes.top%2F2022%2F06%2F24%2Fstaticmember%2F">
+            <box-icon type='logo' name='twitter'></box-icon>
+        </a>
+        <a class="share-item" target="_blank"
+            href="https://www.facebook.com/sharer.php?title=静态成员变量和函数 - ohmyhsy&u=https%3A%2F%2F8bytes.top%2F2022%2F06%2F24%2Fstaticmember%2F">
+            <box-icon name='facebook-square' type='logo' ></box-icon>
+        </a>
+        <!-- <a class="share-item" target="_blank"
+            href="https://service.weibo.com/share/share.php?title=静态成员变量和函数 - ohmyhsy&url=https://8bytes.top/2022/06/24/staticmember/&pic=">
+            <div class="n-icon n-icon-weibo"></div>
+        </a> -->
+    </section>
+
+</article>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- <script src="//unpkg.com/@waline/dist/Waline.min.js"></script> -->
+    <script src="https://unpkg.com/@waline/client@v2/dist/waline.js"></script>
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/@waline/client@v2/dist/waline.css"
+    />
+    <section class="comments">
+        <div id="waline"></div>
+    </section>
+    <script>
+        Waline.init({
+          el: '#waline',
+          serverURL: 'https://ohmyhsy.vercel.app/',
+        });
+    </script>
+
+
+
+<script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+</div>
+
+                </section>
+            </section>
+
+            
+            <aside class="sidebar sidebar-search-fix">
+                
+
+    <div class="search">
+    <div class="has-icon-right">
+        <input type="text" class="form-input" id="search" placeholder="SEARCH" autocomplete="off">
+        <div class="form-icon">
+            <box-icon name='search' color="#3c4859"></box-icon>
+        </div>
+    </div>
+    <div class="search-result" id="search-ps"></div>
+</div>
+
+
+<div class="widget" id="widget">
+    
+      
+  <div class="widget-wrap">
+    <div class="widget-inner">
+      <div class="toc post-toc-html"></div>
+    </div>
+  </div>
+
+    
+      
+
+    
+      
+  <div class="widget-wrap widget-tags">
+    <div class="widget-title"><span>Tags</span></div>
+    <div class="widget-inner">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/MFC/" rel="tag">MFC</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NoteBook/" rel="tag">NoteBook</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RemoteControl/" rel="tag">RemoteControl</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c/" rel="tag">c</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cheat-engine/" rel="tag">cheat engine</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/compiler/" rel="tag">compiler</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cpp/" rel="tag">cpp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/exam/" rel="tag">exam</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jetbrains/" rel="tag">jetbrains</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/" rel="tag">leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/life/" rel="tag">life</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/phone/" rel="tag">phone</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ubuntu/" rel="tag">ubuntu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/visual-studio-2022/" rel="tag">visual studio 2022</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vscode/" rel="tag">vscode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/windows/" rel="tag">windows</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-recent-posts">
+    <div class="widget-title"><span>Recent Posts</span></div>
+    <div class="widget-inner">
+      <ul>
+        
+          <li>
+            <a href="/2022/09/16/phoneTest/">给爪机上点科技</a>
+          </li>
+        
+          <li>
+            <a href="/2022/09/15/%E8%BF%9C%E6%8E%A7%E9%97%AE%E9%A2%98%E9%9B%86/">远控问题集</a>
+          </li>
+        
+          <li>
+            <a href="/2022/09/10/text021/">text021</a>
+          </li>
+        
+          <li>
+            <a href="/2022/09/10/text020/">text020</a>
+          </li>
+        
+          <li>
+            <a href="/2022/09/05/text019/">text019</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget-wrap widget-archive">
+    <div class="widget-title"><span>Archive</span></div>
+    <div class="widget-inner">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/">2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/">2021</a></li></ul>
+    </div>
+  </div>
+
+
+    
+</div>
+
+<div id="backtop"><i class="icon icon-arrow-up"></i></div>
+            </aside>
+            
+        </div>
+    </div>
+
+    <footer class="footer">
+    <div class="footer-wave">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#3c4859" fill-opacity="1" d="M0,160L60,181.3C120,203,240,245,360,240C480,235,600,181,720,186.7C840,192,960,256,1080,261.3C1200,267,1320,213,1380,186.7L1440,160L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>
+    </div>
+
+    <!-- Please do not remove this -->
+    <!-- 开源不易，请勿删除 -->
+    <div class="footer-wrap">
+        <div class="footer-inner"> 
+            ohmyhsy &copy; 2022<br>
+            Powered By Hexo · Theme By <a href="https://linhong.me/" target="_blank">Aomori</a> · <a href="https://github.com/lh1me/hexo-theme-aomori" target="_blank">Github</a>
+        </div>
+    </div>
+
+</footer>
+
+
+
+
+
+
+<script src="/dist/build.js?1646451311888.js"></script>
+
+
+<script src="/dist/custom.js?1646451311888.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>

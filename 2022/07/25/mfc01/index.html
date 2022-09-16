@@ -1,0 +1,2538 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    
+    <title>MFC | ohmyhsy</title>
+
+    <meta name="description" content="&lt;h1 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;微软基础类库（英语：Microsoft Foundation Classes，简称MFC）是微软公司提供的一个类库（class libraries），以C++类的形式封装了Windows API，并且包含一个应用程序框架，以减少应用程序开发人员的工作量。其中包含大量Windows句柄封装类和很多Windows的内建控件和组件的封装类。&lt;/p&gt;">
+    <meta name="keywords" content="8bytes-blog">
+
+    
+
+    <meta property="og:locale" content="cn" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content= "MFC | ohmyhsy"  />
+    <meta property="og:description" content= "&lt;h1 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;微软基础类库（英语：Microsoft Foundation Classes，简称MFC）是微软公司提供的一个类库（class libraries），以C++类的形式封装了Windows API，并且包含一个应用程序框架，以减少应用程序开发人员的工作量。其中包含大量Windows句柄封装类和很多Windows的内建控件和组件的封装类。&lt;/p&gt;" />
+    <meta property="og:url" content="https://8bytes.top/2022/07/25/mfc01/index.html" />
+    <meta property="og:site_name" content="" />
+    <meta property="article:author" content="Box" />
+    <meta property="article:publisher" content="" />
+    <meta property="og:description" content="&lt;h1 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;微软基础类库（英语：Microsoft Foundation Classes，简称MFC）是微软公司提供的一个类库（class libraries），以C++类的形式封装了Windows API，并且包含一个应用程序框架，以减少应用程序开发人员的工作量。其中包含大量Windows句柄封装类和很多Windows的内建控件和组件的封装类。&lt;/p&gt;" />
+    <meta name="twitter:title" content="MFC | ohmyhsy"/>
+    <meta name="twitter:description" content="&lt;h1 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;微软基础类库（英语：Microsoft Foundation Classes，简称MFC）是微软公司提供的一个类库（class libraries），以C++类的形式封装了Windows API，并且包含一个应用程序框架，以减少应用程序开发人员的工作量。其中包含大量Windows句柄封装类和很多Windows的内建控件和组件的封装类。&lt;/p&gt;"/>
+    <script type="application/ld+json">
+        {
+            "description": "&lt;h1 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;微软基础类库（英语：Microsoft Foundation Classes，简称MFC）是微软公司提供的一个类库（class libraries），以C++类的形式封装了Windows API，并且包含一个应用程序框架，以减少应用程序开发人员的工作量。其中包含大量Windows句柄封装类和很多Windows的内建控件和组件的封装类。&lt;/p&gt;",
+            "author": { "@type": "Person", "name": "Box" },
+            "@type": "BlogPosting",
+            "url": "https://8bytes.top/2022/07/25/mfc01/index.html",
+            "publisher": {
+            "@type": "Organization",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://8bytes.topundefined"
+            },
+            "name": "Box"
+            },
+            "headline": "MFC | ohmyhsy",
+            "datePublished": "2022-07-25T04:36:44.000Z",
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "https://8bytes.top/2022/07/25/mfc01/index.html"
+            },
+            "@context": "http://schema.org"
+        }
+    </script>
+
+
+
+
+    
+
+    
+    <meta property="algolia:search" data-application-id="4CVCYWPWWN" data-api-key="7757db6b0a31c3f94c301c885693ed0d" data-index-name="ohmyhsy">
+    
+
+    
+
+    
+
+    
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎮</text></svg>">
+    
+
+    
+
+    
+
+    
+<link rel="stylesheet" href="/dist/build.css?v=1646451311888.css">
+
+
+    
+<link rel="stylesheet" href="/dist/custom.css?v=1646451311888.css">
+
+
+    <script>
+        window.isPost = true
+        window.aomori = {
+            
+            
+            
+        }
+        window.aomori_logo_typed_animated = true
+        window.aomori_search_algolia = true
+
+    </script>
+
+<meta name="generator" content="Hexo 5.4.1"><link rel="alternate" href="/atom.xml" title="ohmyhsy" type="application/atom+xml">
+</head>
+
+<body>
+
+    <div class="container">
+    <header class="header">
+        <div class="header-type">
+            
+            <div class="header-type-inner">
+                
+                    <div id="typed-strings" style="display:none">
+                        <p>ohmyhsy</p>
+                    </div>
+                    <a class="header-type-title" id="typed" href="/"></a>
+                
+    
+                
+            </div>
+        </div>
+        <div class="header-menu">
+            <div class="header-menu-inner">
+                
+                <a href="/">Home</a>
+                
+                <a href="/archives">Archives</a>
+                
+                <a href="/friends">Friends</a>
+                
+                <a href="/collect">Collect</a>
+                
+                <a href="/photography">Phtotgraphy</a>
+                
+            </div>
+            <div class="header-menu-social">
+                
+    <a class="social" target="_blank" href="https://github.com/8bytes-code">
+        <box-icon type='logo' name='github'></box-icon>
+    </a>
+
+            </div>
+        </div>
+
+        <div class="header-menu-mobile">
+            <div class="header-menu-mobile-inner" id="mobile-menu-open">
+                <i class="icon icon-menu"></i>
+            </div>
+        </div>
+    </header>
+
+    <div class="header-menu-mobile-menu">
+        <div class="header-menu-mobile-menu-bg"></div>
+        <div class="header-menu-mobile-menu-wrap">
+            <div class="header-menu-mobile-menu-inner">
+                <div class="header-menu-mobile-menu-close" id="mobile-menu-close">
+                    <i class="icon icon-cross"></i>
+                </div>
+                <div class="header-menu-mobile-menu-list">
+                    
+                    <a href="/">Home</a>
+                    
+                    <a href="/archives">Archives</a>
+                    
+                    <a href="/friends">Friends</a>
+                    
+                    <a href="/collect">Collect</a>
+                    
+                    <a href="/photography">Phtotgraphy</a>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+    <div class="container">
+        <div class="main">
+            <section class="inner">
+                <section class="inner-main">
+                    <div class="post">
+    <article id="post-cl7vfxqub003mbw9c5r9i2nxd" class="article article-type-post" itemscope
+    itemprop="blogPost">
+
+    <div class="article-inner">
+
+        
+          
+        
+        
+        
+
+        
+        <header class="article-header">
+            
+  
+    <h1 class="article-title" itemprop="name">
+      MFC
+    </h1>
+  
+
+        </header>
+        
+
+        <div class="article-more-info article-more-info-post hairline">
+
+            <div class="article-date">
+  <time datetime="2022-07-25T04:36:44.000Z" itemprop="datePublished">2022-07-25</time>
+</div>
+
+            
+
+            
+            <div class="article-tag">
+                <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MFC/" rel="tag">MFC</a></li></ul>
+            </div>
+            
+
+            
+            <div class="article-busuanzi">
+                <span id="busuanzi_value_page_pv">N</span> 人看过
+            </div>
+            
+
+        </div>
+
+        <div class="article-entry post-inner-html hairline" itemprop="articleBody">
+            <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>微软基础类库（英语：Microsoft Foundation Classes，简称MFC）是微软公司提供的一个类库（class libraries），以C++类的形式封装了Windows API，并且包含一个应用程序框架，以减少应用程序开发人员的工作量。其中包含大量Windows句柄封装类和很多Windows的内建控件和组件的封装类。</p>
+<span id="more"></span>
+
+
+<hr>
+<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><h2 id="MFC为何物"><a href="#MFC为何物" class="headerlink" title="MFC为何物"></a>MFC为何物</h2><p>传统手工业，需要很多人，然后手工去操作，对于厂家而言，人工费高，质量不确定。<br>而改用机器后，只需要投入材料，一天内的效应会大于人工，而且质量比较平均，当然不是所有的传统手工业都能被机器代替，只是部分。</p>
+<p>这也就是普通c&#x2F;c++代码和api的区别，经过多次封装它自然就变得看起来简单，复用性高。</p>
+<p>MFC既然是微软设计的，自然只适合在windows上做应用开发，像xp、win7、win10兼容性肯定没得说，毕竟也是个亲儿子。<br>不过目前的更新迭代之下，MFC的场景也会比较少，后面还有个跨平台的Qt。<br>虽然少，但是老公司的项目没有转型之前，大部分还是需要维护的。<br>可能外包比较多。</p>
+<p>MFC的学习方式</p>
+<ol>
+<li>(1.c++多态、2.windows消息循环、3.msg loop)</li>
+<li>查文档，不会就查，可以用vs的ide在函数上按f1跳转，也可以记网址</li>
+</ol>
+<p>安装：xxxx自己百度，vs的ide模块化其实看得很清楚了，就是吃内存。</p>
+<blockquote>
+<p>vs2022应该是C++ ATL for v143生成工具和c++ MFC for v143生成工具，都是x86和x64。</p>
+</blockquote>
+<p>MFC能做啥</p>
+<ol>
+<li>微软的基础框架</li>
+<li>桌面应用</li>
+<li>上位机</li>
+<li>pc端的监控软件</li>
+<li>修改注册表&#x2F;启动项等</li>
+</ol>
+<hr>
+<h2 id="前身Win32"><a href="#前身Win32" class="headerlink" title="前身Win32"></a>前身Win32</h2><h3 id="1-窗口程序架构"><a href="#1-窗口程序架构" class="headerlink" title="1.窗口程序架构"></a>1.窗口程序架构</h3><pre><code class="cpp">int WinMain()&#123;
+    //设计窗口外观以及交互响应
+    RegisterClass(...)
+    //生产窗口
+    CreateWinodw(...)
+    //显示窗口
+    ShowWindow(...)
+    //刷新窗口
+    UpdateWindow(...)
+    //消息循环
+    while(GetMessage(...))&#123;
+        //消息转发
+        TranslateMessage(...);
+        //消息分发
+        DispatchMessage(...);
+    &#125;
+&#125;
+</code></pre>
+<hr>
+<h3 id="2-API和SDK"><a href="#2-API和SDK" class="headerlink" title="2.API和SDK"></a>2.API和SDK</h3><p>api全称(Application Program Interface) 应用程序编程接口<br>sdk全称(Software Development Kit) 也就是软件开发工具包，一般会包括API接口文档、示例文档、帮助文档、使用手册和相关工具。</p>
+<hr>
+<h3 id="3-窗口和句柄"><a href="#3-窗口和句柄" class="headerlink" title="3.窗口和句柄"></a>3.窗口和句柄</h3><p>窗口就是屏幕上的一片特定区域，可能存在等待接收用户的输入，显示程序的输出。可以包含标题栏、菜单栏、工具栏、空间等<br>句柄(handle)(资源的编号、二级指针)，窗口句柄、文件句柄、数据库连接句柄，本质都是指针<br>c++窗口类对象和窗口并不是一回事，二者的关系是c++窗口类内部定义了一个窗口句柄变量，保存了这个c++窗口类对象和相关的窗口句柄。当窗口销毁时，与之对应的c++窗口类对象销毁与否要看生命周期结束没。反之c++窗口类对象销毁时，与之相关的窗口肯定被销毁了。</p>
+<hr>
+<h3 id="4-消息循环"><a href="#4-消息循环" class="headerlink" title="4.消息循环"></a>4.消息循环</h3><img src="/2022/07/25/mfc01/000.png" class="">
+<p>银行这种，一般都是个人业务比较多。取个号要么机器上操作，要么去柜台。</p>
+<img src="/2022/07/25/mfc01/001.png" class="">
+<p>对于windows系统而言，这种循环好看懂一些。</p>
+<p>消息循环会引出一个<code>回调函数</code>。<br>就是说当出现特定事件的时候，都会交给回调函数处理。</p>
+<hr>
+<h3 id="5-变量命名约定"><a href="#5-变量命名约定" class="headerlink" title="5.变量命名约定"></a>5.变量命名约定</h3><table>
+<thead>
+<tr>
+<th>前缀</th>
+<th>含义</th>
+<th>前缀</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>a</td>
+<td>数组array</td>
+<td>b</td>
+<td>布尔值bool</td>
+</tr>
+<tr>
+<td>by</td>
+<td>无符号字符[字节]</td>
+<td>c</td>
+<td>字符[字节]</td>
+</tr>
+<tr>
+<td>cb</td>
+<td>字节计数</td>
+<td>rgb</td>
+<td>保存颜色值的长整型</td>
+</tr>
+<tr>
+<td>cx，cy</td>
+<td>短整型[计算x，y的长度]</td>
+<td>dw</td>
+<td>无符号长整型</td>
+</tr>
+<tr>
+<td>fn</td>
+<td>函数</td>
+<td>h</td>
+<td>句柄</td>
+</tr>
+<tr>
+<td>i</td>
+<td>整型</td>
+<td>m_</td>
+<td>类的数据成员member</td>
+</tr>
+<tr>
+<td>n</td>
+<td>短整型或整型</td>
+<td>np</td>
+<td>近指针</td>
+</tr>
+<tr>
+<td>p</td>
+<td>指针</td>
+<td>l</td>
+<td>长整型</td>
+</tr>
+<tr>
+<td>lp</td>
+<td>长指针</td>
+<td>s</td>
+<td>字符串string</td>
+</tr>
+<tr>
+<td>sz</td>
+<td>以0结尾的字符串</td>
+<td>tm</td>
+<td>正文大小</td>
+</tr>
+<tr>
+<td>w</td>
+<td>无符号整型</td>
+<td>x，y</td>
+<td>无符号整型[表示x，y的坐标]</td>
+</tr>
+</tbody></table>
+<p>反正windows的产品基本都遵循这样的命名规范。</p>
+<hr>
+<h2 id="MFC程序开发流程"><a href="#MFC程序开发流程" class="headerlink" title="MFC程序开发流程"></a>MFC程序开发流程</h2><hr>
+<h3 id="1-基于对话框的程序"><a href="#1-基于对话框的程序" class="headerlink" title="1.基于对话框的程序"></a>1.基于对话框的程序</h3><p>无菜单栏、工具栏，界面很简单，可使用此类型为对话框。</p>
+<img src="/2022/07/25/mfc01/004.png" class="">
+<p>类似于计算器这种</p>
+<hr>
+<h3 id="2-基于文档-x2F-试图的程序"><a href="#2-基于文档-x2F-试图的程序" class="headerlink" title="2.基于文档&#x2F;试图的程序"></a>2.基于文档&#x2F;试图的程序</h3><p>标准的windows应用界面，包含菜单栏、工具栏、状态栏等。</p>
+<img src="/2022/07/25/mfc01/005.png" class="">
+<p>最直观的就是vs的ide喽</p>
+<hr>
+<h3 id="3-MFC与win32开发的区别"><a href="#3-MFC与win32开发的区别" class="headerlink" title="3.MFC与win32开发的区别"></a>3.MFC与win32开发的区别</h3><ul>
+<li>定制界面的区别(手写代码和拖放控件)</li>
+<li>响应键鼠操作的区别(窗口处理函数和消息映射机制)</li>
+</ul>
+<p>win32可以开发纯命令行的程序，也就是windows所说的dos，在命令行里面gcc cmake之类的操作。<br>所以涉及到界面的开发自然而然的是选择MFC。</p>
+<hr>
+<h3 id="4-MFC消息映射机制"><a href="#4-MFC消息映射机制" class="headerlink" title="4.MFC消息映射机制"></a>4.MFC消息映射机制</h3><pre><code class="cpp">BEGIN_MESSAGE_MAP(CMFCApplication1Dlg, CDialogEx)
+    ON_WM_SYSCOMMAND()
+    ON_WM_PAINT()
+    ON_WM_QUERYDRAGICON()
+END_MESSAGE_MAP()
+</code></pre>
+<p><code>BEGIN_MESSAGE_MAP</code>即为消息映射表<br>如果有特殊需求也可以进行自定义消息。虽然不能说自定义就一定能达到需求。</p>
+<hr>
+<h3 id="5-构建项目"><a href="#5-构建项目" class="headerlink" title="5.构建项目"></a>5.构建项目</h3><p>vs有默认的项目类型可选，是提高效率的首要之选，不是说不可以从空项目起手，而是节约基础配置的时间。</p>
+<img src="/2022/07/25/mfc01/002.png" class="">
+<img src="/2022/07/25/mfc01/003.png" class="">
+<img src="/2022/07/25/mfc01/006.png" class="">
+
+<p>至于共享dll编译出来的exe体积肯定是比使用静态库的exe要小。</p>
+<img src="/2022/07/25/mfc01/007.png" class="">
+<p>默认就共享得了。有需要在使用静态。<br>然后此处基于对话框开发，所以文档模板属性没啥可选的。</p>
+<img src="/2022/07/25/mfc01/008.png" class="">
+<p>用户界面常用的最小化最大化是可以勾上的，标题名呢也可以在此就设置好。</p>
+<img src="/2022/07/25/mfc01/009.png" class="">
+<p>这些也可以看着来。</p>
+<p>最后的生成的类一般不做修改。也别闲着用中文，每个人的环境不同，编码有异，在你这能跑在别人那就可能乱码了。</p>
+<p>创建完成之后</p>
+<img src="/2022/07/25/mfc01/010.png" class="">
+<p>其实就能看到大致的模板了。</p>
+<img src="/2022/07/25/mfc01/011.png" class="">
+<p>跟预览的效果是一样的。这种直接套模板的确省去了不少麻烦。</p>
+<blockquote>
+<p>其中拖动控件的精髓在工具箱里，属性里面直接选消息。</p>
+</blockquote>
+<hr>
+<h2 id="画线"><a href="#画线" class="headerlink" title="画线"></a>画线</h2><ul>
+<li>知识点<ul>
+<li>屏幕坐标和客户端坐标</li>
+<li>设备上下文</li>
+<li>事件</li>
+</ul>
+</li>
+<li>起点和终点<ul>
+<li>如何捕捉这两点，如左键为起点右键为终点</li>
+</ul>
+</li>
+</ul>
+<p>这次选择基于单个文档，其它倒是不用太在意</p>
+<p>在创建完项目后看到很多头文件和源文件的时候，可以通过菜单栏的视图找到类视图</p>
+<img src="/2022/07/25/mfc01/012.png" class="">
+<p>能够主要看清有哪些类。</p>
+<p>启动项目后可以看到这样一个模板</p>
+<img src="/2022/07/25/mfc01/013.png" class="">
+<p>要自己一开始就写肯定是不行的，所以这就是项目模板的好处，可以帮你完成很多基础的操作。<br>至于实现部分，可以通过类视图的类名去得到大意。</p>
+<p>至于画线部分，拆分为两个地方，起点就是我们鼠标左键按下确定第一个点，然后随便他怎么拖动到其他地方然后再点击一下，即为线的终点。</p>
+<p>至于这些鼠标按下抬起的消息，可以通过类视图右击打开属性，找到消息，能看到有很多。</p>
+<img src="/2022/07/25/mfc01/014.png" class="">
+<img src="/2022/07/25/mfc01/015.png" class="">
+<p>然后选择这俩</p>
+<img src="/2022/07/25/mfc01/016.png" class="">
+<p>也就是left button up和left button up，按下和松开</p>
+<p>至于形参，可以转到定义查看<br><code>typedef unsigned int        UINT;</code></p>
+<pre><code class="cpp">class CPoint :
+    public tagPOINT
+&#123;
+public:
+// Constructors
+
+    // create an uninitialized point
+    CPoint() throw();
+    // create from two integers
+    CPoint(
+        _In_ int initX,
+        _In_ int initY) throw();
+    // create from another point
+    CPoint(_In_ POINT initPt) throw();
+    // create from a size
+    CPoint(_In_ SIZE initSize) throw();
+    // create from an LPARAM: x = LOWORD(dw) y = HIWORD(dw)
+    CPoint(_In_ LPARAM dwPoint) throw();
+
+
+// Operations
+
+// translate the point
+    void Offset(
+        _In_ int xOffset,
+        _In_ int yOffset) throw();
+    void Offset(_In_ POINT point) throw();
+    void Offset(_In_ SIZE size) throw();
+    void SetPoint(
+        _In_ int X,
+        _In_ int Y) throw();
+
+    BOOL operator==(_In_ POINT point) const throw();
+    BOOL operator!=(_In_ POINT point) const throw();
+    void operator+=(_In_ SIZE size) throw();
+    void operator-=(_In_ SIZE size) throw();
+    void operator+=(_In_ POINT point) throw();
+    void operator-=(_In_ POINT point) throw();
+
+// Operators returning CPoint values
+    CPoint operator+(_In_ SIZE size) const throw();
+    CPoint operator-(_In_ SIZE size) const throw();
+    CPoint operator-() const throw();
+    CPoint operator+(_In_ POINT point) const throw();
+
+// Operators returning CSize values
+    CSize operator-(_In_ POINT point) const throw();
+
+// Operators returning CRect values
+    CRect operator+(_In_ const RECT* lpRect) const throw();
+    CRect operator-(_In_ const RECT* lpRect) const throw();
+&#125;;
+</code></pre>
+<p>一个是改了名的类型，一个则是类。</p>
+<p>这个类中有两个字眼比较醒目，x和y。变相的能猜到肯定是记录了xy轴的坐标。<br>但是按住和松开肯定是会改变xy的，就需要自己定义两个变量去记录起始位置。</p>
+<pre><code class="cpp">protected:
+    CPoint m_start;        //起始位置，用于绘制线条
+    CPoint m_stop;        //终止位置，用于绘制线条
+</code></pre>
+<pre><code class="cpp">void CMFCPaintView::OnLButtonDown(UINT nFlags, CPoint point)&#123;
+    // TODO: 在此添加消息处理程序代码和/或调用默认值
+    m_start = point;
+    CView::OnLButtonDown(nFlags, point);
+&#125;
+
+void CMFCPaintView::OnLButtonUp(UINT nFlags, CPoint point)&#123;
+    // TODO: 在此添加消息处理程序代码和/或调用默认值
+    m_stop = point;
+    CView::OnLButtonUp(nFlags, point);
+&#125;
+</code></pre>
+<p>在这打两个断点然后跑程序，随便点击一下，就能看到point的xy出现值了</p>
+<img src="/2022/07/25/mfc01/017.png" class="">
+
+<p>然而坐标其实也有分别，像屏幕传统的都是1920*1080，说的就是x轴长1920，y轴长1080，而且比较有意思的是这个0，0坐标在屏幕的左上角。<br>屏幕坐标可称为screen point，而程序的坐标可称为client point。</p>
+<p>有了这两个的区别，就可能导致获取到的xy坐标是有问题的。<br>除了基础的xy获取了之后，还要考虑这个信息会不会被其它消息所引用，有引用又得防着被修改了。</p>
+<p>xy有了，那么要考虑绘制的问题。<br>要用到一个类<code>CDC</code><br>这里就不展示了，这个类的定义里面东西有点多。</p>
+<p><code>// The device context</code>在注释中说明，这是一个设备的上下文<br>上下文：在画图中要绘制一些东西的时候，肯定会用到线条的粗细，线条的颜色，画图的大小，画图的大小状态比如最小化最大化和普通状态等许多参数信息，只有了解了所有的参数信息才能绘制出想要的东西。<br>为什么叫设备上下文：上述举例的上下文是属于窗口的上下文，而有其他的情况，你会把绘制的东西显示在显示器上，而不是单独的窗口。那么这种时候就需要获取到你这个屏幕的参数。</p>
+<pre><code class="cpp">void CMFCPaintView::OnLButtonUp(UINT nFlags, CPoint point)&#123;
+    // TODO: 在此添加消息处理程序代码和/或调用默认值
+    m_stop = point;
+    
+    //获取设备上下文
+    CDC *pDC = GetDC();
+    pDC-&gt;MoveTo(m_start);
+
+    CView::OnLButtonUp(nFlags, point);
+&#125;
+</code></pre>
+<p>在c++中结构体和类基本功能相通，区别在于类有私有成员。所以传递类并没有太大关系。<br><code>pDC-&gt;MoveTo(m_start);</code><br>moveto 就是说移动到我们的这个点上。然后才可以进行绘制线条之类的。</p>
+<pre><code class="cpp">void CMFCPaintView::OnLButtonUp(UINT nFlags, CPoint point)&#123;
+    // TODO: 在此添加消息处理程序代码和/或调用默认值
+    m_stop = point;
+    
+    //获取设备上下文
+    CDC *pDC = GetDC();
+    pDC-&gt;MoveTo(m_start);
+    pDC-&gt;LineTo(m_stop);
+    ReleaseDC(pDC);
+
+    CView::OnLButtonUp(nFlags, point);
+&#125;
+</code></pre>
+<p><code>pDC-&gt;LineTo(m_stop);</code>line就是线呗，从按下鼠标左键的点到松开的点直接绘制一条直线。<br>并且要记住<code>ReleaseDC(pDC);</code>，避免占用导致程序异常。</p>
+<p>然后就可以run了</p>
+<img src="/2022/07/25/mfc01/018.png" class="">
+<p>鼠标左键按下直到某个点松开即可绘制出线条。</p>
+<p>多画几条也没事，不过有点踩坑点：就是重绘的问题，此处就是当最大化和最小化的时候线条就莫得了。</p>
+<p>除此之外，每次都需要滑动才能绘制，可能有点low。</p>
+<pre><code class="cpp">protected:
+    CPoint m_start;        //起始位置，用于绘制线条
+    CPoint m_stop;        //终止位置，用于绘制线条
+    BOOL m_status;        //绘制状态
+</code></pre>
+<pre><code class="cpp">void CMFCPaintView::OnLButtonDown(UINT nFlags, CPoint point)&#123;
+    // TODO: 在此添加消息处理程序代码和/或调用默认值
+    m_start = point;
+    m_status = TRUE;
+    CView::OnLButtonDown(nFlags, point);
+&#125;
+
+void CMFCPaintView::OnLButtonUp(UINT nFlags, CPoint point)&#123;
+    // TODO: 在此添加消息处理程序代码和/或调用默认值
+    m_stop = point;
+    
+    //获取设备上下文
+    CDC *pDC = GetDC();
+    pDC-&gt;MoveTo(m_start);
+    pDC-&gt;LineTo(m_stop);
+    ReleaseDC(pDC);
+    m_status = FALSE;
+
+    CView::OnLButtonUp(nFlags, point);
+&#125;
+</code></pre>
+<p>然后新增消息，鼠标移动时。快捷操作就是类视图然后属性里面找到消息</p>
+<pre><code class="cpp">void CMFCPaintView::OnMouseMove(UINT nFlags, CPoint point)&#123;
+    // TODO: 在此添加消息处理程序代码和/或调用默认值
+    if (m_status)&#123;
+        InvalidateRect(NULL);
+
+        //如果鼠标正在移动就进行操作
+        CDC *pDC = GetDC();
+        pDC-&gt;MoveTo(m_start);
+        pDC-&gt;LineTo(m_stop);
+        ReleaseDC(pDC);
+    &#125;
+
+    CView::OnMouseMove(nFlags, point);
+&#125;
+</code></pre>
+<p>增加一个状态是为了考虑程序刚启动的时候鼠标可能就在绘制区域了，那么有可能m_start没能获取到值，那么后面的绘制就会出现一些问题。</p>
+<p><strong>注：状态肯定要在构造函数里面初始化</strong></p>
+<pre><code class="cpp">CMFCPaintView::CMFCPaintView() noexcept&#123;
+    // TODO: 在此处添加构造代码
+    m_status = FALSE;
+&#125;
+</code></pre>
+<p><code>InvalidateRect(NULL);</code>的作用<br>加了这个之后虽然绘制的线条没有刷新了，但是会接住前面的鼠标释放的点。看似连贯但是效果不对。<br>而没加这个，则是无论画多少条线都只会显示最近一次画的，也就是传统说法被刷新了或者叫重绘。</p>
+<p>为了保证安全，再多加一个当前点位的变量。</p>
+<pre><code class="cpp">CMFCPaintView::CMFCPaintView() noexcept&#123;
+    // TODO: 在此处添加构造代码
+    m_status = FALSE;
+    m_start = &#123; 0,0 &#125;;
+    m_stop = &#123; 0,0 &#125;;
+    m_cur = &#123; 0,0 &#125;;
+&#125;
+</code></pre>
+<p>反正构造函数不要浪费，避免不必要的错误，就都从0，0坐标开始初始化。</p>
+<pre><code class="cpp">void CMFCPaintView::OnLButtonDown(UINT nFlags, CPoint point)&#123;
+    // TODO: 在此添加消息处理程序代码和/或调用默认值
+    m_start = point;
+    m_status = TRUE;
+    CView::OnLButtonDown(nFlags, point);
+&#125;
+
+void CMFCPaintView::OnLButtonUp(UINT nFlags, CPoint point)&#123;
+    // TODO: 在此添加消息处理程序代码和/或调用默认值
+    m_stop = point;
+    
+    //获取设备上下文
+    CDC *pDC = GetDC();
+    pDC-&gt;MoveTo(m_start);
+    pDC-&gt;LineTo(m_stop);
+    ReleaseDC(pDC);
+    m_status = FALSE;
+
+    CView::OnLButtonUp(nFlags, point);
+&#125;
+</code></pre>
+<p>按下和释放不需要怎么改动。</p>
+<p>在鼠标移动消息中</p>
+<pre><code class="cpp">void CMFCPaintView::OnMouseMove(UINT nFlags, CPoint point)&#123;
+    // TODO: 在此添加消息处理程序代码和/或调用默认值
+    if (m_status)&#123;
+        InvalidateRect(NULL);
+        m_cur = point;            //让m_cur = 当前的鼠标坐标。
+    &#125;
+
+    CView::OnMouseMove(nFlags, point);
+&#125;
+</code></pre>
+<p>至于这个刷新，它会自动触发函数</p>
+<pre><code class="cpp">void CMFCPaintView::OnDraw(CDC* pDC)&#123;
+    CMFCPaintDoc* pDoc = GetDocument();
+    ASSERT_VALID(pDoc);
+    if (!pDoc)
+        return;
+
+    // TODO: 在此处为本机数据添加绘制代码
+    if (m_status)&#123;
+        pDC-&gt;MoveTo(m_start);
+        pDC-&gt;LineTo(m_cur);
+    &#125; else&#123;
+        pDC-&gt;MoveTo(m_start);
+        pDC-&gt;LineTo(m_stop);
+    &#125;
+&#125;
+</code></pre>
+<p>下面的绘图代码才是我们需要添加的，前面不用管，前面的就是相当于一个刷新白板的操作。<br>也就是我们之前提到过的，最大化和最小化的时候，之前画的线条就消失了，其实就是触发了重绘没有保存。</p>
+<p><code>InvalidateRect</code>会调用<code>OnDraw</code>，在我们没有重写<code>OnDraw</code>的时候，默认操作就是重绘白板。</p>
+<p>一个m_start和m_stop和m_cur只能完整的记录一条线。如果想要画多条，就要用到列表方式去控制。</p>
+<hr>
+<h2 id="画笔"><a href="#画笔" class="headerlink" title="画笔"></a>画笔</h2><p>之前的画线，它的粗细和颜色和形状都不能调整。所以可以尝试修改这些。</p>
+<p>用画笔自然也要用它封装好的类，CPen</p>
+<pre><code class="cpp">class CPen : public CGdiObject
+&#123;
+    DECLARE_DYNAMIC(CPen)
+
+public:
+    static CPen* PASCAL FromHandle(HPEN hPen);
+
+// Constructors
+    CPen();
+    CPen(int nPenStyle, int nWidth, COLORREF crColor);
+    CPen(int nPenStyle, int nWidth, const LOGBRUSH* pLogBrush,
+        int nStyleCount = 0, const DWORD* lpStyle = NULL);
+    BOOL CreatePen(int nPenStyle, int nWidth, COLORREF crColor);
+    BOOL CreatePen(int nPenStyle, int nWidth, const LOGBRUSH* pLogBrush,
+        int nStyleCount = 0, const DWORD* lpStyle = NULL);
+    BOOL CreatePenIndirect(LPLOGPEN lpLogPen);
+
+// Attributes
+    operator HPEN() const;
+    int GetLogPen(LOGPEN* pLogPen);
+    int GetExtLogPen(EXTLOGPEN* pLogPen);
+
+// Implementation
+public:
+    virtual ~CPen();
+#ifdef _DEBUG
+    virtual void Dump(CDumpContext&amp; dc) const;
+#endif
+&#125;;
+</code></pre>
+<p>这里看到构造的时候有两个带参数了</p>
+<pre><code class="cpp">CPen(int nPenStyle, int nWidth, COLORREF crColor);
+CPen(int nPenStyle, int nWidth, const LOGBRUSH* pLogBrush,
+    int nStyleCount = 0, const DWORD* lpStyle = NULL);
+</code></pre>
+<p>刚学先用前者<br>style就是样式，那么具体有</p>
+<ol>
+<li>PS_SOLID    实线</li>
+<li>PS_DASH    虚线</li>
+<li>PS_DOT    点线</li>
+<li>PS_DOTDASH    点划线</li>
+</ol>
+<p>转到定义之后注释其实也很详细的给出了样子</p>
+<pre><code class="cpp">#define PS_SOLID            0
+#define PS_DASH             1       /* -------  */
+#define PS_DOT              2       /* .......  */
+#define PS_DASHDOT          3       /* _._._._  */
+#define PS_DASHDOTDOT       4       /* _.._.._  */
+</code></pre>
+<p>width自然就是线宽了，一般的单位都是像素。传int就完事。<br>color颜色，表示起来就RGB(RED,GREE,BULR)按照ps那会的情况，数值应该是0-255，暂时没看这里能不能用十六进制的方式塞。</p>
+<p>设置好了笔的属性，就该用这支笔去画。</p>
+<pre><code class="cpp">void CMFCPaintView::OnDraw(CDC* pDC)&#123;
+    CMFCPaintDoc* pDoc = GetDocument();
+    ASSERT_VALID(pDoc);
+    if (!pDoc)
+        return;
+
+    // TODO: 在此处为本机数据添加绘制代码
+    CPen pen(PS_DASH, 3, RGB(255, 0, 0));
+    CPen *pPen = pDC-&gt;SelectObject(&amp;pen);        //要把这个笔加入设备上下文
+
+    if (m_status)&#123;
+        pDC-&gt;MoveTo(m_start);
+        pDC-&gt;LineTo(m_cur);
+    &#125; else&#123;
+        pDC-&gt;MoveTo(m_start);
+        pDC-&gt;LineTo(m_stop);
+    &#125;
+    //还原笔的属性是为了保证后面要画的时候不会还是这个类型
+    pDC-&gt;SelectObject(pPen);
+&#125;
+</code></pre>
+<img src="/2022/07/25/mfc01/019.png" class="">
+<p>可以看到粗细和颜色是有变化了，但是样式好像没看出变化。<br>越来越粗的话肯定是看不出变化的。那么改小一点<br><code>CPen pen(PS_DASH, 1, RGB(255, 0, 0));</code></p>
+<img src="/2022/07/25/mfc01/020.png" class="">
+<p>可以看到了虚线效果。。。嘶，还挺麻烦。只能用一个像素点才能看到效果。</p>
+<hr>
+<h3 id="TRACE"><a href="#TRACE" class="headerlink" title="TRACE"></a>TRACE</h3><p>这是一个调试的时候用的函数，可以在输出栏里面打印出一些需要的信息。</p>
+<pre><code class="cpp">void CMFCPaintView::OnDraw(CDC* pDC)&#123;
+    CMFCPaintDoc* pDoc = GetDocument();
+    ASSERT_VALID(pDoc);
+    if (!pDoc)
+        return;
+
+    // TODO: 在此处为本机数据添加绘制代码
+    CPen pen(PS_DASH, 4, RGB(255, 0, 0));
+    CPen *pPen = pDC-&gt;SelectObject(&amp;pen);
+
+    LOGPEN logpen;
+    pPen-&gt;GetLogPen(&amp;logpen);
+    TRACE(&quot;\nstyle:%d width:%d color:%08X\n&quot;, logpen.lopnStyle, logpen.lopnWidth, logpen.lopnColor);
+
+    if (m_status)&#123;    
+        pDC-&gt;MoveTo(m_start);
+        pDC-&gt;LineTo(m_cur);
+
+    &#125; else&#123;
+        pDC-&gt;MoveTo(m_start);
+        pDC-&gt;LineTo(m_stop);
+
+    &#125;
+    //还原笔的属性是为了保证后面要画的时候不会还是这个类型
+    pDC-&gt;SelectObject(pPen);
+&#125;
+</code></pre>
+<img src="/2022/07/25/mfc01/021.png" class="">
+
+<p>毕竟有的时候单步调试比较累，如果能隐约猜到，可以尝试打印看看是否有问题。</p>
+<hr>
+<h2 id="画刷"><a href="#画刷" class="headerlink" title="画刷"></a>画刷</h2><p>用过画图其实应该知道，画笔毕竟画的是点阵练成的线，而画刷画出来的是实心的对象。<br>一个点绘，一个填充。</p>
+<pre><code class="cpp">class CBrush : public CGdiObject
+&#123;
+    DECLARE_DYNAMIC(CBrush)
+
+public:
+    static CBrush* PASCAL FromHandle(HBRUSH hBrush);
+
+// Constructors
+    CBrush();
+    CBrush(COLORREF crColor);             // CreateSolidBrush
+    CBrush(int nIndex, COLORREF crColor); // CreateHatchBrush
+    explicit CBrush(CBitmap* pBitmap);          // CreatePatternBrush
+
+    BOOL CreateSolidBrush(COLORREF crColor);
+    BOOL CreateHatchBrush(int nIndex, COLORREF crColor);
+    BOOL CreateBrushIndirect(const LOGBRUSH* lpLogBrush);
+    BOOL CreatePatternBrush(CBitmap* pBitmap);
+    BOOL CreateDIBPatternBrush(HGLOBAL hPackedDIB, UINT nUsage);
+    BOOL CreateDIBPatternBrush(const void* lpPackedDIB, UINT nUsage);
+    BOOL CreateSysColorBrush(int nIndex);
+
+// Attributes
+    operator HBRUSH() const;
+    int GetLogBrush(LOGBRUSH* pLogBrush);
+
+// Implementation
+public:
+    virtual ~CBrush();
+#ifdef _DEBUG
+    virtual void Dump(CDumpContext&amp; dc) const;
+#endif
+&#125;;
+</code></pre>
+<p>CBrush即为c++中的画刷。而构造函数里面，有个是就放颜色就行的。</p>
+<p>起步都一样，创建了之后添加到设备上下文。</p>
+<pre><code class="cpp">void CMFCPaintView::OnDraw(CDC* pDC)
+&#123;
+    CMFCPaintDoc* pDoc = GetDocument();
+    ASSERT_VALID(pDoc);
+    if (!pDoc)
+        return;
+
+    // TODO: 在此处为本机数据添加绘制代码
+    CPen pen(PS_DASH, 4, RGB(255, 0, 0));
+    CPen *pPen = pDC-&gt;SelectObject(&amp;pen);
+
+    CBrush brush(RGB(0, 255, 0));
+    CBrush *pBrush = pDC-&gt;SelectObject(&amp;brush);
+
+    LOGPEN logpen;
+    pPen-&gt;GetLogPen(&amp;logpen);
+    TRACE(&quot;\nstyle:%d width:%d color:%08X\n&quot;, logpen.lopnStyle, logpen.lopnWidth, logpen.lopnColor);
+
+    if (m_status)&#123;    
+//         pDC-&gt;MoveTo(m_start);
+//         pDC-&gt;LineTo(m_cur);
+
+        //填充矩形
+        pDC-&gt;FillRect(CRect(m_start, m_cur), &amp;brush);
+
+    &#125; else&#123;
+//         pDC-&gt;MoveTo(m_start);
+//         pDC-&gt;LineTo(m_stop);
+
+        pDC-&gt;FillRect(CRect(m_start, m_stop), &amp;brush);
+    &#125;
+    //还原笔的属性是为了保证后面要画的时候不会还是这个类型
+    pDC-&gt;SelectObject(pPen);
+    pDC-&gt;SelectObject(pBrush);
+&#125;
+</code></pre>
+<img src="/2022/07/25/mfc01/022.png" class="">
+<p>其实就是从按下到释放的两个点延伸出去直至闭合形成一个图形。<br>至于填充的颜色，画刷初始化的时候选择绿色，则默认也为绿色，也就是说<code>pDC-&gt;FillRect(CRect(m_start, m_cur), &amp;brush);</code>后面的参数不选择画刷，用NULL，默认的颜色也是画刷的颜色。<br>也可以创建别的颜色的画刷对象，然后传递，这倒不是啥大问题。</p>
+<p><code>FillRect</code>是填充矩形，那么还有别的几个，下次再整。</p>
+<img src="/2022/07/25/mfc01/023.png" class="">
+
+<hr>
+<h2 id="光标和文本"><a href="#光标和文本" class="headerlink" title="光标和文本"></a>光标和文本</h2><p>我们现在跑的这个mfc程序，虽然中间那个空白区域是一个编辑区域，但是前面的功能都是绘制，与传统本文编辑区域而言，他少了一个光标，还有行号或者是分层的感觉。</p>
+<p>至于这个创建光标加在哪里，构造函数肯定不可行，因为窗口绑定有很多相关的东西，不代表你这个地方构造完成了，其它绑定窗口的东西并不一定全部起来了。放在ondraw里面也不合适，那里重绘的话太频繁了这个光标。</p>
+<p>所有的windows程序和mfc程序<br>第一阶段都是构造的时候<br>第二阶段才到达create阶段，在这个时候才会把构造的对象和窗口句柄之类的绑定<br>第三阶段要么showWindow或者doModule，就是显示出这些程序的框架，也就是跑起来了<br>第四阶段大致就是destroy阶段，它这个时候就是去销毁掉窗口<br>第五阶段就是delete阶段，这个时候才是销毁掉构造的对象</p>
+<p>所以构造什么的是肯定行不通了，就要用到Create消息<br>快捷操作就是类视图，选择CMFCPaintView，然后属性里面找到消息，选择create</p>
+<pre><code class="cpp">int CMFCPaintView::OnCreate(LPCREATESTRUCT lpCreateStruct) &#123;
+    if ( CView::OnCreate(lpCreateStruct) == -1 )
+        return -1;
+
+    // TODO:  在此添加您专用的创建代码
+
+    return 0;
+&#125;
+</code></pre>
+<p>就会得到这样一个模板。这个create消息是create完成之后广播到各个控件，然后调用自己的构造函数，然后去完成一些自定义的操作。</p>
+<pre><code class="cpp">int CMFCPaintView::OnCreate(LPCREATESTRUCT lpCreateStruct) &#123;
+    if ( CView::OnCreate(lpCreateStruct) == -1 )
+        return -1;
+
+    // TODO:  在此添加您专用的创建代码
+    CreateSolidCaret(3, 20);
+    ShowCaret();
+
+    return 0;
+&#125;
+</code></pre>
+<p>在随便指定这个光标大小之后</p>
+<img src="/2022/07/25/mfc01/024.png" class="">
+<p>截图所以不管他闪不闪了，不过因为这个数值是我们指定的，所以当输入的字体万一大于光标或者小于都会看着很奇怪，显然别的程序肯定是有自适应大小的解决方法。</p>
+<pre><code class="cpp">int CMFCPaintView::OnCreate(LPCREATESTRUCT lpCreateStruct) &#123;
+    if ( CView::OnCreate(lpCreateStruct) == -1 )
+        return -1;
+
+    // TODO:  在此添加您专用的创建代码
+    CClientDC dc(this);
+
+    TEXTMETRIC tm;
+    dc.GetTextMetrics(&amp;tm);
+    CreateSolidCaret(2, tm.tmHeight);
+    ShowCaret();
+
+    return 0;
+&#125;
+</code></pre>
+<p>用了点稀奇古怪的感觉</p>
+<pre><code class="cpp">typedef struct tagTEXTMETRICW
+&#123;
+    LONG        tmHeight;
+    LONG        tmAscent;
+    LONG        tmDescent;
+    LONG        tmInternalLeading;
+    LONG        tmExternalLeading;
+    LONG        tmAveCharWidth;
+    LONG        tmMaxCharWidth;
+    LONG        tmWeight;
+    LONG        tmOverhang;
+    LONG        tmDigitizedAspectX;
+    LONG        tmDigitizedAspectY;
+    WCHAR       tmFirstChar;
+    WCHAR       tmLastChar;
+    WCHAR       tmDefaultChar;
+    WCHAR       tmBreakChar;
+    BYTE        tmItalic;
+    BYTE        tmUnderlined;
+    BYTE        tmStruckOut;
+    BYTE        tmPitchAndFamily;
+    BYTE        tmCharSet;
+&#125; TEXTMETRICW, *PTEXTMETRICW, NEAR *NPTEXTMETRICW, FAR *LPTEXTMETRICW;
+#ifdef UNICODE
+typedef TEXTMETRICW TEXTMETRIC;
+</code></pre>
+<p>反正传入这个的目的就是为了获取到里面的hight。</p>
+<pre><code class="cpp">class CClientDC : public CDC
+&#123;
+    DECLARE_DYNAMIC(CClientDC)
+
+// Constructors
+public:
+    explicit CClientDC(CWnd* pWnd);
+
+// Attributes
+protected:
+    HWND m_hWnd;
+
+// Implementation
+public:
+    virtual ~CClientDC();
+#ifdef _DEBUG
+    virtual void AssertValid() const;
+    virtual void Dump(CDumpContext&amp; dc) const;
+#endif
+&#125;;
+</code></pre>
+<p>显然这个类是继承CDC的一个派生类，那么这个派生类也能拿到基类的设备上下文了。</p>
+<p>跑起来之后反正目前看上去差别不大。</p>
+<p>光标位置有了，就是输入的时候</p>
+<pre><code class="cpp">void CMFCPaintView::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags) &#123;
+    // TODO: 在此添加消息处理程序代码和/或调用默认值
+
+    CView::OnChar(nChar, nRepCnt, nFlags);
+&#125;
+</code></pre>
+<p>这玩意也比较有意思。<br>当我们在输出的地方打印这个uChar的时候</p>
+<pre><code class="cpp">void CMFCPaintView::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags) &#123;
+    // TODO: 在此添加消息处理程序代码和/或调用默认值
+    TRACE(&quot;%c\r\n&quot;, nChar);
+
+    CView::OnChar(nChar, nRepCnt, nFlags);
+&#125;
+</code></pre>
+<img src="/2022/07/25/mfc01/025.png" class="">
+<p>也就是每当键盘按下一个键，他就会接收到。既然它能接收到，那就好办了。</p>
+<pre><code class="cpp">void CMFCPaintView::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags) &#123;
+    // TODO: 在此添加消息处理程序代码和/或调用默认值
+    TRACE(&quot;%c\r\n&quot;, nChar);
+    CClientDC dc(this);
+    m_strText += (TCHAR)nChar;
+    dc.TextOut(0, 0, m_strText);
+
+    CView::OnChar(nChar, nRepCnt, nFlags);
+&#125;
+</code></pre>
+<p>写入肯定还是要获取设备上下文的，然后就是TextOut的最后一个参数是Cstring，在这里创建临时变量的话，也不能保证后面别的地方会不会用到，就干脆在类里面新建一个成员保存。</p>
+<pre><code class="cpp">protected:
+    CPoint m_start;        //起始位置，用于绘制线条
+    CPoint m_cur;        //当前点位，用于绘制线条
+    CPoint m_stop;        //终止位置，用于绘制线条
+    BOOL m_status;        //绘制状态
+    CString m_strText;    //用户输出的字符串
+</code></pre>
+<p>这里<code>m_strText += (TCHAR)nChar;</code>转换是因为vs2022反正项目默认都是unicode编码的也就是宽字节，所有的字符占两个字节，而多字节也就是ANSI，在ANSI中英文占用一个字节，所以二者会有区别。这也是有的时候要么改编码环境要么强转。</p>
+<p>跑起来试试</p>
+<img src="/2022/07/25/mfc01/026.png" class="">
+
+<p>可以看到还是有点问题，比如这个光标不移动，还要每次输入闪烁很明显，闪烁肯定是重绘的问题。<br>所以在重绘函数ondraw里面来一次textout就行</p>
+<pre><code class="cpp">void CMFCPaintView::OnDraw(CDC* pDC)&#123;
+    CMFCPaintDoc* pDoc = GetDocument();
+    ASSERT_VALID(pDoc);
+    if (!pDoc)
+        return;
+
+    // TODO: 在此处为本机数据添加绘制代码
+    CPen pen(PS_DASH, 4, RGB(255, 0, 0));
+    CPen *pPen = pDC-&gt;SelectObject(&amp;pen);
+    CBrush brush(RGB(0, 255, 0));
+    CBrush *pBrush = pDC-&gt;SelectObject(&amp;brush);
+
+    LOGPEN logpen;
+    pPen-&gt;GetLogPen(&amp;logpen);
+    TRACE(&quot;\nstyle:%d width:%d color:%08X\n&quot;, logpen.lopnStyle, logpen.lopnWidth, logpen.lopnColor);
+
+    if (m_status)&#123;    
+        pDC-&gt;FillRect(CRect(m_start, m_cur), &amp;brush);
+    &#125; else&#123;
+        pDC-&gt;FillRect(CRect(m_start, m_stop), &amp;brush);
+    &#125;
+    //还原笔的属性是为了保证后面要画的时候不会还是这个类型
+    pDC-&gt;SelectObject(pPen);
+    pDC-&gt;SelectObject(pBrush);
+
+    //重绘字符串
+    pDC-&gt;TextOut(0, 0, m_strText);
+&#125;
+</code></pre>
+<p>然后在onchar消息里面刷新</p>
+<pre><code class="cpp">void CMFCPaintView::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags) &#123;
+    // TODO: 在此添加消息处理程序代码和/或调用默认值
+    TRACE(&quot;%c\r\n&quot;, nChar);
+    CClientDC dc(this);
+    m_strText += (TCHAR)nChar;
+    dc.TextOut(0, 0, m_strText);
+    InvalidateRect(NULL);
+
+    CView::OnChar(nChar, nRepCnt, nFlags);
+&#125;
+</code></pre>
+<p>闪烁问题就解决了。</p>
+<p><strong>另外测试的时候回车键有点问题，因为没有对\n进行处理</strong></p>
+<p>其实这些操作都是在考虑一个消息该怎么处理</p>
+<ol>
+<li>要确定响应什么消息，像鼠标按下，就是lbuttondown</li>
+<li>添加消息响应函数，快捷方式从消息中add</li>
+<li>追加消息响应内容，默认是空的，你要给这个消息额外写一些功能</li>
+</ol>
+<p>其中比较麻烦的就是确定响应哪个消息，一开始肯定是不知道了只能查了。还有就是响应规则，有些会和头部预先定义的相关，有些则是全都由自己来写。</p>
+<p>那么现在还有两个问题，一个多行文本一个光标移动。</p>
+<p>换行这个问题其实根本在TextOut上，因为这个方法不具备换行能力。而我们又要考虑重绘的问题，就需要在OnDraw里改动。<br>最简单的就是用循环，然后if判断输入的是是否为换行，如果是就要让TextOut的y轴变大。</p>
+<pre><code class="cpp">void CMFCPaintView::OnDraw(CDC* pDC)
+&#123;
+    CMFCPaintDoc* pDoc = GetDocument();
+    ASSERT_VALID(pDoc);
+    if (!pDoc)
+        return;
+
+    // TODO: 在此处为本机数据添加绘制代码
+    CPen pen(PS_DASH, 4, RGB(255, 0, 0));
+    CPen *pPen = pDC-&gt;SelectObject(&amp;pen);
+    CBrush brush(RGB(0, 255, 0));
+    CBrush *pBrush = pDC-&gt;SelectObject(&amp;brush);
+
+    LOGPEN logpen;
+    pPen-&gt;GetLogPen(&amp;logpen);
+    TRACE(&quot;\nstyle:%d width:%d color:%08X\n&quot;, logpen.lopnStyle, logpen.lopnWidth, logpen.lopnColor);
+
+    if (m_status)&#123;    
+        pDC-&gt;FillRect(CRect(m_start, m_cur), &amp;brush);
+    &#125; else&#123;
+        pDC-&gt;FillRect(CRect(m_start, m_stop), &amp;brush);
+    &#125;
+    //还原笔的属性是为了保证后面要画的时候不会还是这个属性的笔
+    pDC-&gt;SelectObject(pPen);
+    pDC-&gt;SelectObject(pBrush);
+
+    //重绘字符串
+    CString sub = _T(&quot;&quot;);    //用来记录要绘制的字符
+    int y = 0;
+    for ( int i = 0; i &lt; m_strText.GetLength(); i++ ) &#123;
+        if (( m_strText.GetAt(i) == &#39;\n&#39; ) || (m_strText.GetAt(i) == &#39;\r&#39;)) &#123;
+            pDC-&gt;TextOut(0, y, sub);
+            sub.Empty();
+            y += 20;
+            continue;
+        &#125;
+        sub += m_strText.GetAt(i);
+    &#125;
+    //sub不为空就直接打印
+    if ( !sub.IsEmpty() ) pDC-&gt;TextOut(0, y, sub);
+&#125;
+</code></pre>
+<img src="/2022/07/25/mfc01/027.png" class="">
+<p>换行的效果实现了，这里比较坑的是<code>if (( m_strText.GetAt(i) == &#39;\n&#39; ) || (m_strText.GetAt(i) == &#39;\r&#39;))</code>获取的换行符好像会被\r顶掉，但是\n还是得保留，因为键盘输入的角度都是\r了，但是万一黏贴的文本是个\n就有点搞了。<br>不过显然是获取数据的时候有点小问题，要是不想在这if，可能就要在onchar消息里面修改掉。</p>
+<p>最后就是光标</p>
+<pre><code class="cpp">void CMFCPaintView::OnDraw(CDC* pDC)
+&#123;
+    CMFCPaintDoc* pDoc = GetDocument();
+    ASSERT_VALID(pDoc);
+    if (!pDoc)
+        return;
+
+    // TODO: 在此处为本机数据添加绘制代码
+    CPen pen(PS_DASH, 4, RGB(255, 0, 0));
+    CPen *pPen = pDC-&gt;SelectObject(&amp;pen);
+    CBrush brush(RGB(0, 255, 0));
+    CBrush *pBrush = pDC-&gt;SelectObject(&amp;brush);
+
+    LOGPEN logpen;
+    pPen-&gt;GetLogPen(&amp;logpen);
+    TRACE(&quot;\nstyle:%d width:%d color:%08X\n&quot;, logpen.lopnStyle, logpen.lopnWidth, logpen.lopnColor);
+
+    if (m_status)&#123;    
+        pDC-&gt;FillRect(CRect(m_start, m_cur), &amp;brush);
+    &#125; else&#123;
+        pDC-&gt;FillRect(CRect(m_start, m_stop), &amp;brush);
+    &#125;
+    //还原笔的属性是为了保证后面要画的时候不会还是这个类型
+    pDC-&gt;SelectObject(pPen);
+    pDC-&gt;SelectObject(pBrush);
+
+    //重绘字符串
+    CString sub = _T(&quot;&quot;);    //用来记录要绘制的字符
+    int y = 0;
+    
+    for ( int i = 0; i &lt; m_strText.GetLength(); i++ ) &#123;
+        if (( m_strText.GetAt(i) == &#39;\n&#39; ) || (m_strText.GetAt(i) == &#39;\r&#39;)) &#123;
+            pDC-&gt;TextOut(0, y, sub);
+            CSize sz = pDC-&gt;GetTextExtent(sub);
+            sub.Empty();
+            //y += 20;
+            y += sz.cy + 2;        //+2是为了留点行间距
+            continue;
+        &#125;
+        sub += m_strText.GetAt(i);
+    &#125;
+    //循环里面
+    if ( !sub.IsEmpty() ) pDC-&gt;TextOut(0, y, sub);
+
+    //移动光标
+    CPoint cp;
+    CSize sz = pDC-&gt;GetTextExtent(sub);
+    cp.y = y;        //y是局部设置好的
+    cp.x = sz.cx;    //通过捕捉sub，得到x和y
+    SetCaretPos(cp);
+&#125;
+</code></pre>
+<p>光标的y轴还算好计算的，毕竟换行的时候就会根据y改变<br>x则需要借助<code>CSize sz = pDC-&gt;GetTextExtent(sub);</code>这么一个获取设备上下文的文字范围。其中最为关键的就是cx和cy。<br>所以也修改了换行的时候y的值，但从20这个固定值，只能保证常用字符，有些汉字什么的就不能保证了，所以还是主动获取最好。</p>
+<p><strong>要注意，换行前的xy和换行后的xy肯定是不同的，不要想着用一个CSize</strong></p>
+<img src="/2022/07/25/mfc01/028.png" class="">
+<p>效果差不多了。</p>
+<p>像玩的深入的还能这样该后面的移动光标<br><code>SetCaretPos(CPoint(sz.cx + 2, y));</code><br>一句话就该过去了，实际上也是用了父类子类之间的关系，然后就是构造函数。<br>看了老师的操作雀食不一样，还有一种调用系统api的方式<code>::SetCaretPos(sz.cx + 2, y);</code>，不过毕竟是系统api，不是mfc的直接内容，所以有的时候为了项目维护还是不搞花里胡哨的。</p>
+<p>但是仍然有很多不足</p>
+<ol>
+<li>没有删除的功能</li>
+<li>比如左键拖动选中文字，文字的背景颜色会变黑之类的</li>
+</ol>
+<p>这些日后再说</p>
+<hr>
+<h2 id="菜单和工具栏"><a href="#菜单和工具栏" class="headerlink" title="菜单和工具栏"></a>菜单和工具栏</h2><h3 id="菜单栏"><a href="#菜单栏" class="headerlink" title="菜单栏"></a>菜单栏</h3><img src="/2022/07/25/mfc01/029.png" class="">
+<p>资源视图没有的，在vs的菜单栏找到视图，再找其他窗口里面就有了。</p>
+<p>然后就是经典设计，注意修改id，默认尾巴跟数字不利于使用和查看。然后描述文字<code>画矩形(&amp;R)</code>后面的是快捷键的一种表达方式，反正具体的应该是mfc写好了。我们只要跟着这样格式写就行。alt+你所输入的字符即为快捷键</p>
+<img src="/2022/07/25/mfc01/030.png" class="">
+<p>跑起来效果肯定就没啥差别</p>
+<img src="/2022/07/25/mfc01/031.png" class="">
+<p>灰色应该是没有事件处理，就是死的按钮。</p>
+<p>然后就是给这个菜单绑定事件</p>
+<img src="/2022/07/25/mfc01/032.png" class="">
+<p>类别表选择view。看下面的菜单命令路由</p>
+<img src="/2022/07/25/mfc01/033.png" class="">
+
+<p>确定之后就会加载一个空的函数了</p>
+<pre><code class="cpp">void CMFCPaintView::OnDrawLine() &#123;
+    // TODO: 在此添加命令处理程序代码
+&#125;
+</code></pre>
+<p><code>TRACE(&quot;%s(%d):%s\r\n&quot;, __FILE__, __LINE__, __FUNCTION__);</code><br>这条内容主要是打印文件路径，然后行号，还有就是函数名<br>典型的debug调试时候使用。</p>
+<p>我们把画矩形绑定事件，不同的就是类列表不同，前面那个在view下，这个在doc下</p>
+<pre><code class="cpp">void CMFCPaintDoc::OnDrwaRect() &#123;
+    // TODO: 在此添加命令处理程序代码
+    TRACE(&quot;%s(%d):%s\r\n&quot;, __FILE__, __LINE__, __FUNCTION__);
+&#125;
+</code></pre>
+<p>然后run一个<br>当我们点击了这个画线和画矩形的时候，输出那里就能看到详细的文件路径、行号和函数名</p>
+<img src="/2022/07/25/mfc01/034.png" class="">
+
+<p>有意思的是双击输出中的这一行TRACE打印的内容他会直接跳转到这个函数的位置</p>
+<img src="/2022/07/25/mfc01/035.png" class="">
+
+<p>对于测试来说这个肯定挺好用的。</p>
+<hr>
+<h3 id="菜单命令路由"><a href="#菜单命令路由" class="headerlink" title="菜单命令路由"></a>菜单命令路由</h3><ol>
+<li>有view和doc，触发了view，但是没有触发doc</li>
+<li>去掉view类的菜单响应函数，打开doc类的响应函数。触发view类，不触发doc；view &gt; doc</li>
+<li>去掉了doc类的菜单响应函数，打开框架类的响应函数触发doc类，不触发app；doc &gt; 框架</li>
+<li>去掉了app类的菜单响应函数，打开app类的响应函数； 框架 &gt; app</li>
+</ol>
+<p>所以响应菜单的命令顺序：view &gt; doc &gt; 框架 &gt; app<br>在这个mfc程序里面看：CMFCPaintView &gt; CMFCPaintDoc &gt; CMainFrame &gt; CMFCPanitApp</p>
+<p>测试的方式可以通过<code>TRACE(&quot;%s(%d):%s\r\n&quot;, __FILE__, __LINE__, __FUNCTION__);</code><br>在view中都绑定事件，然后在其它doc下也绑定，看看到底先触发的是view还是什么。</p>
+<p><strong>经典MVC模式中，M是指业务模型，V是指用户界面，C则是控制器，使用MVC的目的是将M和V的实现代码分离，从而使同一个程序可以使用不同的表现形式。其中，View的定义比较清晰，就是用户界面。</strong></p>
+<hr>
+<h3 id="工具栏"><a href="#工具栏" class="headerlink" title="工具栏"></a>工具栏</h3><p>也是通过资源视图去找，找到toolbar，然后叫mainframe</p>
+<img src="/2022/07/25/mfc01/036.png" class="">
+<img src="/2022/07/25/mfc01/037.png" class="">
+<p>下面哪个256是因为有别的颜色，但是本身都是一个东西，所以做一个东西俩都要弄</p>
+<img src="/2022/07/25/mfc01/038.png" class="">
+<img src="/2022/07/25/mfc01/039.png" class="">
+<p>绘制完成后，修改id</p>
+<img src="/2022/07/25/mfc01/040.png" class="">
+
+<p><strong>注意，如果这个id选择的是以前写过内容的id，那么这个工具栏的按钮就会绑定之前的内容</strong><br>比如我这个又使用<code>DRAW_LINE</code>这是之前测试的</p>
+<pre><code class="cpp">void CMFCPaintView::OnDrawLine() &#123;
+    // TODO: 在此添加命令处理程序代码
+    TRACE(&quot;%s(%d):%s\r\n&quot;, __FILE__, __LINE__, __FUNCTION__);
+&#125;
+</code></pre>
+<p>内容是这样的，我们run这个程序点击看看是否会触发</p>
+<img src="/2022/07/25/mfc01/041.png" class="">
+<p>我们点击了三次，它也的确触发了三次，说明确实绑定了。</p>
+<p><strong>删除这个工具栏的选项，要点击然后拖出去就能删掉了，默认没啥地方有删除选项</strong></p>
+<hr>
+<h3 id="mfc结构文档"><a href="#mfc结构文档" class="headerlink" title="mfc结构文档"></a>mfc结构文档</h3><p><a target="_blank" rel="noopener" href="https://docs.microsoft.com/zh-cn/cpp/mfc/hierarchy-chart?view=msvc-170&viewFallbackFrom=2022">文档戳链接，如果有误跳转时可修改最后参数，此参数为年份</a></p>
+<p>看层次结构的目的是为了以后当参数转换啥的更方便，像自己在vs里面不断跳转定义也ok，就是稍微麻烦了点。</p>
+<p>层次的视觉感观会更直接，比如生物-动物-人-男人，作为派生类，总会有一些与其父类相关的特性。</p>
+<p>CObject</p>
+<ul>
+<li>支持序列化<ul>
+<li>可能把一个结构体变成一个字符串，几个字节存放一个数据，最后留俩当长度</li>
+<li>也可能是{x:100,y:200}这样结构化，类似于json</li>
+<li>….等都是一种序列化的表现</li>
+</ul>
+</li>
+<li>支持运行时提供类的信息<ul>
+<li><code>static CRuntimeClass *PASCAL _GetBaseClass();</code></li>
+<li><code>static CRuntimeClass *PASCAL GetThisClass();</code></li>
+<li>正常的派生类下来，并不会刻意保留父类叫什么，而mfc做了一些优化</li>
+</ul>
+</li>
+<li>支持动态创建以及支持对象诊断输出<ul>
+<li><code>virtual void AsserValid() const;</code></li>
+<li><code>virtual void Dump(CDumpContext&amp; dc) const;</code></li>
+<li>当mfc启动时，有些需求不是立马就创建的，只有当触发的时候才会创建</li>
+</ul>
+</li>
+</ul>
+<p>有这么一个超级基类的存在，就提供了无限的可能，但是这种级别的东西不适合个人开发。</p>
+<hr>
+<h2 id="mfc框架理论"><a href="#mfc框架理论" class="headerlink" title="mfc框架理论"></a>mfc框架理论</h2><h3 id="关键类"><a href="#关键类" class="headerlink" title="关键类"></a>关键类</h3><p><code>CWinApp</code>:MFC应用程序抽象，负责管理Document Template<br><code>CFrameWnd</code>:框架窗口、负责创建应用的主窗口，含标题栏、菜单栏、工具栏、状态栏等<br><code>CView</code>:负责展示应用数据，View其实是一个没有边框的窗口，客户区<br><code>CDocument</code>:负责存储应用数据</p>
+<hr>
+<h3 id="关键类之间的关系"><a href="#关键类之间的关系" class="headerlink" title="关键类之间的关系"></a>关键类之间的关系</h3><p>CDocTemplate、CDocument、CView、CFrameWnd关系</p>
+<ul>
+<li>CWinApp 拥有一个对象指针：CDocManager *m_pDocManager</li>
+<li>CDocManager拥有一个指针链表CPtrList m_templateList，用来维护一系列的DocumentTemplate。应用程序在CMyWinApp::InitInstance中以AddDocTemplate将这些Document Templates加入到有CDocTemplate所维护的链表之中</li>
+<li>CDocTemplate拥有三个成员变量，分别持有Document、View、Frame的CRuntimeClass指针，另有一个成员变量m_nIDResource，用来表示此Document显示时应该采用的UI对象。这四位数据在CMyWinApp::InitInstance函数构造CDocTemplate时指针，称为构造函数的参数。</li>
+<li>CDocument有一个成员变量CDocTemplate *m_pDocTemplate，回指其DocumentTemplate；另外有一个成员变量CPtrList m_viewList，表示它可以同时维护一组Views。</li>
+<li>CFrameWnd有一个成员变量Cview *m_pViewActive，指向当前活动的View</li>
+<li>CView有一个成员变量CDocument *m_pDocument，指向相关的Document</li>
+</ul>
+<p>结构层次化都是为了方便开发和维护。</p>
+<hr>
+<h3 id="消息分类"><a href="#消息分类" class="headerlink" title="消息分类"></a>消息分类</h3><p>mfc消息的分类大致分为三种：标准消息、命令消息、通告消息。</p>
+<ol>
+<li>标准消息：除WM_COMMAND之外，所有以WM_开头的消息。从CWnd类派生的类都可以接受到这一类消息</li>
+<li>命令消息：来自菜单、加速键或者工具栏按钮的消息。这类消息都以WM_COMMAND呈现。在MFC中，通过菜单项的标识(id)来区分不同的命令消息；在sdk中，通过消息的wParam参数识别。从CCmdTarget(CWnd的父类)派生的类都可以接收到这一类消息</li>
+<li>通告消息：由控件产生的消息，例如按钮的单击，列表框的选择等均会产生此类消息，为的是向其父窗口(通常为对话框)通知时间的发生。这类消息也是以WM_COMMAND形式呈现。从CCmdTarget(CWnd的父类)派生的类都可以接收到这一类消息。</li>
+</ol>
+<p>小结：凡是从Cwnd派生的类，即可以接受标准消息，也可以接收命令消息和通告消息。<br>而对于那些从CCmdTarget派生的类，则只能接受命令消息和通告消息，不能接受标准消息。</p>
+<hr>
+<h2 id="对话框"><a href="#对话框" class="headerlink" title="对话框"></a>对话框</h2><p>是与用户进行交互的控件，如文件对话框、字体对话框、颜色对话框等，一般用于告示、提醒等。</p>
+<img src="/2022/07/25/mfc01/042.png" class="">
+<p>app这个是之前创建的对话框，从类视图可以看到只有三个类。比文档的结构观感上要简洁不少。</p>
+<p>其中标准消息可以直接通过类视图-&gt;选择项目的类-&gt;属性里面找到消息即可。</p>
+<p>对话框其实就是一个窗口，它不仅可以接收消息，而且还可以被移动或者关闭，甚至是在客户区中进行绘图。这些都是有CWnd类派生而来。</p>
+<img src="/2022/07/25/mfc01/043.png" class="">
+
+<p>其中除了最基础的消息，还有控件</p>
+<img src="/2022/07/25/mfc01/044.png" class="">
+<p>利用拖动控件的方式，可以省去很多麻烦。</p>
+<hr>
+<h3 id="创建对话框"><a href="#创建对话框" class="headerlink" title="创建对话框"></a>创建对话框</h3><p>同样的，已有的几个是根据项目类型产生的，我们当然可以进行创建<br>在资源视图中，选这个项目的Dialog，然后右击添加资源</p>
+<img src="/2022/07/25/mfc01/045.png" class="">
+
+<p>这里不选子类直接选Dialog也是可以的。</p>
+<img src="/2022/07/25/mfc01/046.png" class="">
+<p>通过Dialog创建的它的对话框属性只有一个id能修改，问题不大，改个有意义的就行</p>
+<img src="/2022/07/25/mfc01/047.png" class="">
+<p>资源属性这边能改的就很多。</p>
+<p>图形化的做完了，代码实现部分就需要类去控制它</p>
+<img src="/2022/07/25/mfc01/048.png" class="">
+<p>直接右击添加类，类名随便写尽量有意义，然后继承的基类，一般是这头两个。ex说过就是拓展的意思。</p>
+<p>这种通过简单的方式创建出模板的好处就是省去了一些小麻烦，也不容易出问题</p>
+<pre><code class="cpp">void CMFCApplication1Dlg::OnBnClickedOk() &#123;
+    // TODO: 在此添加控件通知处理程序代码
+    //MessageBox(_T(&quot;你好呀!&quot;));
+    CBingDialog dlg;
+    dlg.DoModal();
+    
+    CDialogEx::OnOK();
+&#125;
+</code></pre>
+<p>在主窗口的确认按钮下设置，将我们新建的CBingDialog作为模块化弹出</p>
+<img src="/2022/07/25/mfc01/049.png" class="">
+<p>当dlg弹出之后，原先的窗口是不可改变的状态，只有dlg关闭之后才能操作后面的对话框。</p>
+<p><code>DoModal</code>这就是所谓的模态对话框，有的时候会觉得不太方便吧，但是如果是警示之类的还是挺好的。</p>
+<p>有模态化就有非模态化的，非模态化的一个问题其实猜也能猜到，就是因非模态化而产生的对话框不会卡住，如果这个变量优先级不够，很有可能在不知道的地方就被析构释放了，在逻辑上会导致很严重的问题，而且设置起来也较为麻烦。</p>
+<p><strong>首先因为没有锁或者说阻塞，所以当按钮按下的适合，这个新建的对话框一闪而过，结束的很快。</strong><br>所以要在头文件类中建一个全局变量。</p>
+<pre><code class="cpp">class CMFCApplication1Dlg : public CDialogEx
+&#123;
+// 构造
+public:
+    CMFCApplication1Dlg(CWnd* pParent = nullptr);    // 标准构造函数
+    CBingDialog dlg;        //注意引用头文件不然是未定义的类型
+//....后面的省略
+&#125;
+</code></pre>
+<p>然后又要在对话框源文件中，找到oninitdialog函数</p>
+<pre><code class="cpp">// TODO: 在此添加额外的初始化代码
+dlg.Create(IDD_DIALOG_NEW, this);
+</code></pre>
+<p>在这完成初始化。</p>
+<p>最后在按钮消息中触发显示</p>
+<pre><code class="cpp">void CMFCApplication1Dlg::OnBnClickedOk() &#123;
+    dlg.ShowWindow(SW_SHOW);
+&#125;
+</code></pre>
+<p>可以看到非模态化的对话框设置起来就要挺多步骤了。</p>
+<img src="/2022/07/25/mfc01/050.png" class="">
+<p>非模态化的效果就是不会阻塞，后面的窗口是可以操作的。</p>
+<p>或者你可以直接在对话框源文件中定义全局变量<code>CBingDialog dlg;</code><br>然后再按钮消息中设置</p>
+<pre><code class="cpp">void CMFCApplication1Dlg::OnBnClickedOk() &#123;
+    dlg.Create(IDD_DIALOG_NEW, this);
+    dlg.ShowWindow(SW_SHOW);
+&#125;
+</code></pre>
+<p>也是可行的，因为这个dlg变量不会再按钮结束后立马被析构掉。</p>
+<p><strong>总而言是，模态化对话框的使用场景肯定是基于会修改影响到其他窗口，这个时候肯定要设置称模态化对话框去阻塞，不然改动了还原的部分都没的操作了。非模态像vs的视图吧，这些对话框不会直接影响主窗口的就适用于非模态</strong></p>
+<hr>
+<h3 id="按钮"><a href="#按钮" class="headerlink" title="按钮"></a>按钮</h3><p>按钮的创建，从图形化角度，直接拖动控件是最直接的，拖动完成后保存，然后双击这个按钮直接会跳转到代码界面，你就可以编辑这个按钮消息能干什么了。</p>
+<img src="/2022/07/25/mfc01/051.png" class="">
+<p>新建一个按钮，修改一下描述文字和id，然后双击开始编辑</p>
+<pre><code class="cpp">void CBingDialog::OnBnClickedButtonTest() &#123;
+    // TODO: 在此添加控件通知处理程序代码
+    TRACE(&quot;%s(%d):%s\n&quot;, __FILE__, __LINE__, __FUNCTION__);
+&#125;
+</code></pre>
+<p>老样子在日志里输出文件路径，行号，函数名。</p>
+<img src="/2022/07/25/mfc01/052.png" class="">
+<p>这玩意肯定是不会有啥问题了。</p>
+<img src="/2022/07/25/mfc01/053.png" class="">
+<p>至于动态布局，就是比例放大或者缩小的适合这个按钮的位置会自动调整，不设置的话窗口放大或者缩小它的位置都不会改变。</p>
+<p>其它的一些行为都有中文描述可以自己试一下。</p>
+<p>然后就是通过按钮去创建自定义按钮，本质上就是手动整活了。</p>
+<pre><code class="cpp">protected:
+    CButton m_Btn;        //自定义按钮
+</code></pre>
+<p>在头文件中肯定要预先定义这个空的按钮。</p>
+<pre><code class="cpp">void CBingDialog::OnBnClickedButtonTest() &#123;
+    // TODO: 在此添加控件通知处理程序代码
+    TRACE(&quot;%s(%d):%s\n&quot;, __FILE__, __LINE__, __FUNCTION__);
+
+    if ( m_Btn.m_hWnd == NULL ) &#123;
+        m_Btn.Create(_T(&quot;动态&quot;), BS_DEFPUSHBUTTON | WS_VISIBLE | WS_CHILD, CRect(100, 100, 200, 150), this, 9999);
+    &#125;
+&#125;
+</code></pre>
+<p><code>BS_DEFPUSHBUTTON | WS_VISIBLE | WS_CHILD</code><br>BS开头就是button style，按钮自带的样式，WS就是 windows style，译为windows系统的样式，具体种类可以转到定义，有不少这样的类型。</p>
+<p><strong>注意下最后的id，不要通过变量传递去改变，一定要固定为主，避免冲突或者广播，因为id重了，获取消息的时候就可能一起接收或者发送</strong></p>
+<img src="/2022/07/25/mfc01/054.png" class="">
+<p>跑起来之后，点击test_button之后就会弹出这个动态的按钮，看上去可能有点潦草，毕竟是随便建的。</p>
+<blockquote>
+<p>如果采用全局变量dlg是在源文件的要注意一下<br>可能存在窗口创建多次报错</p>
+</blockquote>
+<pre><code class="cpp">void CMFCApplication1Dlg::OnBnClickedOk() &#123;
+    if ( dlg.m_hWnd == NULL ) &#123;
+        dlg.Create(IDD_DIALOG_NEW, this);
+    &#125;
+    dlg.ShowWindow(SW_SHOW);
+&#125;
+</code></pre>
+<p>给他加个验证以防万一</p>
+<p><strong>动态按钮的创建，还是随着用户改变为主，一般用的少</strong><br>不过没启用之前也不占资源倒是一件好事，顶多留个指针。</p>
+<hr>
+<h2 id="控件"><a href="#控件" class="headerlink" title="控件"></a>控件</h2><p>正常情况下，我们知道访问这个控件，比如按钮，肯定是在当前窗口访问最直接也不需要额外操作，但是别的窗口如果要访问，就是另一回事了。</p>
+<img src="/2022/07/25/mfc01/055.png" class="">
+<p>首先给这个对话框里面添加三个文本框，默认是空的，通过别的地方传递给这个文本框一个初始值。</p>
+<p>在自定义的对话框初始化一个文本框之前需要注意，我们自定义的他少一个标准的函数<code>OnInitDialog()</code>作为初始化用</p>
+<p>打开类视图-&gt;找到这个项目选择CBingDialog-&gt;然后属性那边有个重写往下滑找到<code>OnInitDialog()</code>点击后面add即可。</p>
+<pre><code class="cpp">BOOL CBingDialog::OnInitDialog() &#123;
+    CDialogEx::OnInitDialog();
+
+    // TODO:  在此添加额外的初始化
+
+    return TRUE;  // return TRUE unless you set the focus to a control
+                  // 异常: OCX 属性页应返回 FALSE
+&#125;
+</code></pre>
+<hr>
+<h3 id="访问文本框"><a href="#访问文本框" class="headerlink" title="访问文本框"></a>访问文本框</h3><p>通过父类CWnd，我们可以直接在对话框初始化这些文本框</p>
+<pre><code class="cpp">BOOL CBingDialog::OnInitDialog() &#123;
+    CDialogEx::OnInitDialog();
+
+    // TODO:  在此添加额外的初始化
+    CWnd *pEdit01 = GetDlgItem(IDC_EDIT_ONE);
+    CWnd *pEdit02 = GetDlgItem(IDC_EDIT_TWO);
+    CWnd *pEdit03 = GetDlgItem(IDC_EDIT_THREE);
+
+    if ( pEdit01 != NULL ) pEdit01-&gt;SetWindowText(_T(&quot;100&quot;));
+    if ( pEdit02 != NULL ) pEdit02-&gt;SetWindowText(_T(&quot;200&quot;));
+    if ( pEdit03 != NULL ) pEdit03-&gt;SetWindowText(_T(&quot;300&quot;));
+
+    return TRUE;  // return TRUE unless you set the focus to a control
+                  // 异常: OCX 属性页应返回 FALSE
+&#125;
+</code></pre>
+<img src="/2022/07/25/mfc01/056.png" class="">
+
+<p>这个setwindowstext不仅能设置，还能取出值，类型应是Cstring</p>
+<pre><code class="cpp">CString setText;
+pEdit01-&gt;SetWindowText(strText);
+</code></pre>
+<p>用父类的CWnd去接收可能有点麻烦，但是至少能判断是否获取成功了<br>因为还有一种直接的方式</p>
+<pre><code class="cpp">SetDlgItemText(IDC_EDIT_ONE, _T(&quot;100&quot;));
+GetDlgItemText(IDC_EDIT_ONE, strText);
+</code></pre>
+<p>这种方式呢，主要是产生错误的时候你也不晓得是前者不存在，还是后者溢出。</p>
+<p>还有一种是针对无符号整型的</p>
+<pre><code class="cpp">SetDlgItemInt(IDC_EDIT_THREE, 300);
+BOOL isTrans = FALSE;
+UINT ret = GetDlgItemINt(IDC_EDIT_THREE, &amp;isTrans);
+</code></pre>
+<p>加这个布尔值的意思是，如果传输成功，这个布尔值就会变成TRUE，那么ret的值自然就是300，到不太在意ret了，如果还是FALSE，则说明传递失败了。</p>
+<hr>
+<h3 id="添加变量"><a href="#添加变量" class="headerlink" title="添加变量"></a>添加变量</h3><p>先去Diglog页面，选中文本框右击，添加变量打开即可。</p>
+<img src="/2022/07/25/mfc01/057.png" class="">
+<p>选择类别，一种是值一种是控件，这边现用值，名称看着来。<br>选择类别为值后，变量的类型也需要确定，默认来说字符串Cstring更合适，这边先用int玩，注释就更不用说了。</p>
+<img src="/2022/07/25/mfc01/058.png" class="">
+<p>选择int这种值类型，在其他这里就会有最小值和最大值的分别。最大字符数是给字符串类型用的，至于下面的文件倒不用特意选了，毕竟这个添加变量是在CBingDialog下添加的，默认就在这里。</p>
+<pre><code class="cpp">#pragma once
+#include &quot;afxdialogex.h&quot;
+
+
+// CBingDialog 对话框
+
+class CBingDialog : public CDialogEx
+&#123;
+    DECLARE_DYNAMIC(CBingDialog)
+
+public:
+    CBingDialog(CWnd* pParent = nullptr);   // 标准构造函数
+    virtual ~CBingDialog();
+
+// 对话框数据
+#ifdef AFX_DESIGN_TIME
+    enum &#123; IDD = IDD_DIALOG_NEW &#125;;
+#endif
+
+protected:
+    CButton m_Btn;        //自定义按钮
+
+protected:
+    virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV 支持
+
+    DECLARE_MESSAGE_MAP()
+public:
+    afx_msg void OnBnClickedButtonTest();
+    virtual BOOL OnInitDialog();
+    // 文本框1的值
+    int m_Value1;
+&#125;;
+</code></pre>
+<p>能看到下面有个注释，然后是我们新增的变量。<br>在源文件中同样有初始化的地方</p>
+<pre><code class="cpp">void CBingDialog::DoDataExchange(CDataExchange* pDX) &#123;
+    CDialogEx::DoDataExchange(pDX);
+    DDX_Text(pDX, IDC_EDIT_ONE, m_Value1);
+    DDV_MinMaxInt(pDX, m_Value1, -9999, 9999);
+&#125;
+</code></pre>
+<p>别的不说，这个绑定在文本框的id和名称，还有下面的最大值最小值肯定看得出来。</p>
+<p><strong>那么肯定会好奇绑定这个值类型的变量有什么用？</strong></p>
+<p>给另外两个文本框都添加变量<br>然后给确定按钮写代码</p>
+<pre><code class="cpp">void CBingDialog::OnBnClickedOk() &#123;
+    // TODO: 在此添加控件通知处理程序代码
+    UpdateData();                    //无参数默认为TRUE，此时把界面的值传到变量
+    m_Value3 = m_Value1 + m_Value2;
+    UpdateData(FALSE);                //为FALASE时，把值传回到界面
+
+    //CDialogEx::OnOK();
+&#125;
+</code></pre>
+<p>就是按下之后，文本框三的内容是1+2的就对了。<br>这里随便修改一下文本框2的内容，然后再按下确认，能看到文本框3的内容改变了</p>
+<img src="/2022/07/25/mfc01/059.png" class="">
+
+<hr>
+<h3 id="添加控件"><a href="#添加控件" class="headerlink" title="添加控件"></a>添加控件</h3><p>方法一致，在Dialog视图中右击文本框添加变量，只不过类型改成控件<br>当三个都添加完成之后编写代码</p>
+<pre><code class="cpp">void CBingDialog::OnBnClickedOk() &#123;
+    // TODO: 在此添加控件通知处理程序代码
+
+    CString str1, str2, str3;
+    m_Edit1.GetWindowText(str1);
+    m_Edit2.GetWindowText(str2);
+    int t = _wtoi(str1) + _wtoi(str2);
+    TCHAR buf[32] = _T(&quot;&quot;);
+    _itow_s(t, buf, 10);
+    str3 = buf;
+    m_Edit3.SetWindowText(str3);
+
+    //CDialogEx::OnOK();
+&#125;
+</code></pre>
+<p>控件创建的时候变量类型是CEdit，那么推测也是跟字符串有关的，所以在做加法之前先完成一个转换。<br>最后得到的结果也是成功的</p>
+<img src="/2022/07/25/mfc01/060.png" class="">
+<p>虽然肯能不是很实用，但是总归是个小技巧</p>
+<hr>
+<h3 id="SendMessage"><a href="#SendMessage" class="headerlink" title="SendMessage"></a>SendMessage</h3><pre><code class="cpp">SendMessage(WM_GETTEXT);
+SendMessage(WM_SETTEXT);
+</code></pre>
+<p>不过这俩在函数内部，其实也不知道发给谁，顶多是传给往上一层的。</p>
+<pre><code class="cpp">void CBingDialog::OnBnClickedButtonTest() &#123;
+    // TODO: 在此添加控件通知处理程序代码
+    TRACE(&quot;%s(%d):%s\n&quot;, __FILE__, __LINE__, __FUNCTION__);
+
+    if ( m_Btn.m_hWnd == NULL ) &#123;
+        m_Btn.Create(_T(&quot;动态&quot;), BS_DEFPUSHBUTTON | WS_VISIBLE | WS_CHILD, CRect(100, 100, 200, 150), this, 9999);
+    &#125;
+
+    TCHAR buf[20] = _T(&quot;&quot;);
+    ::SendMessage(m_Edit1.m_hWnd, WM_GETTEXT, 20, (LPARAM)buf);
+    m_Edit1.SendMessage(WM_SETTEXT, sizeof(buf), (LPARAM)buf);
+    SendMessage(WM_GETTEXT, 20, (LPARAM)buf);
+&#125;
+</code></pre>
+<p>老实说这后面的在干什么我也看不懂了。<br>不过打断点调试之后，看到buf的值是取了这个窗口的标题</p>
+<img src="/2022/07/25/mfc01/061.png" class="">
+
+<p>不过按照推理<code>m_Edit1.m_hWnd</code>这个应该是通过控件获取到这个当前窗口句柄了，然后get句柄的Text属性到buf上，之所以能找到这个窗口句柄感觉还是因为<code>::</code>全局作用域的关系，然后后面这个文本框发送消息到buf上这个说法上不太通顺，因为用文本框发送消息和按钮按下后发送消息，buf理论都一样了吧，毕竟是从窗口句柄取值的。</p>
+<p><strong>打个？后面碰到了在细究</strong></p>
+<hr>
+<h2 id="对话框伸缩"><a href="#对话框伸缩" class="headerlink" title="对话框伸缩"></a>对话框伸缩</h2><p>其实窗口是有自带的缩放，但是这里先自定义两个按钮去实现</p>
+<img src="/2022/07/25/mfc01/062.png" class="">
+<p>控件拖动完毕后，修改一下id，然后双击按钮跳到代码编辑部分。</p>
+<p>放大还是缩小总归是要知道窗口的大小先</p>
+<p>现在头文件里预定一大一小</p>
+<pre><code class="cpp">//窗口大小
+CRect m_large;
+CRect m_small;
+</code></pre>
+<p><strong>注：CRect有四个成员分别是left,top这二者代表矩形左上角顶点坐标，right，bottom代表矩形右下角的坐标，草图如下：</strong></p>
+<img src="/2022/07/25/mfc01/068.png" class="">
+
+
+<p>然后在源文件的<code>OnInitDialog()</code>初始化一下</p>
+<pre><code class="cpp">GetWindowRect(m_large);
+m_small = m_large;
+m_small.right = m_small.left + m_small.Width() / 2;
+m_small.bottom = m_small.top + m_small.Height() / 2;
+</code></pre>
+<p>最后给放大缩小实现一下</p>
+<pre><code class="cpp">void CBingDialog::OnBnClickedBtnLarge() &#123;
+    // TODO: 在此添加控件通知处理程序代码
+    CRect curRect;        //获取当前窗口尺寸信息
+    GetWindowRect(curRect);
+    SetWindowPos(NULL, curRect.left, curRect.top,
+                 m_large.Width(), m_large.Height(),
+                 SWP_NOMOVE | SWP_NOZORDER
+    );
+
+&#125;
+
+void CBingDialog::OnBnClickedBtnSmall() &#123;
+    // TODO: 在此添加控件通知处理程序代码
+    CRect curRect;
+    GetWindowRect(curRect);
+    SetWindowPos(NULL, curRect.left, curRect.top,
+                 m_small.Width(), m_small.Height(),
+                 SWP_NOMOVE | SWP_NOZORDER
+    );
+&#125;
+</code></pre>
+<p><strong>SWP_NOZORDER：忽略第一个参数；SWP_NOMOVE：忽略x、y，维持位置不变</strong></p>
+<p>curRect都是为了先获取当前窗口尺寸<br>所以当setwindowpos的时候，xy不需要改变，cx和cy则是用m_large和m_small改变。<br>不过因为m_large初始化的时候是直接根据当前窗口大小来的，所以一开始点击放大是没有反应的，当缩小了之后在点击放大才会改变回原有尺寸</p>
+<img src="/2022/07/25/mfc01/063.png" class="">
+<p>这里调整了一下俩按钮的位置，因为没有加滑动条，所以缩小了原有位置就够不到了。</p>
+<img src="/2022/07/25/mfc01/064.png" class="">
+
+<p>不过可以看出上述按钮实现雷同点比较多。<br>那么就有一个骚操作，就是通过获取按钮标签名去改变</p>
+<pre><code class="cpp">void CBingDialog::OnBnClickedBtnLarge() &#123;
+    // TODO: 在此添加控件通知处理程序代码
+    CRect curRect;        //获取当前窗口尺寸信息
+    GetWindowRect(curRect);
+
+    CWnd *pButton = GetDlgItem(IDC_BTN_LARGE);
+    CString strTitle;
+    if ( pButton ) &#123;
+        pButton-&gt;GetWindowText(strTitle);
+        if ( strTitle == _T(&quot;放大&quot;) ) &#123;
+            pButton-&gt;SetWindowText(_T(&quot;缩小&quot;));
+
+            SetWindowPos(NULL, curRect.left, curRect.top,
+                 m_large.Width(), m_large.Height(),
+                 SWP_NOMOVE | SWP_NOZORDER
+            );
+        &#125; else &#123;
+            pButton-&gt;SetWindowText(_T(&quot;放大&quot;));
+
+            SetWindowPos(NULL, curRect.left, curRect.top,
+                m_small.Width(), m_small.Height(),
+                SWP_NOMOVE | SWP_NOZORDER
+            );
+        &#125;
+    &#125;
+
+&#125;
+</code></pre>
+<img src="/2022/07/25/mfc01/065.png" class="">
+<img src="/2022/07/25/mfc01/066.png" class="">
+<img src="/2022/07/25/mfc01/067.png" class="">
+
+<p>先点击放大，发现按钮名变成缩小了，然后再次点击，窗口缩小，按钮名称变成放大，再点击就放大了，按钮名称就变成缩小。</p>
+<p>所以另一个按钮就没有存在的必要了，把这个放大按钮的名称改成缩小，这样一来开头的光变名字就可以省去了。</p>
+<p>最后做一个安全的设计</p>
+<pre><code class="cpp">void CBingDialog::OnBnClickedBtnLarge() &#123;
+    // TODO: 在此添加控件通知处理程序代码
+    CRect curRect;        //获取当前窗口尺寸信息
+    GetWindowRect(curRect);
+
+    CWnd *pButton = GetDlgItem(IDC_BTN_LARGE);
+    CString strTitle;
+    if ( pButton ) &#123;
+        pButton-&gt;GetWindowText(strTitle);
+        if ( strTitle == _T(&quot;放大&quot;) &amp;&amp; (m_large.IsRectEmpty() == FALSE) ) &#123;
+            pButton-&gt;SetWindowText(_T(&quot;缩小&quot;));
+
+            SetWindowPos(NULL, curRect.left, curRect.top,
+                 m_large.Width(), m_large.Height(),
+                 SWP_NOMOVE | SWP_NOZORDER
+            );
+        &#125; else if ( m_large.IsRectEmpty() == FALSE ) &#123;
+            pButton-&gt;SetWindowText(_T(&quot;放大&quot;));
+
+            SetWindowPos(NULL, curRect.left, curRect.top,
+                m_small.Width(), m_small.Height(),
+                SWP_NOMOVE | SWP_NOZORDER
+            );
+        &#125;
+    &#125;
+
+&#125;
+</code></pre>
+<p><code>IsRectEmpty()</code>主要是为了判断这个窗口如果left、top、right、bottom都一样的话，说明这个窗口就只有一个点，并没有办法完成缩放和放大了。</p>
+<blockquote>
+<p>窗口其实除了大小，就是绘制的位置，有的时候不是在当前窗口之上绘制，就有可能掉下去一层跟后面的窗口平级，至于窗口为什么能叠加，应该是除了xy，还有一个z轴，是3d模型的经典概念。</p>
+</blockquote>
+<hr>
+<h2 id="常用控件"><a href="#常用控件" class="headerlink" title="常用控件"></a>常用控件</h2><p>空间交互，首先要创建控件或者说拖个出来，交互，就需要绑定控件或者变量，在消息中有来有回实现一些功能。</p>
+<p>例如上述所学到的函数<code>GetDlgItem</code>，他就可以通过控件id获取到对应的控件<br><code>CListBox *list  = (CListBox*)GetDlgItem(控件id)</code></p>
+<p>绑定控件和变量，在消息中曾使用到<code>UpdateData(TRUE|FALSE)</code>，默认不填写为TRUE，也就是将控件内容第一时间同步到变量上，FALSE则是将变量同步回控件</p>
+<hr>
+<h3 id="Radio"><a href="#Radio" class="headerlink" title="Radio"></a>Radio</h3><p>随便建个mfc项目，选择对话框类型，有的没的取消勾选</p>
+<img src="/2022/07/25/mfc01/069.png" class="">
+
+<p>然后绘制这样的窗口，其中radio和check按钮，最后一个button</p>
+<p>性别直接添加一个变量就可以了，原本想着用bool类型，但是考虑到得有个初始值，其实这个初始化关系到也不是特别大，但此处就换个万一弄弄，用int来表示，那么就需要注意了，你需要修改初始化部分</p>
+<pre><code class="cpp">CMFCButtonDlg::CMFCButtonDlg(CWnd* pParent /*=nullptr*/)
+    : CDialogEx(IDD_MFCBUTTON_DIALOG, pParent)
+    , m_sex(-1)&#123;
+    m_hIcon = AfxGetApp()-&gt;LoadIcon(IDR_MAINFRAME);
+&#125;
+</code></pre>
+<p>m_sex为我们添加的变量名，括号代表初始化值，默认是0，但这里的思路是-1为未初始化，0为男 1为女这样。</p>
+<p>如此一来，结果那个按钮第一步就可以上手了</p>
+<pre><code class="cpp">void CMFCButtonDlg::OnBnClickedBtnResult()&#123;
+    // TODO: 在此添加控件通知处理程序代码
+    UpdateData();
+
+    if( m_sex == -1 )&#123;
+        MessageBox(_T(&quot;请选择性别&quot;), _T(&quot;性别缺失&quot;), MB_OK | MB_ICONEXCLAMATION);
+        return;
+    &#125;
+
+&#125;
+</code></pre>
+<p><strong>_T只是为了兼容unicode，在你的项目编码是ANSI的时候下次转换能保证字符串不出错，其次还有一个_L，它是不管编译方式都按unicode保存</strong></p>
+<p><strong>万国码通用保存2两字节，ANSI英文一字节汉语两字节，再次强调</strong></p>
+<p><code>MB_ICONEXCLAMATION</code>是一个警告图标，不同于<code>SWP_NOZORDER</code>，前者为黄色感叹号，后者为红色x号。</p>
+<p>然后打印，肯定就要用CString了。</p>
+<pre><code class="cpp">void CMFCButtonDlg::OnBnClickedBtnResult()&#123;
+    // TODO: 在此添加控件通知处理程序代码
+    UpdateData();
+
+    if( m_sex == -1 )&#123;
+        MessageBox(_T(&quot;请选择性别&quot;), _T(&quot;性别缺失&quot;), MB_OK | MB_ICONEXCLAMATION);
+        return;
+    &#125;
+
+    CString strMsg = _T(&quot;您的性别是：&quot;) + (m_sex == 0) ? _T(&quot;男\n&quot;) : _T(&quot;女\n&quot;);
+    MessageBox(strMsg);
+&#125;
+</code></pre>
+<p>run的时候会发现</p>
+<img src="/2022/07/25/mfc01/070.png" class="">
+<p>额前面那句好像没有加上，原因应该是Cstring没有重写string+string吧</p>
+<pre><code class="cpp">void CMFCButtonDlg::OnBnClickedBtnResult()&#123;
+    // TODO: 在此添加控件通知处理程序代码
+    UpdateData();
+
+    if( m_sex == -1 )&#123;
+        MessageBox(_T(&quot;请选择性别&quot;), _T(&quot;性别缺失&quot;), MB_OK | MB_ICONEXCLAMATION);
+        return;
+    &#125;
+
+    CString strMsg = CString(_T(&quot;您的性别是：&quot;)) + ((m_sex == 0) ? _T(&quot;男\n&quot;) : _T(&quot;女\n&quot;));
+    MessageBox(strMsg, _T(&quot;tips&quot;));
+&#125;
+</code></pre>
+<p>修改之后：</p>
+<img src="/2022/07/25/mfc01/071.png" class="">
+
+
+<p>对于多选框，类型一般还是bool比较合适，但是默认的添加变量都是单个类型，所以我们在自动的基础上，给他改成数组</p>
+<pre><code class="cpp">// 爱好
+BOOL m_hobby[3];
+</code></pre>
+<p>那么在源文件就要注意：</p>
+<pre><code class="cpp">CMFCButtonDlg::CMFCButtonDlg(CWnd* pParent /*=nullptr*/)
+    : CDialogEx(IDD_MFCBUTTON_DIALOG, pParent)
+    , m_sex(-1) &#123;
+    memset(m_hobby, 0, sizeof(m_hobby));
+
+    m_hIcon = AfxGetApp()-&gt;LoadIcon(IDR_MAINFRAME);
+&#125;
+
+void CMFCButtonDlg::DoDataExchange(CDataExchange* pDX)
+&#123;
+    CDialogEx::DoDataExchange(pDX);
+    DDX_Radio(pDX, IDC_RAD_MAN, m_sex);
+    DDX_Check(pDX, IDC_CK_FB, m_hobby[0]);
+    DDX_Check(pDX, IDC_CK_BKB, m_hobby[1]);
+    DDX_Check(pDX, IDC_CK_YOGA, m_hobby[2]);
+&#125;
+</code></pre>
+<p>手动修改成数组</p>
+<p>最后完善一下结果消息</p>
+<pre><code class="cpp">void CMFCButtonDlg::OnBnClickedBtnResult()&#123;
+    // TODO: 在此添加控件通知处理程序代码
+    UpdateData();
+
+    if( m_sex == -1 )&#123;
+        MessageBox(_T(&quot;请选择性别&quot;), _T(&quot;性别缺失&quot;), MB_OK | MB_ICONEXCLAMATION);
+        return;
+    &#125;
+
+    CString strMsg = CString(_T(&quot;您的性别是：&quot;)) + ((m_sex == 0) ? _T(&quot;男\n&quot;) : _T(&quot;女\n&quot;));
+    strMsg += _T(&quot;你的爱好有：&quot;);
+    CString hobby[3]&#123; _T(&quot;足球&quot;),_T(&quot;篮球&quot;),_T(&quot;瑜伽&quot;) &#125;;
+    for( int i = 0; i &lt; 3; i++ )&#123;
+        if( m_hobby[i] )&#123;
+            strMsg += hobby[i] + _T(&quot; &quot;);
+        &#125;
+    &#125;
+
+    MessageBox(strMsg, _T(&quot;tips&quot;));
+&#125;
+</code></pre>
+<img src="/2022/07/25/mfc01/072.png" class="">
+<p>就ok了，这两个按钮的应用还算基础的。</p>
+<p>当然自己定义数组一个办法，也可以通过控件id，get他的name<br>至于说这个id该通过什么办法<br>比如项目头文件里面有个叫<code>Resource.h</code>的，打开之后会看到他宏定义了我们跟控件有关的</p>
+<pre><code class="cpp">#define IDD_MFCBUTTON_DIALOG            102
+#define IDR_MAINFRAME                   128
+#define IDC_BUTTON1                     1000
+#define IDC_BTN_RESULT                  1000
+#define IDC_RAD_MAN                     1001
+#define IDC_RAD_WOMEN                   1002
+#define IDC_CK_FB                       1003
+#define IDC_CK_BKB                      1004
+#define IDC_CK_YOGA                     1005
+</code></pre>
+<p>复选框就看后面仨，有了这个其实会容易很多，因为他们是连续的。</p>
+<pre><code class="cpp">void CMFCButtonDlg::OnBnClickedBtnResult()&#123;
+    // TODO: 在此添加控件通知处理程序代码
+    UpdateData();
+
+    if( m_sex == -1 )&#123;
+        MessageBox(_T(&quot;请选择性别&quot;), _T(&quot;性别缺失&quot;), MB_OK | MB_ICONEXCLAMATION);
+        return;
+    &#125;
+
+    CString strMsg = CString(_T(&quot;您的性别是：&quot;)) + ((m_sex == 0) ? _T(&quot;男\n&quot;) : _T(&quot;女\n&quot;));
+    strMsg += _T(&quot;你的爱好有：&quot;);
+    //CString hobby[3]&#123; _T(&quot;足球&quot;),_T(&quot;篮球&quot;),_T(&quot;瑜伽&quot;) &#125;;
+
+    UINT nId = IDC_CK_FB;
+
+    for( int i = 0; i &lt; 3; i++ )&#123;
+        if( m_hobby[i] )&#123;
+            //strMsg += hobby[i] + _T(&quot; &quot;);
+            CString sName;
+            GetDlgItemText(nId + i, sName);
+            strMsg += sName;
+        &#125;
+    &#125;
+
+    MessageBox(strMsg, _T(&quot;tips&quot;));
+&#125;
+</code></pre>
+<p>因为从足球开始，后面只需要+1就可以得到，倒是省了定义一个数组。</p>
+<img src="/2022/07/25/mfc01/073.png" class="">
+
+<p><strong>但是这个是基于你这几个复选框是连续的，id才能跟的上，不然跟数组没啥太大差别</strong></p>
+<hr>
+<h3 id="EditControl"><a href="#EditControl" class="headerlink" title="EditControl"></a>EditControl</h3><p>工具箱里找</p>
+<img src="/2022/07/25/mfc01/074.png" class="">
+<p>然后拖出来，稍微调整一下大小</p>
+<img src="/2022/07/25/mfc01/075.png" class="">
+
+<p>对应的属性也有不少，好在2022都做成中文了</p>
+<img src="/2022/07/25/mfc01/076.png" class="">
+
+<p>这玩意说实在没啥必要演示，自己试几下就行了，但是有个基础应用的地方到时跟上面能联动<br>就是将我们选完之后的内容打印在editcontrol中</p>
+<pre><code class="cpp">void CMFCButtonDlg::OnBnClickedBtnResult()&#123;
+    // TODO: 在此添加控件通知处理程序代码
+    UpdateData();
+
+    if( m_sex == -1 )&#123;
+        MessageBox(_T(&quot;请选择性别&quot;), _T(&quot;性别缺失&quot;), MB_OK | MB_ICONEXCLAMATION);
+        return;
+    &#125;
+
+    CString strMsg = CString(_T(&quot;您的性别是：&quot;)) + ((m_sex == 0) ? _T(&quot;男\r\n&quot;) : _T(&quot;女\r\n&quot;));
+    strMsg += _T(&quot;你的爱好有：&quot;);
+    //CString hobby[3]&#123; _T(&quot;足球&quot;),_T(&quot;篮球&quot;),_T(&quot;瑜伽&quot;) &#125;;
+
+    UINT nId = IDC_CK_FB;
+
+    for( int i = 0; i &lt; 3; i++ )&#123;
+        if( m_hobby[i] )&#123;
+            //strMsg += hobby[i] + _T(&quot; &quot;);
+            CString sName;
+            GetDlgItemText(nId + i, sName);
+            strMsg += sName;
+        &#125;
+    &#125;
+
+    CEdit* edit = (CEdit*)GetDlgItem(IDC_EDIT1);
+    //edit-&gt;GetWindowTextW();
+    edit-&gt;SetWindowText(strMsg);        //设置文本
+
+    MessageBox(strMsg, _T(&quot;tips&quot;));
+&#125;
+</code></pre>
+<p>其中要注意editcontrol属性要设置几个地方</p>
+<ol>
+<li>多行 true</li>
+<li>想要返回 true</li>
+<li>就是写入的strMsg想要换行，要在中间加<code>\r\n</code>，单纯的<code>\n</code>好像不起作用</li>
+</ol>
+<p>效果就是如下：</p>
+<img src="/2022/07/25/mfc01/077.png" class="">
+<p>点击完成后往edit里面写入，和弹出对话框</p>
+<img src="/2022/07/25/mfc01/078.png" class="">
+
+<hr>
+<h3 id="ListBox"><a href="#ListBox" class="headerlink" title="ListBox"></a>ListBox</h3><p>老样子在dialog界面打开工具箱，找到listbox</p>
+<img src="/2022/07/25/mfc01/079.png" class="">
+<p>然后属性都是中文名了，实在不行点击一下下面还有介绍，再不济就自己修改试试</p>
+<img src="/2022/07/25/mfc01/080.png" class="">
+
+
+<p>随便搞个例子试试</p>
+<img src="/2022/07/25/mfc01/082.png" class="">
+<p>先绘制这样的界面，然后就是往里面addsttring，最后根据选中的返回结果这样。</p>
+<blockquote>
+<p>别忘了给listbox添加变量</p>
+</blockquote>
+<p>双击test按钮</p>
+<pre><code class="cpp">void CMFCButtonDlg::OnBnClickedBtnTest()&#123;
+    // TODO: 在此添加控件通知处理程序代码
+    CString strText;
+
+    if( m_conmpany.GetSelCount() == 0 )&#123;
+        MessageBox(_T(&quot;没有选中任何公司&quot;));
+        return;
+    &#125; else&#123;
+        int total = m_conmpany.GetSelCount();
+        int* index = new int[total];
+        strText += _T(&quot;您选中了&quot;);
+        TCHAR buf[32] = _T(&quot;&quot;);
+        _itow_s(total, buf, 32, 10);
+        strText += buf;
+        strText += _T(&quot;个公司\n&quot;);
+        m_conmpany.GetSelItems(total, index);
+
+        CString strTmp;
+        for( int i = 0; i &lt; total; i++ )&#123;
+            m_conmpany.GetText(index[i], strTmp);
+            strText += strTmp + _T(&quot; &quot;);
+        &#125;
+        delete[] index;
+        MessageBox(strText);
+    &#125;
+&#125;
+</code></pre>
+<p><code>m_conmpany</code>为我们给listbox这个控件设置的变量。<br>首要判断就是是否选中，选中之后在循环接收。</p>
+<p>别忘了在<code>oninitdialog</code>里面初始化一下这个listbox。</p>
+<pre><code class="cpp">BOOL CMFCButtonDlg::OnInitDialog()
+&#123;
+    CDialogEx::OnInitDialog();
+
+    // 设置此对话框的图标。  当应用程序主窗口不是对话框时，框架将自动
+    //  执行此操作
+    SetIcon(m_hIcon, TRUE);            // 设置大图标
+    SetIcon(m_hIcon, FALSE);        // 设置小图标
+
+    // TODO: 在此添加额外的初始化代码
+    m_conmpany.AddString(_T(&quot;山东蓝翔&quot;));
+    m_conmpany.AddString(_T(&quot;深圳电子厂&quot;));
+    m_conmpany.AddString(_T(&quot;义乌商超&quot;));
+
+    return TRUE;  // 除非将焦点设置到控件，否则返回 TRUE
+&#125;
+</code></pre>
+<img src="/2022/07/25/mfc01/081.png" class="">
+<p>效果也不难，就是一些常规操作。</p>
+<hr>
+<h3 id="Combox"><a href="#Combox" class="headerlink" title="Combox"></a>Combox</h3><img src="/2022/07/25/mfc01/083.png" class="">
+<img src="/2022/07/25/mfc01/084.png" class="">
+<p>拖出两个控件<br>数据在</p>
+<img src="/2022/07/25/mfc01/085.png" class="">
+<p>依旧是用分号阻隔。</p>
+<img src="/2022/07/25/mfc01/086.png" class="">
+<p>样式有三个，除了这个simple特殊一点，因为他不会显示箭头，你选中之后可以通过方向键控制。<br>或者它的神奇之处。。</p>
+<img src="/2022/07/25/mfc01/087.png" class="">
+<p>你可以在dialog里从下面拉大这个combox，这样他在run的时候就能把在长度之内的列显示出来，虽然有点二。</p>
+<p>当然这种测试都是取出值来玩玩</p>
+<img src="/2022/07/25/mfc01/088.png" class="">
+<p>左边样式为simple，添加变量<br>右边样式为下拉列表，添加变量<br>然后拖一个按钮，测试用</p>
+<pre><code class="cpp">void CMFCButtonDlg::OnBnClickedBtnDroplist()&#123;
+    // TODO: 在此添加控件通知处理程序代码
+    int cur = m_simple.GetCurSel();
+    if( cur == -1 )&#123;
+        TRACE(&quot;%s(%d):当前没有选中任何列\n&quot;, __FILE__, __LINE__);
+    &#125;else&#123;
+        TRACE(&quot;%s(%d):当前选中了第%d列\n&quot;, __FILE__, __LINE__, cur);
+        CString tmp;
+
+        m_simple.GetLBText(cur, tmp);
+        MessageBox(tmp);
+    &#125;
+&#125;
+</code></pre>
+<p>也比较简单</p>
+<img src="/2022/07/25/mfc01/089.png" class="">
+<p>我们选中哪个就messagebox弹出哪个，并且TRACE在日志打印，注意列之类的遵循从0开始计数。</p>
+<p>那么还有一个下拉列表，直接套前面那个combox也无伤大雅</p>
+<pre><code class="cpp">void CMFCButtonDlg::OnBnClickedBtnDroplist()&#123;
+    // TODO: 在此添加控件通知处理程序代码
+    int cur = m_simple.GetCurSel();
+    if( cur == -1 )&#123;
+        TRACE(&quot;%s(%d):当前没有选中任何列\n&quot;, __FILE__, __LINE__);
+    &#125;else&#123;
+        TRACE(&quot;%s(%d):当前选中了第%d列\n&quot;, __FILE__, __LINE__, cur);
+        CString tmp;
+
+        m_simple.GetLBText(cur, tmp);
+        MessageBox(tmp);
+    &#125;
+
+    cur = m_droplist.GetCurSel();
+    if( cur == -1 )&#123;
+        TRACE(&quot;%s(%d):当前没有选中任何列\n&quot;, __FILE__, __LINE__);
+    &#125; else&#123;
+        TRACE(&quot;%s(%d):当前选中了第%d列\n&quot;, __FILE__, __LINE__, cur);
+        CString tmp;
+
+        m_droplist.GetLBText(cur, tmp);
+        MessageBox(tmp);
+    &#125;
+&#125;
+</code></pre>
+<img src="/2022/07/25/mfc01/090.png" class="">
+<p>能看到日志打印的时候，因为m_simple没有选中过，所以会打印未选中任何列，但是后者m_droplist有选中，就有回执信息。</p>
+<blockquote>
+<p>能get的东西挺多的，用到了翻翻文档就行</p>
+</blockquote>
+<hr>
+<h3 id="Progress"><a href="#Progress" class="headerlink" title="Progress"></a>Progress</h3><p>Progress：进度条<br>一般是要配合定时器去用会好点。</p>
+<img src="/2022/07/25/mfc01/091.png" class="">
+<p>当然这玩意在dialog界面看着有点效果，但实际你自己没写，他就是空的。</p>
+<p>初始化：</p>
+<pre><code class="cpp">BOOL CMFCButtonDlg::OnInitDialog()
+&#123;
+    CDialogEx::OnInitDialog();
+
+    // 设置此对话框的图标。  当应用程序主窗口不是对话框时，框架将自动
+    //  执行此操作
+    SetIcon(m_hIcon, TRUE);            // 设置大图标
+    SetIcon(m_hIcon, FALSE);        // 设置小图标
+
+    // TODO: 在此添加额外的初始化代码
+    m_conmpany.AddString(_T(&quot;山东蓝翔&quot;));
+    m_conmpany.AddString(_T(&quot;深圳电子厂&quot;));
+    m_conmpany.AddString(_T(&quot;义乌商超&quot;));
+
+    m_progress.SetRange(0, 1000);
+
+    return TRUE;  // 除非将焦点设置到控件，否则返回 TRUE
+&#125;
+</code></pre>
+<p>当然有的时候虽然范围可能是整数，但是步长不一样。</p>
+<p>给他加个按钮控制增长。<br><strong>注意改成竖状的时候需要修改进度条外观属性的垂直设置为True</strong></p>
+<p>然后双击按钮</p>
+<pre><code class="cpp">void CMFCButtonDlg::OnBnClickedBtnPrg()&#123;
+    // TODO: 在此添加控件通知处理程序代码
+    int pos = m_progress.GetPos();
+    m_progress.SetPos(pos + 100);
+&#125;
+</code></pre>
+<p>获取初始的时候，然后每次增加100，反正上限1000，10次就到顶了</p>
+<img src="/2022/07/25/mfc01/092.png" class="">
+<img src="/2022/07/25/mfc01/093.png" class="">
+
+<p>当然实际用途不会蠢蠢的给用户去点击，肯定是要与计时器绑定。<br>选中对话框找到消息里面的Timer</p>
+<img src="/2022/07/25/mfc01/094.png" class="">
+
+<p>在头文件中应该预设一个进度值</p>
+<pre><code class="cpp">//进度
+int m_progress_pos;
+</code></pre>
+<pre><code class="cpp">BOOL CMFCButtonDlg::OnInitDialog()
+&#123;
+    CDialogEx::OnInitDialog();
+
+    // 设置此对话框的图标。  当应用程序主窗口不是对话框时，框架将自动
+    //  执行此操作
+    SetIcon(m_hIcon, TRUE);            // 设置大图标
+    SetIcon(m_hIcon, FALSE);        // 设置小图标
+
+    // TODO: 在此添加额外的初始化代码
+    m_conmpany.AddString(_T(&quot;山东蓝翔&quot;));
+    m_conmpany.AddString(_T(&quot;深圳电子厂&quot;));
+    m_conmpany.AddString(_T(&quot;义乌商超&quot;));
+
+    m_progress.SetRange(0, 1000);
+    m_progress_pos = 0;
+
+    // 定时器尽量不要低于30ms，不同机子有少许差别，源自mfc的精度不足导致定时器缺陷
+    SetTimer(99, 500, NULL);
+    SetTimer(10, 100, NULL);
+
+    return TRUE;  // 除非将焦点设置到控件，否则返回 TRUE
+&#125;
+</code></pre>
+<p>初始化设置定时器的时候要注意，因为mfc分层，不同机子处理速度不同，所以定时器精度不要设置太小，以免出现误差。</p>
+<pre><code class="cpp">void CMFCButtonDlg::OnTimer(UINT_PTR nIDEvent)&#123;
+    // TODO: 在此添加消息处理程序代码和/或调用默认值
+    static int count = 0;
+    if( nIDEvent == 99 )&#123;
+        m_progress.SetPos(m_progress_pos);
+    &#125; else if( nIDEvent == 10 )&#123;
+        TRACE(&quot;%s(%d):%s %d\n&quot;, __FILE__, __LINE__, __FUNCTION__, GetTickCount());
+        if( count &gt; 5 ) KillTimer(10);
+        count++;
+    &#125;
+
+    CDialogEx::OnTimer(nIDEvent);
+&#125;
+</code></pre>
+<img src="/2022/07/25/mfc01/095.png" class="">
+<p>当我们的间隔设置在5，他的误差还在10左右，拉高之后</p>
+<img src="/2022/07/25/mfc01/096.png" class="">
+<p><strong>反正就是突出mfc对于定时精度处理不足的问题</strong></p>
+<p>那么接下来让他自己动~</p>
+<pre><code class="cpp">void CMFCButtonDlg::OnTimer(UINT_PTR nIDEvent)&#123;
+    // TODO: 在此添加消息处理程序代码和/或调用默认值
+    static int count = 0;
+    if( nIDEvent == 99 )&#123;
+        m_progress.SetPos(m_progress_pos);
+    &#125; else if( nIDEvent == 10 )&#123;
+        TRACE(&quot;%s(%d):%s %d\n&quot;, __FILE__, __LINE__, __FUNCTION__, GetTickCount());
+
+        int low, upper;
+        m_progress.GetRange(low, upper);
+        if( m_progress_pos &gt;= upper )&#123;
+            KillTimer(10);
+        &#125; else&#123;
+            m_progress_pos += 10;
+        &#125;
+    &#125;
+
+    CDialogEx::OnTimer(nIDEvent);
+&#125;
+</code></pre>
+<p>主要也就是获取这个进度的范围，没到头就慢慢网上递增，像复制文件的话，还得在里面计算文件复制到哪了，然后按比例递增效果更明显。</p>
+<img src="/2022/07/25/mfc01/097.png" class="">
+<p>静态的图片看不出效果。</p>
+<blockquote>
+<p>这是演示从空到满的情况，相反的，进度的初始值要改成上限，然后这里改成-&#x3D;10<br>理论就是如此，实现另说</p>
+</blockquote>
+<p><strong>哈哈，关于这个进度条，千万不要用多个线程去玩。。不然效果很出奇玩自己了属于是</strong></p>
+<hr>
+<h3 id="图片资源"><a href="#图片资源" class="headerlink" title="图片资源"></a>图片资源</h3><p>也是拖出一个picture control。</p>
+<img src="/2022/07/25/mfc01/098.png" class="">
+<p>有意思的是命名直接是static，和之前的静态文本框有点相似</p>
+<img src="/2022/07/25/mfc01/099.png" class="">
+<p>拖个静态文本框可以看到有点相同</p>
+<img src="/2022/07/25/mfc01/100.png" class="">
+
+<p>反正父类总有一个是一样的。</p>
+<p>控制这些玩意就老样子添加变量&#x2F;控件，添加完之后自然没啥效果。。都没把图片塞进去</p>
+<p>点击dialog，从消息里面找到</p>
+<img src="/2022/07/25/mfc01/101.png" class="">
+<p>file就是跟文件相关的。</p>
+<pre><code class="cpp">void CMFCButtonDlg::OnDropFiles(HDROP hDropInfo)&#123;
+    // TODO: 在此添加消息处理程序代码和/或调用默认值
+    int count = DragQueryFile(hDropInfo, -1, NULL, 0);
+
+    //count &gt; 1 Msg..
+    TCHAR sPath[MAX_PATH];
+    char mbsPath[MAX_PATH * 2];
+    for( int i = 0; i &lt; count; i++ )&#123;
+        memset(sPath, 0, sizeof(sPath));
+        memset(mbsPath, 0, sizeof(mbsPath));
+        DragQueryFile(hDropInfo, i, sPath, MAX_PATH);
+        size_t total = 0;
+        wcstombs_s(&amp;total, mbsPath, sizeof(mbsPath), sPath, MAX_PATH);
+        TRACE(&quot;%s(%d):%s %s\n&quot;, __FILE__, __LINE__, __FUNCTION__, mbsPath);
+
+        if( CString(sPath).Find(_T(&quot;.ico&quot;)) )&#123;
+            HICON hicon = (HICON)LoadImage(AfxGetInstanceHandle(), sPath, IMAGE_ICON, 0, 0, LR_LOADFROMFILE | LR_DEFAULTSIZE);
+            m_pictrue.SetIcon(hicon);
+        &#125;
+    &#125;
+
+    InvalidateRect(NULL);
+
+    CDialogEx::OnDropFiles(hDropInfo);
+&#125;
+</code></pre>
+<p>写完之后有一个地方需要注意，因为这个用的图片类型是<code>.ico</code>想直接用mfc那个图片了，所以要修改图片框的类型</p>
+<img src="/2022/07/25/mfc01/102.png" class="">
+<p>将其修改完之后</p>
+<img src="/2022/07/25/mfc01/103.png" class="">
+<p>看到样式发生了变化，有点小</p>
+<p>右击打开项目的路径，找到res文件夹，里面就有个mfc的ico</p>
+<img src="/2022/07/25/mfc01/104.png" class="">
+
+<p>刚开始运行的时候，是看不到图片框的</p>
+<img src="/2022/07/25/mfc01/105.png" class="">
+
+<p>这里忘了一个事，就是设置对话框可接受文件</p>
+<img src="/2022/07/25/mfc01/107.png" class="">
+<p>不设置为true的话，图片拖动是禁止的。</p>
+<p>设置true之后拖动图片到对话框上，发现的确显示了。</p>
+<img src="/2022/07/25/mfc01/106.png" class="">
+
+<p>并且，日志也输出了这个图片的路径</p>
+<img src="/2022/07/25/mfc01/108.png" class="">
+
+<hr>
+<h3 id="List-Control"><a href="#List-Control" class="headerlink" title="List Control"></a>List Control</h3><img src="/2022/07/25/mfc01/109.png" class="">
+<p>长的吧跟列表又有点相似。倒是多了图标</p>
+<img src="/2022/07/25/mfc01/110.png" class="">
+<p>其中有几种可选，默认为icon样式</p>
+<p>在list视图下就真的跟列表一样了。</p>
+<img src="/2022/07/25/mfc01/111.png" class="">
+
+<p>report视图感觉会用的多一点</p>
+<img src="/2022/07/25/mfc01/112.png" class="">
+
+<p>这里先用report，为这个控件添加变量，然后初始化一下</p>
+<pre><code class="cpp">BOOL CMFCButtonDlg::OnInitDialog()
+&#123;
+    CDialogEx::OnInitDialog();
+
+    // 设置此对话框的图标。  当应用程序主窗口不是对话框时，框架将自动
+    //  执行此操作
+    SetIcon(m_hIcon, TRUE);            // 设置大图标
+    SetIcon(m_hIcon, FALSE);        // 设置小图标
+
+    // TODO: 在此添加额外的初始化代码
+    m_conmpany.AddString(_T(&quot;山东蓝翔&quot;));
+    m_conmpany.AddString(_T(&quot;深圳电子厂&quot;));
+    m_conmpany.AddString(_T(&quot;义乌商超&quot;));
+
+    m_progress.SetRange(0, 1000);
+    m_progress_pos = 0;
+
+    //定时器尽量不要低于30ms，不同机子有少许差别，源自mfc的精度不足导致定时器缺陷
+    SetTimer(99, 500, NULL);
+    SetTimer(10, 100, NULL);
+
+    //初始化列
+    m_list.InsertColumn(0, _T(&quot;序号&quot;));
+    m_list.InsertColumn(1, _T(&quot;IP&quot;));
+    m_list.InsertColumn(2, _T(&quot;ID&quot;));
+    m_list.InsertColumn(3, _T(&quot;CHECK&quot;));
+
+    return TRUE;  // 除非将焦点设置到控件，否则返回 TRUE
+&#125;
+</code></pre>
+<img src="/2022/07/25/mfc01/113.png" class="">
+<p>设置文字是没啥问题了，但是一开始他都是缩在一团还要拉开太麻烦了。</p>
+<pre><code class="cpp">m_list.InsertColumn(0, _T(&quot;序号&quot;), LVCFMT_LEFT, 50);
+m_list.InsertColumn(1, _T(&quot;IP&quot;), LVCFMT_LEFT, 200);
+m_list.InsertColumn(2, _T(&quot;ID&quot;), LVCFMT_LEFT, 180);
+m_list.InsertColumn(3, _T(&quot;CHECK&quot;), LVCFMT_LEFT, 200);
+</code></pre>
+<p>修改完之后，其实还要调整一下list control在对话框里面的大小</p>
+<img src="/2022/07/25/mfc01/114.png" class="">
+<p>目前来说调整成这样差不多。再不济，空间有限的情况下，给他上滚动条</p>
+<p>除此之外也可以用代码实现改变style，同样在初始化的地方</p>
+<pre><code class="cpp">DWORD extStyle = m_list.GetExtendedStyle();
+extStyle |= LVS_EX_FULLROWSELECT;
+extStyle |= LVS_EX_GRIDLINES;
+m_list.SetExtendedStyle(extStyle);
+</code></pre>
+<img src="/2022/07/25/mfc01/115.png" class="">
+<p>多了点格子，目前还没有数据</p>
+<pre><code class="cpp">//列增加数据
+m_list.InsertItem(0, CString(&quot;0&quot;));
+m_list.SetItemText(0, 1, _T(&quot;192.168.0.1&quot;));
+m_list.SetItemText(0, 2, _T(&quot;6648964896486480&quot;));
+m_list.SetItemText(0, 3, _T(&quot;999&quot;));
+</code></pre>
+<img src="/2022/07/25/mfc01/116.png" class="">
+<p>虽然能设置，但是总归是麻烦了一点。</p>
+<p>另外背景颜色。。额没这个本事，用参数调得不得行</p>
+<pre><code class="cpp">m_list.SetBkColor(RGB(64, 255, 128));
+</code></pre>
+<img src="/2022/07/25/mfc01/117.png" class="">
+<p>哈哈哈瞎调的，辣眼睛还是注释了先。</p>
+<p>列表比较实用的也可以像多选那样，在初始化的地方给list加个样式</p>
+<pre><code class="cpp">extStyle |= LVS_EX_CHECKBOXES;
+</code></pre>
+<img src="/2022/07/25/mfc01/118.png" class="">
+<p>可以看到多了多选框</p>
+<p>那么首先要拖个按钮测试选中之后拉取数据</p>
+<pre><code class="cpp">void CMFCButtonDlg::OnBnClickedBtnList()&#123;
+    // TODO: 在此添加控件通知处理程序代码
+    int lineCount = m_list.GetItemCount();
+    CHeaderCtrl* pHeader = m_list.GetHeaderCtrl();
+    int coloumnCount = pHeader-&gt;GetItemCount();
+
+    for (int i = 0; i &lt; lineCount; i++) &#123;
+        for (int j = 0; j &lt; coloumnCount; j++) &#123;
+            CString temp = m_list.GetItemText(i, j);
+            char Text[MAX_PATH];
+            memset(Text, 0, sizeof(Text));
+            size_t total;
+            wcstombs_s(&amp;total, Text, sizeof(Text), temp, temp.GetLength());
+            TRACE(&quot;%s(%d): %s %s\n&quot;, __FILE__, __LINE__, __FUNCTION__, Text);
+        &#125;
+    &#125;
+&#125;
+</code></pre>
+<img src="/2022/07/25/mfc01/119.png" class="">
+<p>可以看到日志输出了我们所选的行的数据。</p>
+<p>如何把多选框和数据关联<br>显然就是判断</p>
+<pre><code class="cpp">void CMFCButtonDlg::OnBnClickedBtnList()&#123;
+    // TODO: 在此添加控件通知处理程序代码
+    int lineCount = m_list.GetItemCount();
+    CHeaderCtrl* pHeader = m_list.GetHeaderCtrl();
+    int coloumnCount = pHeader-&gt;GetItemCount();
+
+    for (int i = 0; i &lt; lineCount; i++) &#123;
+        if (m_list.GetCheck(i)) &#123;
+            TRACE(&quot;%s(%d): %s %s\n&quot;, __FILE__, __LINE__, __FUNCTION__, &quot;选中&quot;);
+        &#125; else &#123;
+            TRACE(&quot;%s(%d): %s %s\n&quot;, __FILE__, __LINE__, __FUNCTION__, &quot;未选中&quot;);
+        &#125;
+
+        for (int j = 0; j &lt; coloumnCount; j++) &#123;
+            CString temp = m_list.GetItemText(i, j);
+            char Text[MAX_PATH];
+            memset(Text, 0, sizeof(Text));
+            size_t total;
+            wcstombs_s(&amp;total, Text, sizeof(Text), temp, temp.GetLength());
+            TRACE(&quot;%s(%d): %s %s\n&quot;, __FILE__, __LINE__, __FUNCTION__, Text);
+        &#125;
+    &#125;
+&#125;
+</code></pre>
+<img src="/2022/07/25/mfc01/120.png" class="">
+<p>虽然有点简陋。</p>
+<p>关于list的style <code>LVS_EX_</code>还有很多不怎么用的，不过一般也是重写<br>还有些set的方法可以搜一搜看看。</p>
+<hr>
+<h3 id="Tree"><a href="#Tree" class="headerlink" title="Tree"></a>Tree</h3><img src="/2022/07/25/mfc01/121.png" class="">
+<p>拖个tree control出来，然后添加个变量<br>且预览效果跟这样差不多，那我们肯定要自己初始化他</p>
+<pre><code class="cpp">//Tree
+HTREEITEM hRoot = m_tree.InsertItem(_T(&quot;root&quot;));
+HTREEITEM hLeaf1 = m_tree.InsertItem(_T(&quot;leaf&quot;), hRoot);
+m_tree.InsertItem(_T(&quot;sub&quot;), hLeaf1);
+HTREEITEM hLeaf2 = m_tree.InsertItem(_T(&quot;leaf&quot;), hRoot);
+m_tree.InsertItem(_T(&quot;sub&quot;), hLeaf2);
+</code></pre>
+<p>根 叶 子叶</p>
+<img src="/2022/07/25/mfc01/122.png" class="">
+<p>这是全部展开的样子，默认只有root，双击之后一个个展开。光秃秃的很潦草。</p>
+<p>图标自己画问题不大，右击项目打开所在路径，找到res文件夹，在里面添加个位图</p>
+<img src="/2022/07/25/mfc01/123.png" class="">
+<p>这是画完的样子。<br>然后导入资源。</p>
+<p><strong>搞这种位图呢，主要是应对需要挺多logo之类简单的图片，文件太散找的麻烦，在一张上做分界标记会更好</strong></p>
+<img src="/2022/07/25/mfc01/124.png" class="">
+
+<pre><code class="cpp">//头文件声明
+CImageList m_icons;
+</code></pre>
+<pre><code class="cpp">//源文件初始化
+m_icons.Create(IDB_TREE, 32, 3, 0);
+m_tree.SetImageList(&amp;m_icons, TVSIL_NORMAL);
+//Tree
+HTREEITEM hRoot = m_tree.InsertItem(_T(&quot;root&quot;), 0, 1);
+HTREEITEM hLeaf1 = m_tree.InsertItem(_T(&quot;leaf&quot;), 2, 1, hRoot);
+m_tree.InsertItem(_T(&quot;sub&quot;), 2, 1, hLeaf1);
+HTREEITEM hLeaf2 = m_tree.InsertItem(_T(&quot;leaf&quot;), 2, 1, hRoot);
+m_tree.InsertItem(_T(&quot;sub&quot;), 2, 1, hLeaf2);
+</code></pre>
+<img src="/2022/07/25/mfc01/125.png" class="">
+<p>哈哈图片画少了，他一个节点两个状态可以用两个图片的，选中和未选中两个样，但是我们用的2和1，所以效果就比较糙。</p>
+<img src="/2022/07/25/mfc01/126.png" class="">
+<pre><code class="cpp">void CMFCButtonDlg::OnNMDblclkTree(NMHDR* pNMHDR, LRESULT* pResult) &#123;
+    // TODO: 在此添加控件通知处理程序代码
+    UINT nCount = m_tree.GetSelectedCount();
+    if (nCount &gt; 0) &#123;
+        HTREEITEM hSelect = m_tree.GetSelectedItem();
+        CString strText = m_tree.GetItemText(hSelect);
+        char sText[256] = &quot;&quot;;
+        size_t total;
+        wcstombs_s(&amp;total, sText, sizeof(sText), strText, strText.GetLength());
+        TRACE(&quot;%s(%d): %s %s\n&quot;, __FILE__, __LINE__, __FUNCTION__, sText);
+    &#125;
+
+    *pResult = 0;
+&#125;
+</code></pre>
+<img src="/2022/07/25/mfc01/127.png" class="">
+<p>其实做法有很多，大多例子都是颗糖。</p>
+<hr>
+<h1 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h1><p>MFC看下来跟去年Qt一个感觉吧，知道拖控件和消息之类的，但是实战太少，经验不足，有的时候很难主动把这些关联起来。</p>
+<p>至于Qt后面也要重新捯饬捯饬。</p>
+
+        </div>
+
+    </div>
+
+    
+
+    
+
+    
+
+    
+  <div class="article-copyright hairline">
+    <p>
+      本作品采用  <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议 (CC BY-NC-ND 4.0)</a> 进行许可。
+    </p>
+  </div>
+  
+
+    
+
+    
+<nav class="article-nav">
+  
+    <a href="/2022/07/28/text015/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-caption">下一篇</div>
+      <div class="article-nav-title">
+        
+          text015
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/07/25/dynamiclink/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-caption">上一篇</div>
+      <div class="article-nav-title">动态链接库</div>
+    </a>
+  
+</nav>
+
+
+    <section class="share">
+        <div class="share-title">分享</div>
+        <a class="share-item" target="_blank"
+            href="https://twitter.com/share?text=MFC - ohmyhsy&url=https%3A%2F%2F8bytes.top%2F2022%2F07%2F25%2Fmfc01%2F">
+            <box-icon type='logo' name='twitter'></box-icon>
+        </a>
+        <a class="share-item" target="_blank"
+            href="https://www.facebook.com/sharer.php?title=MFC - ohmyhsy&u=https%3A%2F%2F8bytes.top%2F2022%2F07%2F25%2Fmfc01%2F">
+            <box-icon name='facebook-square' type='logo' ></box-icon>
+        </a>
+        <!-- <a class="share-item" target="_blank"
+            href="https://service.weibo.com/share/share.php?title=MFC - ohmyhsy&url=https://8bytes.top/2022/07/25/mfc01/&pic=">
+            <div class="n-icon n-icon-weibo"></div>
+        </a> -->
+    </section>
+
+</article>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- <script src="//unpkg.com/@waline/dist/Waline.min.js"></script> -->
+    <script src="https://unpkg.com/@waline/client@v2/dist/waline.js"></script>
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/@waline/client@v2/dist/waline.css"
+    />
+    <section class="comments">
+        <div id="waline"></div>
+    </section>
+    <script>
+        Waline.init({
+          el: '#waline',
+          serverURL: 'https://ohmyhsy.vercel.app/',
+        });
+    </script>
+
+
+
+<script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+</div>
+
+                </section>
+            </section>
+
+            
+            <aside class="sidebar sidebar-search-fix">
+                
+
+    <div class="search">
+    <div class="has-icon-right">
+        <input type="text" class="form-input" id="search" placeholder="SEARCH" autocomplete="off">
+        <div class="form-icon">
+            <box-icon name='search' color="#3c4859"></box-icon>
+        </div>
+    </div>
+    <div class="search-result" id="search-ps"></div>
+</div>
+
+
+<div class="widget" id="widget">
+    
+      
+  <div class="widget-wrap">
+    <div class="widget-inner">
+      <div class="toc post-toc-html"></div>
+    </div>
+  </div>
+
+    
+      
+
+    
+      
+  <div class="widget-wrap widget-tags">
+    <div class="widget-title"><span>Tags</span></div>
+    <div class="widget-inner">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/MFC/" rel="tag">MFC</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NoteBook/" rel="tag">NoteBook</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RemoteControl/" rel="tag">RemoteControl</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c/" rel="tag">c</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cheat-engine/" rel="tag">cheat engine</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/compiler/" rel="tag">compiler</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cpp/" rel="tag">cpp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/exam/" rel="tag">exam</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jetbrains/" rel="tag">jetbrains</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/" rel="tag">leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/life/" rel="tag">life</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/phone/" rel="tag">phone</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ubuntu/" rel="tag">ubuntu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/visual-studio-2022/" rel="tag">visual studio 2022</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vscode/" rel="tag">vscode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/windows/" rel="tag">windows</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-recent-posts">
+    <div class="widget-title"><span>Recent Posts</span></div>
+    <div class="widget-inner">
+      <ul>
+        
+          <li>
+            <a href="/2022/09/16/phoneTest/">给爪机上点科技</a>
+          </li>
+        
+          <li>
+            <a href="/2022/09/15/%E8%BF%9C%E6%8E%A7%E9%97%AE%E9%A2%98%E9%9B%86/">远控问题集</a>
+          </li>
+        
+          <li>
+            <a href="/2022/09/10/text021/">text021</a>
+          </li>
+        
+          <li>
+            <a href="/2022/09/10/text020/">text020</a>
+          </li>
+        
+          <li>
+            <a href="/2022/09/05/text019/">text019</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget-wrap widget-archive">
+    <div class="widget-title"><span>Archive</span></div>
+    <div class="widget-inner">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/">2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/">2021</a></li></ul>
+    </div>
+  </div>
+
+
+    
+</div>
+
+<div id="backtop"><i class="icon icon-arrow-up"></i></div>
+            </aside>
+            
+        </div>
+    </div>
+
+    <footer class="footer">
+    <div class="footer-wave">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#3c4859" fill-opacity="1" d="M0,160L60,181.3C120,203,240,245,360,240C480,235,600,181,720,186.7C840,192,960,256,1080,261.3C1200,267,1320,213,1380,186.7L1440,160L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>
+    </div>
+
+    <!-- Please do not remove this -->
+    <!-- 开源不易，请勿删除 -->
+    <div class="footer-wrap">
+        <div class="footer-inner"> 
+            ohmyhsy &copy; 2022<br>
+            Powered By Hexo · Theme By <a href="https://linhong.me/" target="_blank">Aomori</a> · <a href="https://github.com/lh1me/hexo-theme-aomori" target="_blank">Github</a>
+        </div>
+    </div>
+
+</footer>
+
+
+
+
+
+
+<script src="/dist/build.js?1646451311888.js"></script>
+
+
+<script src="/dist/custom.js?1646451311888.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>

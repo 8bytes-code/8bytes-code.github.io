@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    
+    <title>虚函数dynamic_cast | ohmyhsy</title>
+
+    <meta name="description" content="&lt;h1 id=&#34;引用&#34;&gt;&lt;a href=&#34;#引用&#34; class=&#34;headerlink&#34; title=&#34;引用&#34;&gt;&lt;/a&gt;引用&lt;/h1&gt;&lt;p&gt;dynamic_cast&amp;lt;type&amp;gt;()&lt;br&gt;动态转换只支持方法多态类型的指针，如果转换成功返回指针，失败则返回nullptr&lt;br&gt;同样分为两种情况：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;向下转换 downcast&lt;/li&gt;
+&lt;li&gt;跨类转换 crosscast&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;注：不要随便转换this指针&lt;/strong&gt;&lt;/p&gt;">
+    <meta name="keywords" content="8bytes-blog">
+
+    
+
+    <meta property="og:locale" content="cn" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content= "虚函数dynamic_cast | ohmyhsy"  />
+    <meta property="og:description" content= "&lt;h1 id=&#34;引用&#34;&gt;&lt;a href=&#34;#引用&#34; class=&#34;headerlink&#34; title=&#34;引用&#34;&gt;&lt;/a&gt;引用&lt;/h1&gt;&lt;p&gt;dynamic_cast&amp;lt;type&amp;gt;()&lt;br&gt;动态转换只支持方法多态类型的指针，如果转换成功返回指针，失败则返回nullptr&lt;br&gt;同样分为两种情况：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;向下转换 downcast&lt;/li&gt;
+&lt;li&gt;跨类转换 crosscast&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;注：不要随便转换this指针&lt;/strong&gt;&lt;/p&gt;" />
+    <meta property="og:url" content="https://8bytes.top/2022/07/03/purevirtualfunction/index.html" />
+    <meta property="og:site_name" content="" />
+    <meta property="article:author" content="Box" />
+    <meta property="article:publisher" content="" />
+    <meta property="og:description" content="&lt;h1 id=&#34;引用&#34;&gt;&lt;a href=&#34;#引用&#34; class=&#34;headerlink&#34; title=&#34;引用&#34;&gt;&lt;/a&gt;引用&lt;/h1&gt;&lt;p&gt;dynamic_cast&amp;lt;type&amp;gt;()&lt;br&gt;动态转换只支持方法多态类型的指针，如果转换成功返回指针，失败则返回nullptr&lt;br&gt;同样分为两种情况：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;向下转换 downcast&lt;/li&gt;
+&lt;li&gt;跨类转换 crosscast&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;注：不要随便转换this指针&lt;/strong&gt;&lt;/p&gt;" />
+    <meta name="twitter:title" content="虚函数dynamic_cast | ohmyhsy"/>
+    <meta name="twitter:description" content="&lt;h1 id=&#34;引用&#34;&gt;&lt;a href=&#34;#引用&#34; class=&#34;headerlink&#34; title=&#34;引用&#34;&gt;&lt;/a&gt;引用&lt;/h1&gt;&lt;p&gt;dynamic_cast&amp;lt;type&amp;gt;()&lt;br&gt;动态转换只支持方法多态类型的指针，如果转换成功返回指针，失败则返回nullptr&lt;br&gt;同样分为两种情况：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;向下转换 downcast&lt;/li&gt;
+&lt;li&gt;跨类转换 crosscast&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;注：不要随便转换this指针&lt;/strong&gt;&lt;/p&gt;"/>
+    <script type="application/ld+json">
+        {
+            "description": "&lt;h1 id=&#34;引用&#34;&gt;&lt;a href=&#34;#引用&#34; class=&#34;headerlink&#34; title=&#34;引用&#34;&gt;&lt;/a&gt;引用&lt;/h1&gt;&lt;p&gt;dynamic_cast&amp;lt;type&amp;gt;()&lt;br&gt;动态转换只支持方法多态类型的指针，如果转换成功返回指针，失败则返回nullptr&lt;br&gt;同样分为两种情况：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;向下转换 downcast&lt;/li&gt;
+&lt;li&gt;跨类转换 crosscast&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;注：不要随便转换this指针&lt;/strong&gt;&lt;/p&gt;",
+            "author": { "@type": "Person", "name": "Box" },
+            "@type": "BlogPosting",
+            "url": "https://8bytes.top/2022/07/03/purevirtualfunction/index.html",
+            "publisher": {
+            "@type": "Organization",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://8bytes.topundefined"
+            },
+            "name": "Box"
+            },
+            "headline": "虚函数dynamic_cast | ohmyhsy",
+            "datePublished": "2022-07-03T07:28:18.000Z",
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "https://8bytes.top/2022/07/03/purevirtualfunction/index.html"
+            },
+            "@context": "http://schema.org"
+        }
+    </script>
+
+
+
+
+    
+
+    
+    <meta property="algolia:search" data-application-id="4CVCYWPWWN" data-api-key="7757db6b0a31c3f94c301c885693ed0d" data-index-name="ohmyhsy">
+    
+
+    
+
+    
+
+    
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎮</text></svg>">
+    
+
+    
+
+    
+
+    
+<link rel="stylesheet" href="/dist/build.css?v=1646451311888.css">
+
+
+    
+<link rel="stylesheet" href="/dist/custom.css?v=1646451311888.css">
+
+
+    <script>
+        window.isPost = true
+        window.aomori = {
+            
+            
+            
+        }
+        window.aomori_logo_typed_animated = true
+        window.aomori_search_algolia = true
+
+    </script>
+
+<meta name="generator" content="Hexo 5.4.1"><link rel="alternate" href="/atom.xml" title="ohmyhsy" type="application/atom+xml">
+</head>
+
+<body>
+
+    <div class="container">
+    <header class="header">
+        <div class="header-type">
+            
+            <div class="header-type-inner">
+                
+                    <div id="typed-strings" style="display:none">
+                        <p>ohmyhsy</p>
+                    </div>
+                    <a class="header-type-title" id="typed" href="/"></a>
+                
+    
+                
+            </div>
+        </div>
+        <div class="header-menu">
+            <div class="header-menu-inner">
+                
+                <a href="/">Home</a>
+                
+                <a href="/archives">Archives</a>
+                
+                <a href="/friends">Friends</a>
+                
+                <a href="/collect">Collect</a>
+                
+                <a href="/photography">Phtotgraphy</a>
+                
+            </div>
+            <div class="header-menu-social">
+                
+    <a class="social" target="_blank" href="https://github.com/8bytes-code">
+        <box-icon type='logo' name='github'></box-icon>
+    </a>
+
+            </div>
+        </div>
+
+        <div class="header-menu-mobile">
+            <div class="header-menu-mobile-inner" id="mobile-menu-open">
+                <i class="icon icon-menu"></i>
+            </div>
+        </div>
+    </header>
+
+    <div class="header-menu-mobile-menu">
+        <div class="header-menu-mobile-menu-bg"></div>
+        <div class="header-menu-mobile-menu-wrap">
+            <div class="header-menu-mobile-menu-inner">
+                <div class="header-menu-mobile-menu-close" id="mobile-menu-close">
+                    <i class="icon icon-cross"></i>
+                </div>
+                <div class="header-menu-mobile-menu-list">
+                    
+                    <a href="/">Home</a>
+                    
+                    <a href="/archives">Archives</a>
+                    
+                    <a href="/friends">Friends</a>
+                    
+                    <a href="/collect">Collect</a>
+                    
+                    <a href="/photography">Phtotgraphy</a>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+    <div class="container">
+        <div class="main">
+            <section class="inner">
+                <section class="inner-main">
+                    <div class="post">
+    <article id="post-cl7vfxqul004vbw9c4uv6duu3" class="article article-type-post" itemscope
+    itemprop="blogPost">
+
+    <div class="article-inner">
+
+        
+          
+        
+        
+        
+
+        
+        <header class="article-header">
+            
+  
+    <h1 class="article-title" itemprop="name">
+      虚函数dynamic_cast
+    </h1>
+  
+
+        </header>
+        
+
+        <div class="article-more-info article-more-info-post hairline">
+
+            <div class="article-date">
+  <time datetime="2022-07-03T07:28:18.000Z" itemprop="datePublished">2022-07-03</time>
+</div>
+
+            
+
+            
+            <div class="article-tag">
+                <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cpp/" rel="tag">cpp</a></li></ul>
+            </div>
+            
+
+            
+            <div class="article-busuanzi">
+                <span id="busuanzi_value_page_pv">N</span> 人看过
+            </div>
+            
+
+        </div>
+
+        <div class="article-entry post-inner-html hairline" itemprop="articleBody">
+            <h1 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h1><p>dynamic_cast&lt;type&gt;()<br>动态转换只支持方法多态类型的指针，如果转换成功返回指针，失败则返回nullptr<br>同样分为两种情况：</p>
+<ol>
+<li>向下转换 downcast</li>
+<li>跨类转换 crosscast</li>
+</ol>
+<p><strong>注：不要随便转换this指针</strong></p>
+<span id="more"></span>
+
+
+<p>还有一点，当dynamic_cast用于转换引用时，转换失败会抛出异常，所以一般不推荐转换引用</p>
+<hr>
+<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><pre><code class="cpp">class father&#123;
+public:
+&#125;;
+
+class son :public father&#123;
+public:
+&#125;;
+
+class wolf :public son&#123;
+&#125;;
+
+class pople :public son&#123;
+&#125;;
+
+class werewolf :public wolf, public pople&#123;
+&#125;;
+</code></pre>
+<p>还是之前的例子</p>
+<pre><code class="cpp">son s1;
+father* fh = (father *)&amp;s1;
+
+son *s2 = static_cast&lt;son *&gt;(fh);
+</code></pre>
+<p>正常情况下我们知道静态转换可以这么操作。</p>
+<pre><code class="cpp">son s1;
+father* fh = (father *)&amp;s1;
+fh = new father();
+son *s2 = static_cast&lt;son *&gt;(fh);
+</code></pre>
+<p>虽然强转，但是毕竟父类和子类结构不一样，指针的时候不是很理想。</p>
+<pre><code class="cpp">son *s2 = dynamic_cast&lt;son *&gt;(fh);
+</code></pre>
+<img src="/2022/07/03/purevirtualfunction/000.png" class="">
+<p>用动态转换的时候他要求类是一个多态类，那么在基类中加一个虚函数</p>
+<pre><code class="cpp">class father&#123;
+public:
+    virtual void test()&#123;
+
+    &#125;
+&#125;;
+</code></pre>
+<p>然后编译就能通过了，对此是否完成转换，前面提到过转换成功返回指针，没成功返回nullptr。</p>
+<img src="/2022/07/03/purevirtualfunction/001.png" class="">
+<p>显然是失败了，因为fh指针我们重新new了一个father类型。导致和son不同。</p>
+<pre><code class="cpp">son s1;
+father* fh = (father *)&amp;s1;
+//fh = new father();
+son *s2 = dynamic_cast&lt;son *&gt;(fh);
+
+if (s2 == nullptr) std::cout &lt;&lt; &quot;error!\n&quot;;
+else std::cout &lt;&lt; &quot;success!\n&quot;;
+</code></pre>
+<img src="/2022/07/03/purevirtualfunction/002.png" class="">
+<p>当我们注释掉重新new的那句，fh仍然指向一个son类型的，那么它的指针信息就会和son有关。</p>
+<hr>
+<h2 id="不要过度依赖"><a href="#不要过度依赖" class="headerlink" title="不要过度依赖"></a>不要过度依赖</h2><pre><code class="cpp">class father&#123;
+public:
+    virtual void test()&#123;&#125;
+&#125;;
+
+class son :public father&#123;
+public:
+    void Move()&#123;
+
+    &#125;
+&#125;;
+
+class daughter :public father&#123;
+public:
+    void Move()&#123;
+
+    &#125;
+&#125;;
+</code></pre>
+<p>然后无脑为了转换基类指针，然后调用各自的move</p>
+<pre><code class="cpp">auto sp = dynamic_cast&lt;son *&gt;(fh);
+auto du = dynamic_cast&lt;daughter *&gt;(fh);
+
+if (sp != nullptr) sp-&gt;Move();
+if (du != nullptr) du-&gt;Move();
+</code></pre>
+<p>这些全是下饭操作，这其实没有必要去做什么动态转换，直接在基类里面加一个虚函数，子类重写一下直接调用是最快的。</p>
+<p><strong>不可取</strong></p>
+<hr>
+<h2 id="不要乱玩this指针"><a href="#不要乱玩this指针" class="headerlink" title="不要乱玩this指针"></a>不要乱玩this指针</h2><pre><code class="cpp">class father&#123;
+public:
+    virtual void test()&#123;&#125;
+    virtual void Move()&#123;
+        if(dynamic_cast&lt;father*&gt;(this))
+    &#125;
+&#125;;
+</code></pre>
+<p>假设基类中有虚函数，它对this指针进行了一些操作，那么当派生类继承下来的时候，就全是在派生类上动手脚了，虽然语法规定没有限制不能转换this指针，但是不推荐这么操作，大多情况下人都把握不住。</p>
+<hr>
+<h2 id="强转指针和引用"><a href="#强转指针和引用" class="headerlink" title="强转指针和引用"></a>强转指针和引用</h2><p>之前说为了保证数据的完整，建议都是通过指针或者引用转换。</p>
+<pre><code class="cpp">son s1;
+father* fh = (father *)&amp;s1;
+father &amp;fh1 = (father &amp;)s1;
+</code></pre>
+<p>这两种强转都是没有什么问题的，引用本身就是弱化的指针。</p>
+<p>而当使用<code>dynamic_cast</code>的时候，也是前面提到过的问题。</p>
+<pre><code class="cpp">son *s2 = dynamic_cast&lt;son *&gt;(fh);
+daughter &amp;au = dynamic_cast&lt;daughter &amp;&gt;(s1);
+</code></pre>
+<p>当<code>dynamic_cast</code>去做引用的转换时，他如果出错了不是返回nullptr而是抛出异常。</p>
+<img src="/2022/07/03/purevirtualfunction/003.png" class="">
+<p>在底层上，指针存在空指针，而引用没有空引用的说法。</p>
+<hr>
+<h2 id="跨类转换"><a href="#跨类转换" class="headerlink" title="跨类转换"></a>跨类转换</h2><pre><code class="cpp">class father&#123;
+public:
+    virtual void test()&#123;&#125;
+    virtual void Move()&#123;
+        //if(dynamic_cast&lt;father*&gt;(this))
+    &#125;
+&#125;;
+
+class son :public father&#123;
+public:
+    void Move()&#123;
+
+    &#125;
+&#125;;
+
+class daughter :public father&#123;
+public:
+    void Move()&#123;
+
+    &#125;
+&#125;;
+
+class wolf :public son&#123;
+
+&#125;;
+
+class pople :public son&#123;
+
+&#125;;
+
+class Box&#123;&#125;;
+
+class werewolf :public wolf, public Box&#123;
+
+&#125;;
+</code></pre>
+<p>构建一个新类box，他跟father之类的毫无关系，但是他被werewolf继承。</p>
+<p>那么这个类还适合转换吗？</p>
+<pre><code class="cpp">werewolf wf;
+father *fa = (father *)&amp;wf;
+</code></pre>
+<p>因为存在多重继承，向下继承的适合自己推敲有点麻烦，就看看动态能不能直接完成。</p>
+<pre><code class="cpp">auto p = dynamic_cast&lt;Box *&gt;(fa);
+</code></pre>
+<p>显然是可以的。</p>
+<img src="/2022/07/03/purevirtualfunction/004.png" class="">
+<p>他是成功返回了一个指针，而不是nullptr。</p>
+<p>那么在关联上</p>
+<img src="/2022/07/03/purevirtualfunction/005.png" class="">
+<p>father和box是没有直接关系的，但是werewolf继承了这两个，因此包含了他俩的属性，所以werewolf可以主动转换成father和box类型。</p>
+<hr>
+<h1 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h1><p>迷迷糊糊。</p>
+
+        </div>
+
+    </div>
+
+    
+
+    
+
+    
+
+    
+  <div class="article-copyright hairline">
+    <p>
+      本作品采用  <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议 (CC BY-NC-ND 4.0)</a> 进行许可。
+    </p>
+  </div>
+  
+
+    
+
+    
+<nav class="article-nav">
+  
+    <a href="/2022/07/04/typeid/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-caption">下一篇</div>
+      <div class="article-nav-title">
+        
+          typeid
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/07/03/Polymorphic2/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-caption">上一篇</div>
+      <div class="article-nav-title">对象多态?</div>
+    </a>
+  
+</nav>
+
+
+    <section class="share">
+        <div class="share-title">分享</div>
+        <a class="share-item" target="_blank"
+            href="https://twitter.com/share?text=虚函数dynamic_cast - ohmyhsy&url=https%3A%2F%2F8bytes.top%2F2022%2F07%2F03%2Fpurevirtualfunction%2F">
+            <box-icon type='logo' name='twitter'></box-icon>
+        </a>
+        <a class="share-item" target="_blank"
+            href="https://www.facebook.com/sharer.php?title=虚函数dynamic_cast - ohmyhsy&u=https%3A%2F%2F8bytes.top%2F2022%2F07%2F03%2Fpurevirtualfunction%2F">
+            <box-icon name='facebook-square' type='logo' ></box-icon>
+        </a>
+        <!-- <a class="share-item" target="_blank"
+            href="https://service.weibo.com/share/share.php?title=虚函数dynamic_cast - ohmyhsy&url=https://8bytes.top/2022/07/03/purevirtualfunction/&pic=">
+            <div class="n-icon n-icon-weibo"></div>
+        </a> -->
+    </section>
+
+</article>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- <script src="//unpkg.com/@waline/dist/Waline.min.js"></script> -->
+    <script src="https://unpkg.com/@waline/client@v2/dist/waline.js"></script>
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/@waline/client@v2/dist/waline.css"
+    />
+    <section class="comments">
+        <div id="waline"></div>
+    </section>
+    <script>
+        Waline.init({
+          el: '#waline',
+          serverURL: 'https://ohmyhsy.vercel.app/',
+        });
+    </script>
+
+
+
+<script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+</div>
+
+                </section>
+            </section>
+
+            
+            <aside class="sidebar sidebar-search-fix">
+                
+
+    <div class="search">
+    <div class="has-icon-right">
+        <input type="text" class="form-input" id="search" placeholder="SEARCH" autocomplete="off">
+        <div class="form-icon">
+            <box-icon name='search' color="#3c4859"></box-icon>
+        </div>
+    </div>
+    <div class="search-result" id="search-ps"></div>
+</div>
+
+
+<div class="widget" id="widget">
+    
+      
+  <div class="widget-wrap">
+    <div class="widget-inner">
+      <div class="toc post-toc-html"></div>
+    </div>
+  </div>
+
+    
+      
+
+    
+      
+  <div class="widget-wrap widget-tags">
+    <div class="widget-title"><span>Tags</span></div>
+    <div class="widget-inner">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/MFC/" rel="tag">MFC</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NoteBook/" rel="tag">NoteBook</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RemoteControl/" rel="tag">RemoteControl</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c/" rel="tag">c</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cheat-engine/" rel="tag">cheat engine</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/compiler/" rel="tag">compiler</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cpp/" rel="tag">cpp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/exam/" rel="tag">exam</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jetbrains/" rel="tag">jetbrains</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/" rel="tag">leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/life/" rel="tag">life</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/phone/" rel="tag">phone</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ubuntu/" rel="tag">ubuntu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/visual-studio-2022/" rel="tag">visual studio 2022</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vscode/" rel="tag">vscode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/windows/" rel="tag">windows</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-recent-posts">
+    <div class="widget-title"><span>Recent Posts</span></div>
+    <div class="widget-inner">
+      <ul>
+        
+          <li>
+            <a href="/2022/09/16/phoneTest/">给爪机上点科技</a>
+          </li>
+        
+          <li>
+            <a href="/2022/09/15/%E8%BF%9C%E6%8E%A7%E9%97%AE%E9%A2%98%E9%9B%86/">远控问题集</a>
+          </li>
+        
+          <li>
+            <a href="/2022/09/10/text021/">text021</a>
+          </li>
+        
+          <li>
+            <a href="/2022/09/10/text020/">text020</a>
+          </li>
+        
+          <li>
+            <a href="/2022/09/05/text019/">text019</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget-wrap widget-archive">
+    <div class="widget-title"><span>Archive</span></div>
+    <div class="widget-inner">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/">2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/">2021</a></li></ul>
+    </div>
+  </div>
+
+
+    
+</div>
+
+<div id="backtop"><i class="icon icon-arrow-up"></i></div>
+            </aside>
+            
+        </div>
+    </div>
+
+    <footer class="footer">
+    <div class="footer-wave">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#3c4859" fill-opacity="1" d="M0,160L60,181.3C120,203,240,245,360,240C480,235,600,181,720,186.7C840,192,960,256,1080,261.3C1200,267,1320,213,1380,186.7L1440,160L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>
+    </div>
+
+    <!-- Please do not remove this -->
+    <!-- 开源不易，请勿删除 -->
+    <div class="footer-wrap">
+        <div class="footer-inner"> 
+            ohmyhsy &copy; 2022<br>
+            Powered By Hexo · Theme By <a href="https://linhong.me/" target="_blank">Aomori</a> · <a href="https://github.com/lh1me/hexo-theme-aomori" target="_blank">Github</a>
+        </div>
+    </div>
+
+</footer>
+
+
+
+
+
+
+<script src="/dist/build.js?1646451311888.js"></script>
+
+
+<script src="/dist/custom.js?1646451311888.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>

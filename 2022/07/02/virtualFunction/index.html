@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    
+    <title>虚函数 | ohmyhsy</title>
+
+    <meta name="description" content="&lt;h1 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;关键字&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;virtual&lt;/li&gt;
+&lt;/ul&gt;">
+    <meta name="keywords" content="8bytes-blog">
+
+    
+
+    <meta property="og:locale" content="cn" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content= "虚函数 | ohmyhsy"  />
+    <meta property="og:description" content= "&lt;h1 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;关键字&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;virtual&lt;/li&gt;
+&lt;/ul&gt;" />
+    <meta property="og:url" content="https://8bytes.top/2022/07/02/virtualFunction/index.html" />
+    <meta property="og:site_name" content="" />
+    <meta property="article:author" content="Box" />
+    <meta property="article:publisher" content="" />
+    <meta property="og:description" content="&lt;h1 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;关键字&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;virtual&lt;/li&gt;
+&lt;/ul&gt;" />
+    <meta name="twitter:title" content="虚函数 | ohmyhsy"/>
+    <meta name="twitter:description" content="&lt;h1 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;关键字&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;virtual&lt;/li&gt;
+&lt;/ul&gt;"/>
+    <script type="application/ld+json">
+        {
+            "description": "&lt;h1 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;关键字&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;virtual&lt;/li&gt;
+&lt;/ul&gt;",
+            "author": { "@type": "Person", "name": "Box" },
+            "@type": "BlogPosting",
+            "url": "https://8bytes.top/2022/07/02/virtualFunction/index.html",
+            "publisher": {
+            "@type": "Organization",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://8bytes.topundefined"
+            },
+            "name": "Box"
+            },
+            "headline": "虚函数 | ohmyhsy",
+            "datePublished": "2022-07-02T04:34:06.000Z",
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "https://8bytes.top/2022/07/02/virtualFunction/index.html"
+            },
+            "@context": "http://schema.org"
+        }
+    </script>
+
+
+
+
+    
+
+    
+    <meta property="algolia:search" data-application-id="4CVCYWPWWN" data-api-key="7757db6b0a31c3f94c301c885693ed0d" data-index-name="ohmyhsy">
+    
+
+    
+
+    
+
+    
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎮</text></svg>">
+    
+
+    
+
+    
+
+    
+<link rel="stylesheet" href="/dist/build.css?v=1646451311888.css">
+
+
+    
+<link rel="stylesheet" href="/dist/custom.css?v=1646451311888.css">
+
+
+    <script>
+        window.isPost = true
+        window.aomori = {
+            
+            
+            
+        }
+        window.aomori_logo_typed_animated = true
+        window.aomori_search_algolia = true
+
+    </script>
+
+<meta name="generator" content="Hexo 5.4.1"><link rel="alternate" href="/atom.xml" title="ohmyhsy" type="application/atom+xml">
+</head>
+
+<body>
+
+    <div class="container">
+    <header class="header">
+        <div class="header-type">
+            
+            <div class="header-type-inner">
+                
+                    <div id="typed-strings" style="display:none">
+                        <p>ohmyhsy</p>
+                    </div>
+                    <a class="header-type-title" id="typed" href="/"></a>
+                
+    
+                
+            </div>
+        </div>
+        <div class="header-menu">
+            <div class="header-menu-inner">
+                
+                <a href="/">Home</a>
+                
+                <a href="/archives">Archives</a>
+                
+                <a href="/friends">Friends</a>
+                
+                <a href="/collect">Collect</a>
+                
+                <a href="/photography">Phtotgraphy</a>
+                
+            </div>
+            <div class="header-menu-social">
+                
+    <a class="social" target="_blank" href="https://github.com/8bytes-code">
+        <box-icon type='logo' name='github'></box-icon>
+    </a>
+
+            </div>
+        </div>
+
+        <div class="header-menu-mobile">
+            <div class="header-menu-mobile-inner" id="mobile-menu-open">
+                <i class="icon icon-menu"></i>
+            </div>
+        </div>
+    </header>
+
+    <div class="header-menu-mobile-menu">
+        <div class="header-menu-mobile-menu-bg"></div>
+        <div class="header-menu-mobile-menu-wrap">
+            <div class="header-menu-mobile-menu-inner">
+                <div class="header-menu-mobile-menu-close" id="mobile-menu-close">
+                    <i class="icon icon-cross"></i>
+                </div>
+                <div class="header-menu-mobile-menu-list">
+                    
+                    <a href="/">Home</a>
+                    
+                    <a href="/archives">Archives</a>
+                    
+                    <a href="/friends">Friends</a>
+                    
+                    <a href="/collect">Collect</a>
+                    
+                    <a href="/photography">Phtotgraphy</a>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+    <div class="container">
+        <div class="main">
+            <section class="inner">
+                <section class="inner-main">
+                    <div class="post">
+    <article id="post-cl7vfxqv1006ybw9c548y8xp4" class="article article-type-post" itemscope
+    itemprop="blogPost">
+
+    <div class="article-inner">
+
+        
+          
+        
+        
+        
+
+        
+        <header class="article-header">
+            
+  
+    <h1 class="article-title" itemprop="name">
+      虚函数
+    </h1>
+  
+
+        </header>
+        
+
+        <div class="article-more-info article-more-info-post hairline">
+
+            <div class="article-date">
+  <time datetime="2022-07-02T04:34:06.000Z" itemprop="datePublished">2022-07-02</time>
+</div>
+
+            
+
+            
+            <div class="article-tag">
+                <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cpp/" rel="tag">cpp</a></li></ul>
+            </div>
+            
+
+            
+            <div class="article-busuanzi">
+                <span id="busuanzi_value_page_pv">N</span> 人看过
+            </div>
+            
+
+        </div>
+
+        <div class="article-entry post-inner-html hairline" itemprop="articleBody">
+            <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>关键字</p>
+<ul>
+<li>virtual</li>
+</ul>
+<span id="more"></span>
+
+
+<hr>
+<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><pre><code class="cpp">class MoveObject&#123;
+public:
+    int x;
+    int y;
+    void Move()&#123;
+        x++;
+        y++;
+    &#125;
+&#125;;
+
+class NPCObject :public MoveObject&#123;
+public:
+    void Move()&#123;
+        x++;
+        y++;
+        std::cout &lt;&lt; &quot;NPCobject!\n&quot;;
+    &#125;
+&#125;;
+
+class MonsterObject :public MoveObject&#123;
+public:
+    void Move()&#123;
+        x++;
+        y++;
+        std::cout &lt;&lt; &quot;monsterobject!\n&quot;;
+    &#125;
+&#125;;
+</code></pre>
+<p>在多态之前控制这种行为的时候，一般都是通过传入参数不同</p>
+<pre><code class="cpp">void move(NPCObject *obj)&#123;
+    obj-&gt;Move();
+&#125;
+
+void move(MonsterObject *obj)&#123;
+    obj-&gt;Move();
+&#125;
+</code></pre>
+<p>学习了多态之后，因为有向下转型的特性：</p>
+<pre><code class="cpp">void move(MoveObject *obj)&#123;
+    obj-&gt;Move();
+&#125;
+</code></pre>
+<img src="/2022/07/02/virtualFunction/000.png" class="">
+<p>我们就可以通过这种方式传递。</p>
+<img src="/2022/07/02/virtualFunction/001.png" class="">
+<p>这里没有输出是因为派生类调用的是基类的move，基类的move里面我们没有输出项。</p>
+<hr>
+<p>当我们设置基类的move函数为虚函数时，其实就是告诉编译器基类的这个函数是虚的，派生类可以自定义。</p>
+<pre><code class="cpp">class MoveObject&#123;
+public:
+    int x;
+    int y;
+    void virtual Move()&#123;        //虚函数
+        x++;
+        y++;
+    &#125;
+&#125;;
+</code></pre>
+<img src="/2022/07/02/virtualFunction/002.png" class="">
+<p>看到基类的函数设置成虚函数之后，在派生类调用的时候就会自动匹配到派生类的函数。</p>
+<p>本质上就是动态绑定，因为基类的函数并不是说从内存上被覆盖了，而是派生类有重写的情况下就用派生类的，没有的话还是会用基类的。</p>
+<hr>
+<h2 id="虚函数使用条件"><a href="#虚函数使用条件" class="headerlink" title="虚函数使用条件"></a>虚函数使用条件</h2><p><code>virtual</code>只能写在类的内部生命或者定义，不能写在外部，也就是外部的全局函数。<br>调用类的对象是无法使用虚函数的，必须使用基类指针来实现虚函数的调用<br>虚函数在派生类和基类中必须具有相同的及参数列表<br>虚函数在派生类和基类中返回值要求基本一致，但是当返回类型为该类型的指针和引用时除外<br>虚函数不能是函数模板</p>
+<hr>
+<p>override 后缀可以强制要求检查函数是重载<br>final 后缀可以终止函数的重载</p>
+<pre><code class="cpp">class MoveObject&#123;
+public:
+    int x;
+    int y;
+    void virtual Move()&#123;
+        x++;
+        y++;
+    &#125;
+&#125;;
+
+class NPCObject :public MoveObject&#123;
+public:
+    void Move()&#123;
+        x++;
+        y++;
+        std::cout &lt;&lt; &quot;NPCobject!\n&quot;;
+    &#125;
+&#125;;
+</code></pre>
+<p>学习了虚函数之后，我们知道继承的时候也会带上，那么NPC中的这个Move其实也就是一个虚函数，只不过我们再次重写了。</p>
+<img src="/2022/07/02/virtualFunction/003.png" class="">
+<p>编译器也能看得到，当然这么写没太大关系，但是等NPC被别的类继承的时候，虽然函数还是叫move，但是转到上一层没看到virtual这个关键字还以为它不是虚函数。</p>
+<p>所以这个也要看编程习惯，如果基类中他是虚函数，那么派生类尽量就都要加上，方便被其他类派生的时候可以直观的看出。</p>
+<p>然后final这个关键字是用于结束重载的，所以像是虚函数后面定义了这个，那么派生类就不用加virtual了，都已经取消重载了自然没有必要性。</p>
+<p>override呢就比较有意思</p>
+<pre><code class="cpp">class MoveObject&#123;
+public:
+    int x;
+    int y;
+    void virtual Move()&#123;
+        x++;
+        y++;
+    &#125;
+&#125;;
+
+class NPCObject :public MoveObject&#123;
+public:
+    void Move(int a)&#123;
+        x++;
+        y++;
+        std::cout &lt;&lt; &quot;NPCobject!\n&quot;;
+    &#125;
+&#125;;
+</code></pre>
+<p>在正常情况下,NPC中的move待了参数，编译器可能会认为他是单独的存在。</p>
+<img src="/2022/07/02/virtualFunction/005.png" class="">
+<p>可以看到编译器认为它是属于NPC类的成员。<br>但事实上我们是让他继承过来重写的，而不是造成无论是意义上还是代码上的问题</p>
+<img src="/2022/07/02/virtualFunction/004.png" class="">
+<p>解决方法override就派上用场了，他会强制检查这个成员是不是继承过来的。</p>
+<hr>
+<p>虚函数并不一定全部写在基类中，因为类可能不止派生一次，当派生了很多次的时候，难免会有一些有新的功能。</p>
+<hr>
+<h1 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h1><p>虚函数在基类的private下，派生类就没法访问了，但虚函数在基类的public下，派生类改成private还是能用的，用的前期是通过指针，而不是直接.访问，毕竟派生类已经做成private。<br>但是在反复修改的时候其实间接的破坏了封装性，不利于维护。</p>
+
+        </div>
+
+    </div>
+
+    
+
+    
+
+    
+
+    
+  <div class="article-copyright hairline">
+    <p>
+      本作品采用  <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议 (CC BY-NC-ND 4.0)</a> 进行许可。
+    </p>
+  </div>
+  
+
+    
+
+    
+<nav class="article-nav">
+  
+    <a href="/2022/07/02/Polymorphic1/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-caption">下一篇</div>
+      <div class="article-nav-title">
+        
+          多态+虚函数的问题
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/07/01/Polymorphic/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-caption">上一篇</div>
+      <div class="article-nav-title">多态</div>
+    </a>
+  
+</nav>
+
+
+    <section class="share">
+        <div class="share-title">分享</div>
+        <a class="share-item" target="_blank"
+            href="https://twitter.com/share?text=虚函数 - ohmyhsy&url=https%3A%2F%2F8bytes.top%2F2022%2F07%2F02%2FvirtualFunction%2F">
+            <box-icon type='logo' name='twitter'></box-icon>
+        </a>
+        <a class="share-item" target="_blank"
+            href="https://www.facebook.com/sharer.php?title=虚函数 - ohmyhsy&u=https%3A%2F%2F8bytes.top%2F2022%2F07%2F02%2FvirtualFunction%2F">
+            <box-icon name='facebook-square' type='logo' ></box-icon>
+        </a>
+        <!-- <a class="share-item" target="_blank"
+            href="https://service.weibo.com/share/share.php?title=虚函数 - ohmyhsy&url=https://8bytes.top/2022/07/02/virtualFunction/&pic=">
+            <div class="n-icon n-icon-weibo"></div>
+        </a> -->
+    </section>
+
+</article>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- <script src="//unpkg.com/@waline/dist/Waline.min.js"></script> -->
+    <script src="https://unpkg.com/@waline/client@v2/dist/waline.js"></script>
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/@waline/client@v2/dist/waline.css"
+    />
+    <section class="comments">
+        <div id="waline"></div>
+    </section>
+    <script>
+        Waline.init({
+          el: '#waline',
+          serverURL: 'https://ohmyhsy.vercel.app/',
+        });
+    </script>
+
+
+
+<script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+</div>
+
+                </section>
+            </section>
+
+            
+            <aside class="sidebar sidebar-search-fix">
+                
+
+    <div class="search">
+    <div class="has-icon-right">
+        <input type="text" class="form-input" id="search" placeholder="SEARCH" autocomplete="off">
+        <div class="form-icon">
+            <box-icon name='search' color="#3c4859"></box-icon>
+        </div>
+    </div>
+    <div class="search-result" id="search-ps"></div>
+</div>
+
+
+<div class="widget" id="widget">
+    
+      
+  <div class="widget-wrap">
+    <div class="widget-inner">
+      <div class="toc post-toc-html"></div>
+    </div>
+  </div>
+
+    
+      
+
+    
+      
+  <div class="widget-wrap widget-tags">
+    <div class="widget-title"><span>Tags</span></div>
+    <div class="widget-inner">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/MFC/" rel="tag">MFC</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NoteBook/" rel="tag">NoteBook</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RemoteControl/" rel="tag">RemoteControl</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c/" rel="tag">c</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cheat-engine/" rel="tag">cheat engine</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/compiler/" rel="tag">compiler</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cpp/" rel="tag">cpp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/exam/" rel="tag">exam</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jetbrains/" rel="tag">jetbrains</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/" rel="tag">leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/life/" rel="tag">life</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/phone/" rel="tag">phone</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ubuntu/" rel="tag">ubuntu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/visual-studio-2022/" rel="tag">visual studio 2022</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vscode/" rel="tag">vscode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/windows/" rel="tag">windows</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-recent-posts">
+    <div class="widget-title"><span>Recent Posts</span></div>
+    <div class="widget-inner">
+      <ul>
+        
+          <li>
+            <a href="/2022/09/16/phoneTest/">给爪机上点科技</a>
+          </li>
+        
+          <li>
+            <a href="/2022/09/15/%E8%BF%9C%E6%8E%A7%E9%97%AE%E9%A2%98%E9%9B%86/">远控问题集</a>
+          </li>
+        
+          <li>
+            <a href="/2022/09/10/text021/">text021</a>
+          </li>
+        
+          <li>
+            <a href="/2022/09/10/text020/">text020</a>
+          </li>
+        
+          <li>
+            <a href="/2022/09/05/text019/">text019</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget-wrap widget-archive">
+    <div class="widget-title"><span>Archive</span></div>
+    <div class="widget-inner">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/">2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/">2021</a></li></ul>
+    </div>
+  </div>
+
+
+    
+</div>
+
+<div id="backtop"><i class="icon icon-arrow-up"></i></div>
+            </aside>
+            
+        </div>
+    </div>
+
+    <footer class="footer">
+    <div class="footer-wave">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#3c4859" fill-opacity="1" d="M0,160L60,181.3C120,203,240,245,360,240C480,235,600,181,720,186.7C840,192,960,256,1080,261.3C1200,267,1320,213,1380,186.7L1440,160L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>
+    </div>
+
+    <!-- Please do not remove this -->
+    <!-- 开源不易，请勿删除 -->
+    <div class="footer-wrap">
+        <div class="footer-inner"> 
+            ohmyhsy &copy; 2022<br>
+            Powered By Hexo · Theme By <a href="https://linhong.me/" target="_blank">Aomori</a> · <a href="https://github.com/lh1me/hexo-theme-aomori" target="_blank">Github</a>
+        </div>
+    </div>
+
+</footer>
+
+
+
+
+
+
+<script src="/dist/build.js?1646451311888.js"></script>
+
+
+<script src="/dist/custom.js?1646451311888.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>

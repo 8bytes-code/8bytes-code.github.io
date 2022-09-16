@@ -1,0 +1,1109 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    
+    <title>进程 | ohmyhsy</title>
+
+    <meta name="description" content="&lt;h1 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;进程（Process）是计算机中的程序关于某数据集合上的一次运行活动，是系统进行资源分配和调度的基本单位，是操作系统结构的基础。在早期面向进程设计的计算机结构中，进程是程序的基本执行实体；在当代面向线程设计的计算机结构中，进程是线程的容器。程序是指令、数据及其组织形式的描述，进程是程序的实体。&lt;br&gt;——百度百科&lt;/p&gt;">
+    <meta name="keywords" content="8bytes-blog">
+
+    
+
+    <meta property="og:locale" content="cn" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content= "进程 | ohmyhsy"  />
+    <meta property="og:description" content= "&lt;h1 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;进程（Process）是计算机中的程序关于某数据集合上的一次运行活动，是系统进行资源分配和调度的基本单位，是操作系统结构的基础。在早期面向进程设计的计算机结构中，进程是程序的基本执行实体；在当代面向线程设计的计算机结构中，进程是线程的容器。程序是指令、数据及其组织形式的描述，进程是程序的实体。&lt;br&gt;——百度百科&lt;/p&gt;" />
+    <meta property="og:url" content="https://8bytes.top/2022/07/21/process/index.html" />
+    <meta property="og:site_name" content="" />
+    <meta property="article:author" content="Box" />
+    <meta property="article:publisher" content="" />
+    <meta property="og:description" content="&lt;h1 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;进程（Process）是计算机中的程序关于某数据集合上的一次运行活动，是系统进行资源分配和调度的基本单位，是操作系统结构的基础。在早期面向进程设计的计算机结构中，进程是程序的基本执行实体；在当代面向线程设计的计算机结构中，进程是线程的容器。程序是指令、数据及其组织形式的描述，进程是程序的实体。&lt;br&gt;——百度百科&lt;/p&gt;" />
+    <meta name="twitter:title" content="进程 | ohmyhsy"/>
+    <meta name="twitter:description" content="&lt;h1 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;进程（Process）是计算机中的程序关于某数据集合上的一次运行活动，是系统进行资源分配和调度的基本单位，是操作系统结构的基础。在早期面向进程设计的计算机结构中，进程是程序的基本执行实体；在当代面向线程设计的计算机结构中，进程是线程的容器。程序是指令、数据及其组织形式的描述，进程是程序的实体。&lt;br&gt;——百度百科&lt;/p&gt;"/>
+    <script type="application/ld+json">
+        {
+            "description": "&lt;h1 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;进程（Process）是计算机中的程序关于某数据集合上的一次运行活动，是系统进行资源分配和调度的基本单位，是操作系统结构的基础。在早期面向进程设计的计算机结构中，进程是程序的基本执行实体；在当代面向线程设计的计算机结构中，进程是线程的容器。程序是指令、数据及其组织形式的描述，进程是程序的实体。&lt;br&gt;——百度百科&lt;/p&gt;",
+            "author": { "@type": "Person", "name": "Box" },
+            "@type": "BlogPosting",
+            "url": "https://8bytes.top/2022/07/21/process/index.html",
+            "publisher": {
+            "@type": "Organization",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://8bytes.topundefined"
+            },
+            "name": "Box"
+            },
+            "headline": "进程 | ohmyhsy",
+            "datePublished": "2022-07-21T14:44:06.000Z",
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "https://8bytes.top/2022/07/21/process/index.html"
+            },
+            "@context": "http://schema.org"
+        }
+    </script>
+
+
+
+
+    
+
+    
+    <meta property="algolia:search" data-application-id="4CVCYWPWWN" data-api-key="7757db6b0a31c3f94c301c885693ed0d" data-index-name="ohmyhsy">
+    
+
+    
+
+    
+
+    
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎮</text></svg>">
+    
+
+    
+
+    
+
+    
+<link rel="stylesheet" href="/dist/build.css?v=1646451311888.css">
+
+
+    
+<link rel="stylesheet" href="/dist/custom.css?v=1646451311888.css">
+
+
+    <script>
+        window.isPost = true
+        window.aomori = {
+            
+            
+            
+        }
+        window.aomori_logo_typed_animated = true
+        window.aomori_search_algolia = true
+
+    </script>
+
+<meta name="generator" content="Hexo 5.4.1"><link rel="alternate" href="/atom.xml" title="ohmyhsy" type="application/atom+xml">
+</head>
+
+<body>
+
+    <div class="container">
+    <header class="header">
+        <div class="header-type">
+            
+            <div class="header-type-inner">
+                
+                    <div id="typed-strings" style="display:none">
+                        <p>ohmyhsy</p>
+                    </div>
+                    <a class="header-type-title" id="typed" href="/"></a>
+                
+    
+                
+            </div>
+        </div>
+        <div class="header-menu">
+            <div class="header-menu-inner">
+                
+                <a href="/">Home</a>
+                
+                <a href="/archives">Archives</a>
+                
+                <a href="/friends">Friends</a>
+                
+                <a href="/collect">Collect</a>
+                
+                <a href="/photography">Phtotgraphy</a>
+                
+            </div>
+            <div class="header-menu-social">
+                
+    <a class="social" target="_blank" href="https://github.com/8bytes-code">
+        <box-icon type='logo' name='github'></box-icon>
+    </a>
+
+            </div>
+        </div>
+
+        <div class="header-menu-mobile">
+            <div class="header-menu-mobile-inner" id="mobile-menu-open">
+                <i class="icon icon-menu"></i>
+            </div>
+        </div>
+    </header>
+
+    <div class="header-menu-mobile-menu">
+        <div class="header-menu-mobile-menu-bg"></div>
+        <div class="header-menu-mobile-menu-wrap">
+            <div class="header-menu-mobile-menu-inner">
+                <div class="header-menu-mobile-menu-close" id="mobile-menu-close">
+                    <i class="icon icon-cross"></i>
+                </div>
+                <div class="header-menu-mobile-menu-list">
+                    
+                    <a href="/">Home</a>
+                    
+                    <a href="/archives">Archives</a>
+                    
+                    <a href="/friends">Friends</a>
+                    
+                    <a href="/collect">Collect</a>
+                    
+                    <a href="/photography">Phtotgraphy</a>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+    <div class="container">
+        <div class="main">
+            <section class="inner">
+                <section class="inner-main">
+                    <div class="post">
+    <article id="post-cl7vfxqul004tbw9c3rdj0rbm" class="article article-type-post" itemscope
+    itemprop="blogPost">
+
+    <div class="article-inner">
+
+        
+          
+        
+        
+        
+
+        
+        <header class="article-header">
+            
+  
+    <h1 class="article-title" itemprop="name">
+      进程
+    </h1>
+  
+
+        </header>
+        
+
+        <div class="article-more-info article-more-info-post hairline">
+
+            <div class="article-date">
+  <time datetime="2022-07-21T14:44:06.000Z" itemprop="datePublished">2022-07-21</time>
+</div>
+
+            
+
+            
+            <div class="article-tag">
+                <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/windows/" rel="tag">windows</a></li></ul>
+            </div>
+            
+
+            
+            <div class="article-busuanzi">
+                <span id="busuanzi_value_page_pv">N</span> 人看过
+            </div>
+            
+
+        </div>
+
+        <div class="article-entry post-inner-html hairline" itemprop="articleBody">
+            <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>进程（Process）是计算机中的程序关于某数据集合上的一次运行活动，是系统进行资源分配和调度的基本单位，是操作系统结构的基础。在早期面向进程设计的计算机结构中，进程是程序的基本执行实体；在当代面向线程设计的计算机结构中，进程是线程的容器。程序是指令、数据及其组织形式的描述，进程是程序的实体。<br>——百度百科</p>
+<span id="more"></span>
+
+
+<hr>
+<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><p>基本情况下，我们查看任务进程，包括kill一个未响应的进程，都会在任务管理器中操作。<br>不过微软自己有个进程资源管理器看到的会更详细一点，<a target="_blank" rel="noopener" href="https://docs.microsoft.com/en-us/sysinternals/downloads/process-explorer">链接戳此处</a></p>
+<p><strong>注：需要科学上网，不然很慢</strong></p>
+<img src="/2022/07/21/process/000.png" class="">
+
+<p>进程实际上就一个纯粹的容器，进程本身不执行任何东西。代码的实现靠的的是线程，进程只相当于一个环境。<br>子进程也还是一个进程，它是指由另一个进程(对应称为父进程)所创建的进程。<br>子进程的线程既可以在父进程终止之后执行代码，也可以在父进程运行过程中执行代码。</p>
+<hr>
+<h2 id="创建进程"><a href="#创建进程" class="headerlink" title="创建进程"></a>创建进程</h2><p><code>CreateProcess</code>用来创建进程的函数。<br>其原型，参数一贯的又臭又长</p>
+<pre><code class="cpp">CreateProcessW(
+    _In_opt_ LPCWSTR lpApplicationName, //该字符串可以指定要执行的模块的完整路径和文件名
+    _Inout_opt_ LPWSTR lpCommandLine,   //命令行
+    _In_opt_ LPSECURITY_ATTRIBUTES lpProcessAttributes, //该结构确定子进程是否可以继承返回到新进程对象的句柄，如果为NULL则不能继承
+    _In_opt_ LPSECURITY_ATTRIBUTES lpThreadAttributes,  //该结构确定子进程是否可以继承返回到新线程对象的句柄，如果为NULL则不能继承
+    _In_ BOOL bInheritHandles,  //参数若为TRUE则新进程继承调用进程的每个可继承句柄。如为FALSE则不会继承句柄
+    _In_ DWORD dwCreationFlags, //控制优先级别和流程创建的标识
+    _In_opt_ LPVOID lpEnvironment,  //指向新进程的环境块的指针，若为NULL则新进程将使用调用进程的环境
+    _In_opt_ LPCWSTR lpCurrentDirectory,    //进程当前目录的完整路径
+    _In_ LPSTARTUPINFOW lpStartupInfo,      //设置扩展属性
+    _Out_ LPPROCESS_INFORMATION lpProcessInformation    //该结构接收有关新进程的标识信息
+    );
+</code></pre>
+<p>具体可以去看文档。因为Windows API套娃严重。。他这里的参数还有结构体。有点绷不住。</p>
+<p>然后自制进程的话不太理想，反正打开一个程序也是一个进程，就直接配置打开一个程序</p>
+<pre><code class="cpp">#include &lt;stdio.h&gt;
+#include &lt;windows.h&gt;
+#include &lt;process.h&gt;
+
+
+int RunExe()&#123;
+    
+    //Chrome路径
+    STARTUPINFO strStartup;
+    memset(&amp;strStartup, 0, sizeof(strStartup));
+    strStartup.cb = sizeof(strStartup);
+    PROCESS_INFORMATION szProcessInformation;
+    memset(&amp;szProcessInformation, 0, sizeof(szProcessInformation));
+
+    TCHAR szCommandLine[] = L&quot;C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe&quot;;
+    
+    int ret = CreateProcess(
+        NULL,
+        szCommandLine,
+        NULL,
+        NULL,
+        FALSE,
+        CREATE_NEW_CONSOLE,
+        NULL,
+        NULL,
+        &amp;strStartup,
+        &amp;szProcessInformation
+    );
+
+    if (ret)&#123;
+        printf(&quot;Create success ret = %d\n&quot;, ret);
+        WaitForSingleObject(szProcessInformation.hProcess,INFINITE);
+        CloseHandle(szProcessInformation.hProcess);
+        CloseHandle(szProcessInformation.hThread);
+        //手动置空看情况。
+    &#125; else&#123;
+        printf(&quot;Create error!\n&quot;);
+    &#125;
+
+    return 0;
+&#125;
+
+int main()&#123;
+    //通过进程拉起谷歌浏览器
+    printf(&quot;This is Chrome\n&quot;);
+    RunExe();
+    system(&quot;pause&quot;);
+
+
+    return 0;
+&#125;
+</code></pre>
+<p><strong>memset是计算机中C&#x2F;C++语言初始化函数。作用是将某一块内存中的内容全部设置为指定的值， 这个函数通常为新申请的内存做初始化工作。</strong></p>
+<img src="/2022/07/21/process/001.png" class="">
+<p>可以看到是成功启动了我们的谷歌浏览器，但是自己用的时候要注意，文件路径每个人多少都有不同，所以不要直接套娃。</p>
+<p>除了直接打开.exe，还可以通过命令行的方式让他打开网页<br><code>TCHAR szCommandLine[] = L&quot;\&quot;C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\&quot;https://www.baidu.com&quot;;</code><br>如此设置之后，run的时候就能看到浏览器直接打开百度的首页了。</p>
+<img src="/2022/07/21/process/002.png" class="">
+
+<p>并且进程对象的成员也使得我们能够看到相对应的id</p>
+<pre><code class="cpp">if (ret)&#123;
+    printf(&quot;Create success ret = %d\n&quot;, ret);
+    WaitForSingleObject(szProcessInformation.hProcess,INFINITE);
+
+    printf(&quot;szProcessInformation.hProcess = %d\n&quot;, szProcessInformation.hProcess);
+    printf(&quot;szProcessInformation.hThread = %d\n&quot;, szProcessInformation.hThread);
+    printf(&quot;szProcessInformation.dwProcessId = %d\n&quot;, szProcessInformation.dwProcessId);
+    printf(&quot;szProcessInformation.dwThreadId = %d\n&quot;, szProcessInformation.dwThreadId);
+
+    CloseHandle(szProcessInformation.hProcess);
+    CloseHandle(szProcessInformation.hThread);
+    //手动置空看情况。
+&#125; else&#123;
+    printf(&quot;Create error!\n&quot;);
+&#125;
+</code></pre>
+<img src="/2022/07/21/process/003.png" class="">
+
+<p>当然用这个调用cmd去执行一些命令好像有点问题，而且有点笨，它都可以直接通过system调用系统命令了。</p>
+<hr>
+<h2 id="进程间通信方式"><a href="#进程间通信方式" class="headerlink" title="进程间通信方式"></a>进程间通信方式</h2><ol>
+<li>socket ip和端口</li>
+<li>剪切板  剪切板的内核对象</li>
+<li>邮槽 邮槽的内核对象</li>
+<li>匿名管道(无名管道)</li>
+<li>命名管道</li>
+<li>Copy_data findwindows wm_copudata  Sendmessage</li>
+</ol>
+<hr>
+<h2 id="剪切板"><a href="#剪切板" class="headerlink" title="剪切板"></a>剪切板</h2><p>新建项目mfc</p>
+<img src="/2022/07/21/process/004.png" class="">
+<p>选择基于对话框，然后就点完成</p>
+<img src="/2022/07/21/process/005.png" class="">
+<p>打开之后长这样就差不多了。</p>
+<p>运行一下，跟里面看的差不多</p>
+<img src="/2022/07/21/process/006.png" class="">
+
+<p>加下来要用到资源视图，如果没打开的可以参照</p>
+<img src="/2022/07/21/process/007.png" class="">
+<img src="/2022/07/21/process/008.png" class="">
+
+<p>因为之前看过qt，所以拖动组件和修改id之类的不是什么问题。</p>
+<img src="/2022/07/21/process/010.png" class="">
+<p>做成这样之后双击按钮进入代码实现部分,<strong>注意修改项目为多字节，unicode有点问题先不管了，但是可以提一嘴，就是接收的时候需要转换</strong></p>
+<pre><code class="cpp">void CCopyBoardDlg::OnBnClickedSendbutton()&#123;
+    //打开剪切板 成功返回TRUE
+    if (OpenClipboard())&#123;
+        //打开之后首先清空剪切板
+        EmptyClipboard();
+        char *szSendBuf;
+
+        //获取SEND框的内容
+        CString strSend&#123;&#125;;
+        GetDlgItemText(IDC_EDIT_SEND,strSend);
+
+        //分配一个内存对象，内存对象的句柄就是hclip
+        HANDLE hClip = GlobalAlloc(GMEM_MOVEABLE, strSend.GetLength()+1);
+
+        //剪切板上锁
+        szSendBuf = (char*)GlobalLock(hClip);
+        strcpy(szSendBuf, strSend);
+
+        //拷贝完之后解锁
+        GlobalUnlock(hClip);
+
+        //将数据放入剪切板
+        SetClipboardData(CF_TEXT, hClip);
+
+        //关闭剪切板
+        CloseClipboard();
+    &#125;
+&#125;
+
+void CCopyBoardDlg::OnBnClickedRecvbutton()&#123;
+    //打开剪切板
+    if (OpenClipboard())&#123;
+        //判断剪切板是否可用
+        if (IsClipboardFormatAvailable(CF_TEXT))&#123;
+            char *szRecvBuf;
+
+            //向剪切板取出数据
+            HANDLE hClip = GetClipboardData(CF_TEXT);
+            szRecvBuf = (char *)GlobalLock(hClip);
+            SetDlgItemText(IDC_EDIT_RECV, szRecvBuf);
+            GlobalUnlock(hClip);
+        &#125;
+        //关闭剪切板
+        CloseClipboard();
+    &#125;
+&#125;
+</code></pre>
+<p>最后实现部分就是这样，在左边的内容框输入，点击发送之后，再点击接收，右边的框就有内容了</p>
+<img src="/2022/07/21/process/009.png" class="">
+
+<p>可能会有疑惑，为什么说是同步。这个程序看似就是一个进程之间的事情。<br>实际上因为我们调用了剪切板，所以当我们点击发送的时候，我们系统的剪切板就有了内容，所以我们可以直接在别的地方粘贴出来。<br>就像这样，我可以直接在项目的源文件中粘贴出来。</p>
+<img src="/2022/07/21/process/011.png" class="">
+
+<p>当然也可以新建一个作为桥梁嘛。</p>
+<pre><code class="cpp">void CCopyBoardCliDlg::OnBnClickedButtonrecv()&#123;
+    //打开剪切板
+    if (OpenClipboard())&#123;
+        //判断是否可用
+        if (IsClipboardFormatAvailable(CF_TEXT))&#123;
+            char *szRecvBuf;
+
+            //取剪切板数据
+            HANDLE hClip = GetClipboardData(CF_TEXT);
+            szRecvBuf = (char *)GlobalLock(hClip);
+            SetDlgItemText(IDC_EDITRECV, szRecvBuf);
+            GlobalUnlock(hClip);
+        &#125;
+        //关闭剪切板
+        CloseClipboard();
+    &#125;
+&#125;
+</code></pre>
+<p>额老样子一个直接打开一个vs打开。</p>
+<img src="/2022/07/21/process/012.png" class="">
+<p>效果就是我主要的点了发送以后，新写的可以直接通过接收获取。不是视频可能会有理解上的偏差。</p>
+<hr>
+<h2 id="邮槽"><a href="#邮槽" class="headerlink" title="邮槽"></a>邮槽</h2><p>邮槽是比较老的通信方式了。<br>使用邮槽的进程分为服务端和客户端。邮槽由服务端创建，在创建时需要指定邮槽名，创建后服务端得到邮槽的句柄。在邮槽创建后，客户端可以通过邮槽名打开邮槽，在获得句柄后可以向邮槽写入消息。<br>邮槽通信是单项的，只有服务端才能从邮槽中读取消息，客户端只能写入消息。消息遵循先入先出的原则。客户端先写入的消息在服务端现被读取。<br>通过邮槽通信的数据可以是任意格式，但是一条消息不能大于424字节。<br>邮槽除了在本机内进行进程间通信外，在主机间也可以通信。但是在主机间进行邮槽通信。数据通过网络传播时使用的是数据报协议(UDP)，所以是一种不可靠的通信。通过网络进行邮槽通信时，客户端必须知道服务端的主机名或者域名。</p>
+<p><code>CreateMailslot</code>额，还是老样子微软会根据多字节还是Unicode会做一个区分，前者多个a，后者多个w。<br>其原型</p>
+<pre><code class="cpp">CreateMailslot(
+    _In_     LPCWSTR lpName,
+    _In_     DWORD nMaxMessageSize,
+    _In_     DWORD lReadTimeout,
+    _In_opt_ LPSECURITY_ATTRIBUTES lpSecurityAttributes
+    );
+</code></pre>
+<img src="/2022/07/21/process/013.png" class="">
+<img src="/2022/07/21/process/014.png" class="">
+<p>然后设计这么两个东西。</p>
+<p>先从服务器开始设计接收</p>
+<pre><code class="cpp">void CMyMailslotDlg::OnBnClickedRecvbutton()&#123;
+    //创建邮槽
+    LPCTSTR szSlotName = TEXT(&quot;\\\\.\\mailslot\\Mymailslot&quot;);
+    HANDLE hSlot = CreateMailslot(
+        szSlotName,
+        0,                        //消息大小
+        MAILSLOT_WAIT_FOREVER,    //阻塞时间
+        NULL                    //安全属性
+    );
+
+    if (hSlot == INVALID_HANDLE_VALUE)&#123;
+        TRACE(&quot;CreateMailslot failed with %d\n&quot;, GetLastError());
+        return;
+    &#125;
+&#125;
+</code></pre>
+<p>然后要读取数据<br>这一关键点需要用到一个特别的函数<code>ReadFile</code></p>
+<pre><code class="cpp">ReadFile(
+    _In_ HANDLE hFile,    //句柄
+    _Out_writes_bytes_to_opt_(nNumberOfBytesToRead, *lpNumberOfBytesRead) //缓冲区
+
+    __out_data_source(FILE) LPVOID lpBuffer,
+    _In_ DWORD nNumberOfBytesToRead,        //将要读取的最大字节数
+    _Out_opt_ LPDWORD lpNumberOfBytesRead,    //指针，该变量接收时同步hFile读取的字节数
+    _Inout_opt_ LPOVERLAPPED lpOverlapped    //默认NULL
+    );
+</code></pre>
+<p>完整的这个服务端接收功能</p>
+<pre><code class="cpp">void CMyMailslotDlg::OnBnClickedRecvbutton()&#123;
+    //创建邮槽
+    LPCTSTR szSlotName = TEXT(&quot;\\\\.\\mailslot\\Mymailslot&quot;);
+    HANDLE hSlot = CreateMailslot(
+        szSlotName,
+        0,                        //消息大小
+        MAILSLOT_WAIT_FOREVER,    //阻塞时间
+        NULL                    //安全属性
+    );
+
+    if (hSlot == INVALID_HANDLE_VALUE)&#123;
+        TRACE(&quot;CreateMailslot failed with %d\n&quot;, GetLastError());
+        return;
+    &#125;
+
+    //读数据
+    char szBuf[100] = &#123; 0 &#125;;
+    DWORD dwRead;
+    if (!ReadFile(hSlot, szBuf, 100, &amp;dwRead, NULL))&#123;
+        MessageBox(&quot;ReadFile error!&quot;);
+        return;
+    &#125;
+    TRACE(&quot;---dwRead = %d\n&quot;, dwRead);
+    MessageBox(szBuf);
+
+    CloseHandle(hSlot);
+&#125;
+</code></pre>
+<p>然后客户端的发送功能其实也挺类似</p>
+<pre><code class="cpp">void CMymailCliDlg::OnBnClickedSendbutton()&#123;
+    //创建句柄
+    LPCTSTR szSlotName = TEXT(&quot;\\\\.\\mailslot\\Mymailslot&quot;);
+    HANDLE hMailSlot = CreateFile(
+        szSlotName,
+        FILE_GENERIC_WRITE,
+        FILE_SHARE_READ,
+        NULL,
+        OPEN_EXISTING,
+        FILE_ATTRIBUTE_NORMAL,
+        NULL
+    );
+
+    if (hMailSlot == INVALID_HANDLE_VALUE)&#123;
+        TRACE(&quot;CreateFile failed with %d\n&quot;, GetLastError());
+        return;
+    &#125;
+
+    //写入数据
+    char szBuf[100] = &quot;MailSlot Comming&quot;;
+    DWORD dwWrite;
+    if (!WriteFile(hMailSlot, szBuf, strlen(szBuf)+1, &amp;dwWrite, NULL))&#123;
+        MessageBox(&quot;Write Error!&quot;);
+        return;
+    &#125;
+
+    //关闭句柄
+    CloseHandle(hMailSlot);
+&#125;
+</code></pre>
+<img src="/2022/07/21/process/015.png" class="">
+<p>按照这个顺序大致就是这个效果。</p>
+<blockquote>
+<p>邮槽用的不多，之前可以说是听都没听过</p>
+</blockquote>
+<hr>
+<h2 id="匿名管道"><a href="#匿名管道" class="headerlink" title="匿名管道"></a>匿名管道</h2><p>匿名管道是一个没有命名的单向管道，本质上是一个共享的内存区域。通常用来在父进程和子进程之间通信。<br>只能实现本地两个进程之间的通信，不能实现网络通信。</p>
+<p><code>CreatePipe</code></p>
+<pre><code class="cpp">CreatePipe(
+    _Out_ PHANDLE hReadPipe,
+    _Out_ PHANDLE hWritePipe,
+    _In_opt_ LPSECURITY_ATTRIBUTES lpPipeAttributes,
+    _In_ DWORD nSize
+    );
+</code></pre>
+<p>额这里因为是要用到两个进程，就直接在邮槽上改了。</p>
+<h3 id="服务端"><a href="#服务端" class="headerlink" title="服务端"></a>服务端</h3><pre><code class="cpp">HANDLE hReadPipe;    //读句柄
+HANDLE hWritePipe;    //写句柄
+
+void CMyMailslotDlg::OnBnClickedSendbutton()&#123;
+    char szBuf[] = &quot;This Server Pipe&quot;;
+    DWORD dwWrite;
+    if (!WriteFile(hWritePipe, szBuf, strlen(szBuf) + 1, &amp;dwWrite, NULL))&#123;
+        MessageBox(_T(&quot;写入数据失败&quot;));
+        return;
+    &#125;
+&#125;
+
+void CMyMailslotDlg::OnBnClickedRecvbutton()&#123;
+    char szBuf[100] = &#123; 0 &#125;;
+    DWORD dwRead;
+    TRACE(&quot;Begin ReadFile&quot;);
+    if (!ReadFile(hReadPipe, szBuf, 100, &amp;dwRead, NULL))&#123;
+        MessageBox(_T(&quot;读取数据失败&quot;));
+        return;
+    &#125;
+    TRACE(&quot;End PipeReadFile&quot;);
+    MessageBox(szBuf);
+&#125;
+
+void CMyMailslotDlg::OnBnClickedCreBtn()&#123;
+    SECURITY_ATTRIBUTES sa;
+    sa.bInheritHandle = TRUE;
+    sa.lpSecurityDescriptor = NULL;
+    sa.nLength = sizeof(SECURITY_ATTRIBUTES);
+    if (!CreatePipe(&amp;hReadPipe, &amp;hWritePipe, &amp;sa, 0))&#123;
+        MessageBox(_T(&quot;匿名管道创建失败&quot;));
+        return;
+    &#125;
+
+    //创建子进程
+    STARTUPINFO strStartupInfo;    //用来指定新进程窗口如何显示
+    memset(&amp;strStartupInfo, 0, sizeof(strStartupInfo));
+    strStartupInfo.cb = sizeof(strStartupInfo);
+    strStartupInfo.dwFlags = STARTF_USESTDHANDLES;
+    strStartupInfo.hStdInput = hReadPipe;
+    strStartupInfo.hStdOutput = hWritePipe;
+    strStartupInfo.hStdError = GetStdHandle(STD_ERROR_HANDLE);
+
+    PROCESS_INFORMATION szProcessInformation;
+    memset(&amp;szProcessInformation, 0, sizeof(szProcessInformation));
+
+    int iRet = CreateProcess(
+        _T(&quot;MymailCli.exe&quot;),
+        NULL,
+        NULL,
+        NULL,
+        TRUE,
+        0,
+        NULL,
+        NULL,
+        &amp;strStartupInfo,
+        &amp;szProcessInformation
+    );
+
+    if (iRet)&#123;
+        //创建成功的情况
+        CloseHandle(szProcessInformation.hProcess);
+        CloseHandle(szProcessInformation.hThread);
+        szProcessInformation.dwProcessId = 0;
+        szProcessInformation.dwThreadId = 0;
+        szProcessInformation.hThread = NULL;
+        szProcessInformation.hProcess = NULL;
+    &#125; else&#123;
+        CloseHandle(hReadPipe);
+        CloseHandle(hWritePipe);
+        hReadPipe = NULL;
+        hWritePipe = NULL;
+        MessageBox(_T(&quot;子进程创建失败&quot;));
+        return;
+    &#125;
+&#125;
+</code></pre>
+<p>这里主要是给服务端拉起一个进程，然后通过拉起的客户端进行匿名管道传递<br>进程的代码大多还是抄之前写的进程部分。</p>
+<img src="/2022/07/21/process/016.png" class="">
+
+<hr>
+<h3 id="客户端"><a href="#客户端" class="headerlink" title="客户端"></a>客户端</h3><pre><code class="cpp">HANDLE hReadPipe;    //读句柄
+HANDLE hWritePipe;    //写句柄
+
+void CMymailCliDlg::OnBnClickedSendbutton()&#123;
+    hWritePipe = GetStdHandle(STD_OUTPUT_HANDLE);
+
+    char szBuf[100] = &quot;This Client Pipe&quot;;
+    DWORD dwWrite;
+    if (!WriteFile(hWritePipe, szBuf, strlen(szBuf) + 1, &amp;dwWrite, NULL))&#123;
+        MessageBox(_T(&quot;写入数据失败&quot;));
+        return;
+    &#125;
+&#125;
+
+void CMymailCliDlg::OnBnClickedRecvbutton()&#123;
+    hReadPipe = GetStdHandle(STD_INPUT_HANDLE);
+
+    char szBuf[100] = &#123; 0 &#125;;
+    DWORD dwRead;
+    if (!ReadFile(hReadPipe, szBuf, 100, &amp;dwRead, NULL))&#123;
+        MessageBox(_T(&quot;读取数据失败&quot;));
+        return;
+    &#125;
+    MessageBox(szBuf);
+&#125;
+</code></pre>
+<p>客户端因为不用管邮槽先，就通过句柄传送。</p>
+<hr>
+<h3 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h3><img src="/2022/07/21/process/017.png" class="">
+<p>根据按钮打开新进程。</p>
+<p>然后相互点击发送和接收<br>服务端发送 客户端接收</p>
+<img src="/2022/07/21/process/018.png" class="">
+
+<p>客户端发送 服务端接收</p>
+<img src="/2022/07/21/process/019.png" class="">
+
+<p>大致就是这么一个效果。</p>
+<p><strong>继续插一嘴：匿名管道只能实现本地两个进程之间的通信，不能实现网络通信。</strong></p>
+<hr>
+<h2 id="命名管道"><a href="#命名管道" class="headerlink" title="命名管道"></a>命名管道</h2><p>与Socket相似，支持网络之间不同进程的通信<br>既然也能通信，自然也能通过c&#x2F;s模式实现</p>
+<p><code>CreateNamePipe</code></p>
+<pre><code class="cpp">CreateNamedPipeA(
+    _In_     LPCSTR lpName,
+    _In_     DWORD dwOpenMode,
+    _In_     DWORD dwPipeMode,
+    _In_     DWORD nMaxInstances,
+    _In_     DWORD nOutBufferSize,
+    _In_     DWORD nInBufferSize,
+    _In_     DWORD nDefaultTimeOut,
+    _In_opt_ LPSECURITY_ATTRIBUTES lpSecurityAttributes
+    );
+</code></pre>
+<p>插一句，项目有些时候都用多字节的，Unicode有的时候要转换太麻烦了。</p>
+<h3 id="服务端-1"><a href="#服务端-1" class="headerlink" title="服务端"></a>服务端</h3><pre><code class="cpp">HANDLE hNamedPipe;
+
+void CmyNamePipeSerDlg::OnBnClickedProBtn()&#123;
+    //创建命名管道
+    LPCTSTR szPipeName = TEXT(&quot;\\\\.\\pipe\\mypipe&quot;);
+    hNamedPipe = CreateNamedPipe(
+        szPipeName,
+        PIPE_ACCESS_DUPLEX | FILE_FLAG_OVERLAPPED,
+        PIPE_TYPE_BYTE, 1, 1024, 1024, 0, NULL
+    );
+
+    if (hNamedPipe == INVALID_HANDLE_VALUE)&#123;
+        TRACE(&quot;CreateNamePipe failed with %d\n&quot;, GetLastError());
+        MessageBox(_T(&quot;创建命名管道失败&quot;));
+        return;
+    &#125;
+
+    //等待客户端的连接
+    HANDLE hEvent = CreateEvent(NULL, TRUE, FALSE, NULL);
+    if (NULL == hEvent)&#123;
+        MessageBox(_T(&quot;创建事件失败&quot;));
+        CloseHandle(hNamedPipe);
+        hNamedPipe = NULL;
+        return;
+    &#125;
+
+    OVERLAPPED ovlap;
+    ZeroMemory(&amp;ovlap, sizeof(OVERLAPPED));
+    ovlap.hEvent = hEvent;
+
+    //等待连接
+    if (!ConnectNamedPipe(hNamedPipe, &amp;ovlap))&#123;
+        if (ERROR_IO_PENDING != GetLastError())&#123;
+            MessageBox(_T(&quot;等待客户端连接失败&quot;));
+            CloseHandle(hNamedPipe);
+            CloseHandle(hEvent);
+            hNamedPipe = NULL;
+            hEvent = NULL;
+            return;
+        &#125;
+    &#125;
+
+    if (WaitForSingleObject(hEvent, INFINITE) == WAIT_FAILED)&#123;
+        MessageBox(_T(&quot;等待对象失败&quot;));
+        CloseHandle(hNamedPipe);
+        CloseHandle(hEvent);
+        hNamedPipe = NULL;
+        hEvent = NULL;
+        return;
+    &#125;
+&#125;
+</code></pre>
+<p>创建命名管道其实也还好，但是为了一些安全考虑，做了一些措施，本质上都是copy来的。</p>
+<p>至于send和recv其实换汤不换药</p>
+<pre><code class="cpp">void CmyNamePipeSerDlg::OnBnClickedSendBtn()&#123;
+    //命名管道 服务端 发送
+    char szBuf[] = &quot;This Named Pipe From Server&quot;;
+    DWORD dwWrite;
+
+    if (!WriteFile(hNamedPipe, szBuf, strlen(szBuf) + 1, &amp;dwWrite, NULL))&#123;
+        MessageBox(_T(&quot;WriteFile Failed!!!&quot;));
+        return;
+    &#125;
+&#125;
+
+void CmyNamePipeSerDlg::OnBnClickedRecvbtn()&#123;
+    //命名管道 服务端 接收
+    char szBuf[100] = &#123; 0 &#125;;
+    DWORD dwRead;
+
+    if (!ReadFile(hNamedPipe, szBuf, 100, &amp;dwRead, NULL))&#123;
+        MessageBox(_T(&quot;ReadFile Failed!!!&quot;));
+        return;
+    &#125;
+    //接收后显示出来
+    MessageBox(szBuf);
+&#125;
+</code></pre>
+<p>可以说跟之前的一个模样的~</p>
+<hr>
+<h3 id="客户端-1"><a href="#客户端-1" class="headerlink" title="客户端"></a>客户端</h3><pre><code class="cpp">HANDLE hNamedPipe;
+
+void CmyNamePipeCliDlg::OnBnClickedConnBtn()&#123;
+    //创建命名管道
+    LPCTSTR szPipeName = TEXT(&quot;\\\\.\\pipe\\mypipe&quot;);
+
+    if (0 == WaitNamedPipe(szPipeName,NMPWAIT_WAIT_FOREVER))&#123;
+        MessageBox(_T(&quot;当前没有可以利用的管道&quot;));
+        return;
+    &#125;
+
+    //通过打开的命名管道返回的句柄传给hNamedPipe
+    hNamedPipe = CreateFile(
+        szPipeName, GENERIC_READ | GENERIC_WRITE,
+        0, NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL
+    );
+
+    if (hNamedPipe == INVALID_HANDLE_VALUE)&#123;
+        TRACE(&quot;CreateFile failed with %d\n&quot;, GetLastError());
+        CloseHandle(hNamedPipe);
+        hNamedPipe = NULL;
+        return;
+    &#125;
+&#125;
+</code></pre>
+<p>相比之下，客户端的连接管道就比较简单了。</p>
+<p>然后接收发送一个样都可以直接拷贝前面的</p>
+<pre><code class="cpp">void CmyNamePipeCliDlg::OnBnClickedSendBtn()&#123;
+    //命名管道 客户端 发送
+    char szBuf[100] = &quot;Named of Pipe Client&quot;;
+    DWORD dwWrite;
+
+    if (!WriteFile(hNamedPipe, szBuf, strlen(szBuf) + 1, &amp;dwWrite, NULL))&#123;
+        MessageBox(_T(&quot;WriteFile Failed!!!&quot;));
+        CloseHandle(hNamedPipe);
+        return;
+    &#125;
+&#125;
+
+void CmyNamePipeCliDlg::OnBnClickedRecvBtn()&#123;
+    //命名管道 客户端 接收
+    char szBuf[100] = &#123; 0 &#125;;
+    DWORD dwRead;
+
+    if (!ReadFile(hNamedPipe, szBuf, 100, &amp;dwRead, NULL))&#123;
+        MessageBox(_T(&quot;ReadFile Failed!!!&quot;));
+        CloseHandle(hNamedPipe);
+        return;
+    &#125;
+
+    MessageBox(szBuf);
+&#125;
+</code></pre>
+<hr>
+<h3 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h3><p>首先肯定是先编译了。</p>
+<img src="/2022/07/21/process/020.png" class="">
+<p>可以看到在没有建立管道的时候，点击肯定是报错的。</p>
+<img src="/2022/07/21/process/021.png" class="">
+<p>老样子，点击建立，然后客户端连接之后</p>
+<p>服务器发送 客户端接收</p>
+<img src="/2022/07/21/process/022.png" class="">
+
+<p>客户端发送 服务器接收</p>
+<img src="/2022/07/21/process/023.png" class="">
+
+<p>ok没啥问题~<br>除非要考到，不然这玩意我是记不住，看看文档差不多了。</p>
+<hr>
+<h2 id="WM-COPUDATA"><a href="#WM-COPUDATA" class="headerlink" title="WM_COPUDATA"></a>WM_COPUDATA</h2><p><code>wParam</code>传递数据的窗口的句柄</p>
+<p><code>COPYDATASTRUCT</code></p>
+<pre><code class="cpp">typedef struct tagCOPYDATASTRUCT &#123;
+    ULONG_PTR dwData;
+    DWORD cbData;
+    _Field_size_bytes_(cbData) PVOID lpData;
+&#125; COPYDATASTRUCT, *PCOPYDATASTRUCT;
+</code></pre>
+<p><code>SPY++</code>工具专门用来查找窗口句柄<br>这玩意内置在vs里面了，在顶部工具栏里面</p>
+<img src="/2022/07/21/process/024.png" class="">
+<p>打开之后就是这么一个东西</p>
+<p>然后点窗口搜索，它可以拖动到指定的窗口去获取句柄</p>
+<img src="/2022/07/21/process/025.png" class="">
+<p>这里拖到我们的vs22上面，可以看到能看到标题和句柄。</p>
+<p>拿到这样的句柄之后可以进行通信，不过也要能写代码。不然结构不一样它也没有发送接收什么的。</p>
+<p>这里也直接用上面写的修改一下就行了。<br>客户端发送</p>
+<pre><code class="cpp">void CmyNamePipeCliDlg::OnBnClickedSendBtn()&#123;
+    //发送端
+    CString strWinTitle = _T(&quot;服务端&quot;);
+    CString strMsg = _T(&quot;Client COPYDATA&quot;);
+
+    //利用标题获取句柄
+    HWND hwnd = ::FindWindow(NULL, strWinTitle.GetBuffer(0));
+
+    //判断句柄有内容还是个窗口
+    if (hwnd != NULL &amp;&amp; IsWindow(hwnd))&#123;
+        //数据的封装
+        COPYDATASTRUCT cpd;
+        cpd.dwData = 0;
+        cpd.cbData = strMsg.GetLength() * sizeof(TCHAR);
+        cpd.lpData = (PVOID)strMsg.GetBuffer(0);
+        //1句柄 2消息类型 3主窗口 4copy结构体
+        ::SendMessage(hwnd, WM_COPYDATA, (WPARAM)(AfxGetApp()-&gt;m_pMainWnd),(LPARAM) &amp; cpd);
+    &#125;
+
+    strWinTitle.ReleaseBuffer();
+    strMsg.ReleaseBuffer();
+&#125;
+</code></pre>
+<p>服务端通过wm_copydata自动接收</p>
+<pre><code class="cpp">BOOL CmyNamePipeSerDlg::OnCopyData(CWnd *pWnd, COPYDATASTRUCT *pCopyDataStruct)&#123;
+    //消息响应之后解析
+    LPCTSTR szText = (LPCTSTR)(pCopyDataStruct-&gt;lpData);
+    DWORD dwLength = (DWORD)pCopyDataStruct-&gt;cbData;
+    TCHAR szRecvText[1024] = &#123; 0 &#125;;
+    memcpy(szRecvText, szText, dwLength);
+    MessageBox(szRecvText, _T(&quot;Y&quot;), MB_OK);
+
+    return CDialogEx::OnCopyData(pWnd, pCopyDataStruct);
+&#125;
+</code></pre>
+<p>这个框架是通过编译器造的不用自己敲，里面的实现要自己来<br>右击图形界面，找到类向导打开，消息里面搜索然后双击就出来了</p>
+<img src="/2022/07/21/process/026.png" class="">
+
+<p>最后跑一下</p>
+<img src="/2022/07/21/process/027.png" class="">
+<p>当客户端点击发送的时候，服务端此刻不需要点击接收才能收到消息，而是自动的收到了消息。<br>这种方式可能用的会比较多。</p>
+<hr>
+<h1 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h1><p>剪切板比较简单，他和匿名管道一样只能实现同一个机器的两个进程通信，不能跨网络。<br>邮槽基于广播，可以一对多发送，但是只能一个发一个收，要同时进行就要多写点代码。邮槽传输的数据量较小，只能是424字节一下。<br>命名管道和邮槽都可以进行网络通信，命名管道是点对点的单一通信。<br>WM_COPYDATA封装数据和解析数据，使用起来也挺方便，不过数据量比较大的话就建议用命名管道。</p>
+<p>说参数是挺无聊的，但是实现一下也还行。</p>
+
+        </div>
+
+    </div>
+
+    
+
+    
+
+    
+
+    
+  <div class="article-copyright hairline">
+    <p>
+      本作品采用  <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议 (CC BY-NC-ND 4.0)</a> 进行许可。
+    </p>
+  </div>
+  
+
+    
+
+    
+<nav class="article-nav">
+  
+    <a href="/2022/07/23/windowsFiles/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-caption">下一篇</div>
+      <div class="article-nav-title">
+        
+          windows文件处理
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/07/20/thread1/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-caption">上一篇</div>
+      <div class="article-nav-title">线程-续</div>
+    </a>
+  
+</nav>
+
+
+    <section class="share">
+        <div class="share-title">分享</div>
+        <a class="share-item" target="_blank"
+            href="https://twitter.com/share?text=进程 - ohmyhsy&url=https%3A%2F%2F8bytes.top%2F2022%2F07%2F21%2Fprocess%2F">
+            <box-icon type='logo' name='twitter'></box-icon>
+        </a>
+        <a class="share-item" target="_blank"
+            href="https://www.facebook.com/sharer.php?title=进程 - ohmyhsy&u=https%3A%2F%2F8bytes.top%2F2022%2F07%2F21%2Fprocess%2F">
+            <box-icon name='facebook-square' type='logo' ></box-icon>
+        </a>
+        <!-- <a class="share-item" target="_blank"
+            href="https://service.weibo.com/share/share.php?title=进程 - ohmyhsy&url=https://8bytes.top/2022/07/21/process/&pic=">
+            <div class="n-icon n-icon-weibo"></div>
+        </a> -->
+    </section>
+
+</article>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- <script src="//unpkg.com/@waline/dist/Waline.min.js"></script> -->
+    <script src="https://unpkg.com/@waline/client@v2/dist/waline.js"></script>
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/@waline/client@v2/dist/waline.css"
+    />
+    <section class="comments">
+        <div id="waline"></div>
+    </section>
+    <script>
+        Waline.init({
+          el: '#waline',
+          serverURL: 'https://ohmyhsy.vercel.app/',
+        });
+    </script>
+
+
+
+<script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+</div>
+
+                </section>
+            </section>
+
+            
+            <aside class="sidebar sidebar-search-fix">
+                
+
+    <div class="search">
+    <div class="has-icon-right">
+        <input type="text" class="form-input" id="search" placeholder="SEARCH" autocomplete="off">
+        <div class="form-icon">
+            <box-icon name='search' color="#3c4859"></box-icon>
+        </div>
+    </div>
+    <div class="search-result" id="search-ps"></div>
+</div>
+
+
+<div class="widget" id="widget">
+    
+      
+  <div class="widget-wrap">
+    <div class="widget-inner">
+      <div class="toc post-toc-html"></div>
+    </div>
+  </div>
+
+    
+      
+
+    
+      
+  <div class="widget-wrap widget-tags">
+    <div class="widget-title"><span>Tags</span></div>
+    <div class="widget-inner">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/MFC/" rel="tag">MFC</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NoteBook/" rel="tag">NoteBook</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RemoteControl/" rel="tag">RemoteControl</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c/" rel="tag">c</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cheat-engine/" rel="tag">cheat engine</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/compiler/" rel="tag">compiler</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cpp/" rel="tag">cpp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/exam/" rel="tag">exam</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jetbrains/" rel="tag">jetbrains</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/" rel="tag">leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/life/" rel="tag">life</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/phone/" rel="tag">phone</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ubuntu/" rel="tag">ubuntu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/visual-studio-2022/" rel="tag">visual studio 2022</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vscode/" rel="tag">vscode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/windows/" rel="tag">windows</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-recent-posts">
+    <div class="widget-title"><span>Recent Posts</span></div>
+    <div class="widget-inner">
+      <ul>
+        
+          <li>
+            <a href="/2022/09/16/phoneTest/">给爪机上点科技</a>
+          </li>
+        
+          <li>
+            <a href="/2022/09/15/%E8%BF%9C%E6%8E%A7%E9%97%AE%E9%A2%98%E9%9B%86/">远控问题集</a>
+          </li>
+        
+          <li>
+            <a href="/2022/09/10/text021/">text021</a>
+          </li>
+        
+          <li>
+            <a href="/2022/09/10/text020/">text020</a>
+          </li>
+        
+          <li>
+            <a href="/2022/09/05/text019/">text019</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget-wrap widget-archive">
+    <div class="widget-title"><span>Archive</span></div>
+    <div class="widget-inner">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/">2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/">2021</a></li></ul>
+    </div>
+  </div>
+
+
+    
+</div>
+
+<div id="backtop"><i class="icon icon-arrow-up"></i></div>
+            </aside>
+            
+        </div>
+    </div>
+
+    <footer class="footer">
+    <div class="footer-wave">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#3c4859" fill-opacity="1" d="M0,160L60,181.3C120,203,240,245,360,240C480,235,600,181,720,186.7C840,192,960,256,1080,261.3C1200,267,1320,213,1380,186.7L1440,160L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>
+    </div>
+
+    <!-- Please do not remove this -->
+    <!-- 开源不易，请勿删除 -->
+    <div class="footer-wrap">
+        <div class="footer-inner"> 
+            ohmyhsy &copy; 2022<br>
+            Powered By Hexo · Theme By <a href="https://linhong.me/" target="_blank">Aomori</a> · <a href="https://github.com/lh1me/hexo-theme-aomori" target="_blank">Github</a>
+        </div>
+    </div>
+
+</footer>
+
+
+
+
+
+
+<script src="/dist/build.js?1646451311888.js"></script>
+
+
+<script src="/dist/custom.js?1646451311888.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>

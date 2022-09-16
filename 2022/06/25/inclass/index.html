@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    
+    <title>换个角度看类 | ohmyhsy</title>
+
+    <meta name="description" content="&lt;h1 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;逆向水的一批，顶多反汇编看看有啥过程&lt;/p&gt;">
+    <meta name="keywords" content="8bytes-blog">
+
+    
+
+    <meta property="og:locale" content="cn" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content= "换个角度看类 | ohmyhsy"  />
+    <meta property="og:description" content= "&lt;h1 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;逆向水的一批，顶多反汇编看看有啥过程&lt;/p&gt;" />
+    <meta property="og:url" content="https://8bytes.top/2022/06/25/inclass/index.html" />
+    <meta property="og:site_name" content="" />
+    <meta property="article:author" content="Box" />
+    <meta property="article:publisher" content="" />
+    <meta property="og:description" content="&lt;h1 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;逆向水的一批，顶多反汇编看看有啥过程&lt;/p&gt;" />
+    <meta name="twitter:title" content="换个角度看类 | ohmyhsy"/>
+    <meta name="twitter:description" content="&lt;h1 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;逆向水的一批，顶多反汇编看看有啥过程&lt;/p&gt;"/>
+    <script type="application/ld+json">
+        {
+            "description": "&lt;h1 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;逆向水的一批，顶多反汇编看看有啥过程&lt;/p&gt;",
+            "author": { "@type": "Person", "name": "Box" },
+            "@type": "BlogPosting",
+            "url": "https://8bytes.top/2022/06/25/inclass/index.html",
+            "publisher": {
+            "@type": "Organization",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://8bytes.topundefined"
+            },
+            "name": "Box"
+            },
+            "headline": "换个角度看类 | ohmyhsy",
+            "datePublished": "2022-06-25T04:57:19.000Z",
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "https://8bytes.top/2022/06/25/inclass/index.html"
+            },
+            "@context": "http://schema.org"
+        }
+    </script>
+
+
+
+
+    
+
+    
+    <meta property="algolia:search" data-application-id="4CVCYWPWWN" data-api-key="7757db6b0a31c3f94c301c885693ed0d" data-index-name="ohmyhsy">
+    
+
+    
+
+    
+
+    
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎮</text></svg>">
+    
+
+    
+
+    
+
+    
+<link rel="stylesheet" href="/dist/build.css?v=1646451311888.css">
+
+
+    
+<link rel="stylesheet" href="/dist/custom.css?v=1646451311888.css">
+
+
+    <script>
+        window.isPost = true
+        window.aomori = {
+            
+            
+            
+        }
+        window.aomori_logo_typed_animated = true
+        window.aomori_search_algolia = true
+
+    </script>
+
+<meta name="generator" content="Hexo 5.4.1"><link rel="alternate" href="/atom.xml" title="ohmyhsy" type="application/atom+xml">
+</head>
+
+<body>
+
+    <div class="container">
+    <header class="header">
+        <div class="header-type">
+            
+            <div class="header-type-inner">
+                
+                    <div id="typed-strings" style="display:none">
+                        <p>ohmyhsy</p>
+                    </div>
+                    <a class="header-type-title" id="typed" href="/"></a>
+                
+    
+                
+            </div>
+        </div>
+        <div class="header-menu">
+            <div class="header-menu-inner">
+                
+                <a href="/">Home</a>
+                
+                <a href="/archives">Archives</a>
+                
+                <a href="/friends">Friends</a>
+                
+                <a href="/collect">Collect</a>
+                
+                <a href="/photography">Phtotgraphy</a>
+                
+            </div>
+            <div class="header-menu-social">
+                
+    <a class="social" target="_blank" href="https://github.com/8bytes-code">
+        <box-icon type='logo' name='github'></box-icon>
+    </a>
+
+            </div>
+        </div>
+
+        <div class="header-menu-mobile">
+            <div class="header-menu-mobile-inner" id="mobile-menu-open">
+                <i class="icon icon-menu"></i>
+            </div>
+        </div>
+    </header>
+
+    <div class="header-menu-mobile-menu">
+        <div class="header-menu-mobile-menu-bg"></div>
+        <div class="header-menu-mobile-menu-wrap">
+            <div class="header-menu-mobile-menu-inner">
+                <div class="header-menu-mobile-menu-close" id="mobile-menu-close">
+                    <i class="icon icon-cross"></i>
+                </div>
+                <div class="header-menu-mobile-menu-list">
+                    
+                    <a href="/">Home</a>
+                    
+                    <a href="/archives">Archives</a>
+                    
+                    <a href="/friends">Friends</a>
+                    
+                    <a href="/collect">Collect</a>
+                    
+                    <a href="/photography">Phtotgraphy</a>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+    <div class="container">
+        <div class="main">
+            <section class="inner">
+                <section class="inner-main">
+                    <div class="post">
+    <article id="post-cl7vfxqu6002wbw9c5czjgguh" class="article article-type-post" itemscope
+    itemprop="blogPost">
+
+    <div class="article-inner">
+
+        
+          
+        
+        
+        
+
+        
+        <header class="article-header">
+            
+  
+    <h1 class="article-title" itemprop="name">
+      换个角度看类
+    </h1>
+  
+
+        </header>
+        
+
+        <div class="article-more-info article-more-info-post hairline">
+
+            <div class="article-date">
+  <time datetime="2022-06-25T04:57:19.000Z" itemprop="datePublished">2022-06-25</time>
+</div>
+
+            
+
+            
+            <div class="article-tag">
+                <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cpp/" rel="tag">cpp</a></li></ul>
+            </div>
+            
+
+            
+            <div class="article-busuanzi">
+                <span id="busuanzi_value_page_pv">N</span> 人看过
+            </div>
+            
+
+        </div>
+
+        <div class="article-entry post-inner-html hairline" itemprop="articleBody">
+            <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>逆向水的一批，顶多反汇编看看有啥过程</p>
+<span id="more"></span>
+
+
+<hr>
+<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><p>x64虽然快点，但是老的还是从x86开始</p>
+<hr>
+<h2 id="类的函数调用约定this"><a href="#类的函数调用约定this" class="headerlink" title="类的函数调用约定this"></a>类的函数调用约定this</h2><pre><code class="cpp">#include&lt;iostream&gt;
+
+class Box&#123;
+    int hp;
+public:
+    int Add(int a, int b)&#123;
+        return hp + a + b;
+    &#125;
+&#125;;
+
+int main()&#123;
+
+    Box b1;
+    b1.Add(100, 200);
+
+    return 0;
+&#125;
+</code></pre>
+<ol>
+<li>模式切换成release，选择x86</li>
+<li>关闭优化</li>
+<li>禁用安全检查</li>
+</ol>
+<img src="/2022/06/25/inclass/000.png" class="">
+<img src="/2022/06/25/inclass/001.png" class="">
+
+<p>安全检查会增加不少的汇编代码，不利于常规分析。</p>
+<p>然后随便打断点反汇编查看</p>
+<pre><code class="cpp">int main()&#123;
+003A1020 55                   push        ebp  
+003A1021 8B EC                mov         ebp,esp  
+003A1023 51                   push        ecx  
+
+    Box b1;
+    b1.Add(100, 200);
+003A1024 68 C8 00 00 00       push        0C8h  
+003A1029 6A 64                push        64h  
+003A102B 8D 4D FC             lea         ecx,[ebp-4]  
+003A102E E8 CD FF FF FF       call        003A1000  
+
+    return 0;
+003A1033 33 C0                xor         eax,eax  
+&#125;
+003A1035 8B E5                mov         esp,ebp  
+003A1037 5D                   pop         ebp  
+003A1038 C3                   ret  
+</code></pre>
+<p>可以看到精简了很多。</p>
+<pre><code class="cpp">class Box&#123;
+    int hp;
+public:
+    int Add(int a, int b)&#123;
+003A1002 EC                   in          al,dx  
+003A1003 51                   push        ecx  
+003A1004 89 4D FC             mov         dword ptr [ebp-4],ecx  
+        return hp + a + b;
+003A1007 8B 45 FC             mov         eax,dword ptr [ebp-4]  
+003A100A 8B 00                mov         eax,dword ptr [eax]  
+003A100C 03 45 08             add         eax,dword ptr [ebp+8]  
+003A100F 03 45 0C             add         eax,dword ptr [ebp+0Ch]  
+    &#125;
+003A1012 8B E5                mov         esp,ebp  
+003A1014 5D                   pop         ebp  
+003A1015 C2 08 00             ret         8 
+</code></pre>
+<blockquote>
+<p>至于显示符号名这个可开可不开，都是便于理解的东西</p>
+</blockquote>
+<pre><code class="cpp">    Box b1;
+    b1.Add(100, 200);
+003A1024 68 C8 00 00 00       push        0C8h  
+003A1029 6A 64                push        64h  
+003A102B 8D 4D FC             lea         ecx,[ebp-4]  
+003A102E E8 CD FF FF FF       call        003A1000 
+</code></pre>
+<p>调用b1.Add的时候也是从右至左把参数压入栈中。<br>lea指令就是把地址传给寄存器，那么这里ebp-4自然就是实例化对象b1的内存地址。<br>call 003a1000 就是调用函数，这里也就调用了.Add函数。</p>
+<img src="/2022/06/25/inclass/002.png" class="">
+<p>直接将地址copy进来，跳转，自然就是Box::Add的位置了。</p>
+<p>反汇编里，看起来成员函数的调用传参都和正常函数没差。<br>因为要看<code>this</code>所以把符号名打开了。</p>
+<pre><code class="cpp">class Box&#123;
+    int hp;
+public:
+    int Add(int a, int b)&#123;
+003A1000 55                   push        ebp  
+003A1001 8B EC                mov         ebp,esp  
+003A1003 51                   push        ecx  
+003A1004 89 4D FC             mov         dword ptr [this],ecx  
+        return hp + a + b;
+003A1007 8B 45 FC             mov         eax,dword ptr [this]  
+003A100A 8B 00                mov         eax,dword ptr [eax]  
+003A100C 03 45 08             add         eax,dword ptr [a]  
+003A100F 03 45 0C             add         eax,dword ptr [b]  
+    &#125;
+003A1012 8B E5                mov         esp,ebp  
+003A1014 5D                   pop         ebp  
+003A1015 C2 08 00             ret         8
+</code></pre>
+<p>函数入栈ebp跟随上来，然后esp跟ebp持平保持栈平衡<br>然后调用了一个ecx寄存器，又将ecx的值传给this指针，其实就是ebp-4 实例化 b1的地址，它的内存上也就一个hp。<br>然后将this指针的值传给eax寄存器，后面这个把eax的值又赋给eax其实有点迷惑操作。<br>可能先前是为了获取这个对象的地址，然后再取出hp的值，如果多个成员估计就能看出区别了。<br>按照这种道理，其实就是this-&gt;hp+a+b。先通过实例化对象，再去找它需要的成员。</p>
+<p>后面的两个add就没啥问题，就是hp+a+b顺序执行。</p>
+<blockquote>
+<p>不过按照这个反汇编，倒是看到，在类中调用自身成员其实都是通过this-&gt;获取<br>即使代码上不加，反汇编的时候还是遵循这个过程。<br>所以之前加上倒是便于理解了。</p>
+</blockquote>
+<hr>
+<h3 id="thiscall"><a href="#thiscall" class="headerlink" title="_thiscall"></a>_thiscall</h3><p>_thiscall是c++类中的成员函数访问时定义的函数调用约定</p>
+<ol>
+<li>寄存器ecx用来存放类的指针</li>
+<li>参数依旧是从右往左入栈</li>
+<li>堆栈平衡由被调用者负责恢复</li>
+</ol>
+<p>类中的非静态成员函数都可以调用this指针，this指针本身就是实例化对象的地址通过ecx传给成员函数。<br>所以当类中成员函数访问其成员变量的时候，都是指针+偏移的形式访问。<br>而且不管你是否明确使用this-&gt;，编译器默认都是按照这个逻辑。</p>
+<blockquote>
+<p>不过如果这个ecx被人逮到了，那里面的东西其实都可以通过便宜访问到了。</p>
+</blockquote>
+<hr>
+<h2 id="静态成员函数没有this指针"><a href="#静态成员函数没有this指针" class="headerlink" title="静态成员函数没有this指针"></a>静态成员函数没有this指针</h2><h3 id="cdecl"><a href="#cdecl" class="headerlink" title="_cdecl"></a>_cdecl</h3><p>类的静态成员函数调用约定_cdecl</p>
+<ol>
+<li>参数从右往左入栈</li>
+<li>由调用者恢复堆栈平衡 – 就是这个函数结束的时候会add esp,8 当然数值不固定由内存决定</li>
+</ol>
+<p>前面也说了，静态成员函数本质上就是一个普通的函数，他不会随着对象实例化而传递。<br>因此他也不会有this指针这种东西，没有了this指针也就注定它不能访问类中的成员变量<br>而静态成员变量能访问是因为静态变量本质上也是一个全局的变量，内存地址固定，与类实例化后互不影响。<br>所以静态成员可以通过作用域方式访问到：<code>类::静态成员变量</code></p>
+<pre><code class="cpp">#include&lt;iostream&gt;
+
+class Box&#123;
+    int hp;
+public:
+    int Add(int a, int b)&#123;
+        return hp + a + b;
+    &#125;
+
+    static int test(int a,int b)&#123;
+        return a + b;
+    &#125;
+&#125;;
+
+int main()&#123;
+
+    Box b1;
+    //b1.Add(100, 200);
+
+    b1.test(100,200);
+
+    return 0;
+&#125;
+</code></pre>
+<pre><code class="cpp">int main()&#123;
+00EA1010 55                   push        ebp  
+00EA1011 8B EC                mov         ebp,esp  
+
+    Box b1;
+    //b1.Add(100, 200);
+
+    b1.test(100,200);
+00EA1013 68 C8 00 00 00       push        0C8h  
+00EA1018 6A 64                push        64h  
+00EA101A E8 E1 FF FF FF       call        Box::test (0EA1000h)  
+00EA101F 83 C4 08             add         esp,8  
+
+    return 0;
+00EA1022 33 C0                xor         eax,eax  
+&#125;
+00EA1024 5D                   pop         ebp  
+00EA1025 C3                   ret 
+</code></pre>
+<p>参数入栈没啥毛病，都是从右往左，call的时候也是正常跳转函数<br>然后函数结束完后主动恢复栈平衡add esp,8<br>但是会注意到明明是b1调用的，但是却没有出现ecx。</p>
+<pre><code class="cpp">    static int test(int a,int b)&#123;
+00EA1002 EC                   in          al,dx  
+        return a + b;
+00EA1003 8B 45 08             mov         eax,dword ptr [a]  
+00EA1006 03 45 0C             add         eax,dword ptr [b]  
+    &#125;
+00EA1009 5D                   pop         ebp  
+00EA100A C3                   ret
+</code></pre>
+<p>至于这个函数本身是没调用类的成员，也没有出现ecx。</p>
+<p>所以说当你用b1调用静态成员函数和直接作用域调用是一样的。它没有this指针。</p>
+<p><strong>所以静态成员函数不能访问类的非静态成员变量</strong></p>
+<hr>
+<h2 id="类是否一定有构造函数"><a href="#类是否一定有构造函数" class="headerlink" title="类是否一定有构造函数"></a>类是否一定有构造函数</h2><p>刚学类的时候就说了，类默认都会有一个构造函数和析构函数，如果没定义，那就是自动生成一个空的构造函数和析构函数。</p>
+<p>至于在编译器编译的时候，为什么没看到。</p>
+<pre><code class="cpp">    Box b1;
+    //b1.Add(100, 200);
+
+    b1.test(100,200);
+00EA1013 68 C8 00 00 00       push        0C8h  
+00EA1018 6A 64                push        64h  
+00EA101A E8 E1 FF FF FF       call        Box::test (0EA1000h)  
+00EA101F 83 C4 08             add         esp,8
+</code></pre>
+<p>就拿这个来说，实例化对象b1，没有自动调用构造，首先是因为没定义，其次就是本身就是空的构造。那么有没有意义都不大，就被编译器主动删掉了。</p>
+<hr>
+<h1 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h1><p>还是有点糙，就是简单的分析</p>
+
+        </div>
+
+    </div>
+
+    
+
+    
+
+    
+
+    
+  <div class="article-copyright hairline">
+    <p>
+      本作品采用  <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议 (CC BY-NC-ND 4.0)</a> 进行许可。
+    </p>
+  </div>
+  
+
+    
+
+    
+<nav class="article-nav">
+  
+    <a href="/2022/06/25/CustonCallFunction/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-caption">下一篇</div>
+      <div class="article-nav-title">
+        
+          自定义类的函数调用约定
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/06/24/mallocornew/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-caption">上一篇</div>
+      <div class="article-nav-title">malloc和new</div>
+    </a>
+  
+</nav>
+
+
+    <section class="share">
+        <div class="share-title">分享</div>
+        <a class="share-item" target="_blank"
+            href="https://twitter.com/share?text=换个角度看类 - ohmyhsy&url=https%3A%2F%2F8bytes.top%2F2022%2F06%2F25%2Finclass%2F">
+            <box-icon type='logo' name='twitter'></box-icon>
+        </a>
+        <a class="share-item" target="_blank"
+            href="https://www.facebook.com/sharer.php?title=换个角度看类 - ohmyhsy&u=https%3A%2F%2F8bytes.top%2F2022%2F06%2F25%2Finclass%2F">
+            <box-icon name='facebook-square' type='logo' ></box-icon>
+        </a>
+        <!-- <a class="share-item" target="_blank"
+            href="https://service.weibo.com/share/share.php?title=换个角度看类 - ohmyhsy&url=https://8bytes.top/2022/06/25/inclass/&pic=">
+            <div class="n-icon n-icon-weibo"></div>
+        </a> -->
+    </section>
+
+</article>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- <script src="//unpkg.com/@waline/dist/Waline.min.js"></script> -->
+    <script src="https://unpkg.com/@waline/client@v2/dist/waline.js"></script>
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/@waline/client@v2/dist/waline.css"
+    />
+    <section class="comments">
+        <div id="waline"></div>
+    </section>
+    <script>
+        Waline.init({
+          el: '#waline',
+          serverURL: 'https://ohmyhsy.vercel.app/',
+        });
+    </script>
+
+
+
+<script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+</div>
+
+                </section>
+            </section>
+
+            
+            <aside class="sidebar sidebar-search-fix">
+                
+
+    <div class="search">
+    <div class="has-icon-right">
+        <input type="text" class="form-input" id="search" placeholder="SEARCH" autocomplete="off">
+        <div class="form-icon">
+            <box-icon name='search' color="#3c4859"></box-icon>
+        </div>
+    </div>
+    <div class="search-result" id="search-ps"></div>
+</div>
+
+
+<div class="widget" id="widget">
+    
+      
+  <div class="widget-wrap">
+    <div class="widget-inner">
+      <div class="toc post-toc-html"></div>
+    </div>
+  </div>
+
+    
+      
+
+    
+      
+  <div class="widget-wrap widget-tags">
+    <div class="widget-title"><span>Tags</span></div>
+    <div class="widget-inner">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/MFC/" rel="tag">MFC</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NoteBook/" rel="tag">NoteBook</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RemoteControl/" rel="tag">RemoteControl</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c/" rel="tag">c</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cheat-engine/" rel="tag">cheat engine</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/compiler/" rel="tag">compiler</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cpp/" rel="tag">cpp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/exam/" rel="tag">exam</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jetbrains/" rel="tag">jetbrains</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/" rel="tag">leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/life/" rel="tag">life</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/phone/" rel="tag">phone</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ubuntu/" rel="tag">ubuntu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/visual-studio-2022/" rel="tag">visual studio 2022</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vscode/" rel="tag">vscode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/windows/" rel="tag">windows</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-recent-posts">
+    <div class="widget-title"><span>Recent Posts</span></div>
+    <div class="widget-inner">
+      <ul>
+        
+          <li>
+            <a href="/2022/09/16/phoneTest/">给爪机上点科技</a>
+          </li>
+        
+          <li>
+            <a href="/2022/09/15/%E8%BF%9C%E6%8E%A7%E9%97%AE%E9%A2%98%E9%9B%86/">远控问题集</a>
+          </li>
+        
+          <li>
+            <a href="/2022/09/10/text021/">text021</a>
+          </li>
+        
+          <li>
+            <a href="/2022/09/10/text020/">text020</a>
+          </li>
+        
+          <li>
+            <a href="/2022/09/05/text019/">text019</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget-wrap widget-archive">
+    <div class="widget-title"><span>Archive</span></div>
+    <div class="widget-inner">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/">2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/">2021</a></li></ul>
+    </div>
+  </div>
+
+
+    
+</div>
+
+<div id="backtop"><i class="icon icon-arrow-up"></i></div>
+            </aside>
+            
+        </div>
+    </div>
+
+    <footer class="footer">
+    <div class="footer-wave">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#3c4859" fill-opacity="1" d="M0,160L60,181.3C120,203,240,245,360,240C480,235,600,181,720,186.7C840,192,960,256,1080,261.3C1200,267,1320,213,1380,186.7L1440,160L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>
+    </div>
+
+    <!-- Please do not remove this -->
+    <!-- 开源不易，请勿删除 -->
+    <div class="footer-wrap">
+        <div class="footer-inner"> 
+            ohmyhsy &copy; 2022<br>
+            Powered By Hexo · Theme By <a href="https://linhong.me/" target="_blank">Aomori</a> · <a href="https://github.com/lh1me/hexo-theme-aomori" target="_blank">Github</a>
+        </div>
+    </div>
+
+</footer>
+
+
+
+
+
+
+<script src="/dist/build.js?1646451311888.js"></script>
+
+
+<script src="/dist/custom.js?1646451311888.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>

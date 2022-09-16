@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    
+    <title>类的成员函数的函数指针 | ohmyhsy</title>
+
+    <meta name="description" content="&lt;h1 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;函数指针：函数指针是指向函数的指针变量。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;cpp&#34;&gt;int add(int a,int b)&amp;#123;
+    return a + b;
+&amp;#125;
+int (*pAdd)(int, int) = add;
+&lt;/code&gt;&lt;/pre&gt;">
+    <meta name="keywords" content="8bytes-blog">
+
+    
+
+    <meta property="og:locale" content="cn" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content= "类的成员函数的函数指针 | ohmyhsy"  />
+    <meta property="og:description" content= "&lt;h1 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;函数指针：函数指针是指向函数的指针变量。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;cpp&#34;&gt;int add(int a,int b)&amp;#123;
+    return a + b;
+&amp;#125;
+int (*pAdd)(int, int) = add;
+&lt;/code&gt;&lt;/pre&gt;" />
+    <meta property="og:url" content="https://8bytes.top/2022/07/04/classfunctionpointer/index.html" />
+    <meta property="og:site_name" content="" />
+    <meta property="article:author" content="Box" />
+    <meta property="article:publisher" content="" />
+    <meta property="og:description" content="&lt;h1 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;函数指针：函数指针是指向函数的指针变量。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;cpp&#34;&gt;int add(int a,int b)&amp;#123;
+    return a + b;
+&amp;#125;
+int (*pAdd)(int, int) = add;
+&lt;/code&gt;&lt;/pre&gt;" />
+    <meta name="twitter:title" content="类的成员函数的函数指针 | ohmyhsy"/>
+    <meta name="twitter:description" content="&lt;h1 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;函数指针：函数指针是指向函数的指针变量。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;cpp&#34;&gt;int add(int a,int b)&amp;#123;
+    return a + b;
+&amp;#125;
+int (*pAdd)(int, int) = add;
+&lt;/code&gt;&lt;/pre&gt;"/>
+    <script type="application/ld+json">
+        {
+            "description": "&lt;h1 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;函数指针：函数指针是指向函数的指针变量。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;cpp&#34;&gt;int add(int a,int b)&amp;#123;
+    return a + b;
+&amp;#125;
+int (*pAdd)(int, int) = add;
+&lt;/code&gt;&lt;/pre&gt;",
+            "author": { "@type": "Person", "name": "Box" },
+            "@type": "BlogPosting",
+            "url": "https://8bytes.top/2022/07/04/classfunctionpointer/index.html",
+            "publisher": {
+            "@type": "Organization",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://8bytes.topundefined"
+            },
+            "name": "Box"
+            },
+            "headline": "类的成员函数的函数指针 | ohmyhsy",
+            "datePublished": "2022-07-04T08:40:14.000Z",
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "https://8bytes.top/2022/07/04/classfunctionpointer/index.html"
+            },
+            "@context": "http://schema.org"
+        }
+    </script>
+
+
+
+
+    
+
+    
+    <meta property="algolia:search" data-application-id="4CVCYWPWWN" data-api-key="7757db6b0a31c3f94c301c885693ed0d" data-index-name="ohmyhsy">
+    
+
+    
+
+    
+
+    
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎮</text></svg>">
+    
+
+    
+
+    
+
+    
+<link rel="stylesheet" href="/dist/build.css?v=1646451311888.css">
+
+
+    
+<link rel="stylesheet" href="/dist/custom.css?v=1646451311888.css">
+
+
+    <script>
+        window.isPost = true
+        window.aomori = {
+            
+            
+            
+        }
+        window.aomori_logo_typed_animated = true
+        window.aomori_search_algolia = true
+
+    </script>
+
+<meta name="generator" content="Hexo 5.4.1"><link rel="alternate" href="/atom.xml" title="ohmyhsy" type="application/atom+xml">
+</head>
+
+<body>
+
+    <div class="container">
+    <header class="header">
+        <div class="header-type">
+            
+            <div class="header-type-inner">
+                
+                    <div id="typed-strings" style="display:none">
+                        <p>ohmyhsy</p>
+                    </div>
+                    <a class="header-type-title" id="typed" href="/"></a>
+                
+    
+                
+            </div>
+        </div>
+        <div class="header-menu">
+            <div class="header-menu-inner">
+                
+                <a href="/">Home</a>
+                
+                <a href="/archives">Archives</a>
+                
+                <a href="/friends">Friends</a>
+                
+                <a href="/collect">Collect</a>
+                
+                <a href="/photography">Phtotgraphy</a>
+                
+            </div>
+            <div class="header-menu-social">
+                
+    <a class="social" target="_blank" href="https://github.com/8bytes-code">
+        <box-icon type='logo' name='github'></box-icon>
+    </a>
+
+            </div>
+        </div>
+
+        <div class="header-menu-mobile">
+            <div class="header-menu-mobile-inner" id="mobile-menu-open">
+                <i class="icon icon-menu"></i>
+            </div>
+        </div>
+    </header>
+
+    <div class="header-menu-mobile-menu">
+        <div class="header-menu-mobile-menu-bg"></div>
+        <div class="header-menu-mobile-menu-wrap">
+            <div class="header-menu-mobile-menu-inner">
+                <div class="header-menu-mobile-menu-close" id="mobile-menu-close">
+                    <i class="icon icon-cross"></i>
+                </div>
+                <div class="header-menu-mobile-menu-list">
+                    
+                    <a href="/">Home</a>
+                    
+                    <a href="/archives">Archives</a>
+                    
+                    <a href="/friends">Friends</a>
+                    
+                    <a href="/collect">Collect</a>
+                    
+                    <a href="/photography">Phtotgraphy</a>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+    <div class="container">
+        <div class="main">
+            <section class="inner">
+                <section class="inner-main">
+                    <div class="post">
+    <article id="post-cl7vfxqts0012bw9cco8cb8f7" class="article article-type-post" itemscope
+    itemprop="blogPost">
+
+    <div class="article-inner">
+
+        
+          
+        
+        
+        
+
+        
+        <header class="article-header">
+            
+  
+    <h1 class="article-title" itemprop="name">
+      类的成员函数的函数指针
+    </h1>
+  
+
+        </header>
+        
+
+        <div class="article-more-info article-more-info-post hairline">
+
+            <div class="article-date">
+  <time datetime="2022-07-04T08:40:14.000Z" itemprop="datePublished">2022-07-04</time>
+</div>
+
+            
+
+            
+            <div class="article-tag">
+                <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cpp/" rel="tag">cpp</a></li></ul>
+            </div>
+            
+
+            
+            <div class="article-busuanzi">
+                <span id="busuanzi_value_page_pv">N</span> 人看过
+            </div>
+            
+
+        </div>
+
+        <div class="article-entry post-inner-html hairline" itemprop="articleBody">
+            <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>函数指针：函数指针是指向函数的指针变量。</p>
+<pre><code class="cpp">int add(int a,int b)&#123;
+    return a + b;
+&#125;
+int (*pAdd)(int, int) = add;
+</code></pre>
+<span id="more"></span>
+
+
+<hr>
+<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><pre><code class="cpp">class Box&#123;
+public:
+    void test()&#123;
+        std::cout &lt;&lt; &quot;test!\n&quot;;
+    &#125;
+
+    void hhh()&#123;
+        std::cout &lt;&lt; &quot;hhh!\n&quot;;
+    &#125;
+&#125;;
+</code></pre>
+<p>如果按照正常逻辑，想让函数指针指向一个函数</p>
+<pre><code class="cpp">void (*pTest)() = test;
+</code></pre>
+<p>这样肯定是不对的，因为这个test是类的成员函数而不是所谓的全局函数，如果全局函数都没有，那么这个test就是一个未定义标识符<br>有的人可能会想到作用域问题。</p>
+<pre><code class="cpp">void (*pTest)() = Box::test;
+</code></pre>
+<img src="/2022/07/04/classfunctionpointer/000.png" class="">
+<p>显然这也不是行的，毕竟类没有实例化，成员函数也非静态。<br>成员函数最关键的是它内部可以调用this指针，这是普通的函数无法做到的。</p>
+<p>解决办法也是相对的，在报错的时候看到提示void (Box::*)()不能用于初始化void(*)()的实体</p>
+<pre><code class="cpp">void (Box::*pTest)() = Box::test;
+</code></pre>
+<p>那么显然它是要你在函数指针那块也要加上作用域。</p>
+<hr>
+<p>玩点话的，之前学过<code>typedef</code>也就是自定义类型名</p>
+<pre><code class="cpp">typedef void(Box:: *pBox)();
+</code></pre>
+<p>然后就可以玩了</p>
+<pre><code class="cpp">pBox pb;
+Box *box = new Box();
+(box-&gt;*pb)();
+</code></pre>
+<p>不过这里会报错，因为pb没有初始化。<br>学类的时候，我们知道成员函数和成员变量有所区别，成员变量需要实例化才能调用，而成员函数编译的时候就分配好了地址，所以实例化多少类，成员函数地址都是一样的。除非说static，那种情况下既没有this指针，又在预编译阶段就完成了，可以直接通过类的作用域访问。</p>
+<p>因此这里直接让他指向box其中的一个成员函数。</p>
+<pre><code class="cpp">pBox pb = &amp;Box::test;
+Box *box = new Box();
+(box-&gt;*pb)();
+</code></pre>
+<p>随便用一个，毕竟就俩。</p>
+<img src="/2022/07/04/classfunctionpointer/001.png" class="">
+<p>可以看到，成功指向test，然后通过box指向指针解引用完成了函数调用。</p>
+<p><strong>因为没有参数列表可能看着很古怪</strong></p>
+<p>值得一提是，因为我们的类函数指针做了类限制，所以他只能指向这个类中的函数，普通的函数它是不能指向的。</p>
+<hr>
+<p>有的时候这个函数指针也可能直接作为类的成员变量。</p>
+<pre><code class="cpp">class Box;                              //声明
+typedef void(Box:: *pBox)();
+
+class Box&#123;
+public:
+    void test()&#123;
+        std::cout &lt;&lt; &quot;test!\n&quot;;
+    &#125;
+
+    void hhh()&#123;
+        std::cout &lt;&lt; &quot;hhh!\n&quot;;
+    &#125;
+    Box()&#123;
+        phhh = &amp;Box::hhh;
+        (this-&gt;*phhh)();
+    &#125;
+    pBox phhh;
+&#125;;
+</code></pre>
+<p>这样一来</p>
+<img src="/2022/07/04/classfunctionpointer/002.png" class="">
+<p>可以看到效果都差不多。</p>
+<hr>
+<p>然后就是static成员函数问题。</p>
+<pre><code class="cpp">class Box&#123;
+public:
+    static void func()&#123;
+        std::cout &lt;&lt; &quot;func!\n&quot;;
+    &#125;
+
+    void test()&#123;
+        std::cout &lt;&lt; &quot;test!\n&quot;;
+    &#125;
+
+    void hhh()&#123;
+        std::cout &lt;&lt; &quot;hhh!\n&quot;;
+    &#125;
+    Box()&#123;
+        phhh = &amp;Box::hhh;
+        (this-&gt;*phhh)();
+    &#125;
+    pBox phhh;
+&#125;;
+
+typedef void(*pFun)();
+</code></pre>
+<img src="/2022/07/04/classfunctionpointer/003.png" class="">
+<p>正常情况下可以这样调用。</p>
+<img src="/2022/07/04/classfunctionpointer/004.png" class="">
+<p>通过定义的函数指针就可以用这种方式调用。<br>因为静态成员函数没有this指针，所以不需要在通过指针指向解引用出成员函数</p>
+<hr>
+<h1 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h1><p>看着用吧，知道就行。</p>
+
+        </div>
+
+    </div>
+
+    
+
+    
+
+    
+
+    
+  <div class="article-copyright hairline">
+    <p>
+      本作品采用  <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议 (CC BY-NC-ND 4.0)</a> 进行许可。
+    </p>
+  </div>
+  
+
+    
+
+    
+<nav class="article-nav">
+  
+    <a href="/2022/07/06/text009/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-caption">下一篇</div>
+      <div class="article-nav-title">
+        
+          text009
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/07/04/abstractclass/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-caption">上一篇</div>
+      <div class="article-nav-title">抽象类</div>
+    </a>
+  
+</nav>
+
+
+    <section class="share">
+        <div class="share-title">分享</div>
+        <a class="share-item" target="_blank"
+            href="https://twitter.com/share?text=类的成员函数的函数指针 - ohmyhsy&url=https%3A%2F%2F8bytes.top%2F2022%2F07%2F04%2Fclassfunctionpointer%2F">
+            <box-icon type='logo' name='twitter'></box-icon>
+        </a>
+        <a class="share-item" target="_blank"
+            href="https://www.facebook.com/sharer.php?title=类的成员函数的函数指针 - ohmyhsy&u=https%3A%2F%2F8bytes.top%2F2022%2F07%2F04%2Fclassfunctionpointer%2F">
+            <box-icon name='facebook-square' type='logo' ></box-icon>
+        </a>
+        <!-- <a class="share-item" target="_blank"
+            href="https://service.weibo.com/share/share.php?title=类的成员函数的函数指针 - ohmyhsy&url=https://8bytes.top/2022/07/04/classfunctionpointer/&pic=">
+            <div class="n-icon n-icon-weibo"></div>
+        </a> -->
+    </section>
+
+</article>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- <script src="//unpkg.com/@waline/dist/Waline.min.js"></script> -->
+    <script src="https://unpkg.com/@waline/client@v2/dist/waline.js"></script>
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/@waline/client@v2/dist/waline.css"
+    />
+    <section class="comments">
+        <div id="waline"></div>
+    </section>
+    <script>
+        Waline.init({
+          el: '#waline',
+          serverURL: 'https://ohmyhsy.vercel.app/',
+        });
+    </script>
+
+
+
+<script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+</div>
+
+                </section>
+            </section>
+
+            
+            <aside class="sidebar sidebar-search-fix">
+                
+
+    <div class="search">
+    <div class="has-icon-right">
+        <input type="text" class="form-input" id="search" placeholder="SEARCH" autocomplete="off">
+        <div class="form-icon">
+            <box-icon name='search' color="#3c4859"></box-icon>
+        </div>
+    </div>
+    <div class="search-result" id="search-ps"></div>
+</div>
+
+
+<div class="widget" id="widget">
+    
+      
+  <div class="widget-wrap">
+    <div class="widget-inner">
+      <div class="toc post-toc-html"></div>
+    </div>
+  </div>
+
+    
+      
+
+    
+      
+  <div class="widget-wrap widget-tags">
+    <div class="widget-title"><span>Tags</span></div>
+    <div class="widget-inner">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/MFC/" rel="tag">MFC</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NoteBook/" rel="tag">NoteBook</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RemoteControl/" rel="tag">RemoteControl</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c/" rel="tag">c</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cheat-engine/" rel="tag">cheat engine</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/compiler/" rel="tag">compiler</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cpp/" rel="tag">cpp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/exam/" rel="tag">exam</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jetbrains/" rel="tag">jetbrains</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/" rel="tag">leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/life/" rel="tag">life</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/phone/" rel="tag">phone</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ubuntu/" rel="tag">ubuntu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/visual-studio-2022/" rel="tag">visual studio 2022</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vscode/" rel="tag">vscode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/windows/" rel="tag">windows</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-recent-posts">
+    <div class="widget-title"><span>Recent Posts</span></div>
+    <div class="widget-inner">
+      <ul>
+        
+          <li>
+            <a href="/2022/09/16/phoneTest/">给爪机上点科技</a>
+          </li>
+        
+          <li>
+            <a href="/2022/09/15/%E8%BF%9C%E6%8E%A7%E9%97%AE%E9%A2%98%E9%9B%86/">远控问题集</a>
+          </li>
+        
+          <li>
+            <a href="/2022/09/10/text021/">text021</a>
+          </li>
+        
+          <li>
+            <a href="/2022/09/10/text020/">text020</a>
+          </li>
+        
+          <li>
+            <a href="/2022/09/05/text019/">text019</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget-wrap widget-archive">
+    <div class="widget-title"><span>Archive</span></div>
+    <div class="widget-inner">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/">2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/">2021</a></li></ul>
+    </div>
+  </div>
+
+
+    
+</div>
+
+<div id="backtop"><i class="icon icon-arrow-up"></i></div>
+            </aside>
+            
+        </div>
+    </div>
+
+    <footer class="footer">
+    <div class="footer-wave">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#3c4859" fill-opacity="1" d="M0,160L60,181.3C120,203,240,245,360,240C480,235,600,181,720,186.7C840,192,960,256,1080,261.3C1200,267,1320,213,1380,186.7L1440,160L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>
+    </div>
+
+    <!-- Please do not remove this -->
+    <!-- 开源不易，请勿删除 -->
+    <div class="footer-wrap">
+        <div class="footer-inner"> 
+            ohmyhsy &copy; 2022<br>
+            Powered By Hexo · Theme By <a href="https://linhong.me/" target="_blank">Aomori</a> · <a href="https://github.com/lh1me/hexo-theme-aomori" target="_blank">Github</a>
+        </div>
+    </div>
+
+</footer>
+
+
+
+
+
+
+<script src="/dist/build.js?1646451311888.js"></script>
+
+
+<script src="/dist/custom.js?1646451311888.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    
+    <title>多个对话框关联 | ohmyhsy</title>
+
+    <meta name="description" content="&lt;h1 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;倒也没啥特别，效果是类似于一个问卷调查。&lt;/p&gt;">
+    <meta name="keywords" content="8bytes-blog">
+
+    
+
+    <meta property="og:locale" content="cn" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content= "多个对话框关联 | ohmyhsy"  />
+    <meta property="og:description" content= "&lt;h1 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;倒也没啥特别，效果是类似于一个问卷调查。&lt;/p&gt;" />
+    <meta property="og:url" content="https://8bytes.top/2022/08/03/nDialog/index.html" />
+    <meta property="og:site_name" content="" />
+    <meta property="article:author" content="Box" />
+    <meta property="article:publisher" content="" />
+    <meta property="og:description" content="&lt;h1 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;倒也没啥特别，效果是类似于一个问卷调查。&lt;/p&gt;" />
+    <meta name="twitter:title" content="多个对话框关联 | ohmyhsy"/>
+    <meta name="twitter:description" content="&lt;h1 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;倒也没啥特别，效果是类似于一个问卷调查。&lt;/p&gt;"/>
+    <script type="application/ld+json">
+        {
+            "description": "&lt;h1 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;倒也没啥特别，效果是类似于一个问卷调查。&lt;/p&gt;",
+            "author": { "@type": "Person", "name": "Box" },
+            "@type": "BlogPosting",
+            "url": "https://8bytes.top/2022/08/03/nDialog/index.html",
+            "publisher": {
+            "@type": "Organization",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://8bytes.topundefined"
+            },
+            "name": "Box"
+            },
+            "headline": "多个对话框关联 | ohmyhsy",
+            "datePublished": "2022-08-02T17:29:01.000Z",
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "https://8bytes.top/2022/08/03/nDialog/index.html"
+            },
+            "@context": "http://schema.org"
+        }
+    </script>
+
+
+
+
+    
+
+    
+    <meta property="algolia:search" data-application-id="4CVCYWPWWN" data-api-key="7757db6b0a31c3f94c301c885693ed0d" data-index-name="ohmyhsy">
+    
+
+    
+
+    
+
+    
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎮</text></svg>">
+    
+
+    
+
+    
+
+    
+<link rel="stylesheet" href="/dist/build.css?v=1646451311888.css">
+
+
+    
+<link rel="stylesheet" href="/dist/custom.css?v=1646451311888.css">
+
+
+    <script>
+        window.isPost = true
+        window.aomori = {
+            
+            
+            
+        }
+        window.aomori_logo_typed_animated = true
+        window.aomori_search_algolia = true
+
+    </script>
+
+<meta name="generator" content="Hexo 5.4.1"><link rel="alternate" href="/atom.xml" title="ohmyhsy" type="application/atom+xml">
+</head>
+
+<body>
+
+    <div class="container">
+    <header class="header">
+        <div class="header-type">
+            
+            <div class="header-type-inner">
+                
+                    <div id="typed-strings" style="display:none">
+                        <p>ohmyhsy</p>
+                    </div>
+                    <a class="header-type-title" id="typed" href="/"></a>
+                
+    
+                
+            </div>
+        </div>
+        <div class="header-menu">
+            <div class="header-menu-inner">
+                
+                <a href="/">Home</a>
+                
+                <a href="/archives">Archives</a>
+                
+                <a href="/friends">Friends</a>
+                
+                <a href="/collect">Collect</a>
+                
+                <a href="/photography">Phtotgraphy</a>
+                
+            </div>
+            <div class="header-menu-social">
+                
+    <a class="social" target="_blank" href="https://github.com/8bytes-code">
+        <box-icon type='logo' name='github'></box-icon>
+    </a>
+
+            </div>
+        </div>
+
+        <div class="header-menu-mobile">
+            <div class="header-menu-mobile-inner" id="mobile-menu-open">
+                <i class="icon icon-menu"></i>
+            </div>
+        </div>
+    </header>
+
+    <div class="header-menu-mobile-menu">
+        <div class="header-menu-mobile-menu-bg"></div>
+        <div class="header-menu-mobile-menu-wrap">
+            <div class="header-menu-mobile-menu-inner">
+                <div class="header-menu-mobile-menu-close" id="mobile-menu-close">
+                    <i class="icon icon-cross"></i>
+                </div>
+                <div class="header-menu-mobile-menu-list">
+                    
+                    <a href="/">Home</a>
+                    
+                    <a href="/archives">Archives</a>
+                    
+                    <a href="/friends">Friends</a>
+                    
+                    <a href="/collect">Collect</a>
+                    
+                    <a href="/photography">Phtotgraphy</a>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+    <div class="container">
+        <div class="main">
+            <section class="inner">
+                <section class="inner-main">
+                    <div class="post">
+    <article id="post-cl7vfxqub003hbw9ccerz2ksd" class="article article-type-post" itemscope
+    itemprop="blogPost">
+
+    <div class="article-inner">
+
+        
+          
+        
+        
+        
+
+        
+        <header class="article-header">
+            
+  
+    <h1 class="article-title" itemprop="name">
+      多个对话框关联
+    </h1>
+  
+
+        </header>
+        
+
+        <div class="article-more-info article-more-info-post hairline">
+
+            <div class="article-date">
+  <time datetime="2022-08-02T17:29:01.000Z" itemprop="datePublished">2022-08-03</time>
+</div>
+
+            
+
+            
+            <div class="article-tag">
+                <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MFC/" rel="tag">MFC</a></li></ul>
+            </div>
+            
+
+            
+            <div class="article-busuanzi">
+                <span id="busuanzi_value_page_pv">N</span> 人看过
+            </div>
+            
+
+        </div>
+
+        <div class="article-entry post-inner-html hairline" itemprop="articleBody">
+            <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>倒也没啥特别，效果是类似于一个问卷调查。</p>
+<span id="more"></span>
+
+
+<hr>
+<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><p>直接在前面项目上改动了</p>
+<img src="/2022/08/03/nDialog/000.png" class="">
+
+<p>点击这个按钮，自然是弹出新的对话框，所以要新建资源<br>右击资源视图中该项目的Dialog，选择添加资源</p>
+<img src="/2022/08/03/nDialog/001.png" class="">
+
+<p>这个对话框类型后面仨就是大小之间有差异。</p>
+<p>然后就是拖控件，其中这些radio单选框啥啥啥的，以前html做表单的时候用的感觉都差不多吧，不算太陌生。</p>
+<img src="/2022/08/03/nDialog/002.png" class="">
+
+<p>样式完成之后要新建类和这个对话框关联</p>
+<img src="/2022/08/03/nDialog/003.png" class="">
+
+<p><strong>这里要注意命名的时候要和Dialog里的一样，只不过我这个vs2022对话框id不知道为啥没显示，正常应该是会根据类名在前面加上IDD_，这也是为什么上面创建类名是这个样，但好在源文件头文件是随便的</strong></p>
+<img src="/2022/08/03/nDialog/004.png" class="">
+<p>创建完之后可以看到类向导这里这个类关联的资源就是刚才新建的对话框</p>
+<p>类和对话框关联之后，就要给这些控件添加变量。</p>
+<p>单选框的特性就是只能选中一个，那么这个变量首先为值类型，其次类型为BOOL。创建三个又太麻烦，所以新建一个之后直接改成数组</p>
+<pre><code class="cpp">public:
+    // 单选框的值
+    BOOL m_lang[3];
+</code></pre>
+<p>在源文件中自然免不了修改了</p>
+<pre><code class="cpp">// PROP01.cpp: 实现文件
+//
+
+#include &quot;pch.h&quot;
+#include &quot;RunningButton.h&quot;
+#include &quot;afxdialogex.h&quot;
+#include &quot;PROP01.h&quot;
+
+
+// PROP_01 对话框
+
+IMPLEMENT_DYNAMIC(PROP_01, CPropertyPage)
+
+PROP_01::PROP_01()
+    : CPropertyPage(IDD_PROP_01)&#123;
+    memset(m_lang, 0, sizeof(m_lang));
+&#125;
+
+PROP_01::~PROP_01()&#123;
+&#125;
+
+void PROP_01::DoDataExchange(CDataExchange* pDX)&#123;
+    CPropertyPage::DoDataExchange(pDX);
+    DDX_Radio(pDX, IDC_RADIO_CPP, m_lang[0]);
+    DDX_Radio(pDX, IDC_RADIO_JAVA, m_lang[1]);
+    DDX_Radio(pDX, IDC_RADIO_PYTHON, m_lang[2]);
+&#125;
+
+
+BEGIN_MESSAGE_MAP(PROP_01, CPropertyPage)
+END_MESSAGE_MAP()
+
+
+// PROP_01 消息处理程序
+</code></pre>
+<p>在c&#x2F;c++中布尔值本质就是0和1的表示，虽然TRUE真意是非0的值。<br><code>memset(m_lang, 0, sizeof(m_lang));</code>那么初始化的时候直接给这个数组全部写0，也就是表示FALSE，完成初始化的操作。</p>
+<p>至于<code>DDX_Radio(pDX, IDC_RADIO_CPP, m_lang[0]);</code>，就可以通过数组依次绑定。</p>
+<img src="/2022/08/03/nDialog/005.png" class="">
+<p>这个里面应是得有几个公司的名字才对，由于这个类是我们新建的，还没有初始化的地方。<br>所以要重写InitDialog</p>
+<p>老样子类视图选中然后属性里面找到重写选项，往下滑找到<code>OnInitDialog</code>，点击后面add即可。</p>
+<pre><code class="cpp">BOOL PROP_01::OnInitDialog()&#123;
+    CPropertyPage::OnInitDialog();
+
+    // TODO:  在此添加额外的初始化
+
+
+    return TRUE;  // return TRUE unless you set the focus to a control
+                  // 异常: OCX 属性页应返回 FALSE
+&#125;
+</code></pre>
+<p>获取控件最快的就是用指针。</p>
+<p><code>CListBox* pListBox = (CListBox*)GetDlgItem(IDC_LIST_COMPANY);</code><br>因为这个控件是我们拖得，所以我们很清楚它是什么类型，但是别人不一定清楚。<br>而且GetDlgItem的返回类型是CWnd，但是好在CListBox是它的子类。所以直接强制转换一下。<br>获取完成后，就可以通过指针给他增加点字符串</p>
+<pre><code class="cpp">BOOL PROP_01::OnInitDialog()&#123;
+    CPropertyPage::OnInitDialog();
+
+    // TODO:  在此添加额外的初始化
+    CListBox* pListBox = (CListBox*)GetDlgItem(IDC_LIST_COMPANY);
+    if( pListBox )&#123;
+        pListBox-&gt;AddString(_T(&quot;阿里巴巴&quot;));
+        pListBox-&gt;AddString(_T(&quot;华为&quot;));
+        pListBox-&gt;AddString(_T(&quot;腾讯&quot;));
+        pListBox-&gt;AddString(_T(&quot;百度&quot;));
+        pListBox-&gt;AddString(_T(&quot;京东&quot;));
+    &#125;
+
+    return TRUE;  // return TRUE unless you set the focus to a control
+                  // 异常: OCX 属性页应返回 FALSE
+&#125;
+</code></pre>
+<p>这样这个对话框就ok了</p>
+<hr>
+<img src="/2022/08/03/nDialog/006.png" class="">
+<p>再次创建新的对话框，拖动check box组合一下</p>
+<p>同样的给这个对话框创建一个类，步骤也是从类向导开始，注意命名规范。</p>
+<p>最后就是复选框添加变量，跟radio差不多的路数</p>
+<pre><code class="cpp">//...
+public:
+    // 技能选项
+    BOOL m_skill[4];
+&#125;;
+</code></pre>
+<p>然后在源文件同样通过memset写0，和后面的绑定</p>
+<pre><code class="cpp">PROP_02::PROP_02()
+    : CPropertyPage(IDD_PROP_02)&#123;
+
+    memset(m_skill, 0, sizeof(m_skill));
+&#125;
+
+PROP_02::~PROP_02()
+&#123;
+&#125;
+
+void PROP_02::DoDataExchange(CDataExchange* pDX)
+&#123;
+    CPropertyPage::DoDataExchange(pDX);
+    DDX_Check(pDX, IDC_CHECK1, m_skill[0]);        //网络编程
+    DDX_Check(pDX, IDC_CHECK2, m_skill[1]);        //MFC
+    DDX_Check(pDX, IDC_CHECK3, m_skill[2]);        //操作系统
+    DDX_Check(pDX, IDC_CHECK4, m_skill[3]);        //数据结构
+&#125;
+</code></pre>
+<p>这么一来这个对话框界面也就ok了。</p>
+<p>可能稍微为了好看就要注意一下这几个对话框大小</p>
+<img src="/2022/08/03/nDialog/007.png" class="">
+<p>选中这个dialog的时候vs的下面会显示，手动调整一下</p>
+<hr>
+<img src="/2022/08/03/nDialog/008.png" class="">
+<p>至于这个也不做多解释了，创建的路数都一样。</p>
+<p>唯一需要注意的是这个下拉多选的控件是<code>combo box</code></p>
+<img src="/2022/08/03/nDialog/009.png" class="">
+<p>数据使用分号分割，注意要英语符合。</p>
+<hr>
+<p>最后三个对话框都创建好了，自然需要关联起来。</p>
+<img src="/2022/08/03/nDialog/010.png" class="">
+<p>对这个项目创建一个MFC类。</p>
+<pre><code class="cpp">CMyProSheet(UINT nIDCaption, CWnd* pParentWnd = nullptr, UINT iSelectPage = 0);
+CMyProSheet(LPCTSTR pszCaption, CWnd* pParentWnd = nullptr, UINT iSelectPage = 0);
+</code></pre>
+<p>这两个构造函数可以看到就头不一样，UINT也就是unsigned int，下面那个也就是字符串<br>不过既然有俩了，那有啥改动就尽量都保持一样</p>
+<p>然后添加一下我们三个对话框类</p>
+<pre><code class="cpp">public:
+    PROP_01 m_prop1;
+    PROP_02 m_prop2;
+    PROP_03 m_prop3;
+</code></pre>
+<p>在源文件中构造的时候添加这三个页</p>
+<pre><code class="cpp">CMyProSheet::CMyProSheet(UINT nIDCaption, CWnd* pParentWnd, UINT iSelectPage)
+    :CPropertySheet(nIDCaption, pParentWnd, iSelectPage)
+&#123;
+    AddPage(&amp;m_prop1);
+    AddPage(&amp;m_prop2);
+    AddPage(&amp;m_prop3);
+&#125;
+
+CMyProSheet::CMyProSheet(LPCTSTR pszCaption, CWnd* pParentWnd, UINT iSelectPage)
+    :CPropertySheet(pszCaption, pParentWnd, iSelectPage)
+&#123;
+    AddPage(&amp;m_prop1);
+    AddPage(&amp;m_prop2);
+    AddPage(&amp;m_prop3);
+&#125;
+</code></pre>
+<p>那么这几个页是组合到一起了。剩下就是写那个按钮事件了。</p>
+<p>额尴尬，跑的时候有个问题，就是单选按钮没有组，然后抛出异常了</p>
+<img src="/2022/08/03/nDialog/011.png" class="">
+<p>修改一下</p>
+<pre><code class="cpp">PROP_01::PROP_01()
+    : CPropertyPage(IDD_PROP_01)
+    , m_lang(-1)&#123;
+&#125;
+
+PROP_01::~PROP_01()&#123;
+&#125;
+
+void PROP_01::DoDataExchange(CDataExchange* pDX)&#123;
+    CPropertyPage::DoDataExchange(pDX);
+    DDX_Radio(pDX, IDC_RADIO_CPP, m_lang);
+&#125;
+</code></pre>
+<p>修改完之后跑起来就ok了</p>
+<img src="/2022/08/03/nDialog/012.png" class="">
+<img src="/2022/08/03/nDialog/013.png" class="">
+<img src="/2022/08/03/nDialog/014.png" class="">
+
+<p>因为设置的大小差不多，比较和谐。</p>
+<hr>
+<p>稍微有心的可能会注意到，那个帮助不一定需要，按照前面重载按钮类的示例，这边也就能重写</p>
+<pre><code class="cpp">BOOL PROP_01::OnSetActive()&#123;
+    // TODO: 在此添加专用代码和/或调用基类
+
+    ((CPropertySheet*)GetParent())-&gt;SetWizardButtons(PSWIZB_NEXT);
+    ((CPropertySheet*)GetParent())-&gt;GetDlgItem(IDHELP)-&gt;ShowWindow(SW_HIDE);
+
+    return CPropertyPage::OnSetActive();
+&#125;
+</code></pre>
+<pre><code class="cpp">BOOL PROP_02::OnSetActive()&#123;
+    // TODO: 在此添加专用代码和/或调用基类
+    ((CPropertySheet*)GetParent())-&gt;SetWizardButtons(PSWIZB_NEXT | PSWIZB_BACK);
+
+    return CPropertyPage::OnSetActive();
+&#125;
+</code></pre>
+<pre><code class="cpp">BOOL PROP_03::OnSetActive()&#123;
+    // TODO: 在此添加专用代码和/或调用基类
+    ((CPropertySheet*)GetParent())-&gt;SetWizardButtons(PSWIZB_BACK | PSWIZB_FINISH);
+
+    return CPropertyPage::OnSetActive();
+&#125;
+</code></pre>
+<p>第一个对话框，只显示下一步，上一步无法点击，并且隐藏帮助按钮<br>第二个对话框则上下都可行<br>第三个对话框只能向上一步和完成。</p>
+<img src="/2022/08/03/nDialog/015.png" class="">
+<img src="/2022/08/03/nDialog/016.png" class="">
+<img src="/2022/08/03/nDialog/017.png" class="">
+
+<hr>
+<p>说到底还是个半成品，还有很多能优化的地方。<br>比如校验，目前这个即便不选择，也可以直接next。</p>
+<p>所以要重写两个next，最后一个因为变成完成了，所以要重写的是finish</p>
+<pre><code class="cpp">LRESULT PROP_01::OnWizardNext()&#123;
+    // TODO: 在此添加专用代码和/或调用基类
+    UpdateData();
+    if( m_lang == -1 )&#123;
+        MessageBox(_T(&quot;请选择开发语言!&quot;), _T(&quot;开发语言未选择&quot;), MB_OK | MB_ICONERROR);
+        return -1;
+    &#125;
+
+    if( m_company.GetLength() == 0 )&#123;
+        MessageBox(_T(&quot;请选择公司!&quot;), _T(&quot;公司未选择&quot;), MB_OK | MB_ICONERROR);
+        return -1;
+    &#125;
+
+    return CPropertyPage::OnWizardNext();
+&#125;
+</code></pre>
+<pre><code class="cpp">LRESULT PROP_02::OnWizardNext()&#123;
+    // TODO: 在此添加专用代码和/或调用基类
+    UpdateData();
+
+    if( (m_skill[0] + m_skill[1] + m_skill[2] + m_skill[3]) == 0 )&#123;
+        MessageBox(_T(&quot;请选择技能!&quot;), _T(&quot;技能未选择&quot;), MB_OK | MB_ICONERROR);
+        return -1;
+    &#125;
+
+    return CPropertyPage::OnWizardNext();
+&#125;
+</code></pre>
+<pre><code class="cpp">BOOL PROP_03::OnWizardFinish()&#123;
+    // TODO: 在此添加专用代码和/或调用基类
+    UpdateData();
+
+    if( m_money.GetLength() &lt;= 0 )&#123;
+        MessageBox(_T(&quot;请选择薪资!&quot;), _T(&quot;薪资未选择&quot;), MB_OK | MB_ICONERROR);
+        return -1;
+    &#125;
+
+    return CPropertyPage::OnWizardFinish();
+&#125;
+</code></pre>
+<p><strong>记得获取前肯定要更新一下数据</strong></p>
+<p>这套流程结束了之后，还要给用户一个反馈。</p>
+<p>也只能加载打开按钮的地方</p>
+<pre><code class="cpp">void CRunningButtonDlg::OnBnClickedBtnQuery()&#123;
+    // TODO: 在此添加控件通知处理程序代码
+    CMyProSheet dlg(_T(&quot;职业调查&quot;), this);
+    dlg.SetWizardMode();
+    if( ID_WIZFINISH == dlg.DoModal() )&#123;
+        CString strMsg = _T(&quot;您的选择是: &quot;);
+        switch( dlg.m_prop1.m_lang )&#123;
+            case 0:
+                strMsg += _T(&quot;开发语言: C++&quot;);
+                break;
+            case 1:
+                strMsg += _T(&quot;开发语言: Java&quot;);
+                break;
+            case 2:
+                strMsg += _T(&quot;开发语言: Python&quot;);
+                break;
+            default:
+                break;
+        &#125;
+
+        strMsg += _T(&quot;您的公司是: &quot;) + dlg.m_prop1.m_company;
+        strMsg += _T(&quot;您的技能有：&quot;);
+        CString strSkill[4] = &#123;
+            _T(&quot;网络编程&quot;), _T(&quot;MFC&quot;), _T(&quot;操作系统&quot;), _T(&quot;数据结构&quot;)
+        &#125;;
+
+        for( int i = 0; i &lt; 4; i++ )&#123;
+            if( dlg.m_prop2.m_skill[i] )&#123;
+                strMsg += strSkill[i] + _T(&quot;,&quot;);
+            &#125;
+        &#125;
+
+        strMsg += _T(&quot;您的薪资范围选择是：&quot;) + dlg.m_prop3.m_money;
+        MessageBox(strMsg, _T(&quot;最终选择&quot;));
+    &#125;
+&#125;
+</code></pre>
+<img src="/2022/08/03/nDialog/018.png" class="">
+<p>选择完之后就是这样的显示。</p>
+<hr>
+<h1 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h1><img src="/2022/08/03/nDialog/019.png" class="">
+<p>主体对话框是RunningButtonDlg，通过按钮控件，显示出CMyPropSheet。然后写好的三个页与其关联。</p>
+
+        </div>
+
+    </div>
+
+    
+
+    
+
+    
+
+    
+  <div class="article-copyright hairline">
+    <p>
+      本作品采用  <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议 (CC BY-NC-ND 4.0)</a> 进行许可。
+    </p>
+  </div>
+  
+
+    
+
+    
+<nav class="article-nav">
+  
+    <a href="/2022/08/18/TortoiseGit/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-caption">下一篇</div>
+      <div class="article-nav-title">
+        
+          小王八git版本控制工具
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/08/02/escapeButton/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-caption">上一篇</div>
+      <div class="article-nav-title">丐版逃跑按钮</div>
+    </a>
+  
+</nav>
+
+
+    <section class="share">
+        <div class="share-title">分享</div>
+        <a class="share-item" target="_blank"
+            href="https://twitter.com/share?text=多个对话框关联 - ohmyhsy&url=https%3A%2F%2F8bytes.top%2F2022%2F08%2F03%2FnDialog%2F">
+            <box-icon type='logo' name='twitter'></box-icon>
+        </a>
+        <a class="share-item" target="_blank"
+            href="https://www.facebook.com/sharer.php?title=多个对话框关联 - ohmyhsy&u=https%3A%2F%2F8bytes.top%2F2022%2F08%2F03%2FnDialog%2F">
+            <box-icon name='facebook-square' type='logo' ></box-icon>
+        </a>
+        <!-- <a class="share-item" target="_blank"
+            href="https://service.weibo.com/share/share.php?title=多个对话框关联 - ohmyhsy&url=https://8bytes.top/2022/08/03/nDialog/&pic=">
+            <div class="n-icon n-icon-weibo"></div>
+        </a> -->
+    </section>
+
+</article>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- <script src="//unpkg.com/@waline/dist/Waline.min.js"></script> -->
+    <script src="https://unpkg.com/@waline/client@v2/dist/waline.js"></script>
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/@waline/client@v2/dist/waline.css"
+    />
+    <section class="comments">
+        <div id="waline"></div>
+    </section>
+    <script>
+        Waline.init({
+          el: '#waline',
+          serverURL: 'https://ohmyhsy.vercel.app/',
+        });
+    </script>
+
+
+
+<script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+</div>
+
+                </section>
+            </section>
+
+            
+            <aside class="sidebar sidebar-search-fix">
+                
+
+    <div class="search">
+    <div class="has-icon-right">
+        <input type="text" class="form-input" id="search" placeholder="SEARCH" autocomplete="off">
+        <div class="form-icon">
+            <box-icon name='search' color="#3c4859"></box-icon>
+        </div>
+    </div>
+    <div class="search-result" id="search-ps"></div>
+</div>
+
+
+<div class="widget" id="widget">
+    
+      
+  <div class="widget-wrap">
+    <div class="widget-inner">
+      <div class="toc post-toc-html"></div>
+    </div>
+  </div>
+
+    
+      
+
+    
+      
+  <div class="widget-wrap widget-tags">
+    <div class="widget-title"><span>Tags</span></div>
+    <div class="widget-inner">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/MFC/" rel="tag">MFC</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NoteBook/" rel="tag">NoteBook</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RemoteControl/" rel="tag">RemoteControl</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c/" rel="tag">c</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cheat-engine/" rel="tag">cheat engine</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/compiler/" rel="tag">compiler</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cpp/" rel="tag">cpp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/exam/" rel="tag">exam</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jetbrains/" rel="tag">jetbrains</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/" rel="tag">leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/life/" rel="tag">life</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/phone/" rel="tag">phone</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ubuntu/" rel="tag">ubuntu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/visual-studio-2022/" rel="tag">visual studio 2022</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vscode/" rel="tag">vscode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/windows/" rel="tag">windows</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-recent-posts">
+    <div class="widget-title"><span>Recent Posts</span></div>
+    <div class="widget-inner">
+      <ul>
+        
+          <li>
+            <a href="/2022/09/16/phoneTest/">给爪机上点科技</a>
+          </li>
+        
+          <li>
+            <a href="/2022/09/15/%E8%BF%9C%E6%8E%A7%E9%97%AE%E9%A2%98%E9%9B%86/">远控问题集</a>
+          </li>
+        
+          <li>
+            <a href="/2022/09/10/text021/">text021</a>
+          </li>
+        
+          <li>
+            <a href="/2022/09/10/text020/">text020</a>
+          </li>
+        
+          <li>
+            <a href="/2022/09/05/text019/">text019</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget-wrap widget-archive">
+    <div class="widget-title"><span>Archive</span></div>
+    <div class="widget-inner">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/">2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/">2021</a></li></ul>
+    </div>
+  </div>
+
+
+    
+</div>
+
+<div id="backtop"><i class="icon icon-arrow-up"></i></div>
+            </aside>
+            
+        </div>
+    </div>
+
+    <footer class="footer">
+    <div class="footer-wave">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#3c4859" fill-opacity="1" d="M0,160L60,181.3C120,203,240,245,360,240C480,235,600,181,720,186.7C840,192,960,256,1080,261.3C1200,267,1320,213,1380,186.7L1440,160L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>
+    </div>
+
+    <!-- Please do not remove this -->
+    <!-- 开源不易，请勿删除 -->
+    <div class="footer-wrap">
+        <div class="footer-inner"> 
+            ohmyhsy &copy; 2022<br>
+            Powered By Hexo · Theme By <a href="https://linhong.me/" target="_blank">Aomori</a> · <a href="https://github.com/lh1me/hexo-theme-aomori" target="_blank">Github</a>
+        </div>
+    </div>
+
+</footer>
+
+
+
+
+
+
+<script src="/dist/build.js?1646451311888.js"></script>
+
+
+<script src="/dist/custom.js?1646451311888.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>
