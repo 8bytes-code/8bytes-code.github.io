@@ -1,222 +1,157 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html><html lang="[&quot;zh-CN&quot;,&quot;zh-TW&quot;,&quot;en&quot;,&quot;default&quot;]" data-theme="dark"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>进程 | Box'Blog</title><meta name="author" content="Box"><meta name="copyright" content="Box"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#0d0d0d"><meta name="description" content="前言进程（Process）是计算机中的程序关于某数据集合上的一次运行活动，是系统进行资源分配和调度的基本单位，是操作系统结构的基础。在早期面向进程设计的计算机结构中，进程是程序的基本执行实体；在当代面向线程设计的计算机结构中，进程是线程的容器。程序是指令、数据及其组织形式的描述，进程是程序的实体。——百度百科">
+<meta property="og:type" content="article">
+<meta property="og:title" content="进程">
+<meta property="og:url" content="https://8bytes.top/2022/07/21/process/index.html">
+<meta property="og:site_name" content="Box&#39;Blog">
+<meta property="og:description" content="前言进程（Process）是计算机中的程序关于某数据集合上的一次运行活动，是系统进行资源分配和调度的基本单位，是操作系统结构的基础。在早期面向进程设计的计算机结构中，进程是程序的基本执行实体；在当代面向线程设计的计算机结构中，进程是线程的容器。程序是指令、数据及其组织形式的描述，进程是程序的实体。——百度百科">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://8bytes.top/images/cover/cover6.png">
+<meta property="article:published_time" content="2022-07-21T14:44:06.000Z">
+<meta property="article:modified_time" content="2022-11-12T13:15:46.433Z">
+<meta property="article:author" content="Box">
+<meta property="article:tag" content="cpp">
+<meta property="article:tag" content="windowsSocket">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://8bytes.top/images/cover/cover6.png"><link rel="shortcut icon" href="/img/favicon.svg"><link rel="canonical" href="https://8bytes.top/2022/07/21/process/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin=""/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?112e257877c02bad314b2fcefaca0aee";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web&amp;display=swap" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: {"defaultEncoding":1,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: Box","link":"链接: ","source":"来源: Box'Blog","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#1f1f1f","position":"bottom-left"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '进程',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-11-12 21:15:46'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-
-    
-    <title>进程 | ohmyhsy</title>
-
-    <meta name="description" content="&lt;h1 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;进程（Process）是计算机中的程序关于某数据集合上的一次运行活动，是系统进行资源分配和调度的基本单位，是操作系统结构的基础。在早期面向进程设计的计算机结构中，进程是程序的基本执行实体；在当代面向线程设计的计算机结构中，进程是线程的容器。程序是指令、数据及其组织形式的描述，进程是程序的实体。&lt;br&gt;——百度百科&lt;/p&gt;">
-    <meta name="keywords" content="8bytes-blog">
-
-    
-
-    <meta property="og:locale" content="cn" />
-    <meta property="og:type" content="article" />
-    <meta property="og:title" content= "进程 | ohmyhsy"  />
-    <meta property="og:description" content= "&lt;h1 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;进程（Process）是计算机中的程序关于某数据集合上的一次运行活动，是系统进行资源分配和调度的基本单位，是操作系统结构的基础。在早期面向进程设计的计算机结构中，进程是程序的基本执行实体；在当代面向线程设计的计算机结构中，进程是线程的容器。程序是指令、数据及其组织形式的描述，进程是程序的实体。&lt;br&gt;——百度百科&lt;/p&gt;" />
-    <meta property="og:url" content="https://8bytes.top/2022/07/21/process/index.html" />
-    <meta property="og:site_name" content="" />
-    <meta property="article:author" content="Box" />
-    <meta property="article:publisher" content="" />
-    <meta property="og:description" content="&lt;h1 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;进程（Process）是计算机中的程序关于某数据集合上的一次运行活动，是系统进行资源分配和调度的基本单位，是操作系统结构的基础。在早期面向进程设计的计算机结构中，进程是程序的基本执行实体；在当代面向线程设计的计算机结构中，进程是线程的容器。程序是指令、数据及其组织形式的描述，进程是程序的实体。&lt;br&gt;——百度百科&lt;/p&gt;" />
-    <meta name="twitter:title" content="进程 | ohmyhsy"/>
-    <meta name="twitter:description" content="&lt;h1 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;进程（Process）是计算机中的程序关于某数据集合上的一次运行活动，是系统进行资源分配和调度的基本单位，是操作系统结构的基础。在早期面向进程设计的计算机结构中，进程是程序的基本执行实体；在当代面向线程设计的计算机结构中，进程是线程的容器。程序是指令、数据及其组织形式的描述，进程是程序的实体。&lt;br&gt;——百度百科&lt;/p&gt;"/>
-    <script type="application/ld+json">
-        {
-            "description": "&lt;h1 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;进程（Process）是计算机中的程序关于某数据集合上的一次运行活动，是系统进行资源分配和调度的基本单位，是操作系统结构的基础。在早期面向进程设计的计算机结构中，进程是程序的基本执行实体；在当代面向线程设计的计算机结构中，进程是线程的容器。程序是指令、数据及其组织形式的描述，进程是程序的实体。&lt;br&gt;——百度百科&lt;/p&gt;",
-            "author": { "@type": "Person", "name": "Box" },
-            "@type": "BlogPosting",
-            "url": "https://8bytes.top/2022/07/21/process/index.html",
-            "publisher": {
-            "@type": "Organization",
-            "logo": {
-                "@type": "ImageObject",
-                "url": "https://8bytes.topundefined"
-            },
-            "name": "Box"
-            },
-            "headline": "进程 | ohmyhsy",
-            "datePublished": "2022-07-21T14:44:06.000Z",
-            "mainEntityOfPage": {
-                "@type": "WebPage",
-                "@id": "https://8bytes.top/2022/07/21/process/index.html"
-            },
-            "@context": "http://schema.org"
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
         }
-    </script>
+        localStorage.setItem(key, JSON.stringify(item))
+      },
 
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
 
-
-
-    
-
-    
-    <meta property="algolia:search" data-application-id="4CVCYWPWWN" data-api-key="7757db6b0a31c3f94c301c885693ed0d" data-index-name="ohmyhsy">
-    
-
-    
-
-    
-
-    
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎮</text></svg>">
-    
-
-    
-
-    
-
-    
-<link rel="stylesheet" href="/dist/build.css?v=1646451311888.css">
-
-
-    
-<link rel="stylesheet" href="/dist/custom.css?v=1646451311888.css">
-
-
-    <script>
-        window.isPost = true
-        window.aomori = {
-            
-            
-            
+        if (!itemStr) {
+          return undefined
         }
-        window.aomori_logo_typed_animated = true
-        window.aomori_search_algolia = true
+        const item = JSON.parse(itemStr)
+        const now = new Date()
 
-    </script>
-
-<meta name="generator" content="Hexo 5.4.1"><link rel="alternate" href="/atom.xml" title="ohmyhsy" type="application/atom+xml">
-</head>
-
-<body>
-
-    <div class="container">
-    <header class="header">
-        <div class="header-type">
-            
-            <div class="header-type-inner">
-                
-                    <div id="typed-strings" style="display:none">
-                        <p>ohmyhsy</p>
-                    </div>
-                    <a class="header-type-title" id="typed" href="/"></a>
-                
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
     
-                
-            </div>
-        </div>
-        <div class="header-menu">
-            <div class="header-menu-inner">
-                
-                <a href="/">Home</a>
-                
-                <a href="/archives">Archives</a>
-                
-                <a href="/friends">Friends</a>
-                
-                <a href="/collect">Collect</a>
-                
-                <a href="/photography">Phtotgraphy</a>
-                
-            </div>
-            <div class="header-menu-social">
-                
-    <a class="social" target="_blank" href="https://github.com/8bytes-code">
-        <box-icon type='logo' name='github'></box-icon>
-    </a>
-
-            </div>
-        </div>
-
-        <div class="header-menu-mobile">
-            <div class="header-menu-mobile-inner" id="mobile-menu-open">
-                <i class="icon icon-menu"></i>
-            </div>
-        </div>
-    </header>
-
-    <div class="header-menu-mobile-menu">
-        <div class="header-menu-mobile-menu-bg"></div>
-        <div class="header-menu-mobile-menu-wrap">
-            <div class="header-menu-mobile-menu-inner">
-                <div class="header-menu-mobile-menu-close" id="mobile-menu-close">
-                    <i class="icon icon-cross"></i>
-                </div>
-                <div class="header-menu-mobile-menu-list">
-                    
-                    <a href="/">Home</a>
-                    
-                    <a href="/archives">Archives</a>
-                    
-                    <a href="/friends">Friends</a>
-                    
-                    <a href="/collect">Collect</a>
-                    
-                    <a href="/photography">Phtotgraphy</a>
-                    
-                </div>
-            </div>
-        </div>
-    </div>
-
-</div>
-
-    <div class="container">
-        <div class="main">
-            <section class="inner">
-                <section class="inner-main">
-                    <div class="post">
-    <article id="post-cl7vfxqul004tbw9c3rdj0rbm" class="article article-type-post" itemscope
-    itemprop="blogPost">
-
-    <div class="article-inner">
-
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
         
-          
-        
-        
-        
-
-        
-        <header class="article-header">
-            
-  
-    <h1 class="article-title" itemprop="name">
-      进程
-    </h1>
-  
-
-        </header>
-        
-
-        <div class="article-more-info article-more-info-post hairline">
-
-            <div class="article-date">
-  <time datetime="2022-07-21T14:44:06.000Z" itemprop="datePublished">2022-07-21</time>
-</div>
-
-            
-
-            
-            <div class="article-tag">
-                <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/windows/" rel="tag">windows</a></li></ul>
-            </div>
-            
-
-            
-            <div class="article-busuanzi">
-                <span id="busuanzi_value_page_pv">N</span> 人看过
-            </div>
-            
-
-        </div>
-
-        <div class="article-entry post-inner-html hairline" itemprop="articleBody">
-            <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>进程（Process）是计算机中的程序关于某数据集合上的一次运行活动，是系统进行资源分配和调度的基本单位，是操作系统结构的基础。在早期面向进程设计的计算机结构中，进程是程序的基本执行实体；在当代面向线程设计的计算机结构中，进程是线程的容器。程序是指令、数据及其组织形式的描述，进程是程序的实体。<br>——百度百科</p>
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.1"><link rel="alternate" href="/atom.xml" title="Box'Blog" type="application/atom+xml">
+</head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/images/logo.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">141</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">22</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 生活</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/collect/"><i class="fa-fw fa fa-star"></i><span> 收藏</span></a></li><li><a class="site-page child" href="/photography/"><i class="fa-fw fa fa-camera-retro"></i><span> 相册</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/messageboard/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/images/cover/cover6.png')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Box'Blog</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 生活</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/collect/"><i class="fa-fw fa fa-star"></i><span> 收藏</span></a></li><li><a class="site-page child" href="/photography/"><i class="fa-fw fa fa-camera-retro"></i><span> 相册</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/messageboard/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">进程</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-07-21T14:44:06.000Z" title="发表于 2022-07-21 22:44:06">2022-07-21</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-11-12T13:15:46.433Z" title="更新于 2022-11-12 21:15:46">2022-11-12</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/cpp%E5%AD%A6%E4%B9%A0/">cpp学习</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">4.4k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>17分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="进程"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>进程（Process）是计算机中的程序关于某数据集合上的一次运行活动，是系统进行资源分配和调度的基本单位，是操作系统结构的基础。在早期面向进程设计的计算机结构中，进程是程序的基本执行实体；在当代面向线程设计的计算机结构中，进程是线程的容器。程序是指令、数据及其组织形式的描述，进程是程序的实体。<br>——百度百科</p>
 <span id="more"></span>
 
 
@@ -228,73 +163,12 @@
 <p>进程实际上就一个纯粹的容器，进程本身不执行任何东西。代码的实现靠的的是线程，进程只相当于一个环境。<br>子进程也还是一个进程，它是指由另一个进程(对应称为父进程)所创建的进程。<br>子进程的线程既可以在父进程终止之后执行代码，也可以在父进程运行过程中执行代码。</p>
 <hr>
 <h2 id="创建进程"><a href="#创建进程" class="headerlink" title="创建进程"></a>创建进程</h2><p><code>CreateProcess</code>用来创建进程的函数。<br>其原型，参数一贯的又臭又长</p>
-<pre><code class="cpp">CreateProcessW(
-    _In_opt_ LPCWSTR lpApplicationName, //该字符串可以指定要执行的模块的完整路径和文件名
-    _Inout_opt_ LPWSTR lpCommandLine,   //命令行
-    _In_opt_ LPSECURITY_ATTRIBUTES lpProcessAttributes, //该结构确定子进程是否可以继承返回到新进程对象的句柄，如果为NULL则不能继承
-    _In_opt_ LPSECURITY_ATTRIBUTES lpThreadAttributes,  //该结构确定子进程是否可以继承返回到新线程对象的句柄，如果为NULL则不能继承
-    _In_ BOOL bInheritHandles,  //参数若为TRUE则新进程继承调用进程的每个可继承句柄。如为FALSE则不会继承句柄
-    _In_ DWORD dwCreationFlags, //控制优先级别和流程创建的标识
-    _In_opt_ LPVOID lpEnvironment,  //指向新进程的环境块的指针，若为NULL则新进程将使用调用进程的环境
-    _In_opt_ LPCWSTR lpCurrentDirectory,    //进程当前目录的完整路径
-    _In_ LPSTARTUPINFOW lpStartupInfo,      //设置扩展属性
-    _Out_ LPPROCESS_INFORMATION lpProcessInformation    //该结构接收有关新进程的标识信息
-    );
-</code></pre>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">CreateProcessW</span>(</span><br><span class="line">    _In_opt_ LPCWSTR lpApplicationName, <span class="comment">//该字符串可以指定要执行的模块的完整路径和文件名</span></span><br><span class="line">    _Inout_opt_ LPWSTR lpCommandLine,   <span class="comment">//命令行</span></span><br><span class="line">    _In_opt_ LPSECURITY_ATTRIBUTES lpProcessAttributes, <span class="comment">//该结构确定子进程是否可以继承返回到新进程对象的句柄，如果为NULL则不能继承</span></span><br><span class="line">    _In_opt_ LPSECURITY_ATTRIBUTES lpThreadAttributes,  <span class="comment">//该结构确定子进程是否可以继承返回到新线程对象的句柄，如果为NULL则不能继承</span></span><br><span class="line">    _In_ BOOL bInheritHandles,  <span class="comment">//参数若为TRUE则新进程继承调用进程的每个可继承句柄。如为FALSE则不会继承句柄</span></span><br><span class="line">    _In_ DWORD dwCreationFlags, <span class="comment">//控制优先级别和流程创建的标识</span></span><br><span class="line">    _In_opt_ LPVOID lpEnvironment,  <span class="comment">//指向新进程的环境块的指针，若为NULL则新进程将使用调用进程的环境</span></span><br><span class="line">    _In_opt_ LPCWSTR lpCurrentDirectory,    <span class="comment">//进程当前目录的完整路径</span></span><br><span class="line">    _In_ LPSTARTUPINFOW lpStartupInfo,      <span class="comment">//设置扩展属性</span></span><br><span class="line">    _Out_ LPPROCESS_INFORMATION lpProcessInformation    <span class="comment">//该结构接收有关新进程的标识信息</span></span><br><span class="line">    );</span><br></pre></td></tr></table></figure>
+
 <p>具体可以去看文档。因为Windows API套娃严重。。他这里的参数还有结构体。有点绷不住。</p>
 <p>然后自制进程的话不太理想，反正打开一个程序也是一个进程，就直接配置打开一个程序</p>
-<pre><code class="cpp">#include &lt;stdio.h&gt;
-#include &lt;windows.h&gt;
-#include &lt;process.h&gt;
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;windows.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;process.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">RunExe</span><span class="params">()</span></span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//Chrome路径</span></span><br><span class="line">	STARTUPINFO strStartup;</span><br><span class="line">	<span class="built_in">memset</span>(&amp;strStartup, <span class="number">0</span>, <span class="built_in">sizeof</span>(strStartup));</span><br><span class="line">	strStartup.cb = <span class="built_in">sizeof</span>(strStartup);</span><br><span class="line">	PROCESS_INFORMATION szProcessInformation;</span><br><span class="line">	<span class="built_in">memset</span>(&amp;szProcessInformation, <span class="number">0</span>, <span class="built_in">sizeof</span>(szProcessInformation));</span><br><span class="line"></span><br><span class="line">	TCHAR szCommandLine[] = <span class="string">L&quot;C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe&quot;</span>;</span><br><span class="line">	</span><br><span class="line">	<span class="type">int</span> ret = <span class="built_in">CreateProcess</span>(</span><br><span class="line">		<span class="literal">NULL</span>,</span><br><span class="line">		szCommandLine,</span><br><span class="line">		<span class="literal">NULL</span>,</span><br><span class="line">		<span class="literal">NULL</span>,</span><br><span class="line">		FALSE,</span><br><span class="line">		CREATE_NEW_CONSOLE,</span><br><span class="line">		<span class="literal">NULL</span>,</span><br><span class="line">		<span class="literal">NULL</span>,</span><br><span class="line">		&amp;strStartup,</span><br><span class="line">		&amp;szProcessInformation</span><br><span class="line">	);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> (ret)&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;Create success ret = %d\n&quot;</span>, ret);</span><br><span class="line">		<span class="built_in">WaitForSingleObject</span>(szProcessInformation.hProcess,INFINITE);</span><br><span class="line">		<span class="built_in">CloseHandle</span>(szProcessInformation.hProcess);</span><br><span class="line">		<span class="built_in">CloseHandle</span>(szProcessInformation.hThread);</span><br><span class="line">		<span class="comment">//手动置空看情况。</span></span><br><span class="line">	&#125; <span class="keyword">else</span>&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;Create error!\n&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="comment">//通过进程拉起谷歌浏览器</span></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;This is Chrome\n&quot;</span>);</span><br><span class="line">	<span class="built_in">RunExe</span>();</span><br><span class="line">	<span class="built_in">system</span>(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-
-int RunExe()&#123;
-    
-    //Chrome路径
-    STARTUPINFO strStartup;
-    memset(&amp;strStartup, 0, sizeof(strStartup));
-    strStartup.cb = sizeof(strStartup);
-    PROCESS_INFORMATION szProcessInformation;
-    memset(&amp;szProcessInformation, 0, sizeof(szProcessInformation));
-
-    TCHAR szCommandLine[] = L&quot;C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe&quot;;
-    
-    int ret = CreateProcess(
-        NULL,
-        szCommandLine,
-        NULL,
-        NULL,
-        FALSE,
-        CREATE_NEW_CONSOLE,
-        NULL,
-        NULL,
-        &amp;strStartup,
-        &amp;szProcessInformation
-    );
-
-    if (ret)&#123;
-        printf(&quot;Create success ret = %d\n&quot;, ret);
-        WaitForSingleObject(szProcessInformation.hProcess,INFINITE);
-        CloseHandle(szProcessInformation.hProcess);
-        CloseHandle(szProcessInformation.hThread);
-        //手动置空看情况。
-    &#125; else&#123;
-        printf(&quot;Create error!\n&quot;);
-    &#125;
-
-    return 0;
-&#125;
-
-int main()&#123;
-    //通过进程拉起谷歌浏览器
-    printf(&quot;This is Chrome\n&quot;);
-    RunExe();
-    system(&quot;pause&quot;);
-
-
-    return 0;
-&#125;
-</code></pre>
 <p><strong>memset是计算机中C&#x2F;C++语言初始化函数。作用是将某一块内存中的内容全部设置为指定的值， 这个函数通常为新申请的内存做初始化工作。</strong></p>
 <img src="/2022/07/21/process/001.png" class="">
 <p>可以看到是成功启动了我们的谷歌浏览器，但是自己用的时候要注意，文件路径每个人多少都有不同，所以不要直接套娃。</p>
@@ -302,22 +176,7 @@ int main()&#123;
 <img src="/2022/07/21/process/002.png" class="">
 
 <p>并且进程对象的成员也使得我们能够看到相对应的id</p>
-<pre><code class="cpp">if (ret)&#123;
-    printf(&quot;Create success ret = %d\n&quot;, ret);
-    WaitForSingleObject(szProcessInformation.hProcess,INFINITE);
-
-    printf(&quot;szProcessInformation.hProcess = %d\n&quot;, szProcessInformation.hProcess);
-    printf(&quot;szProcessInformation.hThread = %d\n&quot;, szProcessInformation.hThread);
-    printf(&quot;szProcessInformation.dwProcessId = %d\n&quot;, szProcessInformation.dwProcessId);
-    printf(&quot;szProcessInformation.dwThreadId = %d\n&quot;, szProcessInformation.dwThreadId);
-
-    CloseHandle(szProcessInformation.hProcess);
-    CloseHandle(szProcessInformation.hThread);
-    //手动置空看情况。
-&#125; else&#123;
-    printf(&quot;Create error!\n&quot;);
-&#125;
-</code></pre>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (ret)&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;Create success ret = %d\n&quot;</span>, ret);</span><br><span class="line">    <span class="built_in">WaitForSingleObject</span>(szProcessInformation.hProcess,INFINITE);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;szProcessInformation.hProcess = %d\n&quot;</span>, szProcessInformation.hProcess);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;szProcessInformation.hThread = %d\n&quot;</span>, szProcessInformation.hThread);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;szProcessInformation.dwProcessId = %d\n&quot;</span>, szProcessInformation.dwProcessId);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;szProcessInformation.dwThreadId = %d\n&quot;</span>, szProcessInformation.dwThreadId);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">CloseHandle</span>(szProcessInformation.hProcess);</span><br><span class="line">    <span class="built_in">CloseHandle</span>(szProcessInformation.hThread);</span><br><span class="line">    <span class="comment">//手动置空看情况。</span></span><br><span class="line">&#125; <span class="keyword">else</span>&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;Create error!\n&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <img src="/2022/07/21/process/003.png" class="">
 
 <p>当然用这个调用cmd去执行一些命令好像有点问题，而且有点笨，它都可以直接通过system调用系统命令了。</p>
@@ -346,53 +205,8 @@ int main()&#123;
 <p>因为之前看过qt，所以拖动组件和修改id之类的不是什么问题。</p>
 <img src="/2022/07/21/process/010.png" class="">
 <p>做成这样之后双击按钮进入代码实现部分,<strong>注意修改项目为多字节，unicode有点问题先不管了，但是可以提一嘴，就是接收的时候需要转换</strong></p>
-<pre><code class="cpp">void CCopyBoardDlg::OnBnClickedSendbutton()&#123;
-    //打开剪切板 成功返回TRUE
-    if (OpenClipboard())&#123;
-        //打开之后首先清空剪切板
-        EmptyClipboard();
-        char *szSendBuf;
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">CCopyBoardDlg::OnBnClickedSendbutton</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="comment">//打开剪切板 成功返回TRUE</span></span><br><span class="line">	<span class="keyword">if</span> (<span class="built_in">OpenClipboard</span>())&#123;</span><br><span class="line">		<span class="comment">//打开之后首先清空剪切板</span></span><br><span class="line">		<span class="built_in">EmptyClipboard</span>();</span><br><span class="line">		<span class="type">char</span> *szSendBuf;</span><br><span class="line"></span><br><span class="line">		<span class="comment">//获取SEND框的内容</span></span><br><span class="line">		CString strSend&#123;&#125;;</span><br><span class="line">		<span class="built_in">GetDlgItemText</span>(IDC_EDIT_SEND,strSend);</span><br><span class="line"></span><br><span class="line">		<span class="comment">//分配一个内存对象，内存对象的句柄就是hclip</span></span><br><span class="line">		HANDLE hClip = <span class="built_in">GlobalAlloc</span>(GMEM_MOVEABLE, strSend.<span class="built_in">GetLength</span>()+<span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">		<span class="comment">//剪切板上锁</span></span><br><span class="line">		szSendBuf = (<span class="type">char</span>*)<span class="built_in">GlobalLock</span>(hClip);</span><br><span class="line">		<span class="built_in">strcpy</span>(szSendBuf, strSend);</span><br><span class="line"></span><br><span class="line">		<span class="comment">//拷贝完之后解锁</span></span><br><span class="line">		<span class="built_in">GlobalUnlock</span>(hClip);</span><br><span class="line"></span><br><span class="line">		<span class="comment">//将数据放入剪切板</span></span><br><span class="line">		<span class="built_in">SetClipboardData</span>(CF_TEXT, hClip);</span><br><span class="line"></span><br><span class="line">		<span class="comment">//关闭剪切板</span></span><br><span class="line">		<span class="built_in">CloseClipboard</span>();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">CCopyBoardDlg::OnBnClickedRecvbutton</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="comment">//打开剪切板</span></span><br><span class="line">	<span class="keyword">if</span> (<span class="built_in">OpenClipboard</span>())&#123;</span><br><span class="line">		<span class="comment">//判断剪切板是否可用</span></span><br><span class="line">		<span class="keyword">if</span> (<span class="built_in">IsClipboardFormatAvailable</span>(CF_TEXT))&#123;</span><br><span class="line">			<span class="type">char</span> *szRecvBuf;</span><br><span class="line"></span><br><span class="line">			<span class="comment">//向剪切板取出数据</span></span><br><span class="line">			HANDLE hClip = <span class="built_in">GetClipboardData</span>(CF_TEXT);</span><br><span class="line">			szRecvBuf = (<span class="type">char</span> *)<span class="built_in">GlobalLock</span>(hClip);</span><br><span class="line">			<span class="built_in">SetDlgItemText</span>(IDC_EDIT_RECV, szRecvBuf);</span><br><span class="line">			<span class="built_in">GlobalUnlock</span>(hClip);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">//关闭剪切板</span></span><br><span class="line">		<span class="built_in">CloseClipboard</span>();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-        //获取SEND框的内容
-        CString strSend&#123;&#125;;
-        GetDlgItemText(IDC_EDIT_SEND,strSend);
-
-        //分配一个内存对象，内存对象的句柄就是hclip
-        HANDLE hClip = GlobalAlloc(GMEM_MOVEABLE, strSend.GetLength()+1);
-
-        //剪切板上锁
-        szSendBuf = (char*)GlobalLock(hClip);
-        strcpy(szSendBuf, strSend);
-
-        //拷贝完之后解锁
-        GlobalUnlock(hClip);
-
-        //将数据放入剪切板
-        SetClipboardData(CF_TEXT, hClip);
-
-        //关闭剪切板
-        CloseClipboard();
-    &#125;
-&#125;
-
-void CCopyBoardDlg::OnBnClickedRecvbutton()&#123;
-    //打开剪切板
-    if (OpenClipboard())&#123;
-        //判断剪切板是否可用
-        if (IsClipboardFormatAvailable(CF_TEXT))&#123;
-            char *szRecvBuf;
-
-            //向剪切板取出数据
-            HANDLE hClip = GetClipboardData(CF_TEXT);
-            szRecvBuf = (char *)GlobalLock(hClip);
-            SetDlgItemText(IDC_EDIT_RECV, szRecvBuf);
-            GlobalUnlock(hClip);
-        &#125;
-        //关闭剪切板
-        CloseClipboard();
-    &#125;
-&#125;
-</code></pre>
 <p>最后实现部分就是这样，在左边的内容框输入，点击发送之后，再点击接收，右边的框就有内容了</p>
 <img src="/2022/07/21/process/009.png" class="">
 
@@ -400,128 +214,27 @@ void CCopyBoardDlg::OnBnClickedRecvbutton()&#123;
 <img src="/2022/07/21/process/011.png" class="">
 
 <p>当然也可以新建一个作为桥梁嘛。</p>
-<pre><code class="cpp">void CCopyBoardCliDlg::OnBnClickedButtonrecv()&#123;
-    //打开剪切板
-    if (OpenClipboard())&#123;
-        //判断是否可用
-        if (IsClipboardFormatAvailable(CF_TEXT))&#123;
-            char *szRecvBuf;
-
-            //取剪切板数据
-            HANDLE hClip = GetClipboardData(CF_TEXT);
-            szRecvBuf = (char *)GlobalLock(hClip);
-            SetDlgItemText(IDC_EDITRECV, szRecvBuf);
-            GlobalUnlock(hClip);
-        &#125;
-        //关闭剪切板
-        CloseClipboard();
-    &#125;
-&#125;
-</code></pre>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">CCopyBoardCliDlg::OnBnClickedButtonrecv</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="comment">//打开剪切板</span></span><br><span class="line">	<span class="keyword">if</span> (<span class="built_in">OpenClipboard</span>())&#123;</span><br><span class="line">		<span class="comment">//判断是否可用</span></span><br><span class="line">		<span class="keyword">if</span> (<span class="built_in">IsClipboardFormatAvailable</span>(CF_TEXT))&#123;</span><br><span class="line">			<span class="type">char</span> *szRecvBuf;</span><br><span class="line"></span><br><span class="line">			<span class="comment">//取剪切板数据</span></span><br><span class="line">			HANDLE hClip = <span class="built_in">GetClipboardData</span>(CF_TEXT);</span><br><span class="line">			szRecvBuf = (<span class="type">char</span> *)<span class="built_in">GlobalLock</span>(hClip);</span><br><span class="line">			<span class="built_in">SetDlgItemText</span>(IDC_EDITRECV, szRecvBuf);</span><br><span class="line">			<span class="built_in">GlobalUnlock</span>(hClip);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">//关闭剪切板</span></span><br><span class="line">		<span class="built_in">CloseClipboard</span>();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>额老样子一个直接打开一个vs打开。</p>
 <img src="/2022/07/21/process/012.png" class="">
 <p>效果就是我主要的点了发送以后，新写的可以直接通过接收获取。不是视频可能会有理解上的偏差。</p>
 <hr>
 <h2 id="邮槽"><a href="#邮槽" class="headerlink" title="邮槽"></a>邮槽</h2><p>邮槽是比较老的通信方式了。<br>使用邮槽的进程分为服务端和客户端。邮槽由服务端创建，在创建时需要指定邮槽名，创建后服务端得到邮槽的句柄。在邮槽创建后，客户端可以通过邮槽名打开邮槽，在获得句柄后可以向邮槽写入消息。<br>邮槽通信是单项的，只有服务端才能从邮槽中读取消息，客户端只能写入消息。消息遵循先入先出的原则。客户端先写入的消息在服务端现被读取。<br>通过邮槽通信的数据可以是任意格式，但是一条消息不能大于424字节。<br>邮槽除了在本机内进行进程间通信外，在主机间也可以通信。但是在主机间进行邮槽通信。数据通过网络传播时使用的是数据报协议(UDP)，所以是一种不可靠的通信。通过网络进行邮槽通信时，客户端必须知道服务端的主机名或者域名。</p>
 <p><code>CreateMailslot</code>额，还是老样子微软会根据多字节还是Unicode会做一个区分，前者多个a，后者多个w。<br>其原型</p>
-<pre><code class="cpp">CreateMailslot(
-    _In_     LPCWSTR lpName,
-    _In_     DWORD nMaxMessageSize,
-    _In_     DWORD lReadTimeout,
-    _In_opt_ LPSECURITY_ATTRIBUTES lpSecurityAttributes
-    );
-</code></pre>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">CreateMailslot</span>(</span><br><span class="line">    _In_     LPCWSTR lpName,</span><br><span class="line">    _In_     DWORD nMaxMessageSize,</span><br><span class="line">    _In_     DWORD lReadTimeout,</span><br><span class="line">    _In_opt_ LPSECURITY_ATTRIBUTES lpSecurityAttributes</span><br><span class="line">    );</span><br></pre></td></tr></table></figure>
 <img src="/2022/07/21/process/013.png" class="">
 <img src="/2022/07/21/process/014.png" class="">
 <p>然后设计这么两个东西。</p>
 <p>先从服务器开始设计接收</p>
-<pre><code class="cpp">void CMyMailslotDlg::OnBnClickedRecvbutton()&#123;
-    //创建邮槽
-    LPCTSTR szSlotName = TEXT(&quot;\\\\.\\mailslot\\Mymailslot&quot;);
-    HANDLE hSlot = CreateMailslot(
-        szSlotName,
-        0,                        //消息大小
-        MAILSLOT_WAIT_FOREVER,    //阻塞时间
-        NULL                    //安全属性
-    );
-
-    if (hSlot == INVALID_HANDLE_VALUE)&#123;
-        TRACE(&quot;CreateMailslot failed with %d\n&quot;, GetLastError());
-        return;
-    &#125;
-&#125;
-</code></pre>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">CMyMailslotDlg::OnBnClickedRecvbutton</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="comment">//创建邮槽</span></span><br><span class="line">	LPCTSTR szSlotName = <span class="built_in">TEXT</span>(<span class="string">&quot;\\\\.\\mailslot\\Mymailslot&quot;</span>);</span><br><span class="line">	HANDLE hSlot = <span class="built_in">CreateMailslot</span>(</span><br><span class="line">		szSlotName,</span><br><span class="line">		<span class="number">0</span>,						<span class="comment">//消息大小</span></span><br><span class="line">		MAILSLOT_WAIT_FOREVER,	<span class="comment">//阻塞时间</span></span><br><span class="line">		<span class="literal">NULL</span>					<span class="comment">//安全属性</span></span><br><span class="line">	);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> (hSlot == INVALID_HANDLE_VALUE)&#123;</span><br><span class="line">		<span class="built_in">TRACE</span>(<span class="string">&quot;CreateMailslot failed with %d\n&quot;</span>, <span class="built_in">GetLastError</span>());</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>然后要读取数据<br>这一关键点需要用到一个特别的函数<code>ReadFile</code></p>
-<pre><code class="cpp">ReadFile(
-    _In_ HANDLE hFile,    //句柄
-    _Out_writes_bytes_to_opt_(nNumberOfBytesToRead, *lpNumberOfBytesRead) //缓冲区
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">ReadFile</span>(</span><br><span class="line">    _In_ HANDLE hFile,	<span class="comment">//句柄</span></span><br><span class="line">    _Out_writes_bytes_to_opt_(nNumberOfBytesToRead, *lpNumberOfBytesRead) <span class="comment">//缓冲区</span></span><br><span class="line"></span><br><span class="line">	__out_data_source(FILE) LPVOID lpBuffer,</span><br><span class="line">    _In_ DWORD nNumberOfBytesToRead,		<span class="comment">//将要读取的最大字节数</span></span><br><span class="line">    _Out_opt_ LPDWORD lpNumberOfBytesRead,	<span class="comment">//指针，该变量接收时同步hFile读取的字节数</span></span><br><span class="line">    _Inout_opt_ LPOVERLAPPED lpOverlapped	<span class="comment">//默认NULL</span></span><br><span class="line">    );</span><br></pre></td></tr></table></figure>
 
-    __out_data_source(FILE) LPVOID lpBuffer,
-    _In_ DWORD nNumberOfBytesToRead,        //将要读取的最大字节数
-    _Out_opt_ LPDWORD lpNumberOfBytesRead,    //指针，该变量接收时同步hFile读取的字节数
-    _Inout_opt_ LPOVERLAPPED lpOverlapped    //默认NULL
-    );
-</code></pre>
 <p>完整的这个服务端接收功能</p>
-<pre><code class="cpp">void CMyMailslotDlg::OnBnClickedRecvbutton()&#123;
-    //创建邮槽
-    LPCTSTR szSlotName = TEXT(&quot;\\\\.\\mailslot\\Mymailslot&quot;);
-    HANDLE hSlot = CreateMailslot(
-        szSlotName,
-        0,                        //消息大小
-        MAILSLOT_WAIT_FOREVER,    //阻塞时间
-        NULL                    //安全属性
-    );
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">CMyMailslotDlg::OnBnClickedRecvbutton</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="comment">//创建邮槽</span></span><br><span class="line">	LPCTSTR szSlotName = <span class="built_in">TEXT</span>(<span class="string">&quot;\\\\.\\mailslot\\Mymailslot&quot;</span>);</span><br><span class="line">	HANDLE hSlot = <span class="built_in">CreateMailslot</span>(</span><br><span class="line">		szSlotName,</span><br><span class="line">		<span class="number">0</span>,						<span class="comment">//消息大小</span></span><br><span class="line">		MAILSLOT_WAIT_FOREVER,	<span class="comment">//阻塞时间</span></span><br><span class="line">		<span class="literal">NULL</span>					<span class="comment">//安全属性</span></span><br><span class="line">	);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> (hSlot == INVALID_HANDLE_VALUE)&#123;</span><br><span class="line">		<span class="built_in">TRACE</span>(<span class="string">&quot;CreateMailslot failed with %d\n&quot;</span>, <span class="built_in">GetLastError</span>());</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//读数据</span></span><br><span class="line">	<span class="type">char</span> szBuf[<span class="number">100</span>] = &#123; <span class="number">0</span> &#125;;</span><br><span class="line">	DWORD dwRead;</span><br><span class="line">	<span class="keyword">if</span> (!<span class="built_in">ReadFile</span>(hSlot, szBuf, <span class="number">100</span>, &amp;dwRead, <span class="literal">NULL</span>))&#123;</span><br><span class="line">		<span class="built_in">MessageBox</span>(<span class="string">&quot;ReadFile error!&quot;</span>);</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">TRACE</span>(<span class="string">&quot;---dwRead = %d\n&quot;</span>, dwRead);</span><br><span class="line">	<span class="built_in">MessageBox</span>(szBuf);</span><br><span class="line"></span><br><span class="line">	<span class="built_in">CloseHandle</span>(hSlot);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-    if (hSlot == INVALID_HANDLE_VALUE)&#123;
-        TRACE(&quot;CreateMailslot failed with %d\n&quot;, GetLastError());
-        return;
-    &#125;
-
-    //读数据
-    char szBuf[100] = &#123; 0 &#125;;
-    DWORD dwRead;
-    if (!ReadFile(hSlot, szBuf, 100, &amp;dwRead, NULL))&#123;
-        MessageBox(&quot;ReadFile error!&quot;);
-        return;
-    &#125;
-    TRACE(&quot;---dwRead = %d\n&quot;, dwRead);
-    MessageBox(szBuf);
-
-    CloseHandle(hSlot);
-&#125;
-</code></pre>
 <p>然后客户端的发送功能其实也挺类似</p>
-<pre><code class="cpp">void CMymailCliDlg::OnBnClickedSendbutton()&#123;
-    //创建句柄
-    LPCTSTR szSlotName = TEXT(&quot;\\\\.\\mailslot\\Mymailslot&quot;);
-    HANDLE hMailSlot = CreateFile(
-        szSlotName,
-        FILE_GENERIC_WRITE,
-        FILE_SHARE_READ,
-        NULL,
-        OPEN_EXISTING,
-        FILE_ATTRIBUTE_NORMAL,
-        NULL
-    );
-
-    if (hMailSlot == INVALID_HANDLE_VALUE)&#123;
-        TRACE(&quot;CreateFile failed with %d\n&quot;, GetLastError());
-        return;
-    &#125;
-
-    //写入数据
-    char szBuf[100] = &quot;MailSlot Comming&quot;;
-    DWORD dwWrite;
-    if (!WriteFile(hMailSlot, szBuf, strlen(szBuf)+1, &amp;dwWrite, NULL))&#123;
-        MessageBox(&quot;Write Error!&quot;);
-        return;
-    &#125;
-
-    //关闭句柄
-    CloseHandle(hMailSlot);
-&#125;
-</code></pre>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">CMymailCliDlg::OnBnClickedSendbutton</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="comment">//创建句柄</span></span><br><span class="line">	LPCTSTR szSlotName = <span class="built_in">TEXT</span>(<span class="string">&quot;\\\\.\\mailslot\\Mymailslot&quot;</span>);</span><br><span class="line">	HANDLE hMailSlot = <span class="built_in">CreateFile</span>(</span><br><span class="line">		szSlotName,</span><br><span class="line">		FILE_GENERIC_WRITE,</span><br><span class="line">		FILE_SHARE_READ,</span><br><span class="line">		<span class="literal">NULL</span>,</span><br><span class="line">		OPEN_EXISTING,</span><br><span class="line">		FILE_ATTRIBUTE_NORMAL,</span><br><span class="line">		<span class="literal">NULL</span></span><br><span class="line">	);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> (hMailSlot == INVALID_HANDLE_VALUE)&#123;</span><br><span class="line">		<span class="built_in">TRACE</span>(<span class="string">&quot;CreateFile failed with %d\n&quot;</span>, <span class="built_in">GetLastError</span>());</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//写入数据</span></span><br><span class="line">	<span class="type">char</span> szBuf[<span class="number">100</span>] = <span class="string">&quot;MailSlot Comming&quot;</span>;</span><br><span class="line">	DWORD dwWrite;</span><br><span class="line">	<span class="keyword">if</span> (!<span class="built_in">WriteFile</span>(hMailSlot, szBuf, <span class="built_in">strlen</span>(szBuf)+<span class="number">1</span>, &amp;dwWrite, <span class="literal">NULL</span>))&#123;</span><br><span class="line">		<span class="built_in">MessageBox</span>(<span class="string">&quot;Write Error!&quot;</span>);</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//关闭句柄</span></span><br><span class="line">	<span class="built_in">CloseHandle</span>(hMailSlot);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <img src="/2022/07/21/process/015.png" class="">
 <p>按照这个顺序大致就是这个效果。</p>
 <blockquote>
@@ -530,121 +243,15 @@ void CCopyBoardDlg::OnBnClickedRecvbutton()&#123;
 <hr>
 <h2 id="匿名管道"><a href="#匿名管道" class="headerlink" title="匿名管道"></a>匿名管道</h2><p>匿名管道是一个没有命名的单向管道，本质上是一个共享的内存区域。通常用来在父进程和子进程之间通信。<br>只能实现本地两个进程之间的通信，不能实现网络通信。</p>
 <p><code>CreatePipe</code></p>
-<pre><code class="cpp">CreatePipe(
-    _Out_ PHANDLE hReadPipe,
-    _Out_ PHANDLE hWritePipe,
-    _In_opt_ LPSECURITY_ATTRIBUTES lpPipeAttributes,
-    _In_ DWORD nSize
-    );
-</code></pre>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">CreatePipe</span>(</span><br><span class="line">    _Out_ PHANDLE hReadPipe,</span><br><span class="line">    _Out_ PHANDLE hWritePipe,</span><br><span class="line">    _In_opt_ LPSECURITY_ATTRIBUTES lpPipeAttributes,</span><br><span class="line">    _In_ DWORD nSize</span><br><span class="line">    );</span><br></pre></td></tr></table></figure>
+
 <p>额这里因为是要用到两个进程，就直接在邮槽上改了。</p>
-<h3 id="服务端"><a href="#服务端" class="headerlink" title="服务端"></a>服务端</h3><pre><code class="cpp">HANDLE hReadPipe;    //读句柄
-HANDLE hWritePipe;    //写句柄
-
-void CMyMailslotDlg::OnBnClickedSendbutton()&#123;
-    char szBuf[] = &quot;This Server Pipe&quot;;
-    DWORD dwWrite;
-    if (!WriteFile(hWritePipe, szBuf, strlen(szBuf) + 1, &amp;dwWrite, NULL))&#123;
-        MessageBox(_T(&quot;写入数据失败&quot;));
-        return;
-    &#125;
-&#125;
-
-void CMyMailslotDlg::OnBnClickedRecvbutton()&#123;
-    char szBuf[100] = &#123; 0 &#125;;
-    DWORD dwRead;
-    TRACE(&quot;Begin ReadFile&quot;);
-    if (!ReadFile(hReadPipe, szBuf, 100, &amp;dwRead, NULL))&#123;
-        MessageBox(_T(&quot;读取数据失败&quot;));
-        return;
-    &#125;
-    TRACE(&quot;End PipeReadFile&quot;);
-    MessageBox(szBuf);
-&#125;
-
-void CMyMailslotDlg::OnBnClickedCreBtn()&#123;
-    SECURITY_ATTRIBUTES sa;
-    sa.bInheritHandle = TRUE;
-    sa.lpSecurityDescriptor = NULL;
-    sa.nLength = sizeof(SECURITY_ATTRIBUTES);
-    if (!CreatePipe(&amp;hReadPipe, &amp;hWritePipe, &amp;sa, 0))&#123;
-        MessageBox(_T(&quot;匿名管道创建失败&quot;));
-        return;
-    &#125;
-
-    //创建子进程
-    STARTUPINFO strStartupInfo;    //用来指定新进程窗口如何显示
-    memset(&amp;strStartupInfo, 0, sizeof(strStartupInfo));
-    strStartupInfo.cb = sizeof(strStartupInfo);
-    strStartupInfo.dwFlags = STARTF_USESTDHANDLES;
-    strStartupInfo.hStdInput = hReadPipe;
-    strStartupInfo.hStdOutput = hWritePipe;
-    strStartupInfo.hStdError = GetStdHandle(STD_ERROR_HANDLE);
-
-    PROCESS_INFORMATION szProcessInformation;
-    memset(&amp;szProcessInformation, 0, sizeof(szProcessInformation));
-
-    int iRet = CreateProcess(
-        _T(&quot;MymailCli.exe&quot;),
-        NULL,
-        NULL,
-        NULL,
-        TRUE,
-        0,
-        NULL,
-        NULL,
-        &amp;strStartupInfo,
-        &amp;szProcessInformation
-    );
-
-    if (iRet)&#123;
-        //创建成功的情况
-        CloseHandle(szProcessInformation.hProcess);
-        CloseHandle(szProcessInformation.hThread);
-        szProcessInformation.dwProcessId = 0;
-        szProcessInformation.dwThreadId = 0;
-        szProcessInformation.hThread = NULL;
-        szProcessInformation.hProcess = NULL;
-    &#125; else&#123;
-        CloseHandle(hReadPipe);
-        CloseHandle(hWritePipe);
-        hReadPipe = NULL;
-        hWritePipe = NULL;
-        MessageBox(_T(&quot;子进程创建失败&quot;));
-        return;
-    &#125;
-&#125;
-</code></pre>
+<h3 id="服务端"><a href="#服务端" class="headerlink" title="服务端"></a>服务端</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br></pre></td><td class="code"><pre><span class="line">HANDLE hReadPipe;	<span class="comment">//读句柄</span></span><br><span class="line">HANDLE hWritePipe;	<span class="comment">//写句柄</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">CMyMailslotDlg::OnBnClickedSendbutton</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="type">char</span> szBuf[] = <span class="string">&quot;This Server Pipe&quot;</span>;</span><br><span class="line">	DWORD dwWrite;</span><br><span class="line">	<span class="keyword">if</span> (!<span class="built_in">WriteFile</span>(hWritePipe, szBuf, <span class="built_in">strlen</span>(szBuf) + <span class="number">1</span>, &amp;dwWrite, <span class="literal">NULL</span>))&#123;</span><br><span class="line">		<span class="built_in">MessageBox</span>(_T(<span class="string">&quot;写入数据失败&quot;</span>));</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">CMyMailslotDlg::OnBnClickedRecvbutton</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="type">char</span> szBuf[<span class="number">100</span>] = &#123; <span class="number">0</span> &#125;;</span><br><span class="line">	DWORD dwRead;</span><br><span class="line">	<span class="built_in">TRACE</span>(<span class="string">&quot;Begin ReadFile&quot;</span>);</span><br><span class="line">	<span class="keyword">if</span> (!<span class="built_in">ReadFile</span>(hReadPipe, szBuf, <span class="number">100</span>, &amp;dwRead, <span class="literal">NULL</span>))&#123;</span><br><span class="line">		<span class="built_in">MessageBox</span>(_T(<span class="string">&quot;读取数据失败&quot;</span>));</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">TRACE</span>(<span class="string">&quot;End PipeReadFile&quot;</span>);</span><br><span class="line">	<span class="built_in">MessageBox</span>(szBuf);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">CMyMailslotDlg::OnBnClickedCreBtn</span><span class="params">()</span></span>&#123;</span><br><span class="line">	SECURITY_ATTRIBUTES sa;</span><br><span class="line">	sa.bInheritHandle = TRUE;</span><br><span class="line">	sa.lpSecurityDescriptor = <span class="literal">NULL</span>;</span><br><span class="line">	sa.nLength = <span class="built_in">sizeof</span>(SECURITY_ATTRIBUTES);</span><br><span class="line">	<span class="keyword">if</span> (!<span class="built_in">CreatePipe</span>(&amp;hReadPipe, &amp;hWritePipe, &amp;sa, <span class="number">0</span>))&#123;</span><br><span class="line">		<span class="built_in">MessageBox</span>(_T(<span class="string">&quot;匿名管道创建失败&quot;</span>));</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//创建子进程</span></span><br><span class="line">	STARTUPINFO strStartupInfo;	<span class="comment">//用来指定新进程窗口如何显示</span></span><br><span class="line">	<span class="built_in">memset</span>(&amp;strStartupInfo, <span class="number">0</span>, <span class="built_in">sizeof</span>(strStartupInfo));</span><br><span class="line">	strStartupInfo.cb = <span class="built_in">sizeof</span>(strStartupInfo);</span><br><span class="line">	strStartupInfo.dwFlags = STARTF_USESTDHANDLES;</span><br><span class="line">	strStartupInfo.hStdInput = hReadPipe;</span><br><span class="line">	strStartupInfo.hStdOutput = hWritePipe;</span><br><span class="line">	strStartupInfo.hStdError = <span class="built_in">GetStdHandle</span>(STD_ERROR_HANDLE);</span><br><span class="line"></span><br><span class="line">	PROCESS_INFORMATION szProcessInformation;</span><br><span class="line">	<span class="built_in">memset</span>(&amp;szProcessInformation, <span class="number">0</span>, <span class="built_in">sizeof</span>(szProcessInformation));</span><br><span class="line"></span><br><span class="line">	<span class="type">int</span> iRet = <span class="built_in">CreateProcess</span>(</span><br><span class="line">		_T(<span class="string">&quot;MymailCli.exe&quot;</span>),</span><br><span class="line">		<span class="literal">NULL</span>,</span><br><span class="line">		<span class="literal">NULL</span>,</span><br><span class="line">		<span class="literal">NULL</span>,</span><br><span class="line">		TRUE,</span><br><span class="line">		<span class="number">0</span>,</span><br><span class="line">		<span class="literal">NULL</span>,</span><br><span class="line">		<span class="literal">NULL</span>,</span><br><span class="line">		&amp;strStartupInfo,</span><br><span class="line">		&amp;szProcessInformation</span><br><span class="line">	);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> (iRet)&#123;</span><br><span class="line">		<span class="comment">//创建成功的情况</span></span><br><span class="line">		<span class="built_in">CloseHandle</span>(szProcessInformation.hProcess);</span><br><span class="line">		<span class="built_in">CloseHandle</span>(szProcessInformation.hThread);</span><br><span class="line">		szProcessInformation.dwProcessId = <span class="number">0</span>;</span><br><span class="line">		szProcessInformation.dwThreadId = <span class="number">0</span>;</span><br><span class="line">		szProcessInformation.hThread = <span class="literal">NULL</span>;</span><br><span class="line">		szProcessInformation.hProcess = <span class="literal">NULL</span>;</span><br><span class="line">	&#125; <span class="keyword">else</span>&#123;</span><br><span class="line">		<span class="built_in">CloseHandle</span>(hReadPipe);</span><br><span class="line">		<span class="built_in">CloseHandle</span>(hWritePipe);</span><br><span class="line">		hReadPipe = <span class="literal">NULL</span>;</span><br><span class="line">		hWritePipe = <span class="literal">NULL</span>;</span><br><span class="line">		<span class="built_in">MessageBox</span>(_T(<span class="string">&quot;子进程创建失败&quot;</span>));</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>这里主要是给服务端拉起一个进程，然后通过拉起的客户端进行匿名管道传递<br>进程的代码大多还是抄之前写的进程部分。</p>
 <img src="/2022/07/21/process/016.png" class="">
 
 <hr>
-<h3 id="客户端"><a href="#客户端" class="headerlink" title="客户端"></a>客户端</h3><pre><code class="cpp">HANDLE hReadPipe;    //读句柄
-HANDLE hWritePipe;    //写句柄
-
-void CMymailCliDlg::OnBnClickedSendbutton()&#123;
-    hWritePipe = GetStdHandle(STD_OUTPUT_HANDLE);
-
-    char szBuf[100] = &quot;This Client Pipe&quot;;
-    DWORD dwWrite;
-    if (!WriteFile(hWritePipe, szBuf, strlen(szBuf) + 1, &amp;dwWrite, NULL))&#123;
-        MessageBox(_T(&quot;写入数据失败&quot;));
-        return;
-    &#125;
-&#125;
-
-void CMymailCliDlg::OnBnClickedRecvbutton()&#123;
-    hReadPipe = GetStdHandle(STD_INPUT_HANDLE);
-
-    char szBuf[100] = &#123; 0 &#125;;
-    DWORD dwRead;
-    if (!ReadFile(hReadPipe, szBuf, 100, &amp;dwRead, NULL))&#123;
-        MessageBox(_T(&quot;读取数据失败&quot;));
-        return;
-    &#125;
-    MessageBox(szBuf);
-&#125;
-</code></pre>
+<h3 id="客户端"><a href="#客户端" class="headerlink" title="客户端"></a>客户端</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">HANDLE hReadPipe;	<span class="comment">//读句柄</span></span><br><span class="line">HANDLE hWritePipe;	<span class="comment">//写句柄</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">CMymailCliDlg::OnBnClickedSendbutton</span><span class="params">()</span></span>&#123;</span><br><span class="line">	hWritePipe = <span class="built_in">GetStdHandle</span>(STD_OUTPUT_HANDLE);</span><br><span class="line"></span><br><span class="line">	<span class="type">char</span> szBuf[<span class="number">100</span>] = <span class="string">&quot;This Client Pipe&quot;</span>;</span><br><span class="line">	DWORD dwWrite;</span><br><span class="line">	<span class="keyword">if</span> (!<span class="built_in">WriteFile</span>(hWritePipe, szBuf, <span class="built_in">strlen</span>(szBuf) + <span class="number">1</span>, &amp;dwWrite, <span class="literal">NULL</span>))&#123;</span><br><span class="line">		<span class="built_in">MessageBox</span>(_T(<span class="string">&quot;写入数据失败&quot;</span>));</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">CMymailCliDlg::OnBnClickedRecvbutton</span><span class="params">()</span></span>&#123;</span><br><span class="line">	hReadPipe = <span class="built_in">GetStdHandle</span>(STD_INPUT_HANDLE);</span><br><span class="line"></span><br><span class="line">	<span class="type">char</span> szBuf[<span class="number">100</span>] = &#123; <span class="number">0</span> &#125;;</span><br><span class="line">	DWORD dwRead;</span><br><span class="line">	<span class="keyword">if</span> (!<span class="built_in">ReadFile</span>(hReadPipe, szBuf, <span class="number">100</span>, &amp;dwRead, <span class="literal">NULL</span>))&#123;</span><br><span class="line">		<span class="built_in">MessageBox</span>(_T(<span class="string">&quot;读取数据失败&quot;</span>));</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">MessageBox</span>(szBuf);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>客户端因为不用管邮槽先，就通过句柄传送。</p>
 <hr>
 <h3 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h3><img src="/2022/07/21/process/017.png" class="">
@@ -660,151 +267,21 @@ void CMymailCliDlg::OnBnClickedRecvbutton()&#123;
 <hr>
 <h2 id="命名管道"><a href="#命名管道" class="headerlink" title="命名管道"></a>命名管道</h2><p>与Socket相似，支持网络之间不同进程的通信<br>既然也能通信，自然也能通过c&#x2F;s模式实现</p>
 <p><code>CreateNamePipe</code></p>
-<pre><code class="cpp">CreateNamedPipeA(
-    _In_     LPCSTR lpName,
-    _In_     DWORD dwOpenMode,
-    _In_     DWORD dwPipeMode,
-    _In_     DWORD nMaxInstances,
-    _In_     DWORD nOutBufferSize,
-    _In_     DWORD nInBufferSize,
-    _In_     DWORD nDefaultTimeOut,
-    _In_opt_ LPSECURITY_ATTRIBUTES lpSecurityAttributes
-    );
-</code></pre>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">CreateNamedPipeA</span>(</span><br><span class="line">    _In_     LPCSTR lpName,</span><br><span class="line">    _In_     DWORD dwOpenMode,</span><br><span class="line">    _In_     DWORD dwPipeMode,</span><br><span class="line">    _In_     DWORD nMaxInstances,</span><br><span class="line">    _In_     DWORD nOutBufferSize,</span><br><span class="line">    _In_     DWORD nInBufferSize,</span><br><span class="line">    _In_     DWORD nDefaultTimeOut,</span><br><span class="line">    _In_opt_ LPSECURITY_ATTRIBUTES lpSecurityAttributes</span><br><span class="line">    );</span><br></pre></td></tr></table></figure>
+
 <p>插一句，项目有些时候都用多字节的，Unicode有的时候要转换太麻烦了。</p>
-<h3 id="服务端-1"><a href="#服务端-1" class="headerlink" title="服务端"></a>服务端</h3><pre><code class="cpp">HANDLE hNamedPipe;
-
-void CmyNamePipeSerDlg::OnBnClickedProBtn()&#123;
-    //创建命名管道
-    LPCTSTR szPipeName = TEXT(&quot;\\\\.\\pipe\\mypipe&quot;);
-    hNamedPipe = CreateNamedPipe(
-        szPipeName,
-        PIPE_ACCESS_DUPLEX | FILE_FLAG_OVERLAPPED,
-        PIPE_TYPE_BYTE, 1, 1024, 1024, 0, NULL
-    );
-
-    if (hNamedPipe == INVALID_HANDLE_VALUE)&#123;
-        TRACE(&quot;CreateNamePipe failed with %d\n&quot;, GetLastError());
-        MessageBox(_T(&quot;创建命名管道失败&quot;));
-        return;
-    &#125;
-
-    //等待客户端的连接
-    HANDLE hEvent = CreateEvent(NULL, TRUE, FALSE, NULL);
-    if (NULL == hEvent)&#123;
-        MessageBox(_T(&quot;创建事件失败&quot;));
-        CloseHandle(hNamedPipe);
-        hNamedPipe = NULL;
-        return;
-    &#125;
-
-    OVERLAPPED ovlap;
-    ZeroMemory(&amp;ovlap, sizeof(OVERLAPPED));
-    ovlap.hEvent = hEvent;
-
-    //等待连接
-    if (!ConnectNamedPipe(hNamedPipe, &amp;ovlap))&#123;
-        if (ERROR_IO_PENDING != GetLastError())&#123;
-            MessageBox(_T(&quot;等待客户端连接失败&quot;));
-            CloseHandle(hNamedPipe);
-            CloseHandle(hEvent);
-            hNamedPipe = NULL;
-            hEvent = NULL;
-            return;
-        &#125;
-    &#125;
-
-    if (WaitForSingleObject(hEvent, INFINITE) == WAIT_FAILED)&#123;
-        MessageBox(_T(&quot;等待对象失败&quot;));
-        CloseHandle(hNamedPipe);
-        CloseHandle(hEvent);
-        hNamedPipe = NULL;
-        hEvent = NULL;
-        return;
-    &#125;
-&#125;
-</code></pre>
+<h3 id="服务端-1"><a href="#服务端-1" class="headerlink" title="服务端"></a>服务端</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line">HANDLE hNamedPipe;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">CmyNamePipeSerDlg::OnBnClickedProBtn</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="comment">//创建命名管道</span></span><br><span class="line">	LPCTSTR szPipeName = <span class="built_in">TEXT</span>(<span class="string">&quot;\\\\.\\pipe\\mypipe&quot;</span>);</span><br><span class="line">	hNamedPipe = <span class="built_in">CreateNamedPipe</span>(</span><br><span class="line">		szPipeName,</span><br><span class="line">		PIPE_ACCESS_DUPLEX | FILE_FLAG_OVERLAPPED,</span><br><span class="line">		PIPE_TYPE_BYTE, <span class="number">1</span>, <span class="number">1024</span>, <span class="number">1024</span>, <span class="number">0</span>, <span class="literal">NULL</span></span><br><span class="line">	);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> (hNamedPipe == INVALID_HANDLE_VALUE)&#123;</span><br><span class="line">		<span class="built_in">TRACE</span>(<span class="string">&quot;CreateNamePipe failed with %d\n&quot;</span>, <span class="built_in">GetLastError</span>());</span><br><span class="line">		<span class="built_in">MessageBox</span>(_T(<span class="string">&quot;创建命名管道失败&quot;</span>));</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//等待客户端的连接</span></span><br><span class="line">	HANDLE hEvent = <span class="built_in">CreateEvent</span>(<span class="literal">NULL</span>, TRUE, FALSE, <span class="literal">NULL</span>);</span><br><span class="line">	<span class="keyword">if</span> (<span class="literal">NULL</span> == hEvent)&#123;</span><br><span class="line">		<span class="built_in">MessageBox</span>(_T(<span class="string">&quot;创建事件失败&quot;</span>));</span><br><span class="line">		<span class="built_in">CloseHandle</span>(hNamedPipe);</span><br><span class="line">		hNamedPipe = <span class="literal">NULL</span>;</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	OVERLAPPED ovlap;</span><br><span class="line">	<span class="built_in">ZeroMemory</span>(&amp;ovlap, <span class="built_in">sizeof</span>(OVERLAPPED));</span><br><span class="line">	ovlap.hEvent = hEvent;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//等待连接</span></span><br><span class="line">	<span class="keyword">if</span> (!<span class="built_in">ConnectNamedPipe</span>(hNamedPipe, &amp;ovlap))&#123;</span><br><span class="line">		<span class="keyword">if</span> (ERROR_IO_PENDING != <span class="built_in">GetLastError</span>())&#123;</span><br><span class="line">			<span class="built_in">MessageBox</span>(_T(<span class="string">&quot;等待客户端连接失败&quot;</span>));</span><br><span class="line">			<span class="built_in">CloseHandle</span>(hNamedPipe);</span><br><span class="line">			<span class="built_in">CloseHandle</span>(hEvent);</span><br><span class="line">			hNamedPipe = <span class="literal">NULL</span>;</span><br><span class="line">			hEvent = <span class="literal">NULL</span>;</span><br><span class="line">			<span class="keyword">return</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> (<span class="built_in">WaitForSingleObject</span>(hEvent, INFINITE) == WAIT_FAILED)&#123;</span><br><span class="line">		<span class="built_in">MessageBox</span>(_T(<span class="string">&quot;等待对象失败&quot;</span>));</span><br><span class="line">		<span class="built_in">CloseHandle</span>(hNamedPipe);</span><br><span class="line">		<span class="built_in">CloseHandle</span>(hEvent);</span><br><span class="line">		hNamedPipe = <span class="literal">NULL</span>;</span><br><span class="line">		hEvent = <span class="literal">NULL</span>;</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>创建命名管道其实也还好，但是为了一些安全考虑，做了一些措施，本质上都是copy来的。</p>
 <p>至于send和recv其实换汤不换药</p>
-<pre><code class="cpp">void CmyNamePipeSerDlg::OnBnClickedSendBtn()&#123;
-    //命名管道 服务端 发送
-    char szBuf[] = &quot;This Named Pipe From Server&quot;;
-    DWORD dwWrite;
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">CmyNamePipeSerDlg::OnBnClickedSendBtn</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="comment">//命名管道 服务端 发送</span></span><br><span class="line">	<span class="type">char</span> szBuf[] = <span class="string">&quot;This Named Pipe From Server&quot;</span>;</span><br><span class="line">	DWORD dwWrite;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> (!<span class="built_in">WriteFile</span>(hNamedPipe, szBuf, <span class="built_in">strlen</span>(szBuf) + <span class="number">1</span>, &amp;dwWrite, <span class="literal">NULL</span>))&#123;</span><br><span class="line">		<span class="built_in">MessageBox</span>(_T(<span class="string">&quot;WriteFile Failed!!!&quot;</span>));</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">CmyNamePipeSerDlg::OnBnClickedRecvbtn</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="comment">//命名管道 服务端 接收</span></span><br><span class="line">	<span class="type">char</span> szBuf[<span class="number">100</span>] = &#123; <span class="number">0</span> &#125;;</span><br><span class="line">	DWORD dwRead;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> (!<span class="built_in">ReadFile</span>(hNamedPipe, szBuf, <span class="number">100</span>, &amp;dwRead, <span class="literal">NULL</span>))&#123;</span><br><span class="line">		<span class="built_in">MessageBox</span>(_T(<span class="string">&quot;ReadFile Failed!!!&quot;</span>));</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//接收后显示出来</span></span><br><span class="line">	<span class="built_in">MessageBox</span>(szBuf);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-    if (!WriteFile(hNamedPipe, szBuf, strlen(szBuf) + 1, &amp;dwWrite, NULL))&#123;
-        MessageBox(_T(&quot;WriteFile Failed!!!&quot;));
-        return;
-    &#125;
-&#125;
-
-void CmyNamePipeSerDlg::OnBnClickedRecvbtn()&#123;
-    //命名管道 服务端 接收
-    char szBuf[100] = &#123; 0 &#125;;
-    DWORD dwRead;
-
-    if (!ReadFile(hNamedPipe, szBuf, 100, &amp;dwRead, NULL))&#123;
-        MessageBox(_T(&quot;ReadFile Failed!!!&quot;));
-        return;
-    &#125;
-    //接收后显示出来
-    MessageBox(szBuf);
-&#125;
-</code></pre>
 <p>可以说跟之前的一个模样的~</p>
 <hr>
-<h3 id="客户端-1"><a href="#客户端-1" class="headerlink" title="客户端"></a>客户端</h3><pre><code class="cpp">HANDLE hNamedPipe;
-
-void CmyNamePipeCliDlg::OnBnClickedConnBtn()&#123;
-    //创建命名管道
-    LPCTSTR szPipeName = TEXT(&quot;\\\\.\\pipe\\mypipe&quot;);
-
-    if (0 == WaitNamedPipe(szPipeName,NMPWAIT_WAIT_FOREVER))&#123;
-        MessageBox(_T(&quot;当前没有可以利用的管道&quot;));
-        return;
-    &#125;
-
-    //通过打开的命名管道返回的句柄传给hNamedPipe
-    hNamedPipe = CreateFile(
-        szPipeName, GENERIC_READ | GENERIC_WRITE,
-        0, NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL
-    );
-
-    if (hNamedPipe == INVALID_HANDLE_VALUE)&#123;
-        TRACE(&quot;CreateFile failed with %d\n&quot;, GetLastError());
-        CloseHandle(hNamedPipe);
-        hNamedPipe = NULL;
-        return;
-    &#125;
-&#125;
-</code></pre>
+<h3 id="客户端-1"><a href="#客户端-1" class="headerlink" title="客户端"></a>客户端</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">HANDLE hNamedPipe;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">CmyNamePipeCliDlg::OnBnClickedConnBtn</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="comment">//创建命名管道</span></span><br><span class="line">	LPCTSTR szPipeName = <span class="built_in">TEXT</span>(<span class="string">&quot;\\\\.\\pipe\\mypipe&quot;</span>);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> (<span class="number">0</span> == <span class="built_in">WaitNamedPipe</span>(szPipeName,NMPWAIT_WAIT_FOREVER))&#123;</span><br><span class="line">		<span class="built_in">MessageBox</span>(_T(<span class="string">&quot;当前没有可以利用的管道&quot;</span>));</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//通过打开的命名管道返回的句柄传给hNamedPipe</span></span><br><span class="line">	hNamedPipe = <span class="built_in">CreateFile</span>(</span><br><span class="line">		szPipeName, GENERIC_READ | GENERIC_WRITE,</span><br><span class="line">		<span class="number">0</span>, <span class="literal">NULL</span>, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, <span class="literal">NULL</span></span><br><span class="line">	);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> (hNamedPipe == INVALID_HANDLE_VALUE)&#123;</span><br><span class="line">		<span class="built_in">TRACE</span>(<span class="string">&quot;CreateFile failed with %d\n&quot;</span>, <span class="built_in">GetLastError</span>());</span><br><span class="line">		<span class="built_in">CloseHandle</span>(hNamedPipe);</span><br><span class="line">		hNamedPipe = <span class="literal">NULL</span>;</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>相比之下，客户端的连接管道就比较简单了。</p>
 <p>然后接收发送一个样都可以直接拷贝前面的</p>
-<pre><code class="cpp">void CmyNamePipeCliDlg::OnBnClickedSendBtn()&#123;
-    //命名管道 客户端 发送
-    char szBuf[100] = &quot;Named of Pipe Client&quot;;
-    DWORD dwWrite;
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">CmyNamePipeCliDlg::OnBnClickedSendBtn</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="comment">//命名管道 客户端 发送</span></span><br><span class="line">	<span class="type">char</span> szBuf[<span class="number">100</span>] = <span class="string">&quot;Named of Pipe Client&quot;</span>;</span><br><span class="line">	DWORD dwWrite;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> (!<span class="built_in">WriteFile</span>(hNamedPipe, szBuf, <span class="built_in">strlen</span>(szBuf) + <span class="number">1</span>, &amp;dwWrite, <span class="literal">NULL</span>))&#123;</span><br><span class="line">		<span class="built_in">MessageBox</span>(_T(<span class="string">&quot;WriteFile Failed!!!&quot;</span>));</span><br><span class="line">		<span class="built_in">CloseHandle</span>(hNamedPipe);</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">CmyNamePipeCliDlg::OnBnClickedRecvBtn</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="comment">//命名管道 客户端 接收</span></span><br><span class="line">	<span class="type">char</span> szBuf[<span class="number">100</span>] = &#123; <span class="number">0</span> &#125;;</span><br><span class="line">	DWORD dwRead;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> (!<span class="built_in">ReadFile</span>(hNamedPipe, szBuf, <span class="number">100</span>, &amp;dwRead, <span class="literal">NULL</span>))&#123;</span><br><span class="line">		<span class="built_in">MessageBox</span>(_T(<span class="string">&quot;ReadFile Failed!!!&quot;</span>));</span><br><span class="line">		<span class="built_in">CloseHandle</span>(hNamedPipe);</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="built_in">MessageBox</span>(szBuf);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-    if (!WriteFile(hNamedPipe, szBuf, strlen(szBuf) + 1, &amp;dwWrite, NULL))&#123;
-        MessageBox(_T(&quot;WriteFile Failed!!!&quot;));
-        CloseHandle(hNamedPipe);
-        return;
-    &#125;
-&#125;
-
-void CmyNamePipeCliDlg::OnBnClickedRecvBtn()&#123;
-    //命名管道 客户端 接收
-    char szBuf[100] = &#123; 0 &#125;;
-    DWORD dwRead;
-
-    if (!ReadFile(hNamedPipe, szBuf, 100, &amp;dwRead, NULL))&#123;
-        MessageBox(_T(&quot;ReadFile Failed!!!&quot;));
-        CloseHandle(hNamedPipe);
-        return;
-    &#125;
-
-    MessageBox(szBuf);
-&#125;
-</code></pre>
 <hr>
 <h3 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h3><p>首先肯定是先编译了。</p>
 <img src="/2022/07/21/process/020.png" class="">
@@ -821,12 +298,8 @@ void CmyNamePipeCliDlg::OnBnClickedRecvBtn()&#123;
 <hr>
 <h2 id="WM-COPUDATA"><a href="#WM-COPUDATA" class="headerlink" title="WM_COPUDATA"></a>WM_COPUDATA</h2><p><code>wParam</code>传递数据的窗口的句柄</p>
 <p><code>COPYDATASTRUCT</code></p>
-<pre><code class="cpp">typedef struct tagCOPYDATASTRUCT &#123;
-    ULONG_PTR dwData;
-    DWORD cbData;
-    _Field_size_bytes_(cbData) PVOID lpData;
-&#125; COPYDATASTRUCT, *PCOPYDATASTRUCT;
-</code></pre>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span> <span class="title class_">tagCOPYDATASTRUCT</span> &#123;</span><br><span class="line">    ULONG_PTR dwData;</span><br><span class="line">    DWORD cbData;</span><br><span class="line">    _Field_size_bytes_(cbData) PVOID lpData;</span><br><span class="line">&#125; COPYDATASTRUCT, *PCOPYDATASTRUCT;</span><br></pre></td></tr></table></figure>
+
 <p><code>SPY++</code>工具专门用来查找窗口句柄<br>这玩意内置在vs里面了，在顶部工具栏里面</p>
 <img src="/2022/07/21/process/024.png" class="">
 <p>打开之后就是这么一个东西</p>
@@ -835,41 +308,10 @@ void CmyNamePipeCliDlg::OnBnClickedRecvBtn()&#123;
 <p>这里拖到我们的vs22上面，可以看到能看到标题和句柄。</p>
 <p>拿到这样的句柄之后可以进行通信，不过也要能写代码。不然结构不一样它也没有发送接收什么的。</p>
 <p>这里也直接用上面写的修改一下就行了。<br>客户端发送</p>
-<pre><code class="cpp">void CmyNamePipeCliDlg::OnBnClickedSendBtn()&#123;
-    //发送端
-    CString strWinTitle = _T(&quot;服务端&quot;);
-    CString strMsg = _T(&quot;Client COPYDATA&quot;);
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">CmyNamePipeCliDlg::OnBnClickedSendBtn</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="comment">//发送端</span></span><br><span class="line">	CString strWinTitle = _T(<span class="string">&quot;服务端&quot;</span>);</span><br><span class="line">	CString strMsg = _T(<span class="string">&quot;Client COPYDATA&quot;</span>);</span><br><span class="line"></span><br><span class="line">	<span class="comment">//利用标题获取句柄</span></span><br><span class="line">	HWND hwnd = ::<span class="built_in">FindWindow</span>(<span class="literal">NULL</span>, strWinTitle.<span class="built_in">GetBuffer</span>(<span class="number">0</span>));</span><br><span class="line"></span><br><span class="line">	<span class="comment">//判断句柄有内容还是个窗口</span></span><br><span class="line">	<span class="keyword">if</span> (hwnd != <span class="literal">NULL</span> &amp;&amp; <span class="built_in">IsWindow</span>(hwnd))&#123;</span><br><span class="line">		<span class="comment">//数据的封装</span></span><br><span class="line">		COPYDATASTRUCT cpd;</span><br><span class="line">		cpd.dwData = <span class="number">0</span>;</span><br><span class="line">		cpd.cbData = strMsg.<span class="built_in">GetLength</span>() * <span class="built_in">sizeof</span>(TCHAR);</span><br><span class="line">		cpd.lpData = (PVOID)strMsg.<span class="built_in">GetBuffer</span>(<span class="number">0</span>);</span><br><span class="line">		<span class="comment">//1句柄 2消息类型 3主窗口 4copy结构体</span></span><br><span class="line">		::<span class="built_in">SendMessage</span>(hwnd, WM_COPYDATA, (WPARAM)(<span class="built_in">AfxGetApp</span>()-&gt;m_pMainWnd),(LPARAM) &amp; cpd);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	strWinTitle.<span class="built_in">ReleaseBuffer</span>();</span><br><span class="line">	strMsg.<span class="built_in">ReleaseBuffer</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-    //利用标题获取句柄
-    HWND hwnd = ::FindWindow(NULL, strWinTitle.GetBuffer(0));
-
-    //判断句柄有内容还是个窗口
-    if (hwnd != NULL &amp;&amp; IsWindow(hwnd))&#123;
-        //数据的封装
-        COPYDATASTRUCT cpd;
-        cpd.dwData = 0;
-        cpd.cbData = strMsg.GetLength() * sizeof(TCHAR);
-        cpd.lpData = (PVOID)strMsg.GetBuffer(0);
-        //1句柄 2消息类型 3主窗口 4copy结构体
-        ::SendMessage(hwnd, WM_COPYDATA, (WPARAM)(AfxGetApp()-&gt;m_pMainWnd),(LPARAM) &amp; cpd);
-    &#125;
-
-    strWinTitle.ReleaseBuffer();
-    strMsg.ReleaseBuffer();
-&#125;
-</code></pre>
 <p>服务端通过wm_copydata自动接收</p>
-<pre><code class="cpp">BOOL CmyNamePipeSerDlg::OnCopyData(CWnd *pWnd, COPYDATASTRUCT *pCopyDataStruct)&#123;
-    //消息响应之后解析
-    LPCTSTR szText = (LPCTSTR)(pCopyDataStruct-&gt;lpData);
-    DWORD dwLength = (DWORD)pCopyDataStruct-&gt;cbData;
-    TCHAR szRecvText[1024] = &#123; 0 &#125;;
-    memcpy(szRecvText, szText, dwLength);
-    MessageBox(szRecvText, _T(&quot;Y&quot;), MB_OK);
-
-    return CDialogEx::OnCopyData(pWnd, pCopyDataStruct);
-&#125;
-</code></pre>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">BOOL <span class="title">CmyNamePipeSerDlg::OnCopyData</span><span class="params">(CWnd *pWnd, COPYDATASTRUCT *pCopyDataStruct)</span></span>&#123;</span><br><span class="line">	<span class="comment">//消息响应之后解析</span></span><br><span class="line">	LPCTSTR szText = (LPCTSTR)(pCopyDataStruct-&gt;lpData);</span><br><span class="line">	DWORD dwLength = (DWORD)pCopyDataStruct-&gt;cbData;</span><br><span class="line">	TCHAR szRecvText[<span class="number">1024</span>] = &#123; <span class="number">0</span> &#125;;</span><br><span class="line">	<span class="built_in">memcpy</span>(szRecvText, szText, dwLength);</span><br><span class="line">	<span class="built_in">MessageBox</span>(szRecvText, _T(<span class="string">&quot;Y&quot;</span>), MB_OK);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> CDialogEx::<span class="built_in">OnCopyData</span>(pWnd, pCopyDataStruct);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>这个框架是通过编译器造的不用自己敲，里面的实现要自己来<br>右击图形界面，找到类向导打开，消息里面搜索然后双击就出来了</p>
 <img src="/2022/07/21/process/026.png" class="">
 
@@ -879,231 +321,41 @@ void CmyNamePipeCliDlg::OnBnClickedRecvBtn()&#123;
 <hr>
 <h1 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h1><p>剪切板比较简单，他和匿名管道一样只能实现同一个机器的两个进程通信，不能跨网络。<br>邮槽基于广播，可以一对多发送，但是只能一个发一个收，要同时进行就要多写点代码。邮槽传输的数据量较小，只能是424字节一下。<br>命名管道和邮槽都可以进行网络通信，命名管道是点对点的单一通信。<br>WM_COPYDATA封装数据和解析数据，使用起来也挺方便，不过数据量比较大的话就建议用命名管道。</p>
 <p>说参数是挺无聊的，但是实现一下也还行。</p>
-
-        </div>
-
-    </div>
-
-    
-
-    
-
-    
-
-    
-  <div class="article-copyright hairline">
-    <p>
-      本作品采用  <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议 (CC BY-NC-ND 4.0)</a> 进行许可。
-    </p>
-  </div>
-  
-
-    
-
-    
-<nav class="article-nav">
-  
-    <a href="/2022/07/23/windowsFiles/" id="article-nav-newer" class="article-nav-link-wrap">
-      <div class="article-nav-caption">下一篇</div>
-      <div class="article-nav-title">
-        
-          windows文件处理
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2022/07/20/thread1/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-caption">上一篇</div>
-      <div class="article-nav-title">线程-续</div>
-    </a>
-  
-</nav>
-
-
-    <section class="share">
-        <div class="share-title">分享</div>
-        <a class="share-item" target="_blank"
-            href="https://twitter.com/share?text=进程 - ohmyhsy&url=https%3A%2F%2F8bytes.top%2F2022%2F07%2F21%2Fprocess%2F">
-            <box-icon type='logo' name='twitter'></box-icon>
-        </a>
-        <a class="share-item" target="_blank"
-            href="https://www.facebook.com/sharer.php?title=进程 - ohmyhsy&u=https%3A%2F%2F8bytes.top%2F2022%2F07%2F21%2Fprocess%2F">
-            <box-icon name='facebook-square' type='logo' ></box-icon>
-        </a>
-        <!-- <a class="share-item" target="_blank"
-            href="https://service.weibo.com/share/share.php?title=进程 - ohmyhsy&url=https://8bytes.top/2022/07/21/process/&pic=">
-            <div class="n-icon n-icon-weibo"></div>
-        </a> -->
-    </section>
-
-</article>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <!-- <script src="//unpkg.com/@waline/dist/Waline.min.js"></script> -->
-    <script src="https://unpkg.com/@waline/client@v2/dist/waline.js"></script>
-    <link
-        rel="stylesheet"
-        href="https://unpkg.com/@waline/client@v2/dist/waline.css"
-    />
-    <section class="comments">
-        <div id="waline"></div>
-    </section>
-    <script>
-        Waline.init({
-          el: '#waline',
-          serverURL: 'https://ohmyhsy.vercel.app/',
-        });
-    </script>
-
-
-
-<script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-</div>
-
-                </section>
-            </section>
-
-            
-            <aside class="sidebar sidebar-search-fix">
-                
-
-    <div class="search">
-    <div class="has-icon-right">
-        <input type="text" class="form-input" id="search" placeholder="SEARCH" autocomplete="off">
-        <div class="form-icon">
-            <box-icon name='search' color="#3c4859"></box-icon>
-        </div>
-    </div>
-    <div class="search-result" id="search-ps"></div>
-</div>
-
-
-<div class="widget" id="widget">
-    
-      
-  <div class="widget-wrap">
-    <div class="widget-inner">
-      <div class="toc post-toc-html"></div>
-    </div>
-  </div>
-
-    
-      
-
-    
-      
-  <div class="widget-wrap widget-tags">
-    <div class="widget-title"><span>Tags</span></div>
-    <div class="widget-inner">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/MFC/" rel="tag">MFC</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NoteBook/" rel="tag">NoteBook</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RemoteControl/" rel="tag">RemoteControl</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c/" rel="tag">c</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cheat-engine/" rel="tag">cheat engine</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/compiler/" rel="tag">compiler</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cpp/" rel="tag">cpp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/exam/" rel="tag">exam</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jetbrains/" rel="tag">jetbrains</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/" rel="tag">leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/life/" rel="tag">life</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/phone/" rel="tag">phone</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ubuntu/" rel="tag">ubuntu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/visual-studio-2022/" rel="tag">visual studio 2022</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vscode/" rel="tag">vscode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/windows/" rel="tag">windows</a></li></ul>
-    </div>
-  </div>
-
-
-    
-      
-  <div class="widget-wrap widget-recent-posts">
-    <div class="widget-title"><span>Recent Posts</span></div>
-    <div class="widget-inner">
-      <ul>
-        
-          <li>
-            <a href="/2022/09/16/phoneTest/">给爪机上点科技</a>
-          </li>
-        
-          <li>
-            <a href="/2022/09/15/%E8%BF%9C%E6%8E%A7%E9%97%AE%E9%A2%98%E9%9B%86/">远控问题集</a>
-          </li>
-        
-          <li>
-            <a href="/2022/09/10/text021/">text021</a>
-          </li>
-        
-          <li>
-            <a href="/2022/09/10/text020/">text020</a>
-          </li>
-        
-          <li>
-            <a href="/2022/09/05/text019/">text019</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-    
-      
-  <div class="widget-wrap widget-archive">
-    <div class="widget-title"><span>Archive</span></div>
-    <div class="widget-inner">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/">2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/">2021</a></li></ul>
-    </div>
-  </div>
-
-
-    
-</div>
-
-<div id="backtop"><i class="icon icon-arrow-up"></i></div>
-            </aside>
-            
-        </div>
-    </div>
-
-    <footer class="footer">
-    <div class="footer-wave">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#3c4859" fill-opacity="1" d="M0,160L60,181.3C120,203,240,245,360,240C480,235,600,181,720,186.7C840,192,960,256,1080,261.3C1200,267,1320,213,1380,186.7L1440,160L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>
-    </div>
-
-    <!-- Please do not remove this -->
-    <!-- 开源不易，请勿删除 -->
-    <div class="footer-wrap">
-        <div class="footer-inner"> 
-            ohmyhsy &copy; 2022<br>
-            Powered By Hexo · Theme By <a href="https://linhong.me/" target="_blank">Aomori</a> · <a href="https://github.com/lh1me/hexo-theme-aomori" target="_blank">Github</a>
-        </div>
-    </div>
-
-</footer>
-
-
-
-
-
-
-<script src="/dist/build.js?1646451311888.js"></script>
-
-
-<script src="/dist/custom.js?1646451311888.js"></script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-</body>
-
-</html>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://8bytes.top">Box</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://8bytes.top/2022/07/21/process/">https://8bytes.top/2022/07/21/process/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://8bytes.top" target="_blank">Box'Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/cpp/">cpp</a><a class="post-meta__tags" href="/tags/windowsSocket/">windowsSocket</a></div><div class="post_share"><div class="social-share" data-image="/images/cover/cover6.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2022/07/23/windowsFiles/"><img class="prev-cover" src="/images/cover/cover2.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">windows文件处理</div></div></a></div><div class="next-post pull-right"><a href="/2022/07/20/thread1/"><img class="next-cover" src="/images/cover/cover9.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">线程-续</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2022/07/09/socket/" title="socket"><img class="cover" src="/images/cover/cover.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-07-09</div><div class="title">socket</div></div></a></div><div><a href="/2022/07/18/thread/" title="线程"><img class="cover" src="/images/cover/cover4.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-07-18</div><div class="title">线程</div></div></a></div><div><a href="/2022/07/20/thread1/" title="线程-续"><img class="cover" src="/images/cover/cover9.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-07-20</div><div class="title">线程-续</div></div></a></div><div><a href="/2022/07/07/win-windows/" title="windows窗口"><img class="cover" src="/images/cover/cover3.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-07-07</div><div class="title">windows窗口</div></div></a></div><div><a href="/2022/07/07/winNewNulProj/" title="vs2022空项目构建windows窗口报错"><img class="cover" src="/images/cover/cover1.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-07-07</div><div class="title">vs2022空项目构建windows窗口报错</div></div></a></div><div><a href="/2022/07/16/winFiles/" title="网络截取文件"><img class="cover" src="/images/cover/cover3.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-07-16</div><div class="title">网络截取文件</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="waline-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/images/logo.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Box</div><div class="author-info__description">知其不可奈何而安之若命</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">141</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">22</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/8bytes-code"><i class="fab fa-github"></i><span>Github</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">鼠鼠我啊懂点电脑会点C/C++<br/>是一个不够勤快的鼠鼠啊<br/>努力找到自己的下水道吧</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%AD%A3%E6%96%87"><span class="toc-number">2.</span> <span class="toc-text">正文</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E8%BF%9B%E7%A8%8B"><span class="toc-number">2.1.</span> <span class="toc-text">创建进程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8B%E9%97%B4%E9%80%9A%E4%BF%A1%E6%96%B9%E5%BC%8F"><span class="toc-number">2.2.</span> <span class="toc-text">进程间通信方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%AA%E5%88%87%E6%9D%BF"><span class="toc-number">2.3.</span> <span class="toc-text">剪切板</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%82%AE%E6%A7%BD"><span class="toc-number">2.4.</span> <span class="toc-text">邮槽</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8C%BF%E5%90%8D%E7%AE%A1%E9%81%93"><span class="toc-number">2.5.</span> <span class="toc-text">匿名管道</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%8D%E5%8A%A1%E7%AB%AF"><span class="toc-number">2.5.1.</span> <span class="toc-text">服务端</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%A2%E6%88%B7%E7%AB%AF"><span class="toc-number">2.5.2.</span> <span class="toc-text">客户端</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%88%E6%9E%9C"><span class="toc-number">2.5.3.</span> <span class="toc-text">效果</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%91%BD%E5%90%8D%E7%AE%A1%E9%81%93"><span class="toc-number">2.6.</span> <span class="toc-text">命名管道</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%8D%E5%8A%A1%E7%AB%AF-1"><span class="toc-number">2.6.1.</span> <span class="toc-text">服务端</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%A2%E6%88%B7%E7%AB%AF-1"><span class="toc-number">2.6.2.</span> <span class="toc-text">客户端</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95"><span class="toc-number">2.6.3.</span> <span class="toc-text">测试</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#WM-COPUDATA"><span class="toc-number">2.7.</span> <span class="toc-text">WM_COPUDATA</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BB%93%E8%AF%AD"><span class="toc-number">3.</span> <span class="toc-text">结语</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2022/12/10/%E6%97%81%E5%90%AC%E9%9D%A2%E8%AF%952-0/" title="旁听面试2.0"><img src="/images/cover/cover9.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="旁听面试2.0"/></a><div class="content"><a class="title" href="/2022/12/10/%E6%97%81%E5%90%AC%E9%9D%A2%E8%AF%952-0/" title="旁听面试2.0">旁听面试2.0</a><time datetime="2022-12-10T05:59:28.000Z" title="发表于 2022-12-10 13:59:28">2022-12-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/11/30/vs%E4%B9%B1%E7%A0%81/" title="【软件】vs2022控制台乱码"><img src="/images/cover/cover6.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="【软件】vs2022控制台乱码"/></a><div class="content"><a class="title" href="/2022/11/30/vs%E4%B9%B1%E7%A0%81/" title="【软件】vs2022控制台乱码">【软件】vs2022控制台乱码</a><time datetime="2022-11-30T11:00:03.000Z" title="发表于 2022-11-30 19:00:03">2022-11-30</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/11/29/jsoncpp%E7%BC%96%E8%AF%91%E4%BD%BF%E7%94%A8/" title="JsonCpp编译使用"><img src="/images/cover/cover5.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="JsonCpp编译使用"/></a><div class="content"><a class="title" href="/2022/11/29/jsoncpp%E7%BC%96%E8%AF%91%E4%BD%BF%E7%94%A8/" title="JsonCpp编译使用">JsonCpp编译使用</a><time datetime="2022-11-29T11:59:56.000Z" title="发表于 2022-11-29 19:59:56">2022-11-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/11/28/%E6%98%93%E6%A0%88/" title="易栈"><img src="/images/cover/cover2.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="易栈"/></a><div class="content"><a class="title" href="/2022/11/28/%E6%98%93%E6%A0%88/" title="易栈">易栈</a><time datetime="2022-11-28T04:42:03.000Z" title="发表于 2022-11-28 12:42:03">2022-11-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/11/22/%E9%9D%A2%E8%AF%951-0/" title="听别人面1.0"><img src="/images/cover/cover5.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="听别人面1.0"/></a><div class="content"><a class="title" href="/2022/11/22/%E9%9D%A2%E8%AF%951-0/" title="听别人面1.0">听别人面1.0</a><time datetime="2022-11-22T01:25:17.000Z" title="发表于 2022-11-22 09:25:17">2022-11-22</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('/images/cover/cover6.png')"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By Box</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">我下班了蟹老板~</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">简</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>function loadWaline () {
+  function insertCSS () {
+    const link = document.createElement("link")
+    link.rel = "stylesheet"
+    link.href = "https://cdn.jsdelivr.net/npm/@waline/client/dist/waline.min.css"
+    document.head.appendChild(link)
+  }
+
+  function initWaline () {
+    const waline = Waline.init(Object.assign({
+      el: '#waline-wrap',
+      serverURL: 'https://ohmyhsy.vercel.app/',
+      pageview: false,
+      dark: 'html[data-theme="dark"]',
+      path: window.location.pathname,
+      comment: false,
+    }, null))
+  }
+
+  if (typeof Waline === 'function') initWaline()
+  else {
+    insertCSS()
+    getScript('https://cdn.jsdelivr.net/npm/@waline/client/dist/waline.min.js').then(initWaline)
+  }
+}
+
+if ('Waline' === 'Waline' || !false) {
+  if (false) btf.loadComment(document.getElementById('waline-wrap'),loadWaline)
+  else setTimeout(loadWaline, 0)
+} else {
+  function loadOtherComment () {
+    loadWaline()
+  }
+}</script></div><canvas class="fireworks" mobile="false"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/fireworks.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

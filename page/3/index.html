@@ -1,735 +1,398 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html><html lang="[&quot;zh-CN&quot;,&quot;zh-TW&quot;,&quot;en&quot;,&quot;default&quot;]" data-theme="dark"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>Box'Blog - 8bytes-code</title><meta name="author" content="Box"><meta name="copyright" content="Box"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#0d0d0d"><meta name="description" content="知其不可奈何而安之若命">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Box&#39;Blog">
+<meta property="og:url" content="https://8bytes.top/page/3/index.html">
+<meta property="og:site_name" content="Box&#39;Blog">
+<meta property="og:description" content="知其不可奈何而安之若命">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://8bytes.top/images/logo.jpg">
+<meta property="article:author" content="Box">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://8bytes.top/images/logo.jpg"><link rel="shortcut icon" href="/img/favicon.svg"><link rel="canonical" href="https://8bytes.top/page/3/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin=""/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?112e257877c02bad314b2fcefaca0aee";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web&amp;display=swap" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: {"defaultEncoding":1,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: Box","link":"链接: ","source":"来源: Box'Blog","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#1f1f1f","position":"bottom-left"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Box\'Blog',
+  isPost: false,
+  isHome: true,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2022-12-10 19:23:31'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-
-    
-    <title>ohmyhsy</title>
-
-    <meta name="description" content="This is a simple personal blog">
-    <meta name="keywords" content="8bytes-blog">
-
-    
-
-
-
-    <meta property="og:type" content="website"/>
-    <meta property="og:title" content=""/>
-    <meta property="og:description" content=""/>
-    <meta property="og:locale" content="cn" />
-    <meta property="og:type" content="article" />
-    <meta property="og:url" content="https://8bytes.top/page/3/index.html" />
-    <meta property="og:site_name" content="Box" />
-    <meta property="article:publisher" content="" />
-    <script type="application/ld+json">
-        {
-            "@context": "https://schema.org",
-            "@type": "WebPage",
-            "name": "",
-            "description": "",
-            "publisher": {
-                "@type": "Organization",
-                "name": "Box"
-            },
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
         }
-    </script>
+        localStorage.setItem(key, JSON.stringify(item))
+      },
 
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
 
-    
-
-    
-    <meta property="algolia:search" data-application-id="4CVCYWPWWN" data-api-key="7757db6b0a31c3f94c301c885693ed0d" data-index-name="ohmyhsy">
-    
-
-    
-
-    
-
-    
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎮</text></svg>">
-    
-
-    
-
-    
-
-    
-<link rel="stylesheet" href="/dist/build.css?v=1646451311888.css">
-
-
-    
-<link rel="stylesheet" href="/dist/custom.css?v=1646451311888.css">
-
-
-    <script>
-        window.isPost = false
-        window.aomori = {
-            
-            
-            
+        if (!itemStr) {
+          return undefined
         }
-        window.aomori_logo_typed_animated = true
-        window.aomori_search_algolia = true
+        const item = JSON.parse(itemStr)
+        const now = new Date()
 
-    </script>
-
-<meta name="generator" content="Hexo 5.4.1"><link rel="alternate" href="/atom.xml" title="ohmyhsy" type="application/atom+xml">
-</head>
-
-<body>
-
-    <div class="container">
-    <header class="header">
-        <div class="header-type">
-            
-            <div class="header-type-inner">
-                
-                    <div id="typed-strings" style="display:none">
-                        <p>ohmyhsy</p>
-                    </div>
-                    <a class="header-type-title" id="typed" href="/"></a>
-                
-    
-                
-            </div>
-        </div>
-        <div class="header-menu">
-            <div class="header-menu-inner">
-                
-                <a href="/">Home</a>
-                
-                <a href="/archives">Archives</a>
-                
-                <a href="/friends">Friends</a>
-                
-                <a href="/collect">Collect</a>
-                
-                <a href="/photography">Phtotgraphy</a>
-                
-            </div>
-            <div class="header-menu-social">
-                
-    <a class="social" target="_blank" href="https://github.com/8bytes-code">
-        <box-icon type='logo' name='github'></box-icon>
-    </a>
-
-            </div>
-        </div>
-
-        <div class="header-menu-mobile">
-            <div class="header-menu-mobile-inner" id="mobile-menu-open">
-                <i class="icon icon-menu"></i>
-            </div>
-        </div>
-    </header>
-
-    <div class="header-menu-mobile-menu">
-        <div class="header-menu-mobile-menu-bg"></div>
-        <div class="header-menu-mobile-menu-wrap">
-            <div class="header-menu-mobile-menu-inner">
-                <div class="header-menu-mobile-menu-close" id="mobile-menu-close">
-                    <i class="icon icon-cross"></i>
-                </div>
-                <div class="header-menu-mobile-menu-list">
-                    
-                    <a href="/">Home</a>
-                    
-                    <a href="/archives">Archives</a>
-                    
-                    <a href="/friends">Friends</a>
-                    
-                    <a href="/collect">Collect</a>
-                    
-                    <a href="/photography">Phtotgraphy</a>
-                    
-                </div>
-            </div>
-        </div>
-    </div>
-
-</div>
-
-    <div class="container">
-        <div class="main">
-            <section class="inner">
-                <section class="inner-main">
-                    <div class="index">
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
   
-    
-      <article
-id="post-process"
-class="article article-type-post"
->
-
-
-
-<div class="article-inner">
-    
-
-    <div class="article-body">
-    <header class="article-title">
-        <a href="/2022/07/21/process/">进程</a>
-    </header>
-    <div class="article-entry post-inner-html">
-        
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>进程（Process）是计算机中的程序关于某数据集合上的一次运行活动，是系统进行资源分配和调度的基本单位，是操作系统结构的基础。在早期面向进程设计的计算机结构中，进程是程序的基本执行实体；在当代面向线程设计的计算机结构中，进程是线程的容器。程序是指令、数据及其组织形式的描述，进程是程序的实体。<br>——百度百科</p>
-        
-    </div>
-    </div>
-
-    <div class="article-badge">
-        
-        
-    </div>
-
-</div>
-
-<footer class="article-footer">
-    <div class="article-more-info">
-    <div class="article-date">
-  <time datetime="2022-07-21T14:44:06.000Z" itemprop="datePublished">2022-07-21</time>
-</div>
-    
-    
-        <div class="article-tag">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/windows/" rel="tag">windows</a></li></ul>
-        </div>
-    
-    </div>
-</footer>
-
-</article>
-
-    
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
   
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
     
-      <article
-id="post-thread1"
-class="article article-type-post"
->
-
-
-
-<div class="article-inner">
-    
-
-    <div class="article-body">
-    <header class="article-title">
-        <a href="/2022/07/20/thread1/">线程-续</a>
-    </header>
-    <div class="article-entry post-inner-html">
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
         
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>加上代码片段，markdown上一篇写的有点长了，自己都不好理了，还是分开写写吧。</p>
-        
-    </div>
-    </div>
-
-    <div class="article-badge">
-        
-        
-    </div>
-
-</div>
-
-<footer class="article-footer">
-    <div class="article-more-info">
-    <div class="article-date">
-  <time datetime="2022-07-20T13:41:24.000Z" itemprop="datePublished">2022-07-20</time>
-</div>
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
     
-    
-        <div class="article-tag">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/windows/" rel="tag">windows</a></li></ul>
-        </div>
-    
-    </div>
-</footer>
-
-</article>
-
-    
-  
-    
-      <article
-  id="tweet-text014"
-  class="article article-type-tweet"
->
-
-    <div class="article-tweet article-type-tweet-inner">
-
-        <box-icon class="article-tweet-quote" type='solid' name='quote-left' color="#CCC"></box-icon>
-
-        <div class="article-tweet-content post-inner-html">
-            
-                <h1 id="HWND和HANDLE"><a href="#HWND和HANDLE" class="headerlink" title="HWND和HANDLE"></a>HWND和HANDLE</h1><p>两者都是内核对象，也就是句柄。当然这是windows用来标识对象的不是c++的对象。<br>HWND一般用来定义窗口句柄<br>HANDLE用来定义任何类型的句柄，包括HWND</p>
-            
-        </div>
-
-        <footer class="article-footer">
-            <a class="article-footer-common" href="/2022/07/18/text014/">评论</a>
-            <div class="article-more-info">
-            <div class="article-date">
-  <time datetime="2022-07-18T13:05:01.000Z" itemprop="datePublished">2022-07-18</time>
-</div>
-            
-            
-            </div>
-        </footer>
-
-        <div class="article-badge">
-            
-            
-        </div>
-
-    </div>
-
-</article>
-
-    
-  
-    
-      <article
-id="post-thread"
-class="article article-type-post"
->
-
-
-
-<div class="article-inner">
-    
-
-    <div class="article-body">
-    <header class="article-title">
-        <a href="/2022/07/18/thread/">线程</a>
-    </header>
-    <div class="article-entry post-inner-html">
-        
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>线程（英语：thread）是操作系统能够进行运算调度的最小单位。它被包含在进程之中，是进程中的实际运作单位。一条线程指的是进程中一个单一顺序的控制流，一个进程中可以并发多个线程，每条线程并行执行不同的任务。在Unix System V及SunOS中也被称为轻量进程（lightweight processes），但轻量进程更多指内核线程（kernel thread），而把用户线程（user thread）称为线程。<br>——百度百科</p>
-        
-    </div>
-    </div>
-
-    <div class="article-badge">
-        
-        
-    </div>
-
-</div>
-
-<footer class="article-footer">
-    <div class="article-more-info">
-    <div class="article-date">
-  <time datetime="2022-07-18T11:36:06.000Z" itemprop="datePublished">2022-07-18</time>
-</div>
-    
-    
-        <div class="article-tag">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/windows/" rel="tag">windows</a></li></ul>
-        </div>
-    
-    </div>
-</footer>
-
-</article>
-
-    
-  
-    
-      <article
-  id="tweet-text013"
-  class="article article-type-tweet"
->
-
-    <div class="article-tweet article-type-tweet-inner">
-
-        <box-icon class="article-tweet-quote" type='solid' name='quote-left' color="#CCC"></box-icon>
-
-        <div class="article-tweet-content post-inner-html">
-            
-                <h1 id="装个va玩玩"><a href="#装个va玩玩" class="headerlink" title="装个va玩玩"></a>装个va玩玩</h1>
-            
-        </div>
-
-        <footer class="article-footer">
-            <a class="article-footer-common" href="/2022/07/16/text013/">评论</a>
-            <div class="article-more-info">
-            <div class="article-date">
-  <time datetime="2022-07-16T14:00:22.000Z" itemprop="datePublished">2022-07-16</time>
-</div>
-            
-            
-            </div>
-        </footer>
-
-        <div class="article-badge">
-            
-            
-        </div>
-
-    </div>
-
-</article>
-
-    
-  
-    
-      <article
-id="post-winFiles"
-class="article article-type-post"
->
-
-
-
-<div class="article-inner">
-    
-
-    <div class="article-body">
-    <header class="article-title">
-        <a href="/2022/07/16/winFiles/">网络截取文件</a>
-    </header>
-    <div class="article-entry post-inner-html">
-        
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>socket的基础语法看过了，但是要说掌握那也是没掌握住~往下看用到再补。</p>
-        
-    </div>
-    </div>
-
-    <div class="article-badge">
-        
-        
-    </div>
-
-</div>
-
-<footer class="article-footer">
-    <div class="article-more-info">
-    <div class="article-date">
-  <time datetime="2022-07-16T08:17:09.000Z" itemprop="datePublished">2022-07-16</time>
-</div>
-    
-    
-        <div class="article-tag">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/windows/" rel="tag">windows</a></li></ul>
-        </div>
-    
-    </div>
-</footer>
-
-</article>
-
-    
-  
-    
-      <article
-  id="tweet-text012"
-  class="article article-type-tweet"
->
-
-    <div class="article-tweet article-type-tweet-inner">
-
-        <box-icon class="article-tweet-quote" type='solid' name='quote-left' color="#CCC"></box-icon>
-
-        <div class="article-tweet-content post-inner-html">
-            
-                <h1 id="摆了几天-有的时候又感叹代码风格的迥异"><a href="#摆了几天-有的时候又感叹代码风格的迥异" class="headerlink" title="摆了几天~ 有的时候又感叹代码风格的迥异"></a>摆了几天~ 有的时候又感叹代码风格的迥异</h1>
-            
-        </div>
-
-        <footer class="article-footer">
-            <a class="article-footer-common" href="/2022/07/14/text012/">评论</a>
-            <div class="article-more-info">
-            <div class="article-date">
-  <time datetime="2022-07-14T14:19:40.000Z" itemprop="datePublished">2022-07-14</time>
-</div>
-            
-            
-            </div>
-        </footer>
-
-        <div class="article-badge">
-            
-            
-        </div>
-
-    </div>
-
-</article>
-
-    
-  
-    
-      <article
-id="post-socket"
-class="article article-type-post"
->
-
-
-
-<div class="article-inner">
-    
-
-    <div class="article-body">
-    <header class="article-title">
-        <a href="/2022/07/09/socket/">socket</a>
-    </header>
-    <div class="article-entry post-inner-html">
-        
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>所谓套接字(Socket)，就是对网络中不同主机上的应用进程之间进行双向通信的端点的抽象。一个套接字就是网络上进程通信的一端，提供了应用层进程利用网络协议交换数据的机制。从所处的地位来讲，套接字上联应用进程，下联网络协议栈，是应用程序通过网络协议进行通信的接口，是应用程序与网络协议栈进行交互的接口。<br>-百度说的</p>
-        
-    </div>
-    </div>
-
-    <div class="article-badge">
-        
-        
-    </div>
-
-</div>
-
-<footer class="article-footer">
-    <div class="article-more-info">
-    <div class="article-date">
-  <time datetime="2022-07-09T04:05:09.000Z" itemprop="datePublished">2022-07-09</time>
-</div>
-    
-    
-        <div class="article-tag">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/windows/" rel="tag">windows</a></li></ul>
-        </div>
-    
-    </div>
-</footer>
-
-</article>
-
-    
-  
-    
-      <article
-id="post-winNewNulProj"
-class="article article-type-post"
->
-
-
-
-<div class="article-inner">
-    
-
-    <div class="article-body">
-    <header class="article-title">
-        <a href="/2022/07/07/winNewNulProj/">vs2022空项目构建windows窗口报错</a>
-    </header>
-    <div class="article-entry post-inner-html">
-        
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>空项目的设置基本都是套console的，所以run不起来</p>
-        
-    </div>
-    </div>
-
-    <div class="article-badge">
-        
-        
-    </div>
-
-</div>
-
-<footer class="article-footer">
-    <div class="article-more-info">
-    <div class="article-date">
-  <time datetime="2022-07-07T14:55:12.000Z" itemprop="datePublished">2022-07-07</time>
-</div>
-    
-    
-        <div class="article-tag">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/windows/" rel="tag">windows</a></li></ul>
-        </div>
-    
-    </div>
-</footer>
-
-</article>
-
-    
-  
-    
-      <article
-id="post-win-windows"
-class="article article-type-post"
->
-
-
-
-<div class="article-inner">
-    
-
-    <div class="article-body">
-    <header class="article-title">
-        <a href="/2022/07/07/win-windows/">windows窗口</a>
-    </header>
-    <div class="article-entry post-inner-html">
-        
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>额总的来说c++的语法是又看了一遍~~猪脑子啊有些就是没记住。<br>先看看windows的api，然后玩玩老的mfc先吧。</p>
-        
-    </div>
-    </div>
-
-    <div class="article-badge">
-        
-        
-    </div>
-
-</div>
-
-<footer class="article-footer">
-    <div class="article-more-info">
-    <div class="article-date">
-  <time datetime="2022-07-07T10:28:09.000Z" itemprop="datePublished">2022-07-07</time>
-</div>
-    
-    
-        <div class="article-tag">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/windows/" rel="tag">windows</a></li></ul>
-        </div>
-    
-    </div>
-</footer>
-
-</article>
-
-    
-  
-
-  
-    <nav class="pagination">
-        <a class="extend prev" rel="prev" href="/page/2/">Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/4/">Next</a>
-    </nav>
-  
-</div>
-
-                </section>
-            </section>
-
-            
-            <aside class="sidebar sidebar-search-fix">
-                
-
-    <div class="search">
-    <div class="has-icon-right">
-        <input type="text" class="form-input" id="search" placeholder="SEARCH" autocomplete="off">
-        <div class="form-icon">
-            <box-icon name='search' color="#3c4859"></box-icon>
-        </div>
-    </div>
-    <div class="search-result" id="search-ps"></div>
-</div>
-
-
-<div class="widget" id="widget">
-    
-      
-    
-      
-
-    
-      
-  <div class="widget-wrap widget-tags">
-    <div class="widget-title"><span>Tags</span></div>
-    <div class="widget-inner">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/MFC/" rel="tag">MFC</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NoteBook/" rel="tag">NoteBook</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RemoteControl/" rel="tag">RemoteControl</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c/" rel="tag">c</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cheat-engine/" rel="tag">cheat engine</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/compiler/" rel="tag">compiler</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cpp/" rel="tag">cpp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/exam/" rel="tag">exam</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jetbrains/" rel="tag">jetbrains</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/" rel="tag">leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/life/" rel="tag">life</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/phone/" rel="tag">phone</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ubuntu/" rel="tag">ubuntu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/visual-studio-2022/" rel="tag">visual studio 2022</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vscode/" rel="tag">vscode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/windows/" rel="tag">windows</a></li></ul>
-    </div>
-  </div>
-
-
-    
-      
-  <div class="widget-wrap widget-recent-posts">
-    <div class="widget-title"><span>Recent Posts</span></div>
-    <div class="widget-inner">
-      <ul>
-        
-          <li>
-            <a href="/2022/09/16/phoneTest/">给爪机上点科技</a>
-          </li>
-        
-          <li>
-            <a href="/2022/09/15/%E8%BF%9C%E6%8E%A7%E9%97%AE%E9%A2%98%E9%9B%86/">远控问题集</a>
-          </li>
-        
-          <li>
-            <a href="/2022/09/10/text021/">text021</a>
-          </li>
-        
-          <li>
-            <a href="/2022/09/10/text020/">text020</a>
-          </li>
-        
-          <li>
-            <a href="/2022/09/05/text019/">text019</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-    
-      
-  <div class="widget-wrap widget-archive">
-    <div class="widget-title"><span>Archive</span></div>
-    <div class="widget-inner">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/">2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/">2021</a></li></ul>
-    </div>
-  </div>
-
-
-    
-</div>
-
-<div id="backtop"><i class="icon icon-arrow-up"></i></div>
-            </aside>
-            
-        </div>
-    </div>
-
-    <footer class="footer">
-    <div class="footer-wave">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#3c4859" fill-opacity="1" d="M0,160L60,181.3C120,203,240,245,360,240C480,235,600,181,720,186.7C840,192,960,256,1080,261.3C1200,267,1320,213,1380,186.7L1440,160L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>
-    </div>
-
-    <!-- Please do not remove this -->
-    <!-- 开源不易，请勿删除 -->
-    <div class="footer-wrap">
-        <div class="footer-inner"> 
-            ohmyhsy &copy; 2022<br>
-            Powered By Hexo · Theme By <a href="https://linhong.me/" target="_blank">Aomori</a> · <a href="https://github.com/lh1me/hexo-theme-aomori" target="_blank">Github</a>
-        </div>
-    </div>
-
-</footer>
-
-
-
-
-
-
-<script src="/dist/build.js?1646451311888.js"></script>
-
-
-<script src="/dist/custom.js?1646451311888.js"></script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-</body>
-
-</html>
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.1"><link rel="alternate" href="/atom.xml" title="Box'Blog" type="application/atom+xml">
+</head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/images/logo.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">141</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">22</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 生活</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/collect/"><i class="fa-fw fa fa-star"></i><span> 收藏</span></a></li><li><a class="site-page child" href="/photography/"><i class="fa-fw fa fa-camera-retro"></i><span> 相册</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/messageboard/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header" style="background-image: url('/images/background.png')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Box'Blog</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 生活</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/collect/"><i class="fa-fw fa fa-star"></i><span> 收藏</span></a></li><li><a class="site-page child" href="/photography/"><i class="fa-fw fa fa-camera-retro"></i><span> 相册</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/messageboard/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="site-info"><h1 id="site-title">Box'Blog</h1><div id="site-subtitle"><span id="subtitle"></span></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="post_cover left"><a href="/2022/09/15/%E8%BF%9C%E6%8E%A7%E9%97%AE%E9%A2%98%E9%9B%86/" title="远控笔记"><img class="post_bg" src="/images/cover/cover2.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="远控笔记"></a></div><div class="recent-post-info"><a class="article-title" href="/2022/09/15/%E8%BF%9C%E6%8E%A7%E9%97%AE%E9%A2%98%E9%9B%86/" title="远控笔记">远控笔记</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-09-15T12:24:52.000Z" title="发表于 2022-09-15 20:24:52">2022-09-15</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%8A%A0%E5%AF%86%E6%96%87%E7%AB%A0/">加密文章</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/MFC/">MFC</a><span class="article-meta-link">•</span><a class="article-meta__tags" href="/tags/Windows/">Windows</a><span class="article-meta-link">•</span><a class="article-meta__tags" href="/tags/RemoteControl/">RemoteControl</a></span></div><div class="content">
+  00f12a94edcfed45ab71b2a7246c81261e01d1fa505e5892b81333e230b13502c734c6ad93d49903ce5b0ed00727df49eef7e71a3e3083e0227ee1fb2e1a2dfc5c3ec78009f74e2a76d396749e7c43c178d1e23a7b2da822e346d9b77bec62c655e709c847bead2dbc254cb4fcf5c1634a7b6601416d8d05226838991dd842ab85936c1f00029a82164e950817056de844ea08acf4526090e04689e879ac870ae5e5575f90e4333109bf847949e6130e2a0c7e6061fdbf9ecfca1066c6874a765c112ddee44a96aa975281a6d5e13cfd577eb53fb19a28db9f2dc241b8556a36f792aed54488bb257626d35b34a3dcb9d979628e2917ac629 ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2022/08/28/WindTerm/" title="【软件】WindTerm"><img class="post_bg" src="/images/cover/cover4.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="【软件】WindTerm"></a></div><div class="recent-post-info"><a class="article-title" href="/2022/08/28/WindTerm/" title="【软件】WindTerm">【软件】WindTerm</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-08-28T14:01:03.000Z" title="发表于 2022-08-28 22:01:03">2022-08-28</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/software/">software</a></span></div><div class="content">新·终端开源神器
+
+WindTerm
+WindTerm&#x2F;releases
+
+下载解压出来就可以使用了。
+
+
+
+
+前言最早的时候连接多个虚拟机或者交换机，用的都是xshell之类的。这类软件所使用的连接协议均为SSH&#x2F;Telnet，当然还有com口的连接，那些比较老了有点。除此之外还有文件传输协议FTP，貌似也有封装过的FTP。
+软件嘛，ui是吸引人的第一步，功能是留住用户的第二步，开源是留住全人类的一大步。
+
+正文1. ui展示直接顺走GitHub的图。
+Main Window (zsh):
+
+Split views:
+
+DigeWhite Theme:
+
+
+
+支持zsh，这玩意怎么说呢，配合ohmyzsh，然后主题powerlevelp10k好像是，可以把这个sh整的花里胡哨的哈哈
+
+
+2. 性能
+
+作者很直白的举例了各个软件直接的差距
+
+而且正式版的软件体积大小只有三十多兆，更是支持跨平台。
+
+3. 上手
+刚打开是的时候会选择缓存的目录，直接放到软件目录也行，放到用户目录也ok。
+点击此处可以新建会话也可以在菜单栏里面选择会话，然后新建会话。
+
+
+打开新建会话之 ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2022/08/24/undefinedbehaviour/" title="UB未定义行为"><img class="post_bg" src="/images/cover/cover9.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="UB未定义行为"></a></div><div class="recent-post-info"><a class="article-title" href="/2022/08/24/undefinedbehaviour/" title="UB未定义行为">UB未定义行为</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-08-24T15:17:13.000Z" title="发表于 2022-08-24 23:17:13">2022-08-24</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/cpp%E5%AD%A6%E4%B9%A0/">cpp学习</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/cpp/">cpp</a></span></div><div class="content">前言额。。惭愧，今天在群里听到UB，我还以为是啥咋没听过。
+UB:undefined behaviour，简称：未定义行为。不过u1s1啊。undefined，这个经常见，所以一听就知道，组合词确实是我孤陋寡闻了。
+
+
+
+
+正文
+这是当时群里的题
+不过借此，也可以适当进一步了解未定义行为。
+首先，未定义行为怎么来的？也不合适，应该是先考虑定义。所谓的语言标准，自然有自己的标准委员会提出，也就是c++ iso的说法，即c++11、c++14巴拉巴拉的，除去这一层，不同的编译器也可能自己做了优化，又多了一层定义。那么这层定义就比较搞了，因为相同的代码在不同编译器下就很有可能出问题。所以尽量不要再这上面钻牛角尖。
+
+未定义行为：可以说是语言标准没有规定，编译器自行决定的行为，而且在不同的编译器上有时会有不同的结果。
+
+
+例一就是很无聊的++问题
+12int i = 0;i = i++;
+在我们的印象里，后置递增，先操作后自增。即i=i; i++但是还有一种恶心的情况，i++; i=i 
+当然这里能想到后者就完犊子了，肯定是先赋值后递增，所以i&#x3D;1
+然后就来了
+123int i =  ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2022/08/21/git-vs-tortoise/" title="关于git忽略文件"><img class="post_bg" src="/images/cover/cover7.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="关于git忽略文件"></a></div><div class="recent-post-info"><a class="article-title" href="/2022/08/21/git-vs-tortoise/" title="关于git忽略文件">关于git忽略文件</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-08-21T14:08:14.000Z" title="发表于 2022-08-21 22:08:14">2022-08-21</time></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/git/">git</a></span></div><div class="content">本文简单介绍vs和tortoise git的忽略方式，水平一般有问题欢迎指出。
+
+
+
+
+前言目前也就会几种
+
+先从github的仓库create
+vs利用git拓展
+小乌龟git
+
+然后项目是cpp的，用的ide是vs，所以如果是别的项目或许关键点不一样关于为什么要忽略掉一些文件，按照惯例一般上传都是纯净的，你自己编译产生的exe、log和一些隐藏文件是别人不需要的，而且这些还占内存
+
+正文1. vs的忽略方式vs比较干脆吧，毕竟是图形化操作。
+
+首先在顶部菜单栏选择视图，打开git更改
+然后你改动过的文件会在项目出现，你可以直接右击
+
+
+忽略此本地项就是只忽略这个文件忽略此拓展名，比如头文件的尾缀名是.h，那么所有的.h就被忽略了。
+不过对于隐藏文件好像不太好显示，明确的话直接在第三种方式里面修改
+
+以我vs创建的项目为例，目录下都有个.vs的隐藏文件夹，这玩意体积大老大了，实际用处不大，然后除了手动添加了什么静态库之类的，再去掉debug和release目录，实际上的代码体积是很小的。
+
+你要是上传几个g到仓库，先不说速度，等会给ban了。
+
+2. 小乌龟git的忽略方式小乌龟的忽 ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2022/08/20/ssdTest/" title="没搞头的ssd跑分"><img class="post_bg" src="/images/cover/cover4.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="没搞头的ssd跑分"></a></div><div class="recent-post-info"><a class="article-title" href="/2022/08/20/ssdTest/" title="没搞头的ssd跑分">没搞头的ssd跑分</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-08-20T09:02:32.000Z" title="发表于 2022-08-20 17:02:32">2022-08-20</time></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/NoteBook/">NoteBook</a></span></div><div class="content">随便测测反正娱乐
+
+
+
+正文主流两个软件
+
+AS SSD Benchmark
+CrystalDiskMark
+
+但是u1s1前者的成绩比较渣，后者的还比较符合厂家给出的理论最大上限。
+
+
+
+
+以pm9a1来说，pice4.0*4，厂家给出的数据，1tb的容量，r：7000mb&#x2F;s，w：5100mb&#x2F;s
+
+其实感觉也得考虑几个问题
+
+温度影响，简单安装的硬盘，也没搞铜片或者石墨烯，温度高了也有可能造成性能损耗
+已有容量，感觉空盘切没分盘的时候可能效果最好
+系统，win10和win11，win11感觉还是不完善。。win10也有点要搞事情的感觉
+软件，就上面两个而言就能看出区别
+
+虽然我们也不得而知两个软件是靠什么得出这个数据，而且本身就是看一看。。实际感知到了一定程度并没有这么敏感。
+搜了一下，有个说法挺有意思，但仅供参考首先就是进制问题，硬盘厂家采用的是10进制啊，而计算机底层是二进制。1tb 本来应该是 1024g，但是通过厂家的设计，变成了9xx多个g。这也导致，这两个软件有一个要使用二进制去算成绩，肯定比十进制要低。
+所以。。谁高谁低，谁用十进制谁用二进制或许 ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2022/08/18/TortoiseGit/" title="【软件】小王八git版本控制工具"><img class="post_bg" src="/images/cover/cover3.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="【软件】小王八git版本控制工具"></a></div><div class="recent-post-info"><a class="article-title" href="/2022/08/18/TortoiseGit/" title="【软件】小王八git版本控制工具">【软件】小王八git版本控制工具</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-08-18T14:07:23.000Z" title="发表于 2022-08-18 22:07:23">2022-08-18</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/software/">software</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/git/">git</a></span></div><div class="content">前言需要科学。
+
+下载地址
+
+
+
+
+
+正文下载
+
+一般都是选x64了，虽然也有不少应用还是这个x86，但是记得配套就行，上面是git本体，下面是语言包
+温馨提示，最好先下个git for windows，我因为早下了所以好像没提示
+
+vs配置然后就是visual studio的配置，一般也不做啥调整打开工具-选项-源代码管理
+
+默认都是git，问题不大，自己看下是不是。
+然后再工具那边打开源代码管理的几个按钮右击顶栏很多按钮那一条，弹出这个，选中源代码管理即可
+
+
+选中之后，能看到多了一些，基础就大概这样了
+
+
+
+
+gitee&#x2F;github创建仓库gitee嘛国内的不用科学，但是之前出了一档子破事好像都要审核了，我也没怎么用。这里用的github，问题不大，懂得都懂。
+简单介绍
+
+
+然后create之后就能看到
+
+
+
+没必要去翻我的哈。。自己学习用的
+
+那么仓库建好了，就要用源代码管理工具去操作了。
+首先看仓库的code按钮
+
+
+有三种clone方式，第一种https，这个应该不陌生的吧大部分人，就是web协议，http的基础上加入ssl证书验证。第二种比较常用，ssh，为啥 ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2022/08/03/nDialog/" title="多个对话框关联"><img class="post_bg" src="/images/cover/cover3.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="多个对话框关联"></a></div><div class="recent-post-info"><a class="article-title" href="/2022/08/03/nDialog/" title="多个对话框关联">多个对话框关联</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-08-02T17:29:01.000Z" title="发表于 2022-08-03 01:29:01">2022-08-03</time></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/MFC/">MFC</a></span></div><div class="content">前言倒也没啥特别，效果是类似于一个问卷调查。
+
+
+
+
+正文直接在前面项目上改动了
+
+
+点击这个按钮，自然是弹出新的对话框，所以要新建资源右击资源视图中该项目的Dialog，选择添加资源
+
+
+这个对话框类型后面仨就是大小之间有差异。
+然后就是拖控件，其中这些radio单选框啥啥啥的，以前html做表单的时候用的感觉都差不多吧，不算太陌生。
+
+
+样式完成之后要新建类和这个对话框关联
+
+
+这里要注意命名的时候要和Dialog里的一样，只不过我这个vs2022对话框id不知道为啥没显示，正常应该是会根据类名在前面加上IDD_，这也是为什么上面创建类名是这个样，但好在源文件头文件是随便的
+
+创建完之后可以看到类向导这里这个类关联的资源就是刚才新建的对话框
+类和对话框关联之后，就要给这些控件添加变量。
+单选框的特性就是只能选中一个，那么这个变量首先为值类型，其次类型为BOOL。创建三个又太麻烦，所以新建一个之后直接改成数组
+123public:	// 单选框的值	BOOL m_lang[3];
+在源文件中自然免不了修改了
+12345678910111213141516171819202122232 ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2022/08/02/escapeButton/" title="丐版逃跑按钮"><img class="post_bg" src="/images/cover/cover2.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="丐版逃跑按钮"></a></div><div class="recent-post-info"><a class="article-title" href="/2022/08/02/escapeButton/" title="丐版逃跑按钮">丐版逃跑按钮</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-08-02T15:19:24.000Z" title="发表于 2022-08-02 23:19:24">2022-08-02</time></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/MFC/">MFC</a></span></div><div class="content">前言就是窗口上有个按钮，然后鼠标过去按钮就移动。
+
+
+
+
+正文新建MFC项目选中基于对话框用户界面的东西基本用不到高级功能打印也用不到其它都正常创建
+
+
+核心思想跟网上流传的网页版本可能有区别吧，这个原理就是两个按钮，当发现鼠标要触碰到这个按钮就隐藏这个，启用另一个。
+
+
+首先就是拖俩button控件
+
+
+然后将左边的按钮属性中  可见 这一属性设为FALSE
+
+
+那么跑起来的效果就是这样的，看不到左边
+
+
+然后给这两个控件添加变量,[过程不做演示了，mfc用多了就习惯了]
+123public:    CButton m_btn_right;    CButton m_btn_left;
+
+对于对话框而言，能第一时间想到触碰按钮的消息，也就是跟鼠标移动有关的。那么显然是有这么一个消息的OnMouseMove
+添加完之后
+1234567891011void CRunningButtonDlg::OnMouseMove(UINT nFlags, CPoint point)&#123;	// TODO: 在此添加消息处理程序代码和/或调用默认值	CRect left, right;	m_bt ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2022/07/25/mfc01/" title="MFC基础"><img class="post_bg" src="/images/cover/cover.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="MFC基础"></a></div><div class="recent-post-info"><a class="article-title" href="/2022/07/25/mfc01/" title="MFC基础">MFC基础</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-07-25T04:36:44.000Z" title="发表于 2022-07-25 12:36:44">2022-07-25</time></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/MFC/">MFC</a></span></div><div class="content">前言微软基础类库（英语：Microsoft Foundation Classes，简称MFC）是微软公司提供的一个类库（class libraries），以C++类的形式封装了Windows API，并且包含一个应用程序框架，以减少应用程序开发人员的工作量。其中包含大量Windows句柄封装类和很多Windows的内建控件和组件的封装类。
+
+
+
+
+正文MFC为何物传统手工业，需要很多人，然后手工去操作，对于厂家而言，人工费高，质量不确定。而改用机器后，只需要投入材料，一天内的效应会大于人工，而且质量比较平均，当然不是所有的传统手工业都能被机器代替，只是部分。
+这也就是普通c&#x2F;c++代码和api的区别，经过多次封装它自然就变得看起来简单，复用性高。
+MFC既然是微软设计的，自然只适合在windows上做应用开发，像xp、win7、win10兼容性肯定没得说，毕竟也是个亲儿子。不过目前的更新迭代之下，MFC的场景也会比较少，后面还有个跨平台的Qt。虽然少，但是老公司的项目没有转型之前，大部分还是需要维护的。可能外包比较多。
+MFC的学习方式
+
+(1.c++多态、2.windows ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2022/07/25/dynamiclink/" title="动态链接库"><img class="post_bg" src="/images/cover/escr.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="动态链接库"></a></div><div class="recent-post-info"><a class="article-title" href="/2022/07/25/dynamiclink/" title="动态链接库">动态链接库</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-07-24T16:12:50.000Z" title="发表于 2022-07-25 00:12:50">2022-07-25</time></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/windowsSocket/">windowsSocket</a></span></div><div class="content">前言动态链接库（Dynamic Link Library 或者 Dynamic-link Library，缩写为 DLL），是微软公司在微软Windows操作系统中，实现共享函数库概念的一种方式。这些库函数的扩展名是 ”.dll”、”.ocx”（包含ActiveX控制的库）或者 “.drv”（旧式的系统驱动程序）。——百度百科
+
+
+
+
+正文与之对应的在基础那会学过静态链接库.lib，要使用特定的功能，就必须加载这个静态库，这样在编译的时候其实exe就包含了这个lib。而现在的动态链接库，他只管调用，不去负责连接的过程，要么你写好了不用，他不发生连接，要么写了要用的时候才会去连接。
+静态库编译完成后，已经和exe合并，所以这个exe会比较大。动态库在内存中连接，并没有本质上的合并，相对而言exe比较小，但是计算机如果缺失这个动态库，那么这个exe基本就废了。
+windows常见的动态库(.dll)
+
+gdi32.dll    绘图
+user32.dll   用户界面有关的函数
+kernel32.dll 内存、线程、进程
+d3d9x_11.dll 绘图
+
+动态链接库的意义
+
+模块化
+方便更 ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/2/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/#content-inner">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/#content-inner">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/#content-inner">15</a><a class="extend next" rel="next" href="/page/4/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/images/logo.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Box</div><div class="author-info__description">知其不可奈何而安之若命</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">141</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">22</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/8bytes-code"><i class="fab fa-github"></i><span>Github</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">鼠鼠我啊懂点电脑会点C/C++<br/>是一个不够勤快的鼠鼠啊<br/>努力找到自己的下水道吧</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2022/12/10/%E6%97%81%E5%90%AC%E9%9D%A2%E8%AF%952-0/" title="旁听面试2.0"><img src="/images/cover/cover9.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="旁听面试2.0"/></a><div class="content"><a class="title" href="/2022/12/10/%E6%97%81%E5%90%AC%E9%9D%A2%E8%AF%952-0/" title="旁听面试2.0">旁听面试2.0</a><time datetime="2022-12-10T05:59:28.000Z" title="发表于 2022-12-10 13:59:28">2022-12-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/11/30/vs%E4%B9%B1%E7%A0%81/" title="【软件】vs2022控制台乱码"><img src="/images/cover/cover6.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="【软件】vs2022控制台乱码"/></a><div class="content"><a class="title" href="/2022/11/30/vs%E4%B9%B1%E7%A0%81/" title="【软件】vs2022控制台乱码">【软件】vs2022控制台乱码</a><time datetime="2022-11-30T11:00:03.000Z" title="发表于 2022-11-30 19:00:03">2022-11-30</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/11/29/jsoncpp%E7%BC%96%E8%AF%91%E4%BD%BF%E7%94%A8/" title="JsonCpp编译使用"><img src="/images/cover/cover5.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="JsonCpp编译使用"/></a><div class="content"><a class="title" href="/2022/11/29/jsoncpp%E7%BC%96%E8%AF%91%E4%BD%BF%E7%94%A8/" title="JsonCpp编译使用">JsonCpp编译使用</a><time datetime="2022-11-29T11:59:56.000Z" title="发表于 2022-11-29 19:59:56">2022-11-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/11/28/%E6%98%93%E6%A0%88/" title="易栈"><img src="/images/cover/cover2.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="易栈"/></a><div class="content"><a class="title" href="/2022/11/28/%E6%98%93%E6%A0%88/" title="易栈">易栈</a><time datetime="2022-11-28T04:42:03.000Z" title="发表于 2022-11-28 12:42:03">2022-11-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/11/22/%E9%9D%A2%E8%AF%951-0/" title="听别人面1.0"><img src="/images/cover/cover5.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="听别人面1.0"/></a><div class="content"><a class="title" href="/2022/11/22/%E9%9D%A2%E8%AF%951-0/" title="听别人面1.0">听别人面1.0</a><time datetime="2022-11-22T01:25:17.000Z" title="发表于 2022-11-22 09:25:17">2022-11-22</time></div></div></div></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">141</div></div><div class="webinfo-item"><div class="item-name">已运行时间 :</div><div class="item-count" id="runtimeshow" data-publishDate="2022-03-19T16:00:00.000Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总字数 :</div><div class="item-count">207.8k</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2022-12-10T11:23:30.664Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('/images/background.png')"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By Box</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">我下班了蟹老板~</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="translateLink" type="button" title="简繁转换">简</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>function subtitleType () {
+  if (true) { 
+    window.typed = new Typed("#subtitle", {
+      strings: ["平淡的一生","A dull life"],
+      startDelay: 300,
+      typeSpeed: 150,
+      loop: true,
+      backSpeed: 50
+    })
+  } else {
+    document.getElementById("subtitle").innerHTML = '平淡的一生'
+  }
+}
+
+if (true) {
+  if (typeof Typed === 'function') {
+    subtitleType()
+  } else {
+    getScript('https://cdn.jsdelivr.net/npm/typed.js/lib/typed.min.js').then(subtitleType)
+  }
+} else {
+  subtitleType()
+}</script></div><canvas class="fireworks" mobile="false"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/fireworks.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

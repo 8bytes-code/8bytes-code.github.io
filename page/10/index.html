@@ -1,773 +1,333 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html><html lang="[&quot;zh-CN&quot;,&quot;zh-TW&quot;,&quot;en&quot;,&quot;default&quot;]" data-theme="dark"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>Box'Blog - 8bytes-code</title><meta name="author" content="Box"><meta name="copyright" content="Box"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#0d0d0d"><meta name="description" content="知其不可奈何而安之若命">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Box&#39;Blog">
+<meta property="og:url" content="https://8bytes.top/page/10/index.html">
+<meta property="og:site_name" content="Box&#39;Blog">
+<meta property="og:description" content="知其不可奈何而安之若命">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://8bytes.top/images/logo.jpg">
+<meta property="article:author" content="Box">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://8bytes.top/images/logo.jpg"><link rel="shortcut icon" href="/img/favicon.svg"><link rel="canonical" href="https://8bytes.top/page/10/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin=""/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?112e257877c02bad314b2fcefaca0aee";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web&amp;display=swap" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: {"defaultEncoding":1,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: Box","link":"链接: ","source":"来源: Box'Blog","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#1f1f1f","position":"bottom-left"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Box\'Blog',
+  isPost: false,
+  isHome: true,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2022-12-10 19:23:31'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-
-    
-    <title>ohmyhsy</title>
-
-    <meta name="description" content="This is a simple personal blog">
-    <meta name="keywords" content="8bytes-blog">
-
-    
-
-
-
-    <meta property="og:type" content="website"/>
-    <meta property="og:title" content=""/>
-    <meta property="og:description" content=""/>
-    <meta property="og:locale" content="cn" />
-    <meta property="og:type" content="article" />
-    <meta property="og:url" content="https://8bytes.top/page/10/index.html" />
-    <meta property="og:site_name" content="Box" />
-    <meta property="article:publisher" content="" />
-    <script type="application/ld+json">
-        {
-            "@context": "https://schema.org",
-            "@type": "WebPage",
-            "name": "",
-            "description": "",
-            "publisher": {
-                "@type": "Organization",
-                "name": "Box"
-            },
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
         }
-    </script>
+        localStorage.setItem(key, JSON.stringify(item))
+      },
 
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
 
-    
-
-    
-    <meta property="algolia:search" data-application-id="4CVCYWPWWN" data-api-key="7757db6b0a31c3f94c301c885693ed0d" data-index-name="ohmyhsy">
-    
-
-    
-
-    
-
-    
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎮</text></svg>">
-    
-
-    
-
-    
-
-    
-<link rel="stylesheet" href="/dist/build.css?v=1646451311888.css">
-
-
-    
-<link rel="stylesheet" href="/dist/custom.css?v=1646451311888.css">
-
-
-    <script>
-        window.isPost = false
-        window.aomori = {
-            
-            
-            
+        if (!itemStr) {
+          return undefined
         }
-        window.aomori_logo_typed_animated = true
-        window.aomori_search_algolia = true
+        const item = JSON.parse(itemStr)
+        const now = new Date()
 
-    </script>
-
-<meta name="generator" content="Hexo 5.4.1"><link rel="alternate" href="/atom.xml" title="ohmyhsy" type="application/atom+xml">
-</head>
-
-<body>
-
-    <div class="container">
-    <header class="header">
-        <div class="header-type">
-            
-            <div class="header-type-inner">
-                
-                    <div id="typed-strings" style="display:none">
-                        <p>ohmyhsy</p>
-                    </div>
-                    <a class="header-type-title" id="typed" href="/"></a>
-                
-    
-                
-            </div>
-        </div>
-        <div class="header-menu">
-            <div class="header-menu-inner">
-                
-                <a href="/">Home</a>
-                
-                <a href="/archives">Archives</a>
-                
-                <a href="/friends">Friends</a>
-                
-                <a href="/collect">Collect</a>
-                
-                <a href="/photography">Phtotgraphy</a>
-                
-            </div>
-            <div class="header-menu-social">
-                
-    <a class="social" target="_blank" href="https://github.com/8bytes-code">
-        <box-icon type='logo' name='github'></box-icon>
-    </a>
-
-            </div>
-        </div>
-
-        <div class="header-menu-mobile">
-            <div class="header-menu-mobile-inner" id="mobile-menu-open">
-                <i class="icon icon-menu"></i>
-            </div>
-        </div>
-    </header>
-
-    <div class="header-menu-mobile-menu">
-        <div class="header-menu-mobile-menu-bg"></div>
-        <div class="header-menu-mobile-menu-wrap">
-            <div class="header-menu-mobile-menu-inner">
-                <div class="header-menu-mobile-menu-close" id="mobile-menu-close">
-                    <i class="icon icon-cross"></i>
-                </div>
-                <div class="header-menu-mobile-menu-list">
-                    
-                    <a href="/">Home</a>
-                    
-                    <a href="/archives">Archives</a>
-                    
-                    <a href="/friends">Friends</a>
-                    
-                    <a href="/collect">Collect</a>
-                    
-                    <a href="/photography">Phtotgraphy</a>
-                    
-                </div>
-            </div>
-        </div>
-    </div>
-
-</div>
-
-    <div class="container">
-        <div class="main">
-            <section class="inner">
-                <section class="inner-main">
-                    <div class="index">
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
   
-    
-      <article
-id="post-function10"
-class="article article-type-post"
->
-
-
-
-<div class="article-inner">
-    
-
-    <div class="article-body">
-    <header class="article-title">
-        <a href="/2022/06/09/function10/">function10-static/inline</a>
-    </header>
-    <div class="article-entry post-inner-html">
-        
-        <h1 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h1><ul>
-<li>static</li>
-<li>inline<br>这俩在C语言中也出现过所以不陌生。</li>
-</ul>
-        
-    </div>
-    </div>
-
-    <div class="article-badge">
-        
-        
-    </div>
-
-</div>
-
-<footer class="article-footer">
-    <div class="article-more-info">
-    <div class="article-date">
-  <time datetime="2022-06-08T17:17:15.000Z" itemprop="datePublished">2022-06-09</time>
-</div>
-    
-    
-        <div class="article-tag">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cpp/" rel="tag">cpp</a></li></ul>
-        </div>
-    
-    </div>
-</footer>
-
-</article>
-
-    
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
   
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
     
-      <article
-  id="tweet-text004"
-  class="article article-type-tweet"
->
-
-    <div class="article-tweet article-type-tweet-inner">
-
-        <box-icon class="article-tweet-quote" type='solid' name='quote-left' color="#CCC"></box-icon>
-
-        <div class="article-tweet-content post-inner-html">
-            
-                <h1 id="这评论系统。。老挂掉，估计是js和css那些远程服务器的问题"><a href="#这评论系统。。老挂掉，估计是js和css那些远程服务器的问题" class="headerlink" title="这评论系统。。老挂掉，估计是js和css那些远程服务器的问题"></a>这评论系统。。老挂掉，估计是js和css那些远程服务器的问题</h1>
-            
-        </div>
-
-        <footer class="article-footer">
-            <a class="article-footer-common" href="/2022/06/09/text004/">评论</a>
-            <div class="article-more-info">
-            <div class="article-date">
-  <time datetime="2022-06-08T16:53:34.000Z" itemprop="datePublished">2022-06-09</time>
-</div>
-            
-            
-            </div>
-        </footer>
-
-        <div class="article-badge">
-            
-            
-        </div>
-
-    </div>
-
-</article>
-
-    
-  
-    
-      <article
-id="post-function9"
-class="article article-type-post"
->
-
-
-
-<div class="article-inner">
-    
-
-    <div class="article-body">
-    <header class="article-title">
-        <a href="/2022/06/08/function9/">function9-自动推导模板</a>
-    </header>
-    <div class="article-entry post-inner-html">
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
         
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>自动推导的用处配合上模板大概才有真正的火花</p>
-        
-    </div>
-    </div>
-
-    <div class="article-badge">
-        
-        
-    </div>
-
-</div>
-
-<footer class="article-footer">
-    <div class="article-more-info">
-    <div class="article-date">
-  <time datetime="2022-06-07T16:09:49.000Z" itemprop="datePublished">2022-06-08</time>
-</div>
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
     
-    
-        <div class="article-tag">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cpp/" rel="tag">cpp</a></li></ul>
-        </div>
-    
-    </div>
-</footer>
-
-</article>
-
-    
-  
-    
-      <article
-id="post-function8"
-class="article article-type-post"
->
-
-
-
-<div class="article-inner">
-    
-
-    <div class="article-body">
-    <header class="article-title">
-        <a href="/2022/06/06/function8/">function8-auto/decltype</a>
-    </header>
-    <div class="article-entry post-inner-html">
-        
-        <h1 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h1><p>c++ 11:</p>
-<ul>
-<li>auto-&gt;decltype</li>
-</ul>
-        
-    </div>
-    </div>
-
-    <div class="article-badge">
-        
-        
-    </div>
-
-</div>
-
-<footer class="article-footer">
-    <div class="article-more-info">
-    <div class="article-date">
-  <time datetime="2022-06-05T16:21:19.000Z" itemprop="datePublished">2022-06-06</time>
-</div>
-    
-    
-        <div class="article-tag">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cpp/" rel="tag">cpp</a></li></ul>
-        </div>
-    
-    </div>
-</footer>
-
-</article>
-
-    
-  
-    
-      <article
-id="post-function7"
-class="article article-type-post"
->
-
-
-
-<div class="article-inner">
-    
-
-    <div class="article-body">
-    <header class="article-title">
-        <a href="/2022/06/05/function7/">function7-模板</a>
-    </header>
-    <div class="article-entry post-inner-html">
-        
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>重载回顾完之后<br>虽然说让一个函数名有了多个功能，但是每次都要多写一个函数还是挺麻烦的。<br>而模板功能是为了提升复用性的功能。</p>
-        
-    </div>
-    </div>
-
-    <div class="article-badge">
-        
-        
-    </div>
-
-</div>
-
-<footer class="article-footer">
-    <div class="article-more-info">
-    <div class="article-date">
-  <time datetime="2022-06-05T07:58:37.000Z" itemprop="datePublished">2022-06-05</time>
-</div>
-    
-    
-        <div class="article-tag">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cpp/" rel="tag">cpp</a></li></ul>
-        </div>
-    
-    </div>
-</footer>
-
-</article>
-
-    
-  
-    
-      <article
-id="post-function6"
-class="article article-type-post"
->
-
-
-
-<div class="article-inner">
-    
-
-    <div class="article-body">
-    <header class="article-title">
-        <a href="/2022/06/04/function6/">function6-重载</a>
-    </header>
-    <div class="article-entry post-inner-html">
-        
-        <h1 id="紫砂了紫砂了"><a href="#紫砂了紫砂了" class="headerlink" title="紫砂了紫砂了"></a>紫砂了紫砂了</h1><p>函数的东西一堆堆，还涉及到栈，但是只是单纯的知识层面没法结合实际去玩就很恼。。。大概这就是没天赋吧，看后面有没有什么例子补救补救的</p>
-        
-    </div>
-    </div>
-
-    <div class="article-badge">
-        
-        
-    </div>
-
-</div>
-
-<footer class="article-footer">
-    <div class="article-more-info">
-    <div class="article-date">
-  <time datetime="2022-06-04T14:29:13.000Z" itemprop="datePublished">2022-06-04</time>
-</div>
-    
-    
-        <div class="article-tag">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cpp/" rel="tag">cpp</a></li></ul>
-        </div>
-    
-    </div>
-</footer>
-
-</article>
-
-    
-  
-    
-      <article
-id="post-function5"
-class="article article-type-post"
->
-
-
-
-<div class="article-inner">
-    
-
-    <div class="article-body">
-    <header class="article-title">
-        <a href="/2022/06/03/function5/">function5-栈</a>
-    </header>
-    <div class="article-entry post-inner-html">
-        
-        <h1 id="懒懒散散"><a href="#懒懒散散" class="headerlink" title="懒懒散散"></a>懒懒散散</h1><p>一天就学一会就是玩游戏刷手机~</p>
-        
-    </div>
-    </div>
-
-    <div class="article-badge">
-        
-        
-    </div>
-
-</div>
-
-<footer class="article-footer">
-    <div class="article-more-info">
-    <div class="article-date">
-  <time datetime="2022-06-02T16:52:34.000Z" itemprop="datePublished">2022-06-03</time>
-</div>
-    
-    
-        <div class="article-tag">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cpp/" rel="tag">cpp</a></li></ul>
-        </div>
-    
-    </div>
-</footer>
-
-</article>
-
-    
-  
-    
-      <article
-id="post-function4"
-class="article article-type-post"
->
-
-
-
-<div class="article-inner">
-    
-
-    <div class="article-body">
-    <header class="article-title">
-        <a href="/2022/06/01/function4/">function4-本质和函数指针</a>
-    </header>
-    <div class="article-entry post-inner-html">
-        
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>vs ide 可以选择x86编译和x64编译，同时一个项目它也存在两个版本</p>
-<ul>
-<li>debug 版本就是常说的测试版本， bug就是漏洞的意思。</li>
-<li>release 版本就是正常发行版本， 说明这个版本的漏洞相对于debug比较少，毕竟是先测试后发布。<img src="/2022/06/01/function4/000.png" class=""></li>
-</ul>
-        
-    </div>
-    </div>
-
-    <div class="article-badge">
-        
-        
-    </div>
-
-</div>
-
-<footer class="article-footer">
-    <div class="article-more-info">
-    <div class="article-date">
-  <time datetime="2022-05-31T16:11:51.000Z" itemprop="datePublished">2022-06-01</time>
-</div>
-    
-    
-        <div class="article-tag">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cpp/" rel="tag">cpp</a></li></ul>
-        </div>
-    
-    </div>
-</footer>
-
-</article>
-
-    
-  
-    
-      <article
-id="post-function3"
-class="article article-type-post"
->
-
-
-
-<div class="article-inner">
-    
-
-    <div class="article-body">
-    <header class="article-title">
-        <a href="/2022/05/31/function3/">function3-左值右值</a>
-    </header>
-    <div class="article-entry post-inner-html">
-        
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>在C语言中什么叫左值和右值</p>
-<pre><code class="cpp">int a = 3;
-//a为左值，3为右值
-</code></pre>
-<ul>
-<li>左值一般是变量，在程序运行时有一个准确的地址和值，除了const的情况下一般都能修改。</li>
-<li>右值则一般是常量或者临时对象，除非强转之类的操作，其它情况下一般不能修改</li>
-</ul>
-<blockquote>
-<p>在编译报错的时候应该或多或少也见过到提示右值不可被修改</p>
-</blockquote>
-        
-    </div>
-    </div>
-
-    <div class="article-badge">
-        
-        
-    </div>
-
-</div>
-
-<footer class="article-footer">
-    <div class="article-more-info">
-    <div class="article-date">
-  <time datetime="2022-05-30T17:25:37.000Z" itemprop="datePublished">2022-05-31</time>
-</div>
-    
-    
-        <div class="article-tag">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cpp/" rel="tag">cpp</a></li></ul>
-        </div>
-    
-    </div>
-</footer>
-
-</article>
-
-    
-  
-    
-      <article
-id="post-function2"
-class="article article-type-post"
->
-
-
-
-<div class="article-inner">
-    
-
-    <div class="article-body">
-    <header class="article-title">
-        <a href="/2022/05/30/function2/">function2</a>
-    </header>
-    <div class="article-entry post-inner-html">
-        
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>之前提到过函数是什么类型的就需要返回什么类型的值，正常变量类型都还好，当指针和引用的时候就有意思了</p>
-        
-    </div>
-    </div>
-
-    <div class="article-badge">
-        
-        
-    </div>
-
-</div>
-
-<footer class="article-footer">
-    <div class="article-more-info">
-    <div class="article-date">
-  <time datetime="2022-05-30T14:51:51.000Z" itemprop="datePublished">2022-05-30</time>
-</div>
-    
-    
-        <div class="article-tag">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cpp/" rel="tag">cpp</a></li></ul>
-        </div>
-    
-    </div>
-</footer>
-
-</article>
-
-    
-  
-
-  
-    <nav class="pagination">
-        <a class="extend prev" rel="prev" href="/page/9/">Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><span class="page-number current">10</span><a class="page-number" href="/page/11/">11</a><a class="page-number" href="/page/12/">12</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/11/">Next</a>
-    </nav>
-  
-</div>
-
-                </section>
-            </section>
-
-            
-            <aside class="sidebar sidebar-search-fix">
-                
-
-    <div class="search">
-    <div class="has-icon-right">
-        <input type="text" class="form-input" id="search" placeholder="SEARCH" autocomplete="off">
-        <div class="form-icon">
-            <box-icon name='search' color="#3c4859"></box-icon>
-        </div>
-    </div>
-    <div class="search-result" id="search-ps"></div>
-</div>
-
-
-<div class="widget" id="widget">
-    
-      
-    
-      
-
-    
-      
-  <div class="widget-wrap widget-tags">
-    <div class="widget-title"><span>Tags</span></div>
-    <div class="widget-inner">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/MFC/" rel="tag">MFC</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NoteBook/" rel="tag">NoteBook</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RemoteControl/" rel="tag">RemoteControl</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c/" rel="tag">c</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cheat-engine/" rel="tag">cheat engine</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/compiler/" rel="tag">compiler</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cpp/" rel="tag">cpp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/exam/" rel="tag">exam</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jetbrains/" rel="tag">jetbrains</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/" rel="tag">leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/life/" rel="tag">life</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/phone/" rel="tag">phone</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ubuntu/" rel="tag">ubuntu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/visual-studio-2022/" rel="tag">visual studio 2022</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vscode/" rel="tag">vscode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/windows/" rel="tag">windows</a></li></ul>
-    </div>
-  </div>
-
-
-    
-      
-  <div class="widget-wrap widget-recent-posts">
-    <div class="widget-title"><span>Recent Posts</span></div>
-    <div class="widget-inner">
-      <ul>
-        
-          <li>
-            <a href="/2022/09/16/phoneTest/">给爪机上点科技</a>
-          </li>
-        
-          <li>
-            <a href="/2022/09/15/%E8%BF%9C%E6%8E%A7%E9%97%AE%E9%A2%98%E9%9B%86/">远控问题集</a>
-          </li>
-        
-          <li>
-            <a href="/2022/09/10/text021/">text021</a>
-          </li>
-        
-          <li>
-            <a href="/2022/09/10/text020/">text020</a>
-          </li>
-        
-          <li>
-            <a href="/2022/09/05/text019/">text019</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-    
-      
-  <div class="widget-wrap widget-archive">
-    <div class="widget-title"><span>Archive</span></div>
-    <div class="widget-inner">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/">2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/">2021</a></li></ul>
-    </div>
-  </div>
-
-
-    
-</div>
-
-<div id="backtop"><i class="icon icon-arrow-up"></i></div>
-            </aside>
-            
-        </div>
-    </div>
-
-    <footer class="footer">
-    <div class="footer-wave">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#3c4859" fill-opacity="1" d="M0,160L60,181.3C120,203,240,245,360,240C480,235,600,181,720,186.7C840,192,960,256,1080,261.3C1200,267,1320,213,1380,186.7L1440,160L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>
-    </div>
-
-    <!-- Please do not remove this -->
-    <!-- 开源不易，请勿删除 -->
-    <div class="footer-wrap">
-        <div class="footer-inner"> 
-            ohmyhsy &copy; 2022<br>
-            Powered By Hexo · Theme By <a href="https://linhong.me/" target="_blank">Aomori</a> · <a href="https://github.com/lh1me/hexo-theme-aomori" target="_blank">Github</a>
-        </div>
-    </div>
-
-</footer>
-
-
-
-
-
-
-<script src="/dist/build.js?1646451311888.js"></script>
-
-
-<script src="/dist/custom.js?1646451311888.js"></script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-</body>
-
-</html>
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.1"><link rel="alternate" href="/atom.xml" title="Box'Blog" type="application/atom+xml">
+</head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/images/logo.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">141</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">22</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 生活</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/collect/"><i class="fa-fw fa fa-star"></i><span> 收藏</span></a></li><li><a class="site-page child" href="/photography/"><i class="fa-fw fa fa-camera-retro"></i><span> 相册</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/messageboard/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header" style="background-image: url('/images/background.png')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Box'Blog</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 生活</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/collect/"><i class="fa-fw fa fa-star"></i><span> 收藏</span></a></li><li><a class="site-page child" href="/photography/"><i class="fa-fw fa fa-camera-retro"></i><span> 相册</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/messageboard/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="site-info"><h1 id="site-title">Box'Blog</h1><div id="site-subtitle"><span id="subtitle"></span></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="post_cover left"><a href="/2022/06/09/translater/" title="translater-定义/声明/文件"><img class="post_bg" src="/images/cover/cover2.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="translater-定义/声明/文件"></a></div><div class="recent-post-info"><a class="article-title" href="/2022/06/09/translater/" title="translater-定义/声明/文件">translater-定义/声明/文件</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-06-09T05:17:15.000Z" title="发表于 2022-06-09 13:17:15">2022-06-09</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/cpp%E5%AD%A6%E4%B9%A0/">cpp学习</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/cpp/">cpp</a></span></div><div class="content">前言
+声明
+定义
+
+
+#pragma once是一个比较常用的C&#x2F;C++预处理指令，只要在头文件的最开始加入这条预处理指令，就能够保证头文件只被编译一次。#pragma once是编译器相关的，有的编译器支持，有的编译器不支持，具体情况请查看编译器API文档，不过大部分编译器都有这个预处理指令了。#ifndef，#define，#endif是C&#x2F;C++语言中的宏定义，通过宏定义避免文件多次编译。所以在所有支持C++语言的编译器上都是有效的，如果写的程序要跨平台，最好使用这种方式。#ifdef 和 #define 显然 if 有define这个宏，才会执行里面的内容
+
+
+
+
+
+正文一般情况下：声明就是告诉编译器存在这么一个东西，就有点像函数；而定义则是申请了内存，就像用到了变量。但是并不是绝对的，概念性的东西还是看人为理解。
+
+函数12345678910111213#include&lt;iostream&gt;using std::cout;using std::endl;int main()&#123;	int x = add(1, 2);	return 0;&# ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2022/06/09/function10/" title="function10-static/inline"><img class="post_bg" src="/images/cover/cover4.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="function10-static/inline"></a></div><div class="recent-post-info"><a class="article-title" href="/2022/06/09/function10/" title="function10-static/inline">function10-static/inline</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-06-08T17:17:15.000Z" title="发表于 2022-06-09 01:17:15">2022-06-09</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/cpp%E5%AD%A6%E4%B9%A0/">cpp学习</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/cpp/">cpp</a></span></div><div class="content">引用
+static
+inline这俩在C语言中也出现过所以不陌生。
+
+
+
+
+
+前言勿忘模板，二刷常态~~哈哈哈
+static 通常用作声明静态变量static type name例如：static int a;static变量如果没有指定初始化，那么会自动初始化为0，且只能初始化一次。而且静态变量即使离开作用域也不会立刻销毁，说明不是存在于栈区的数据。
+inline 将函数以内联的方式嵌入到调用的函数。inline int Add(int a,int b)&#123; return a+b; &#125;内联函数会建议编译器把这个函数处理成内敛代码以提升性能，但是否采用看编译器决定。
+
+正文static12345678910111213141516171819#include&lt;iostream&gt;using std::cout;using std::endl;void hhh()&#123;	static int a = 1000;	a++;	cout &lt;&lt; a &lt;&lt; endl;&#125;int main()&#123;	hhh();	hhh();	 ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2022/06/08/function9/" title="function9-自动推导模板"><img class="post_bg" src="/images/cover/cover10.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="function9-自动推导模板"></a></div><div class="recent-post-info"><a class="article-title" href="/2022/06/08/function9/" title="function9-自动推导模板">function9-自动推导模板</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-06-07T16:09:49.000Z" title="发表于 2022-06-08 00:09:49">2022-06-08</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/cpp%E5%AD%A6%E4%B9%A0/">cpp学习</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/cpp/">cpp</a></span></div><div class="content">前言自动推导的用处配合上模板大概才有真正的火花
+
+
+
+
+正文1234567891011int Ave(int a, int b)&#123;	return (a + b) / 2;&#125;int Ave(float a, int b)&#123;	return (a + b) / 2;&#125;double Ave(int a, float b)&#123;	return (a + b) / 2;&#125;
+首先瞅一个函数重载，我们简单做个模板:
+1234template&lt;typename T&gt;T Ave(T a, T b)&#123;	return (a + b) / 2;&#125;
+
+但是这个模板似乎只能适应第一个函数，为什么呢？因为T只代表了一个类型，所以当你函数的参数类型不同时，单纯的参数就搞不明白了。
+
+聪明娃一下子就想到用两个参数了：
+1234template&lt;typename T1,typename T2&gt;T1 Ave(T2 a, T1 b)&#123;	return (a + b) / 2;&#125;
+但是这种虽然是两种参数了，而且返 ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2022/06/06/function8/" title="function8-auto/decltype"><img class="post_bg" src="/images/cover/cover9.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="function8-auto/decltype"></a></div><div class="recent-post-info"><a class="article-title" href="/2022/06/06/function8/" title="function8-auto/decltype">function8-auto/decltype</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-06-05T16:21:19.000Z" title="发表于 2022-06-06 00:21:19">2022-06-06</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/cpp%E5%AD%A6%E4%B9%A0/">cpp学习</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/cpp/">cpp</a></span></div><div class="content">引用c++ 11:
+
+auto-&gt;decltype
+
+
+
+
+
+前言auto是一种自动推导的类型，之前学过但是用的比较少。主要也是c++不像java吧，java这种后端项目好像即使大版本更新了，项目也不会主动去换jdk。c++稍微自由一点，听过的感觉都逐步靠近新版本，但肯定不是绝对，毕竟旧项目不考虑升级单纯维护的话也用不到那么新的。
+auto好像还是c++11有的，c++14之后对auto又提供了什么也还不知道。
+既然可以自动推导，那么可以用来定义变量或者函数
+1234567891011auto a = 123; //等价与 int a = 123; auto定义的时候必须有初值，否则无法确定类型，无法确定类型也就无法确定大小。auto ave(int a,int b)&#123;    return a + b;&#125;/*    等价于    int ave(int a, int b)&#123;        return a + b;    &#125;*/
+但是这两种使用场景并不是auto最恰当的用法，不管是函数或者变量，其实不推荐auto去推导来声明
+
+正文自动推导 ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2022/06/05/function7/" title="function7-模板"><img class="post_bg" src="/images/cover/cover1.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="function7-模板"></a></div><div class="recent-post-info"><a class="article-title" href="/2022/06/05/function7/" title="function7-模板">function7-模板</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-06-05T07:58:37.000Z" title="发表于 2022-06-05 15:58:37">2022-06-05</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/cpp%E5%AD%A6%E4%B9%A0/">cpp学习</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/cpp/">cpp</a></span></div><div class="content">前言重载回顾完之后虽然说让一个函数名有了多个功能，但是每次都要多写一个函数还是挺麻烦的。而模板功能是为了提升复用性的功能。
+
+
+
+
+
+引用关键字：
+
+template
+
+
+正文123456int Ave(int a, int b, int c)&#123;	return (a + b + c) / 3;&#125;float Ave(float a, float b, float c)&#123;	return (a + b + c) / 3;&#125;
+假如有这么个函数是求三个数的平均值，抛开类型，算法逻辑是相同的操作。重载也合理。但是如果要对每一个类型都写一个这样的函数，就会变得很麻烦。
+12345678template &lt;typename type&gt; type Ave(type a, type b, type c)&#123;	return (a + b + c) / 3;&#125;//或者template声明完模板后换行写也可以template &lt;typename type&gt; type Ave(type a, type b, type c)&#123 ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2022/06/04/function6/" title="function6-重载"><img class="post_bg" src="/images/cover/escr.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="function6-重载"></a></div><div class="recent-post-info"><a class="article-title" href="/2022/06/04/function6/" title="function6-重载">function6-重载</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-06-04T14:29:13.000Z" title="发表于 2022-06-04 22:29:13">2022-06-04</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/cpp%E5%AD%A6%E4%B9%A0/">cpp学习</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/cpp/">cpp</a></span></div><div class="content">紫砂了紫砂了函数的东西一堆堆，还涉及到栈，但是只是单纯的知识层面没法结合实际去玩就很恼。。。大概这就是没天赋吧，看后面有没有什么例子补救补救的
+
+
+
+
+正文在C语言里，函数名是不能重复的，变量也是[咱不提全局和局部]。而在c++里，有函数重载的方法，可以让一个函数名有多个功能。
+要实现自定义函数完成两个数或者多个数的平均值时：
+1234567int Ave(int a, int b)&#123;	return (a + b) / 2;&#125;int Ave1(int a, int b, int c)&#123;	return (a + b + c) / 3;&#125;
+其实变化不大，但是要额外定义。所以c++的函数就多了重载的功能：
+123456int Ave(int a, int b)&#123;	return (a + b) / 2;&#125;int Ave(int a, int b, int c)&#123;	return (a + b + c) / 3;&#125;
+函数可以用相同的名称，因为功能大致接近很好的提示了可用性
+
+编译器也会提示有两个重载方法
+
+
+至于形参的 ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2022/06/03/function5/" title="function5-栈"><img class="post_bg" src="/images/cover/cover2.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="function5-栈"></a></div><div class="recent-post-info"><a class="article-title" href="/2022/06/03/function5/" title="function5-栈">function5-栈</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-06-02T16:52:34.000Z" title="发表于 2022-06-03 00:52:34">2022-06-03</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/cpp%E5%AD%A6%E4%B9%A0/">cpp学习</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/cpp/">cpp</a></span></div><div class="content">懒懒散散一天就学一会就是玩游戏刷手机~
+
+
+
+
+前言栈这个东西，百度的也是大概，具体的内存分析还是有待深挖。
+在计算机系统中，栈则是一个具有以上属性的动态内存区域。程序可以将数据压入栈中，也可以将数据从栈顶弹出。在i386机器中，栈顶由称为esp的寄存器进行定位。压栈的操作使得栈顶的地址减小，弹出的操作使得栈顶的地址增大。栈在程序的运行中有着举足轻重的作用。最重要的是栈保存了一个函数调用时所需要的维护信息，这常常称之为堆栈帧或者活动记录。堆栈帧一般包含如下几方面的信息：
+
+函数的返回地址和参数
+临时变量：包括函数的非静态局部变量以及编译器自动生成的其他临时变量。
+
+
+正文说人话栈就是为了应对临时变量所产生的一块独立的内存空间，有调用变量和函数时就由计算机自主分配调用，用完就释放。
+
+如果所有变量的内存地址都要固定，程序庞大的时候内存消耗过高
+如果变量都是自主分配，麻烦不说，还要自己清理
+如果一部分变量系统分配，一部分自主分配，系统分配的系统会自动清理
+
+那么结果肯定是3好。
+
+123456789101112131415161718192021#include&lt;iostream&g ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2022/06/01/function4/" title="function4-本质和函数指针"><img class="post_bg" src="/images/cover/cover3.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="function4-本质和函数指针"></a></div><div class="recent-post-info"><a class="article-title" href="/2022/06/01/function4/" title="function4-本质和函数指针">function4-本质和函数指针</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-05-31T16:11:51.000Z" title="发表于 2022-06-01 00:11:51">2022-06-01</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/cpp%E5%AD%A6%E4%B9%A0/">cpp学习</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/cpp/">cpp</a></span></div><div class="content">前言vs ide 可以选择x86编译和x64编译，同时一个项目它也存在两个版本
+
+debug 版本就是常说的测试版本， bug就是漏洞的意思。
+release 版本就是正常发行版本， 说明这个版本的漏洞相对于debug比较少，毕竟是先测试后发布。
+
+
+
+
+
+正文本质debug的反汇编会多一些内容，这里使用release版本好分析。在项目-属性-c&#x2F;c++-优化中关闭优化：
+
+原则上优化肯定会带来性能上的提升，但不利于人为分析。
+1234567891011#include&lt;iostream&gt;int Add(int a, int b)&#123;	return a + b;&#125;int main()&#123;	int c = Add(1, 2);		return 0;&#125;
+老样子在int c那里打断点运行然后反汇编：
+
+可以看到整体反汇编代码还是很简洁的。
+同时int c = Add(1,2);的下面有一句call Add(0FC1000h)其实就是要跳转到add函数的位置
+
+ps:我打开了显示符号名，所以call才会显示函数名，关闭显示符号名则只有后 ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2022/05/31/function3/" title="function3-左值右值"><img class="post_bg" src="/images/cover/cover8.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="function3-左值右值"></a></div><div class="recent-post-info"><a class="article-title" href="/2022/05/31/function3/" title="function3-左值右值">function3-左值右值</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-05-30T17:25:37.000Z" title="发表于 2022-05-31 01:25:37">2022-05-31</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/cpp%E5%AD%A6%E4%B9%A0/">cpp学习</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/cpp/">cpp</a></span></div><div class="content">前言在C语言中什么叫左值和右值
+12int a = 3;//a为左值，3为右值
+
+左值一般是变量，在程序运行时有一个准确的地址和值，除了const的情况下一般都能修改。
+右值则一般是常量或者临时对象，除非强转之类的操作，其它情况下一般不能修改
+
+
+在编译报错的时候应该或多或少也见过到提示右值不可被修改
+
+
+
+
+不过上述的说法也并不绝对
+123int a = 1;int b = 2;a = b;
+这里的右值b它是一个变量。
+
+正文12345678910void AddSum(int a)&#123;	std::cout &lt;&lt; a &lt;&lt; &quot;\n&quot;;&#125;int main()&#123;    int a = 10;	AddSum(10 + 20);    return 0;&#125;
+
+
+
+在正常情况下，int a &#x3D; 10; 编译器把10转换成十六进制赋值给ebp-8的位置上而调用函数传参的时候使用算术表达式他也会默认先算好，可能这里函数的反汇编不明显稍微改动一下让a+10+20
+
+
+
+
+这里就很清楚的看到编译器先将ebp-8 ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2022/05/30/function2/" title="function2"><img class="post_bg" src="/images/cover/cover8.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="function2"></a></div><div class="recent-post-info"><a class="article-title" href="/2022/05/30/function2/" title="function2">function2</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-05-30T14:51:51.000Z" title="发表于 2022-05-30 22:51:51">2022-05-30</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/cpp%E5%AD%A6%E4%B9%A0/">cpp学习</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/cpp/">cpp</a></span></div><div class="content">前言之前提到过函数是什么类型的就需要返回什么类型的值，正常变量类型都还好，当指针和引用的时候就有意思了
+
+
+
+
+正文1234567int main()&#123;	char *str;	str = (char *)&quot;你好世界&quot;;	std::cout &lt;&lt; str;	return 0;&#125;
+C语言的字符串最常用的就是数组的方式声明，反正数组的底层就是指针，所以你用指针也行。
+
+但是在使用指针强转的时候，右值的这串中文它属于一个常量，也就是说指针指向了一块常量内存，你就没办法修改它了。如图：编译器给出了错误，就是说我们没有权限对这块内存写入。
+要套娃的话就是赋给字符串然后强转再改，或者拷贝给另一个字符串，反正能得到结果是首要目标。
+
+这里就利用自定义函数去拷贝修改返回一个想要的值。
+123char* cstr(const char *str)&#123;&#125;
+拷贝函数memcpy()，不过要知道str的长度和一个跟str一样大的指针变量可以直接在cstr里面for循环求长度，也可以自定义函数，因为学的函数这块就姑且用函数了。
+12345678 ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/9/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/#content-inner">9</a><span class="page-number current">10</span><a class="page-number" href="/page/11/#content-inner">11</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/#content-inner">15</a><a class="extend next" rel="next" href="/page/11/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/images/logo.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Box</div><div class="author-info__description">知其不可奈何而安之若命</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">141</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">22</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/8bytes-code"><i class="fab fa-github"></i><span>Github</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">鼠鼠我啊懂点电脑会点C/C++<br/>是一个不够勤快的鼠鼠啊<br/>努力找到自己的下水道吧</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2022/12/10/%E6%97%81%E5%90%AC%E9%9D%A2%E8%AF%952-0/" title="旁听面试2.0"><img src="/images/cover/cover9.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="旁听面试2.0"/></a><div class="content"><a class="title" href="/2022/12/10/%E6%97%81%E5%90%AC%E9%9D%A2%E8%AF%952-0/" title="旁听面试2.0">旁听面试2.0</a><time datetime="2022-12-10T05:59:28.000Z" title="发表于 2022-12-10 13:59:28">2022-12-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/11/30/vs%E4%B9%B1%E7%A0%81/" title="【软件】vs2022控制台乱码"><img src="/images/cover/cover6.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="【软件】vs2022控制台乱码"/></a><div class="content"><a class="title" href="/2022/11/30/vs%E4%B9%B1%E7%A0%81/" title="【软件】vs2022控制台乱码">【软件】vs2022控制台乱码</a><time datetime="2022-11-30T11:00:03.000Z" title="发表于 2022-11-30 19:00:03">2022-11-30</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/11/29/jsoncpp%E7%BC%96%E8%AF%91%E4%BD%BF%E7%94%A8/" title="JsonCpp编译使用"><img src="/images/cover/cover5.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="JsonCpp编译使用"/></a><div class="content"><a class="title" href="/2022/11/29/jsoncpp%E7%BC%96%E8%AF%91%E4%BD%BF%E7%94%A8/" title="JsonCpp编译使用">JsonCpp编译使用</a><time datetime="2022-11-29T11:59:56.000Z" title="发表于 2022-11-29 19:59:56">2022-11-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/11/28/%E6%98%93%E6%A0%88/" title="易栈"><img src="/images/cover/cover2.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="易栈"/></a><div class="content"><a class="title" href="/2022/11/28/%E6%98%93%E6%A0%88/" title="易栈">易栈</a><time datetime="2022-11-28T04:42:03.000Z" title="发表于 2022-11-28 12:42:03">2022-11-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/11/22/%E9%9D%A2%E8%AF%951-0/" title="听别人面1.0"><img src="/images/cover/cover5.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="听别人面1.0"/></a><div class="content"><a class="title" href="/2022/11/22/%E9%9D%A2%E8%AF%951-0/" title="听别人面1.0">听别人面1.0</a><time datetime="2022-11-22T01:25:17.000Z" title="发表于 2022-11-22 09:25:17">2022-11-22</time></div></div></div></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">141</div></div><div class="webinfo-item"><div class="item-name">已运行时间 :</div><div class="item-count" id="runtimeshow" data-publishDate="2022-03-19T16:00:00.000Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总字数 :</div><div class="item-count">207.8k</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2022-12-10T11:23:30.664Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('/images/background.png')"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By Box</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">我下班了蟹老板~</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="translateLink" type="button" title="简繁转换">简</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>function subtitleType () {
+  if (true) { 
+    window.typed = new Typed("#subtitle", {
+      strings: ["平淡的一生","A dull life"],
+      startDelay: 300,
+      typeSpeed: 150,
+      loop: true,
+      backSpeed: 50
+    })
+  } else {
+    document.getElementById("subtitle").innerHTML = '平淡的一生'
+  }
+}
+
+if (true) {
+  if (typeof Typed === 'function') {
+    subtitleType()
+  } else {
+    getScript('https://cdn.jsdelivr.net/npm/typed.js/lib/typed.min.js').then(subtitleType)
+  }
+} else {
+  subtitleType()
+}</script></div><canvas class="fireworks" mobile="false"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/fireworks.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

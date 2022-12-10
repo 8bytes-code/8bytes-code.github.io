@@ -1,748 +1,339 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html><html lang="[&quot;zh-CN&quot;,&quot;zh-TW&quot;,&quot;en&quot;,&quot;default&quot;]" data-theme="dark"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>Box'Blog - 8bytes-code</title><meta name="author" content="Box"><meta name="copyright" content="Box"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#0d0d0d"><meta name="description" content="知其不可奈何而安之若命">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Box&#39;Blog">
+<meta property="og:url" content="https://8bytes.top/page/11/index.html">
+<meta property="og:site_name" content="Box&#39;Blog">
+<meta property="og:description" content="知其不可奈何而安之若命">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://8bytes.top/images/logo.jpg">
+<meta property="article:author" content="Box">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://8bytes.top/images/logo.jpg"><link rel="shortcut icon" href="/img/favicon.svg"><link rel="canonical" href="https://8bytes.top/page/11/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin=""/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?112e257877c02bad314b2fcefaca0aee";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web&amp;display=swap" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: {"defaultEncoding":1,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: Box","link":"链接: ","source":"来源: Box'Blog","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#1f1f1f","position":"bottom-left"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Box\'Blog',
+  isPost: false,
+  isHome: true,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2022-12-10 19:23:31'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-
-    
-    <title>ohmyhsy</title>
-
-    <meta name="description" content="This is a simple personal blog">
-    <meta name="keywords" content="8bytes-blog">
-
-    
-
-
-
-    <meta property="og:type" content="website"/>
-    <meta property="og:title" content=""/>
-    <meta property="og:description" content=""/>
-    <meta property="og:locale" content="cn" />
-    <meta property="og:type" content="article" />
-    <meta property="og:url" content="https://8bytes.top/page/11/index.html" />
-    <meta property="og:site_name" content="Box" />
-    <meta property="article:publisher" content="" />
-    <script type="application/ld+json">
-        {
-            "@context": "https://schema.org",
-            "@type": "WebPage",
-            "name": "",
-            "description": "",
-            "publisher": {
-                "@type": "Organization",
-                "name": "Box"
-            },
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
         }
-    </script>
+        localStorage.setItem(key, JSON.stringify(item))
+      },
 
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
 
-    
-
-    
-    <meta property="algolia:search" data-application-id="4CVCYWPWWN" data-api-key="7757db6b0a31c3f94c301c885693ed0d" data-index-name="ohmyhsy">
-    
-
-    
-
-    
-
-    
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎮</text></svg>">
-    
-
-    
-
-    
-
-    
-<link rel="stylesheet" href="/dist/build.css?v=1646451311888.css">
-
-
-    
-<link rel="stylesheet" href="/dist/custom.css?v=1646451311888.css">
-
-
-    <script>
-        window.isPost = false
-        window.aomori = {
-            
-            
-            
+        if (!itemStr) {
+          return undefined
         }
-        window.aomori_logo_typed_animated = true
-        window.aomori_search_algolia = true
+        const item = JSON.parse(itemStr)
+        const now = new Date()
 
-    </script>
-
-<meta name="generator" content="Hexo 5.4.1"><link rel="alternate" href="/atom.xml" title="ohmyhsy" type="application/atom+xml">
-</head>
-
-<body>
-
-    <div class="container">
-    <header class="header">
-        <div class="header-type">
-            
-            <div class="header-type-inner">
-                
-                    <div id="typed-strings" style="display:none">
-                        <p>ohmyhsy</p>
-                    </div>
-                    <a class="header-type-title" id="typed" href="/"></a>
-                
-    
-                
-            </div>
-        </div>
-        <div class="header-menu">
-            <div class="header-menu-inner">
-                
-                <a href="/">Home</a>
-                
-                <a href="/archives">Archives</a>
-                
-                <a href="/friends">Friends</a>
-                
-                <a href="/collect">Collect</a>
-                
-                <a href="/photography">Phtotgraphy</a>
-                
-            </div>
-            <div class="header-menu-social">
-                
-    <a class="social" target="_blank" href="https://github.com/8bytes-code">
-        <box-icon type='logo' name='github'></box-icon>
-    </a>
-
-            </div>
-        </div>
-
-        <div class="header-menu-mobile">
-            <div class="header-menu-mobile-inner" id="mobile-menu-open">
-                <i class="icon icon-menu"></i>
-            </div>
-        </div>
-    </header>
-
-    <div class="header-menu-mobile-menu">
-        <div class="header-menu-mobile-menu-bg"></div>
-        <div class="header-menu-mobile-menu-wrap">
-            <div class="header-menu-mobile-menu-inner">
-                <div class="header-menu-mobile-menu-close" id="mobile-menu-close">
-                    <i class="icon icon-cross"></i>
-                </div>
-                <div class="header-menu-mobile-menu-list">
-                    
-                    <a href="/">Home</a>
-                    
-                    <a href="/archives">Archives</a>
-                    
-                    <a href="/friends">Friends</a>
-                    
-                    <a href="/collect">Collect</a>
-                    
-                    <a href="/photography">Phtotgraphy</a>
-                    
-                </div>
-            </div>
-        </div>
-    </div>
-
-</div>
-
-    <div class="container">
-        <div class="main">
-            <section class="inner">
-                <section class="inner-main">
-                    <div class="index">
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
   
-    
-      <article
-id="post-function1"
-class="article article-type-post"
->
-
-
-
-<div class="article-inner">
-    
-
-    <div class="article-body">
-    <header class="article-title">
-        <a href="/2022/05/29/function1/">function1</a>
-    </header>
-    <div class="article-entry post-inner-html">
-        
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>自定义函数的形式和大致参数已经明确，然后就是返回指针和引用之类的.</p>
-        
-    </div>
-    </div>
-
-    <div class="article-badge">
-        
-        
-    </div>
-
-</div>
-
-<footer class="article-footer">
-    <div class="article-more-info">
-    <div class="article-date">
-  <time datetime="2022-05-28T16:31:51.000Z" itemprop="datePublished">2022-05-29</time>
-</div>
-    
-    
-        <div class="article-tag">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cpp/" rel="tag">cpp</a></li></ul>
-        </div>
-    
-    </div>
-</footer>
-
-</article>
-
-    
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
   
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
     
-      <article
-id="post-functionTest"
-class="article article-type-post"
->
-
-
-
-<div class="article-inner">
-    
-
-    <div class="article-body">
-    <header class="article-title">
-        <a href="/2022/05/28/functionTest/">functionTest</a>
-    </header>
-    <div class="article-entry post-inner-html">
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
         
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>做个小测试</p>
-        
-    </div>
-    </div>
-
-    <div class="article-badge">
-        
-        
-    </div>
-
-</div>
-
-<footer class="article-footer">
-    <div class="article-more-info">
-    <div class="article-date">
-  <time datetime="2022-05-27T17:23:23.000Z" itemprop="datePublished">2022-05-28</time>
-</div>
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
     
-    
-        <div class="article-tag">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cpp/" rel="tag">cpp</a></li></ul>
-        </div>
-    
-    </div>
-</footer>
-
-</article>
-
-    
-  
-    
-      <article
-id="post-function"
-class="article article-type-post"
->
-
-
-
-<div class="article-inner">
-    
-
-    <div class="article-body">
-    <header class="article-title">
-        <a href="/2022/05/27/function/">function</a>
-    </header>
-    <div class="article-entry post-inner-html">
-        
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>函数是指一段可以直接被另一段程序或代码引用的程序或代码。也叫做子程序、（OOP中）方法。<br>在程序设计中，常将一些常用的功能模块编写成函数，放在函数库中供公共选用。要善于利用函数，以减少重复编写程序段的工作量。</p>
-        
-    </div>
-    </div>
-
-    <div class="article-badge">
-        
-        
-    </div>
-
-</div>
-
-<footer class="article-footer">
-    <div class="article-more-info">
-    <div class="article-date">
-  <time datetime="2022-05-27T13:36:19.000Z" itemprop="datePublished">2022-05-27</time>
-</div>
-    
-    
-        <div class="article-tag">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cpp/" rel="tag">cpp</a></li></ul>
-        </div>
-    
-    </div>
-</footer>
-
-</article>
-
-    
-  
-    
-      <article
-  id="tweet-text003"
-  class="article article-type-tweet"
->
-
-    <div class="article-tweet article-type-tweet-inner">
-
-        <box-icon class="article-tweet-quote" type='solid' name='quote-left' color="#CCC"></box-icon>
-
-        <div class="article-tweet-content post-inner-html">
-            
-                <h1 id="还行-运气不错"><a href="#还行-运气不错" class="headerlink" title="还行,运气不错"></a>还行,运气不错</h1>
-            
-        </div>
-
-        <footer class="article-footer">
-            <a class="article-footer-common" href="/2022/05/27/text003/">评论</a>
-            <div class="article-more-info">
-            <div class="article-date">
-  <time datetime="2022-05-27T13:16:19.000Z" itemprop="datePublished">2022-05-27</time>
-</div>
-            
-            
-            </div>
-        </footer>
-
-        <div class="article-badge">
-            
-            
-        </div>
-
-    </div>
-
-</article>
-
-    
-  
-    
-      <article
-id="post-string2"
-class="article article-type-post"
->
-
-
-
-<div class="article-inner">
-    
-
-    <div class="article-body">
-    <header class="article-title">
-        <a href="/2022/05/26/string2/">string2</a>
-    </header>
-    <div class="article-entry post-inner-html">
-        
-        <h1 id="感言"><a href="#感言" class="headerlink" title="感言"></a>感言</h1><p>自认为不是一个努力的人……虽然这些20年在b站看过黑马的教程，甚至当时在本地也写过md的文件哈哈哈哈但是一段时间不用又落下了许多，也好在没有忘得一干二净吧……看到都能想起来，只是一些内置的方法会记不太清。回看也是两天看一点看一点，加上看视频又得自己做，然后顺便写在博客上，进度确实会慢一些。<br>而且数据结构这一门快打工了也还没掌握……还是很惭愧的,后面要尽量补齐了。</p>
-        
-    </div>
-    </div>
-
-    <div class="article-badge">
-        
-        
-    </div>
-
-</div>
-
-<footer class="article-footer">
-    <div class="article-more-info">
-    <div class="article-date">
-  <time datetime="2022-05-26T15:58:49.000Z" itemprop="datePublished">2022-05-26</time>
-</div>
-    
-    
-        <div class="article-tag">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cpp/" rel="tag">cpp</a></li></ul>
-        </div>
-    
-    </div>
-</footer>
-
-</article>
-
-    
-  
-    
-      <article
-id="post-pointerString"
-class="article article-type-post"
->
-
-
-
-<div class="article-inner">
-    
-
-    <div class="article-body">
-    <header class="article-title">
-        <a href="/2022/05/26/pointerString/">pointerString</a>
-    </header>
-    <div class="article-entry post-inner-html">
-        
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>C语言的字符串是通过数组实现的，数组本质上又和指针无二。<br>那么cpp的字符串底层是否跟C语言一致</p>
-        
-    </div>
-    </div>
-
-    <div class="article-badge">
-        
-        
-    </div>
-
-</div>
-
-<footer class="article-footer">
-    <div class="article-more-info">
-    <div class="article-date">
-  <time datetime="2022-05-26T15:21:49.000Z" itemprop="datePublished">2022-05-26</time>
-</div>
-    
-    
-        <div class="article-tag">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cpp/" rel="tag">cpp</a></li></ul>
-        </div>
-    
-    </div>
-</footer>
-
-</article>
-
-    
-  
-    
-      <article
-  id="tweet-walineError"
-  class="article article-type-tweet"
->
-
-    <div class="article-tweet article-type-tweet-inner">
-
-        <box-icon class="article-tweet-quote" type='solid' name='quote-left' color="#CCC"></box-icon>
-
-        <div class="article-tweet-content post-inner-html">
-            
-                <h1 id="整活"><a href="#整活" class="headerlink" title="整活"></a>整活</h1><p>预览的时候发现评论突然挂了</p>
-            
-        </div>
-
-        <footer class="article-footer">
-            <a class="article-footer-common" href="/2022/05/26/walineError/">评论</a>
-            <div class="article-more-info">
-            <div class="article-date">
-  <time datetime="2022-05-25T17:04:21.000Z" itemprop="datePublished">2022-05-26</time>
-</div>
-            
-            
-            </div>
-        </footer>
-
-        <div class="article-badge">
-            
-            
-        </div>
-
-    </div>
-
-</article>
-
-    
-  
-    
-      <article
-id="post-string1"
-class="article article-type-post"
->
-
-
-
-<div class="article-inner">
-    
-
-    <div class="article-body">
-    <header class="article-title">
-        <a href="/2022/05/24/string1/">string1</a>
-    </header>
-    <div class="article-entry post-inner-html">
-        
-        <h1 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h1><ul>
-<li>std:string</li>
-</ul>
-        
-    </div>
-    </div>
-
-    <div class="article-badge">
-        
-        
-    </div>
-
-</div>
-
-<footer class="article-footer">
-    <div class="article-more-info">
-    <div class="article-date">
-  <time datetime="2022-05-24T07:11:16.000Z" itemprop="datePublished">2022-05-24</time>
-</div>
-    
-    
-        <div class="article-tag">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cpp/" rel="tag">cpp</a></li></ul>
-        </div>
-    
-    </div>
-</footer>
-
-</article>
-
-    
-  
-    
-      <article
-id="post-union"
-class="article article-type-post"
->
-
-
-
-<div class="article-inner">
-    
-
-    <div class="article-body">
-    <header class="article-title">
-        <a href="/2022/05/23/union/">union</a>
-    </header>
-    <div class="article-entry post-inner-html">
-        
-        <h1 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h1><ul>
-<li><strong>union （共用声明和共用一变量定义）</strong></li>
-</ul>
-        
-    </div>
-    </div>
-
-    <div class="article-badge">
-        
-        
-    </div>
-
-</div>
-
-<footer class="article-footer">
-    <div class="article-more-info">
-    <div class="article-date">
-  <time datetime="2022-05-22T16:21:09.000Z" itemprop="datePublished">2022-05-23</time>
-</div>
-    
-    
-        <div class="article-tag">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cpp/" rel="tag">cpp</a></li></ul>
-        </div>
-    
-    </div>
-</footer>
-
-</article>
-
-    
-  
-    
-      <article
-id="post-structPointer"
-class="article article-type-post"
->
-
-
-
-<div class="article-inner">
-    
-
-    <div class="article-body">
-    <header class="article-title">
-        <a href="/2022/05/21/structPointer/">structPointer</a>
-    </header>
-    <div class="article-entry post-inner-html">
-        
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>结构体也不算陌生，特殊的是给结构体赋值的时候。</p>
-        
-    </div>
-    </div>
-
-    <div class="article-badge">
-        
-        
-    </div>
-
-</div>
-
-<footer class="article-footer">
-    <div class="article-more-info">
-    <div class="article-date">
-  <time datetime="2022-05-20T17:08:08.000Z" itemprop="datePublished">2022-05-21</time>
-</div>
-    
-    
-        <div class="article-tag">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cpp/" rel="tag">cpp</a></li></ul>
-        </div>
-    
-    </div>
-</footer>
-
-</article>
-
-    
-  
-
-  
-    <nav class="pagination">
-        <a class="extend prev" rel="prev" href="/page/10/">Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><span class="page-number current">11</span><a class="page-number" href="/page/12/">12</a><a class="page-number" href="/page/13/">13</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/12/">Next</a>
-    </nav>
-  
-</div>
-
-                </section>
-            </section>
-
-            
-            <aside class="sidebar sidebar-search-fix">
-                
-
-    <div class="search">
-    <div class="has-icon-right">
-        <input type="text" class="form-input" id="search" placeholder="SEARCH" autocomplete="off">
-        <div class="form-icon">
-            <box-icon name='search' color="#3c4859"></box-icon>
-        </div>
-    </div>
-    <div class="search-result" id="search-ps"></div>
-</div>
-
-
-<div class="widget" id="widget">
-    
-      
-    
-      
-
-    
-      
-  <div class="widget-wrap widget-tags">
-    <div class="widget-title"><span>Tags</span></div>
-    <div class="widget-inner">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/MFC/" rel="tag">MFC</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NoteBook/" rel="tag">NoteBook</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RemoteControl/" rel="tag">RemoteControl</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c/" rel="tag">c</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cheat-engine/" rel="tag">cheat engine</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/compiler/" rel="tag">compiler</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cpp/" rel="tag">cpp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/exam/" rel="tag">exam</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jetbrains/" rel="tag">jetbrains</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/" rel="tag">leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/life/" rel="tag">life</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/phone/" rel="tag">phone</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ubuntu/" rel="tag">ubuntu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/visual-studio-2022/" rel="tag">visual studio 2022</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vscode/" rel="tag">vscode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/windows/" rel="tag">windows</a></li></ul>
-    </div>
-  </div>
-
-
-    
-      
-  <div class="widget-wrap widget-recent-posts">
-    <div class="widget-title"><span>Recent Posts</span></div>
-    <div class="widget-inner">
-      <ul>
-        
-          <li>
-            <a href="/2022/09/16/phoneTest/">给爪机上点科技</a>
-          </li>
-        
-          <li>
-            <a href="/2022/09/15/%E8%BF%9C%E6%8E%A7%E9%97%AE%E9%A2%98%E9%9B%86/">远控问题集</a>
-          </li>
-        
-          <li>
-            <a href="/2022/09/10/text021/">text021</a>
-          </li>
-        
-          <li>
-            <a href="/2022/09/10/text020/">text020</a>
-          </li>
-        
-          <li>
-            <a href="/2022/09/05/text019/">text019</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-    
-      
-  <div class="widget-wrap widget-archive">
-    <div class="widget-title"><span>Archive</span></div>
-    <div class="widget-inner">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/">2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/">2021</a></li></ul>
-    </div>
-  </div>
-
-
-    
-</div>
-
-<div id="backtop"><i class="icon icon-arrow-up"></i></div>
-            </aside>
-            
-        </div>
-    </div>
-
-    <footer class="footer">
-    <div class="footer-wave">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#3c4859" fill-opacity="1" d="M0,160L60,181.3C120,203,240,245,360,240C480,235,600,181,720,186.7C840,192,960,256,1080,261.3C1200,267,1320,213,1380,186.7L1440,160L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>
-    </div>
-
-    <!-- Please do not remove this -->
-    <!-- 开源不易，请勿删除 -->
-    <div class="footer-wrap">
-        <div class="footer-inner"> 
-            ohmyhsy &copy; 2022<br>
-            Powered By Hexo · Theme By <a href="https://linhong.me/" target="_blank">Aomori</a> · <a href="https://github.com/lh1me/hexo-theme-aomori" target="_blank">Github</a>
-        </div>
-    </div>
-
-</footer>
-
-
-
-
-
-
-<script src="/dist/build.js?1646451311888.js"></script>
-
-
-<script src="/dist/custom.js?1646451311888.js"></script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-</body>
-
-</html>
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.1"><link rel="alternate" href="/atom.xml" title="Box'Blog" type="application/atom+xml">
+</head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/images/logo.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">141</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">22</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 生活</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/collect/"><i class="fa-fw fa fa-star"></i><span> 收藏</span></a></li><li><a class="site-page child" href="/photography/"><i class="fa-fw fa fa-camera-retro"></i><span> 相册</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/messageboard/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header" style="background-image: url('/images/background.png')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Box'Blog</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 生活</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/collect/"><i class="fa-fw fa fa-star"></i><span> 收藏</span></a></li><li><a class="site-page child" href="/photography/"><i class="fa-fw fa fa-camera-retro"></i><span> 相册</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/messageboard/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="site-info"><h1 id="site-title">Box'Blog</h1><div id="site-subtitle"><span id="subtitle"></span></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="post_cover left"><a href="/2022/05/29/function1/" title="function1"><img class="post_bg" src="/images/cover/cover6.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="function1"></a></div><div class="recent-post-info"><a class="article-title" href="/2022/05/29/function1/" title="function1">function1</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-05-28T16:31:51.000Z" title="发表于 2022-05-29 00:31:51">2022-05-29</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/cpp%E5%AD%A6%E4%B9%A0/">cpp学习</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/cpp/">cpp</a></span></div><div class="content">前言自定义函数的形式和大致参数已经明确，然后就是返回指针和引用之类的.
+
+
+
+
+头文件
+cstdarg
+
+
+正文main函数的参数虽然也可以叫不定量，但是毕竟是提前规定了的。
+
+123int Add(unsigned count, ...)&#123;&#125;
+
+比如实现一串不定量的数字求和，后面的参数就可以用…这种写法，但是必须要知道个数虽然后面用省略表示不定量，但是不是直接说就是数组了，函数里调用起来也挺稀奇的不过越是稀奇古怪用到的就越少，毕竟实际上没有这么多不定量的场景
+
+1int x = Add(5,1,2,3,4,5);
+调用的时候没啥特殊，但在实现部分中，如何调用...才是重点
+123int Add(unsigned count, ...)&#123;    va_list arg;&#125;
+va_list其实就是一个char*类型的变量：如果直接使用char* arg也无可厚非。
+然后就是传递不定量的值，因为引用了cstdarg头文件，所以可以使用封装好的
+1234int Add(unsigned count, ...)&#123;    va_list arg; ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2022/05/28/functionTest/" title="functionTest"><img class="post_bg" src="/images/cover/cover5.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="functionTest"></a></div><div class="recent-post-info"><a class="article-title" href="/2022/05/28/functionTest/" title="functionTest">functionTest</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-05-27T17:23:23.000Z" title="发表于 2022-05-28 01:23:23">2022-05-28</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/cpp%E5%AD%A6%E4%B9%A0/">cpp学习</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/cpp/">cpp</a></span></div><div class="content">前言做个小测试
+
+
+
+
+正文大致就是利用main函数的参数，去实现拆分参数，不使用原生支持的string功能自己写一个类似的。
+
+filename.exe id:1 pass:123456 contry:china
+
+不管第一个默认的文件名参数，从后面开始，挨个拆出:后面的值
+123int searchChar()&#123;&#125;
+
+一开始想着是不是要传递:的位置，这样直接截取:后面的就行了。
+
+但是这样又很奇怪，因为只做了返回位置，截取还要另外实现。那好像又要两个自定义函数了，或者在main函数里实现，都是挺麻烦的。
+直接返回ch[] 也不对劲，因为数组是要提前声明大小的……回头一想，数组的底层也是指针，那就返回char*类型的应该也凑合：
+123char* searchChar()&#123;&#125;
+然后就是参数，肯定要有俩，一个原字符串，一个要查询被丢弃的字符串，然后这俩肯定不用修改了，就const限定常量
+123char* searchChar(const char *str, const char *findstr)&#123;&#125;
+
+然后进一步堆屎山： ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2022/05/27/function/" title="function"><img class="post_bg" src="/images/cover/cover2.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="function"></a></div><div class="recent-post-info"><a class="article-title" href="/2022/05/27/function/" title="function">function</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-05-27T13:36:19.000Z" title="发表于 2022-05-27 21:36:19">2022-05-27</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/cpp%E5%AD%A6%E4%B9%A0/">cpp学习</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/cpp/">cpp</a></span></div><div class="content">前言函数是指一段可以直接被另一段程序或代码引用的程序或代码。也叫做子程序、（OOP中）方法。在程序设计中，常将一些常用的功能模块编写成函数，放在函数库中供公共选用。要善于利用函数，以减少重复编写程序段的工作量。
+
+
+
+函数分为全局函数、全局静态函数；在类中还可以定义构造函数、析构函数、拷贝构造函数、成员函数、友元函数、运算符重载函数、内联函数等。
+
+正文简而言之就是封装好的功能，通过特定方法调用。
+123456789101112131415/* *  返回类型 函数名(参数，可以没有，也可以一到多个)&#123; *      功能区，需要实现的代码 *      return 返回值； //如果是void类型的函数，则不需要return   *  &#125;*/int Add(int a, int b)&#123;    return a+b;&#125;void PrintHe(char *ch)&#123;    std::cout &lt;&lt; ch &lt;&lt; std::endl;&#125;
+
+类型可以各式各样，但是要有准确结果和一定的复用性，不然写着也没啥用处 ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2022/05/26/string2/" title="string2"><img class="post_bg" src="/images/cover/cover2.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="string2"></a></div><div class="recent-post-info"><a class="article-title" href="/2022/05/26/string2/" title="string2">string2</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-05-26T15:58:49.000Z" title="发表于 2022-05-26 23:58:49">2022-05-26</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/cpp%E5%AD%A6%E4%B9%A0/">cpp学习</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/cpp/">cpp</a></span></div><div class="content">感言自认为不是一个努力的人……虽然这些20年在b站看过黑马的教程，甚至当时在本地也写过md的文件哈哈哈哈但是一段时间不用又落下了许多，也好在没有忘得一干二净吧……看到都能想起来，只是一些内置的方法会记不太清。回看也是两天看一点看一点，加上看视频又得自己做，然后顺便写在博客上，进度确实会慢一些。而且数据结构这一门快打工了也还没掌握……还是很惭愧的,后面要尽量补齐了。
+
+
+
+
+前言也回顾了string的一些方法，然后小结一下string
+
+正文字符串之中除了指针，编码是一个无时不刻不会头疼的问题。字符从存储：由表面的字符到计算机上的编码表，再到底层转换成二进制读取字符串的顺序是存储的逆向顺序。
+
+常见的编码表：utf-8、utf-16、GBK、ASCII等
+
+
+自制能统计带中文的字符串12345678910111213void tjsp(char *ch)&#123;	int n = 0;	while (*ch++ != &#x27;\0&#x27;)&#123;		if (*ch &lt; 0)&#123;			n++;			*ch++;		&#125;		else&#123;			n+ ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2022/05/26/pointerString/" title="pointerString"><img class="post_bg" src="/images/cover/cover6.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="pointerString"></a></div><div class="recent-post-info"><a class="article-title" href="/2022/05/26/pointerString/" title="pointerString">pointerString</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-05-26T15:21:49.000Z" title="发表于 2022-05-26 23:21:49">2022-05-26</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/cpp%E5%AD%A6%E4%B9%A0/">cpp学习</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/cpp/">cpp</a></span></div><div class="content">前言C语言的字符串是通过数组实现的，数组本质上又和指针无二。那么cpp的字符串底层是否跟C语言一致
+
+
+
+
+正文12char ch[] = &quot;hello world&quot;;string str = &quot;hello world&quot;;
+在C语言里，ch现在就&#x3D; ch[0]; 象征着数组首地址。但是string的构造我们还不清楚，所以通过编译器查看
+12345678910#include&lt;iostream&gt;using std::string;int main()&#123;	string str = &quot;hello world&quot;;	std::cout &lt;&lt; &amp;str &lt;&lt; &quot;\n&quot; &lt;&lt; &amp;str[0] &lt;&lt; std::endl;	return 0;&#125;
+原本想通过这样直接输出的，但是cout好像优化掉了&amp;str[0]，得到的还是整个字符串的值。那就粗暴点用C语言的printf指定格式输出
+12printf(&quot;% ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2022/05/26/walineError/" title="walineError"><img class="post_bg" src="/images/cover/cover.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="walineError"></a></div><div class="recent-post-info"><a class="article-title" href="/2022/05/26/walineError/" title="walineError">walineError</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-05-25T17:04:21.000Z" title="发表于 2022-05-26 01:04:21">2022-05-26</time></span></div><div class="content">整活预览的时候发现评论突然挂了
+
+
+
+
+正文
+
+说我的Waline未定义。。。我寻思我js文件都是用的官方模板怎么就没定义了。。又上了一趟vercel.com发现也是一样控制台都是报错Waline is not defined
+
+
+就很离谱啊。。。但是waline官网的看着又是正常的，就只能上github看看有没有什么类似的情况结果倒是有一个说clintv2不稳定的问题
+
+
+
+
+逆天。。上一秒waline的文档里面script还是cdn的地址刷新一下又变成unpkg了
+
+
+主要是相比之前的我记得好像多了个这个link，然后其他版本以前也是没写的，这次都是@v2了。。很莫名其妙啊，要我说改动就不能大改。。或者好歹发邮件提示一下。
+
+
+修改了下我这个主题的ejs文件之后
+
+
+
+评论是能看到了，版本直接跳到2.5.1了，但是之前评论的头像显示不出来控制台报错net::ERR_CONNECTION_TIMED_OUT….真是逆天。但是官网文档的好像是2.5.2。。。就很迷惑行为。而且我这里只能修改本地的配置，我在vercel那里还是访问不了，提示版本有问题未定义。。哎麻了
+
+
+但是突然想起来v ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2022/05/24/string1/" title="string1"><img class="post_bg" src="/images/cover/cover.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="string1"></a></div><div class="recent-post-info"><a class="article-title" href="/2022/05/24/string1/" title="string1">string1</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-05-24T07:11:16.000Z" title="发表于 2022-05-24 15:11:16">2022-05-24</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/cpp%E5%AD%A6%E4%B9%A0/">cpp学习</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/cpp/">cpp</a></span></div><div class="content">引用
+std:string
+
+
+
+
+
+前言回忆过C语言版的字符串
+12char ch[] = &quot;abafjiafajif&quot;;char ch[10] = &quot;aaaaaaaa&quot;;
+大致上一个意思，限定长度和不限定长度，不限定长度会自动根据初始化的值长度而定义。
+其次就是拼接两个字符串
+123456char ch[10] = &quot;1234&quot;;char ch1[10] = &quot;5678&quot;;char ch2[20];memcpy(ch2, ch, strlen(ch));    //先将ch从头拷贝进来memcpy(ch2 + strlen(ch), ch1, strlen(ch1) + 1); //在由从ch拷贝到ch2里
+这样拼接起来还是挺麻烦的，如果能直接相加赋给字符串就会相对方便了。
+
+正文12345678#include&lt;iostream&gt;#include&lt;string&gt;using std::string;int main()&#123;	return 0;&#125;
+使用string ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2022/05/23/union/" title="union"><img class="post_bg" src="/images/cover/cover5.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="union"></a></div><div class="recent-post-info"><a class="article-title" href="/2022/05/23/union/" title="union">union</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-05-22T16:21:09.000Z" title="发表于 2022-05-23 00:21:09">2022-05-23</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/cpp%E5%AD%A6%E4%B9%A0/">cpp学习</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/cpp/">cpp</a></span></div><div class="content">引用
+union （共用声明和共用一变量定义）
+
+
+
+
+
+前言union跟struct有相似的地方，但是union又叫做联合体或共用体，也就意味着它在内存存储上会和正常的有区别。
+
+正文写法和结构体差不多：
+1234union unionName&#123;    type typename;    type typename;&#125;;
+注意：union之间的成员共享内存，也就意味着union的内存占用会根据最大的成员而定义。
+
+No.1首先自定义一个联合体
+1234union hh&#123;	short sh;	int in;&#125;;
+先给实例一个hh，然后给小的变量赋值
+
+sizeof能看到是四个字节，也就是印证他会根据联合体里面最大的变量类型扩充。
+12345union hh&#123;	short sh;	int in;	double dou;&#125;;
+在联合体里再放一个double类型
+
+发现结构体H的占用大小变成了8字节。
+
+可以确定联合体的内存大小由最大成员定义
+
+
+No.2那么说联合体共享内存空间，那么给short类型变量赋值之后，int和doubl ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2022/05/21/structPointer/" title="structPointer"><img class="post_bg" src="/images/cover/cover3.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="structPointer"></a></div><div class="recent-post-info"><a class="article-title" href="/2022/05/21/structPointer/" title="structPointer">structPointer</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-05-20T17:08:08.000Z" title="发表于 2022-05-21 01:08:08">2022-05-21</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/cpp%E5%AD%A6%E4%B9%A0/">cpp学习</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/cpp/">cpp</a></span></div><div class="content">前言结构体也不算陌生，特殊的是给结构体赋值的时候。
+
+
+
+
+复现1234typedef struct Box&#123;	int a;	int b;&#125;box,*PBox;
+typedef是起到一个起别名的作用，例如我们声明typedef int in;，那么后面定义一个int变量的时候就可以in a = 0;。struct是声明结构体类型的关键字，在固有印象里结构体应该是这样的：
+1234struct HHH&#123;    int x;    int y;&#125;;
+定义一个HHH结构体时，我们可以用HHH h;或者struct HHH h;当我们在结构体后面放置额外的变量名时：
+1234struct HHH&#123;    int x;    int y;&#125;h1,h2[10],*h3;
+这个时候后面的三个变量名就是表面我们再创建结构体HHH的时候同时声明了三个HHH类型的变量，一个正常的HHH h1，一个长度为10的结构体数组，以及一个指向这种结构体的指针。
+然后回到我们刚开始说的：
+1234typedef struct Box&#123;	int a; ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2022/05/20/pointerText/" title="pointer安全"><img class="post_bg" src="/images/cover/cover4.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="pointer安全"></a></div><div class="recent-post-info"><a class="article-title" href="/2022/05/20/pointerText/" title="pointer安全">pointer安全</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-05-19T16:36:52.000Z" title="发表于 2022-05-20 00:36:52">2022-05-20</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/cpp%E5%AD%A6%E4%B9%A0/">cpp学习</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/cpp/">cpp</a></span></div><div class="content">前言对指针已经有了大致了解，那么对于指针的安全性也需要有一定把握
+
+
+
+
+正文12345678910int main()&#123;    int *p;    &#123;        int *a = new int[10];        p = a;        p[0] = 250;    &#125;    return 0;&#125;
+那么当指针p new的内存没有delete的时候，分配到的内存还会存在吗？可以通过输出p[0]的值看看发现仍然有值，这个时候这个指针p就被称为悬挂指针，也就是常说的野指针。
+
+解决这种粗心的办法可以用智能指针
+
+
+No.112345678910int main()&#123;    int *p;    &#123;        std::unique_ptr&lt;int[]&gt; a&#123; std::make_unique&lt;int[]&gt;(50) &#125;;        a[2] = 110;        p = a.get();    &#125;    return 0;&#125;
+智能指针之前学 ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/10/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/#content-inner">10</a><span class="page-number current">11</span><a class="page-number" href="/page/12/#content-inner">12</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/#content-inner">15</a><a class="extend next" rel="next" href="/page/12/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/images/logo.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Box</div><div class="author-info__description">知其不可奈何而安之若命</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">141</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">22</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/8bytes-code"><i class="fab fa-github"></i><span>Github</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">鼠鼠我啊懂点电脑会点C/C++<br/>是一个不够勤快的鼠鼠啊<br/>努力找到自己的下水道吧</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2022/12/10/%E6%97%81%E5%90%AC%E9%9D%A2%E8%AF%952-0/" title="旁听面试2.0"><img src="/images/cover/cover9.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="旁听面试2.0"/></a><div class="content"><a class="title" href="/2022/12/10/%E6%97%81%E5%90%AC%E9%9D%A2%E8%AF%952-0/" title="旁听面试2.0">旁听面试2.0</a><time datetime="2022-12-10T05:59:28.000Z" title="发表于 2022-12-10 13:59:28">2022-12-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/11/30/vs%E4%B9%B1%E7%A0%81/" title="【软件】vs2022控制台乱码"><img src="/images/cover/cover6.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="【软件】vs2022控制台乱码"/></a><div class="content"><a class="title" href="/2022/11/30/vs%E4%B9%B1%E7%A0%81/" title="【软件】vs2022控制台乱码">【软件】vs2022控制台乱码</a><time datetime="2022-11-30T11:00:03.000Z" title="发表于 2022-11-30 19:00:03">2022-11-30</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/11/29/jsoncpp%E7%BC%96%E8%AF%91%E4%BD%BF%E7%94%A8/" title="JsonCpp编译使用"><img src="/images/cover/cover5.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="JsonCpp编译使用"/></a><div class="content"><a class="title" href="/2022/11/29/jsoncpp%E7%BC%96%E8%AF%91%E4%BD%BF%E7%94%A8/" title="JsonCpp编译使用">JsonCpp编译使用</a><time datetime="2022-11-29T11:59:56.000Z" title="发表于 2022-11-29 19:59:56">2022-11-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/11/28/%E6%98%93%E6%A0%88/" title="易栈"><img src="/images/cover/cover2.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="易栈"/></a><div class="content"><a class="title" href="/2022/11/28/%E6%98%93%E6%A0%88/" title="易栈">易栈</a><time datetime="2022-11-28T04:42:03.000Z" title="发表于 2022-11-28 12:42:03">2022-11-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/11/22/%E9%9D%A2%E8%AF%951-0/" title="听别人面1.0"><img src="/images/cover/cover5.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="听别人面1.0"/></a><div class="content"><a class="title" href="/2022/11/22/%E9%9D%A2%E8%AF%951-0/" title="听别人面1.0">听别人面1.0</a><time datetime="2022-11-22T01:25:17.000Z" title="发表于 2022-11-22 09:25:17">2022-11-22</time></div></div></div></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">141</div></div><div class="webinfo-item"><div class="item-name">已运行时间 :</div><div class="item-count" id="runtimeshow" data-publishDate="2022-03-19T16:00:00.000Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总字数 :</div><div class="item-count">207.8k</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2022-12-10T11:23:30.664Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('/images/background.png')"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By Box</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">我下班了蟹老板~</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="translateLink" type="button" title="简繁转换">简</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>function subtitleType () {
+  if (true) { 
+    window.typed = new Typed("#subtitle", {
+      strings: ["平淡的一生","A dull life"],
+      startDelay: 300,
+      typeSpeed: 150,
+      loop: true,
+      backSpeed: 50
+    })
+  } else {
+    document.getElementById("subtitle").innerHTML = '平淡的一生'
+  }
+}
+
+if (true) {
+  if (typeof Typed === 'function') {
+    subtitleType()
+  } else {
+    getScript('https://cdn.jsdelivr.net/npm/typed.js/lib/typed.min.js').then(subtitleType)
+  }
+} else {
+  subtitleType()
+}</script></div><canvas class="fireworks" mobile="false"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/fireworks.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

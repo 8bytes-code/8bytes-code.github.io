@@ -1,751 +1,363 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html><html lang="[&quot;zh-CN&quot;,&quot;zh-TW&quot;,&quot;en&quot;,&quot;default&quot;]" data-theme="dark"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>Box'Blog - 8bytes-code</title><meta name="author" content="Box"><meta name="copyright" content="Box"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#0d0d0d"><meta name="description" content="知其不可奈何而安之若命">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Box&#39;Blog">
+<meta property="og:url" content="https://8bytes.top/index.html">
+<meta property="og:site_name" content="Box&#39;Blog">
+<meta property="og:description" content="知其不可奈何而安之若命">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://8bytes.top/images/logo.jpg">
+<meta property="article:author" content="Box">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://8bytes.top/images/logo.jpg"><link rel="shortcut icon" href="/img/favicon.svg"><link rel="canonical" href="https://8bytes.top/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin=""/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?112e257877c02bad314b2fcefaca0aee";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web&amp;display=swap" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: {"defaultEncoding":1,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: Box","link":"链接: ","source":"来源: Box'Blog","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#1f1f1f","position":"bottom-left"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Box\'Blog',
+  isPost: false,
+  isHome: true,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2022-12-10 19:23:31'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-
-    
-    <title>ohmyhsy</title>
-
-    <meta name="description" content="This is a simple personal blog">
-    <meta name="keywords" content="8bytes-blog">
-
-    
-
-
-
-    <meta property="og:type" content="website"/>
-    <meta property="og:title" content=""/>
-    <meta property="og:description" content=""/>
-    <meta property="og:locale" content="cn" />
-    <meta property="og:type" content="article" />
-    <meta property="og:url" content="https://8bytes.top/index.html" />
-    <meta property="og:site_name" content="Box" />
-    <meta property="article:publisher" content="" />
-    <script type="application/ld+json">
-        {
-            "@context": "https://schema.org",
-            "@type": "WebPage",
-            "name": "",
-            "description": "",
-            "publisher": {
-                "@type": "Organization",
-                "name": "Box"
-            },
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
         }
-    </script>
+        localStorage.setItem(key, JSON.stringify(item))
+      },
 
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
 
-    
-
-    
-    <meta property="algolia:search" data-application-id="4CVCYWPWWN" data-api-key="7757db6b0a31c3f94c301c885693ed0d" data-index-name="ohmyhsy">
-    
-
-    
-
-    
-
-    
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎮</text></svg>">
-    
-
-    
-
-    
-
-    
-<link rel="stylesheet" href="/dist/build.css?v=1646451311888.css">
-
-
-    
-<link rel="stylesheet" href="/dist/custom.css?v=1646451311888.css">
-
-
-    <script>
-        window.isPost = false
-        window.aomori = {
-            
-            
-            
+        if (!itemStr) {
+          return undefined
         }
-        window.aomori_logo_typed_animated = true
-        window.aomori_search_algolia = true
+        const item = JSON.parse(itemStr)
+        const now = new Date()
 
-    </script>
-
-<meta name="generator" content="Hexo 5.4.1"><link rel="alternate" href="/atom.xml" title="ohmyhsy" type="application/atom+xml">
-</head>
-
-<body>
-
-    <div class="container">
-    <header class="header">
-        <div class="header-type">
-            
-            <div class="header-type-inner">
-                
-                    <div id="typed-strings" style="display:none">
-                        <p>ohmyhsy</p>
-                    </div>
-                    <a class="header-type-title" id="typed" href="/"></a>
-                
-    
-                
-            </div>
-        </div>
-        <div class="header-menu">
-            <div class="header-menu-inner">
-                
-                <a href="/">Home</a>
-                
-                <a href="/archives">Archives</a>
-                
-                <a href="/friends">Friends</a>
-                
-                <a href="/collect">Collect</a>
-                
-                <a href="/photography">Phtotgraphy</a>
-                
-            </div>
-            <div class="header-menu-social">
-                
-    <a class="social" target="_blank" href="https://github.com/8bytes-code">
-        <box-icon type='logo' name='github'></box-icon>
-    </a>
-
-            </div>
-        </div>
-
-        <div class="header-menu-mobile">
-            <div class="header-menu-mobile-inner" id="mobile-menu-open">
-                <i class="icon icon-menu"></i>
-            </div>
-        </div>
-    </header>
-
-    <div class="header-menu-mobile-menu">
-        <div class="header-menu-mobile-menu-bg"></div>
-        <div class="header-menu-mobile-menu-wrap">
-            <div class="header-menu-mobile-menu-inner">
-                <div class="header-menu-mobile-menu-close" id="mobile-menu-close">
-                    <i class="icon icon-cross"></i>
-                </div>
-                <div class="header-menu-mobile-menu-list">
-                    
-                    <a href="/">Home</a>
-                    
-                    <a href="/archives">Archives</a>
-                    
-                    <a href="/friends">Friends</a>
-                    
-                    <a href="/collect">Collect</a>
-                    
-                    <a href="/photography">Phtotgraphy</a>
-                    
-                </div>
-            </div>
-        </div>
-    </div>
-
-</div>
-
-    <div class="container">
-        <div class="main">
-            <section class="inner">
-                <section class="inner-main">
-                    <div class="index">
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
   
-    
-      <article
-id="post-first-blog"
-class="article article-type-post"
->
-
-
-
-<div class="article-inner">
-    
-    <div class="article-feature">
-        <a href="/2022/03/20/first-blog/">
-            <img
-                src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E"
-                data-src="/images/logo.jpg"
-                alt="item.title"
-                class="lazy"
-            />
-        </a>
-    </div>
-    
-
-    <div class="article-body">
-    <header class="article-title">
-        <a href="/2022/03/20/first-blog/">关于个人博客创建过程</a>
-    </header>
-    <div class="article-entry post-inner-html">
-        
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;其实最基础的博客就跟日记一样，但是写日记这种事情基本就停留在了小学而且还得是课后作业的情况下；不过有的时候记录一些事以便日后解决也不失为一种好办法。当然好在之前也在本地用typora写过一些markdown，现在正好可以编写上传。</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在了解了一些基础的知识后，选择用GitHub作为博客的仓库，在本地电脑上由hexo、git、node.js搭建个人博客的方案。<br/>
-<span style="display:block; font-size:14px; text-align:right;">一个原则:能run就行</span><span style="display:block; font-size:10px; text-align:right; color:rgba(0, 0, 0, 0.1);">水文莫见怪，可看可不看</span><hr/></p>
-        
-    </div>
-    </div>
-
-    <div class="article-badge">
-        
-        <div class="article-top">
-            <box-icon type='solid' name='to-top' color='#ffffff' size='xs'></box-icon>
-        </div>
-        
-        
-    </div>
-
-</div>
-
-<footer class="article-footer">
-    <div class="article-more-info">
-    <div class="article-date">
-  <time datetime="2022-03-20T08:43:58.000Z" itemprop="datePublished">2022-03-20</time>
-</div>
-    
-    
-        <div class="article-tag">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li></ul>
-        </div>
-    
-    </div>
-</footer>
-
-</article>
-
-    
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
   
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
     
-      <article
-  id="tweet-text016"
-  class="article article-type-tweet"
->
-
-    <div class="article-tweet article-type-tweet-inner">
-
-        <box-icon class="article-tweet-quote" type='solid' name='quote-left' color="#CCC"></box-icon>
-
-        <div class="article-tweet-content post-inner-html">
-            
-                <h1 id="日常水，新增收藏界面"><a href="#日常水，新增收藏界面" class="headerlink" title="日常水，新增收藏界面"></a>日常水，新增收藏界面</h1><p style="font-size:14px; text-align:right;">—— 由于收藏界面的样式需求其实跟主题自带的friends页面类似，所以直接套用。</p>
-            
-        </div>
-
-        <footer class="article-footer">
-            <a class="article-footer-common" href="/2022/08/01/text016/">评论</a>
-            <div class="article-more-info">
-            <div class="article-date">
-  <time datetime="2022-08-01T12:39:53.000Z" itemprop="datePublished">2022-08-01</time>
-</div>
-            
-            
-            </div>
-        </footer>
-
-        <div class="article-badge">
-            
-            <div class="article-top">
-                <box-icon type='solid' name='to-top' color='#ffffff' size='xs'></box-icon>
-            </div>
-            
-            
-        </div>
-
-    </div>
-
-</article>
-
-    
-  
-    
-      <article
-  id="tweet-Markdown"
-  class="article article-type-tweet"
->
-
-    <div class="article-tweet article-type-tweet-inner">
-
-        <box-icon class="article-tweet-quote" type='solid' name='quote-left' color="#CCC"></box-icon>
-
-        <div class="article-tweet-content post-inner-html">
-            
-                <h1 id="记录markdown常用语法-做个备忘录"><a href="#记录markdown常用语法-做个备忘录" class="headerlink" title="记录markdown常用语法,做个备忘录"></a>记录markdown常用语法,做个备忘录</h1>
-            
-        </div>
-
-        <footer class="article-footer">
-            <a class="article-footer-common" href="/2022/03/27/Markdown/">评论</a>
-            <div class="article-more-info">
-            <div class="article-date">
-  <time datetime="2022-03-27T05:56:09.000Z" itemprop="datePublished">2022-03-27</time>
-</div>
-            
-            
-                <div class="article-tag">
-                <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a></li></ul>
-                </div>
-            
-            </div>
-        </footer>
-
-        <div class="article-badge">
-            
-            <div class="article-top">
-                <box-icon type='solid' name='to-top' color='#ffffff' size='xs'></box-icon>
-            </div>
-            
-            
-        </div>
-
-    </div>
-
-</article>
-
-    
-  
-    
-      <article
-  id="tweet-cpp"
-  class="article article-type-tweet"
->
-
-    <div class="article-tweet article-type-tweet-inner">
-
-        <box-icon class="article-tweet-quote" type='solid' name='quote-left' color="#CCC"></box-icon>
-
-        <div class="article-tweet-content post-inner-html">
-            
-                <h1 id="查漏补缺随意版"><a href="#查漏补缺随意版" class="headerlink" title="查漏补缺随意版"></a>查漏补缺随意版</h1><p style="font-size:14px; text-align:right;">—— 有些记得住有些靠记录，至于看不看...</p>
-            
-        </div>
-
-        <footer class="article-footer">
-            <a class="article-footer-common" href="/2022/04/25/cpp/">评论</a>
-            <div class="article-more-info">
-            <div class="article-date">
-  <time datetime="2022-04-25T07:32:50.000Z" itemprop="datePublished">2022-04-25</time>
-</div>
-            
-            
-                <div class="article-tag">
-                <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cpp/" rel="tag">cpp</a></li></ul>
-                </div>
-            
-            </div>
-        </footer>
-
-        <div class="article-badge">
-            
-            <div class="article-top">
-                <box-icon type='solid' name='to-top' color='#ffffff' size='xs'></box-icon>
-            </div>
-            
-            
-        </div>
-
-    </div>
-
-</article>
-
-    
-  
-    
-      <article
-id="post-phoneTest"
-class="article article-type-post"
->
-
-
-
-<div class="article-inner">
-    
-    <div class="article-feature">
-        <a href="/2022/09/16/phoneTest/">
-            <img
-                src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E"
-                data-src="/images/huolong.png"
-                alt="item.title"
-                class="lazy"
-            />
-        </a>
-    </div>
-    
-
-    <div class="article-body">
-    <header class="article-title">
-        <a href="/2022/09/16/phoneTest/">给爪机上点科技</a>
-    </header>
-    <div class="article-entry post-inner-html">
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
         
-        <h1 id="u1s1，爪机配火龙三八夏天真的遭不住"><a href="#u1s1，爪机配火龙三八夏天真的遭不住" class="headerlink" title="u1s1，爪机配火龙三八夏天真的遭不住"></a>u1s1，爪机配火龙三八夏天真的遭不住</h1><p>原本打算root掉，但是有些数据懒得备份了，重新下和导入导出太费时间。</p>
-<ul>
-<li>phone：Xiaomi 11u</li>
-<li>system：miui 13</li>
-<li>12+256&#x2F;意义不大</li>
-</ul>
-        
-    </div>
-    </div>
-
-    <div class="article-badge">
-        
-        
-    </div>
-
-</div>
-
-<footer class="article-footer">
-    <div class="article-more-info">
-    <div class="article-date">
-  <time datetime="2022-09-16T12:22:58.000Z" itemprop="datePublished">2022-09-16</time>
-</div>
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
     
-    
-        <div class="article-tag">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/phone/" rel="tag">phone</a></li></ul>
-        </div>
-    
-    </div>
-</footer>
-
-</article>
-
-    
-  
-    
-      <article
-id="post-远控问题集"
-class="article article-type-post"
->
-
-
-
-<div class="article-inner">
-    
-
-    <div class="article-body">
-    <header class="article-title">
-        <a href="/2022/09/15/%E8%BF%9C%E6%8E%A7%E9%97%AE%E9%A2%98%E9%9B%86/">远控问题集</a>
-    </header>
-    <div class="article-entry post-inner-html">
-        
-        <h1 id="记录远控所产生的bug"><a href="#记录远控所产生的bug" class="headerlink" title="记录远控所产生的bug"></a>记录远控所产生的bug</h1><p style="font-size:12px; text-align:right;">—— 记录我的尴尬</p>
-        
-    </div>
-    </div>
-
-    <div class="article-badge">
-        
-        
-    </div>
-
-</div>
-
-<footer class="article-footer">
-    <div class="article-more-info">
-    <div class="article-date">
-  <time datetime="2022-09-15T12:24:52.000Z" itemprop="datePublished">2022-09-15</time>
-</div>
-    
-    
-        <div class="article-tag">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/RemoteControl/" rel="tag">RemoteControl</a></li></ul>
-        </div>
-    
-    </div>
-</footer>
-
-</article>
-
-    
-  
-    
-      <article
-  id="tweet-text021"
-  class="article article-type-tweet"
->
-
-    <div class="article-tweet article-type-tweet-inner">
-
-        <box-icon class="article-tweet-quote" type='solid' name='quote-left' color="#CCC"></box-icon>
-
-        <div class="article-tweet-content post-inner-html">
-            
-                <h1 id="卒"><a href="#卒" class="headerlink" title="卒"></a>卒</h1><p>花了半天时间想修改一下用git按分支上传，奈何实力不够，只能重头选择<code>hexo d</code></p>
-            
-        </div>
-
-        <footer class="article-footer">
-            <a class="article-footer-common" href="/2022/09/10/text021/">评论</a>
-            <div class="article-more-info">
-            <div class="article-date">
-  <time datetime="2022-09-10T10:49:15.000Z" itemprop="datePublished">2022-09-10</time>
-</div>
-            
-            
-            </div>
-        </footer>
-
-        <div class="article-badge">
-            
-            
-        </div>
-
-    </div>
-
-</article>
-
-    
-  
-    
-      <article
-  id="tweet-text020"
-  class="article article-type-tweet"
->
-
-    <div class="article-tweet article-type-tweet-inner">
-
-        <box-icon class="article-tweet-quote" type='solid' name='quote-left' color="#CCC"></box-icon>
-
-        <div class="article-tweet-content post-inner-html">
-            
-                <h1 id="中秋"><a href="#中秋" class="headerlink" title="中秋~"></a>中秋~</h1><p>最近确实没什么好写了，抄抄项目先，虽然很多东西都不能理解，但是设计思路很新颖，抄几遍再说！</p>
-            
-        </div>
-
-        <footer class="article-footer">
-            <a class="article-footer-common" href="/2022/09/10/text020/">评论</a>
-            <div class="article-more-info">
-            <div class="article-date">
-  <time datetime="2022-09-09T16:11:59.000Z" itemprop="datePublished">2022-09-10</time>
-</div>
-            
-            
-            </div>
-        </footer>
-
-        <div class="article-badge">
-            
-            
-        </div>
-
-    </div>
-
-</article>
-
-    
-  
-    
-      <article
-  id="tweet-text019"
-  class="article article-type-tweet"
->
-
-    <div class="article-tweet article-type-tweet-inner">
-
-        <box-icon class="article-tweet-quote" type='solid' name='quote-left' color="#CCC"></box-icon>
-
-        <div class="article-tweet-content post-inner-html">
-            
-                <h1 id="上课"><a href="#上课" class="headerlink" title="上课~"></a>上课~</h1>
-            
-        </div>
-
-        <footer class="article-footer">
-            <a class="article-footer-common" href="/2022/09/05/text019/">评论</a>
-            <div class="article-more-info">
-            <div class="article-date">
-  <time datetime="2022-09-05T09:21:11.000Z" itemprop="datePublished">2022-09-05</time>
-</div>
-            
-            
-            </div>
-        </footer>
-
-        <div class="article-badge">
-            
-            
-        </div>
-
-    </div>
-
-</article>
-
-    
-  
-    
-      <article
-  id="tweet-text018"
-  class="article article-type-tweet"
->
-
-    <div class="article-tweet article-type-tweet-inner">
-
-        <box-icon class="article-tweet-quote" type='solid' name='quote-left' color="#CCC"></box-icon>
-
-        <div class="article-tweet-content post-inner-html">
-            
-                <h1 id="临近开学"><a href="#临近开学" class="headerlink" title="临近开学"></a>临近开学</h1>
-            
-        </div>
-
-        <footer class="article-footer">
-            <a class="article-footer-common" href="/2022/08/31/text018/">评论</a>
-            <div class="article-more-info">
-            <div class="article-date">
-  <time datetime="2022-08-31T11:11:36.000Z" itemprop="datePublished">2022-08-31</time>
-</div>
-            
-            
-            </div>
-        </footer>
-
-        <div class="article-badge">
-            
-            
-        </div>
-
-    </div>
-
-</article>
-
-    
-  
-
-  
-    <nav class="pagination">
-        <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/2/">Next</a>
-    </nav>
-  
-</div>
-
-                </section>
-            </section>
-
-            
-            <aside class="sidebar sidebar-search-fix">
-                
-
-    <div class="search">
-    <div class="has-icon-right">
-        <input type="text" class="form-input" id="search" placeholder="SEARCH" autocomplete="off">
-        <div class="form-icon">
-            <box-icon name='search' color="#3c4859"></box-icon>
-        </div>
-    </div>
-    <div class="search-result" id="search-ps"></div>
-</div>
-
-
-<div class="widget" id="widget">
-    
-      
-    
-      
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.1"><link rel="alternate" href="/atom.xml" title="Box'Blog" type="application/atom+xml">
+</head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/images/logo.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">141</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">22</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 生活</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/collect/"><i class="fa-fw fa fa-star"></i><span> 收藏</span></a></li><li><a class="site-page child" href="/photography/"><i class="fa-fw fa fa-camera-retro"></i><span> 相册</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/messageboard/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header" style="background-image: url('/images/background.png')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Box'Blog</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 生活</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/collect/"><i class="fa-fw fa fa-star"></i><span> 收藏</span></a></li><li><a class="site-page child" href="/photography/"><i class="fa-fw fa fa-camera-retro"></i><span> 相册</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/messageboard/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="site-info"><h1 id="site-title">Box'Blog</h1><div id="site-subtitle"><span id="subtitle"></span></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="post_cover left"><a href="/2022/03/20/first-blog/" title="Blog - Theme for Hexo · Butterfly"><img class="post_bg" src="/images/index.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Blog - Theme for Hexo · Butterfly"></a></div><div class="recent-post-info"><a class="article-title" href="/2022/03/20/first-blog/" title="Blog - Theme for Hexo · Butterfly">Blog - Theme for Hexo · Butterfly</a><div class="article-meta-wrap"><span class="article-meta"><i class="fas fa-thumbtack sticky"></i><span class="sticky">置顶</span><span class="article-meta-separator">|</span></span><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-03-20T08:43:58.000Z" title="发表于 2022-03-20 16:43:58">2022-03-20</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/blog-Index/">blog_Index</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/hexo/">hexo</a></span></div><div class="content">bolg搭建过程</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/1970/01/01/%E8%87%AA%E7%9C%81/" title="自我反省"><img class="post_bg" src="/images/cover/cover10.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="自我反省"></a></div><div class="recent-post-info"><a class="article-title" href="/1970/01/01/%E8%87%AA%E7%9C%81/" title="自我反省">自我反省</a><div class="article-meta-wrap"><span class="article-meta"><i class="fas fa-thumbtack sticky"></i><span class="sticky">置顶</span><span class="article-meta-separator">|</span></span><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="1969-12-31T16:00:00.000Z" title="发表于 1970-01-01 00:00:00">1970-01-01</time></span></div><div class="content">每一次的学习都是在接受自己的不足
 
-    
-      
-  <div class="widget-wrap widget-tags">
-    <div class="widget-title"><span>Tags</span></div>
-    <div class="widget-inner">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/MFC/" rel="tag">MFC</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NoteBook/" rel="tag">NoteBook</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RemoteControl/" rel="tag">RemoteControl</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c/" rel="tag">c</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cheat-engine/" rel="tag">cheat engine</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/compiler/" rel="tag">compiler</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cpp/" rel="tag">cpp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/exam/" rel="tag">exam</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jetbrains/" rel="tag">jetbrains</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/" rel="tag">leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/life/" rel="tag">life</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/phone/" rel="tag">phone</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ubuntu/" rel="tag">ubuntu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/visual-studio-2022/" rel="tag">visual studio 2022</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vscode/" rel="tag">vscode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/windows/" rel="tag">windows</a></li></ul>
-    </div>
-  </div>
 
 
-    
-      
-  <div class="widget-wrap widget-recent-posts">
-    <div class="widget-title"><span>Recent Posts</span></div>
-    <div class="widget-inner">
-      <ul>
-        
-          <li>
-            <a href="/2022/09/16/phoneTest/">给爪机上点科技</a>
-          </li>
-        
-          <li>
-            <a href="/2022/09/15/%E8%BF%9C%E6%8E%A7%E9%97%AE%E9%A2%98%E9%9B%86/">远控问题集</a>
-          </li>
-        
-          <li>
-            <a href="/2022/09/10/text021/">text021</a>
-          </li>
-        
-          <li>
-            <a href="/2022/09/10/text020/">text020</a>
-          </li>
-        
-          <li>
-            <a href="/2022/09/05/text019/">text019</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
+计算机时间起点1970.01.01
+最懒的解释 很多编程语言起源于UNIX系统，而UNIX系统认为1970年1月1日0点是时间纪元，所以我们常说的UNIX时间戳是以1970年1月1日0点为计时起点时间的。
+河狸的 那时候的计算机操作系统是32位的
+32位能表示的最大值是2147483647。另外1年365天的总秒数是31536000，2147483647/31536000 = 68.1
+从1970年开始算，加上68.1年，实际最终可到2038年01月19日03时14分07秒，便会到 达最大时间，过了这个时间点，所有32位操作系统时间便会变为10000000 00000000 00000000 00000000，算下来也就是1901年12月13日20时45分52秒，这样便会出现时间回归的现象，很多软件便会运行异常了。
 
-    
-      
-  <div class="widget-wrap widget-archive">
-    <div class="widget-title"><span>Archive</span></div>
-    <div class="widget-inner">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/">2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/">2021</a></li></ul>
-    </div>
-  </div>
 
 
-    
-</div>
+不过现如今的计算机都是64位了，大概能表示到292,277,026,596年，那以后就不是咱操心的了。
 
-<div id="backtop"><i class="icon icon-arrow-up"></i></div>
-            </aside>
-            
-        </div>
-    </div>
+if骚操作在常见的代码中
+123if(a == 0)&#123;	//....&#125;
 
-    <footer class="footer">
-    <div class="footer-wave">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#3c4859" fill-opacity="1" d="M0,160L60,181.3C120,203,240,245,360,240C480,235,600,181,720,186.7C840,192,960,256,1080,261.3C1200,267,1320,213,1380,186.7L1440,160L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>
-    </div>
+都是变量在左，常量在右，但是 ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2022/03/27/Markdown/" title="Markdown基本语法"><img class="post_bg" src="/images/cover/cover9.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Markdown基本语法"></a></div><div class="recent-post-info"><a class="article-title" href="/2022/03/27/Markdown/" title="Markdown基本语法">Markdown基本语法</a><div class="article-meta-wrap"><span class="article-meta"><i class="fas fa-thumbtack sticky"></i><span class="sticky">置顶</span><span class="article-meta-separator">|</span></span><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-03-27T05:56:09.000Z" title="发表于 2022-03-27 13:56:09">2022-03-27</time></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/markdown/">markdown</a></span></div><div class="content">
 
-    <!-- Please do not remove this -->
-    <!-- 开源不易，请勿删除 -->
-    <div class="footer-wrap">
-        <div class="footer-inner"> 
-            ohmyhsy &copy; 2022<br>
-            Powered By Hexo · Theme By <a href="https://linhong.me/" target="_blank">Aomori</a> · <a href="https://github.com/lh1me/hexo-theme-aomori" target="_blank">Github</a>
-        </div>
-    </div>
 
-</footer>
 
 
 
 
+补充说明不知道是不是主题的问题，很多markdown能支持的在转换成html的时候全失效了。所以以下的语法如果也在此主题无法使用，建议直接使用html的方法，虽然时间成本比较高。但是目前确实没有很好的解决办法，本人对js和css忘得差不多了，所以没有能力完全审计源代码。
 
+1.标题标题的等级由#构成，#号越多对应的标题大小越小，就是类似html语法的h1-h6
+1234567# 一级标题## 二级标题### 三级标题#### 四级标题##### 五级标题###### 六级标题
 
-<script src="/dist/build.js?1646451311888.js"></script>
 
+值得注意的是，#号后面建议跟个空格，某些平台可能不用
 
-<script src="/dist/custom.js?1646451311888.js"></script>
+效果如下(主题可能重写过，所以效果可能与其他平台略有差异)：
+一级标题二级标题三级标题四级标题五级标题六级标题
+2.字体常用修饰方法就是，粗体和斜体，然后两者结合粗斜体markdown中，\-和\*的用法差不多
+12345678*斜体文本*_斜体文本_**粗体文本**__粗体文本__***粗斜体文本***___粗斜体文本___
 
+效果如下：斜体文本斜体文本
+粗体文本粗体文本
+粗斜体文本粗斜体文本
+有的时候有点抽风效果可以看图：
 
 
 
+3.段 ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2022/12/10/%E6%97%81%E5%90%AC%E9%9D%A2%E8%AF%952-0/" title="旁听面试2.0"><img class="post_bg" src="/images/cover/cover9.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="旁听面试2.0"></a></div><div class="recent-post-info"><a class="article-title" href="/2022/12/10/%E6%97%81%E5%90%AC%E9%9D%A2%E8%AF%952-0/" title="旁听面试2.0">旁听面试2.0</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-12-10T05:59:28.000Z" title="发表于 2022-12-10 13:59:28">2022-12-10</time></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E9%9D%A2%E8%AF%95/">面试</a></span></div><div class="content">继续听别人面试取取经
 
 
 
+创业型公司提问环节
+自我介绍
 
 
+这是经典问题，虽然时间不长，但是有条理比较重要
 
+学历学校情况
 
+什么时候毕业？
+为什么四月就去工作？
+上一份工作是什么原因溜了？
 
+地方选择
 
-</body>
+为什么来福州找工作？
 
-</html>
+实际考察
+
+项目方面
+第一个是做客户端还是服务端？
+有哪些重构？
+
+
+什么设计
+用到了mvc设计？
+mvc怎么体现？
+
+
+客户端包含什么模块
+测试、文件传输、文件下载、文件删除、屏幕监控、鼠标操作等。
+
+
+客户端使用mfc做的？但是mfc比较老了吧，为什么要用mfc？
+提到了消息机制，有自定义消息吗？
+tcp&#x2F;ip在这这个项目的使用场景？
+有去做过一些测试对吗？功能测试是单纯手动测试吗？
+另外两个项目？
+qt那边客户端是我自己写的。
+音视频了解视频编码，vlc库的使用。
+
+
+一开始就接触的是第一个项目吗？一上手就是一个基本完成的项目，你要如何学习？怎么去完成重构？
+第一个项目代码量多少？
+花了多少时间了解？
+花了多少时间重构？
+
+学校方面
+
+学校里有写过什么项目吗？
+大学专业是？计算机应用技术专业？主要学什么语言？
+学过c语言还是直接学的c++？
+ ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2022/11/30/vs%E4%B9%B1%E7%A0%81/" title="【软件】vs2022控制台乱码"><img class="post_bg" src="/images/cover/cover6.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="【软件】vs2022控制台乱码"></a></div><div class="recent-post-info"><a class="article-title" href="/2022/11/30/vs%E4%B9%B1%E7%A0%81/" title="【软件】vs2022控制台乱码">【软件】vs2022控制台乱码</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-11-30T11:00:03.000Z" title="发表于 2022-11-30 19:00:03">2022-11-30</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/software/">software</a></span></div><div class="content">
+windows的根据地区选择编码一言难尽。。
+
+
+
+
+
+前言本文只是介绍几种情况的处理方式，仅供参考。
+
+正文1.乱码介绍什么是乱码？粗略解释就是：
+
+指保存内存的编码和输出内存的编码不一致，导致出现奇奇怪怪的字符。更多详细介绍自行上网冲浪。
+
+这点情况在windows中很常见，原因就是Windows的特色，它会根据地区默认选择你cmd&#x2F;powerhell的编码。
+
+打开cmd&#x2F;powershll输入 chcp  按下回车
+
+如果你地区选择的是中国，那么回显信息为活动代码页：936。而文本格式千奇百怪，也是拿捏不住的。Linux默认都是utf-8的环境，相对比较省心不用你去改什么东西控制输出。
+所以默认的vscode&#x2F;vs201x的产品，或者是其他需要调用cmd&#x2F;powershell的软件，都会存在这个问题。
+vs的项目默认选择Unicode，你也可以改为多字节。
+
+统一码（Unicode），也叫万国码、单一码，由统一码联盟开发，是计算机科学领域里的一项业界标准，包括字符集、编码方案等。
+Unicode中，我记得字符都占用两个字节。
+随后的ut ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2022/11/29/jsoncpp%E7%BC%96%E8%AF%91%E4%BD%BF%E7%94%A8/" title="JsonCpp编译使用"><img class="post_bg" src="/images/cover/cover5.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="JsonCpp编译使用"></a></div><div class="recent-post-info"><a class="article-title" href="/2022/11/29/jsoncpp%E7%BC%96%E8%AF%91%E4%BD%BF%E7%94%A8/" title="JsonCpp编译使用">JsonCpp编译使用</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-11-29T11:59:56.000Z" title="发表于 2022-11-29 19:59:56">2022-11-29</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/">开源项目</a></span></div><div class="content">这一类的开源项目是能找到已经编译好的产物，但是总归还得自己试下。
+
+
+
+
+前言JSON（JavaScript Object Notation, JS对象简谱）是一种轻量级的数据交换格式。它基于 ECMAScript（European Computer Manufacturers Association, 欧洲计算机协会制定的js规范）的一个子集，采用完全独立于编程语言的文本格式来存储和表示数据。简洁和清晰的层次结构使得 JSON 成为理想的数据交换语言。 易于人阅读和编写，同时也易于机器解析和生成，并有效地提升网络传输效率。
+json这种格式对于近几年一点都不陌生。与之相匹的就是Xml了。一个是建议的语法，一个是标签形式。都比较容易上手。
+当然json不局限编程语言，而且各家都有做优化。比如cpp中jsoncpp
+使用 jsoncpp 库解析 json 格式的数据，我们只需要掌握三个类：
+
+Value 类：将 json 支持的数据类型进行了包装，最终得到一个 Value 类型
+FastWriter类：将 Value 对象中的数据序列化为字符串
+Reader类：反序列化，将 json 字 ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2022/11/28/%E6%98%93%E6%A0%88/" title="易栈"><img class="post_bg" src="/images/cover/cover2.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="易栈"></a></div><div class="recent-post-info"><a class="article-title" href="/2022/11/28/%E6%98%93%E6%A0%88/" title="易栈">易栈</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-11-28T04:42:03.000Z" title="发表于 2022-11-28 12:42:03">2022-11-28</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%8A%A0%E5%AF%86%E6%96%87%E7%AB%A0/">加密文章</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/WTL/">WTL</a><span class="article-meta-link">•</span><a class="article-meta__tags" href="/tags/Sqlite3/">Sqlite3</a><span class="article-meta-link">•</span><a class="article-meta__tags" href="/tags/Json/">Json</a><span class="article-meta-link">•</span><a class="article-meta__tags" href="/tags/Linux/">Linux</a><span class="article-meta-link">•</span><a class="article-meta__tags" href="/tags/Windows/">Windows</a></span></div><div class="content">
+  2c4b4b8d9c4e11191fdaac99b8ca2a8bb7914512d1bc9d5e785dac70feb4d01b0225d6b149090cacea514a5f9560019cc5e3c668fd957dd05293c9afe294a63d3eed9b800453985b71be3ad26ed36e57eab83140c2ea7a45059a0fb05f29b6ef306a589d17eb9d2db48307187973c92071104c97ab60fc890edab61485642c1c3cf2508baacf9bdbe96a9f02a7e3b25a549625632e2870c4f71de2344e21a86b99f2c91b660eebb8592bc79072cc716d33ec81c0f03bcde72ac8eeae3d66b8f1610e4b28e6e01341a7377c736b458fed0177588474203f5da865767b4c286b4651f5a532ceafe64ae5e77ec7eb337dbb50be1e8fd49cb02bc ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2022/11/22/%E9%9D%A2%E8%AF%951-0/" title="听别人面1.0"><img class="post_bg" src="/images/cover/cover5.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="听别人面1.0"></a></div><div class="recent-post-info"><a class="article-title" href="/2022/11/22/%E9%9D%A2%E8%AF%951-0/" title="听别人面1.0">听别人面1.0</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-11-22T01:25:17.000Z" title="发表于 2022-11-22 09:25:17">2022-11-22</time></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E9%9D%A2%E8%AF%95/">面试</a></span></div><div class="content">临近出去实习的日子，很快，一切都感觉没抓住。
+
+
+
+
+
+前言面试其实也挺玄学的，但大致会基于以下两点吧。
+
+学历
+实习还是有过工作经验
+
+
+正文1.学历从群友那吸取了点经验。
+一本的有机会去大厂面试，第一轮都是算法题，过了之后是看还有别的面试还是直接hr面，hr面过了基本都稳了。
+大专是肯定摸不到大厂的，中小的企业有就不错了。
+
+这里的核心点就是，如果你不是高学历的，而且基础开发岗位，直接问算法的不会这么多，除非你选的岗位要求有介绍。
+
+
+2.工作经验-无应届实习生在没有什么项目经历的情况下，大多都是八股文类型问题。
+
+直接百度语种+八股文，可能会有出入，但是基本功要扎实就要背要记住
+
+最常见的比如：
+
+关键字的使用和细节
+编译详细步骤
+内存分区
+函数
+面向对象语法
+…等等
+
+
+不排除会问数据结构和算法，怎么圆看个人
+
+如果有复刻过什么项目写在简历上了，那么就要做好被提问的准备。
+
+3.工作经验-有如果是有工作经验的，会直接从你的简历问项目经历，你负责的模块，具体怎么实现，有没有遇到什么bug以及怎么处理。。。
+除此之外如果也有考察八股文也不稀奇，基础功嘛，只不过有些公司可能不会问了。 ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2022/11/22/zigbee/" title="zigbee和newlab"><img class="post_bg" src="/images/cover/cover8.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="zigbee和newlab"></a></div><div class="recent-post-info"><a class="article-title" href="/2022/11/22/zigbee/" title="zigbee和newlab">zigbee和newlab</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-11-22T00:58:48.000Z" title="发表于 2022-11-22 08:58:48">2022-11-22</time></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/loT/">loT</a></span></div><div class="content">昨天和群友随口谈了一下工作，有一些对嵌入式硬件方面有兴趣，而我大概只记得用过zigbee和newlab这么两个东西，而且之前的设备都挺老的，实际上的嵌入式一搜都是什么单片机起步，烧写刻录巴拉巴拉的。
+
+
+
+
+
+前言都是比较老的东西了，同属于物联网阵营。
+
+正文zigbee翻译过来好像叫紫峰。
+zigbee的几个特点：
+①低功耗。在低耗电待机模式下，2节5号干电池可支持1个节点工作6～24个月，甚至更长。这是ZigBee的突出优势。相比较，蓝牙能工作数周、WiFi可工作数小时。
+TI公司和德国的Micropelt公司共同推出新能源的ZigBee节点。该节点采用Micropelt公司的热电发电机给TI公司的ZigBee提供电源。
+②低成本。通过大幅简化协议(不到蓝牙的1&#x2F;10)，降低了对通信控制器的要求，按预测分析，以8051的8位微控制器测算，全功能的主节点需要32KB代码，子功能节点少至4KB代码，而且ZigBee免协议专利费。每块芯片的价格大约为2美元。
+③低速率。ZigBee工作在20～250kbps的速率，分别提供250 kbps(2.4GHz)、40kbps(915  ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2022/11/08/%E9%9F%B3%E8%A7%86%E9%A2%91%E5%BC%80%E5%8F%91/" title="音视频开发"><img class="post_bg" src="/images/cover/escr.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="音视频开发"></a></div><div class="recent-post-info"><a class="article-title" href="/2022/11/08/%E9%9F%B3%E8%A7%86%E9%A2%91%E5%BC%80%E5%8F%91/" title="音视频开发">音视频开发</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-11-08T13:34:12.000Z" title="发表于 2022-11-08 21:34:12">2022-11-08</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%8A%A0%E5%AF%86%E6%96%87%E7%AB%A0/">加密文章</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/MFC/">MFC</a><span class="article-meta-link">•</span><a class="article-meta__tags" href="/tags/VLC/">VLC</a></span></div><div class="content">
+  6f01f71b1ed5370865b491f28c5fc5decef4e0a1f439165a87a0f5b48c5de2f02584e5e6a37ef4d951403651b9a3b0fb0da8646bebaee2aa1417c7f48cd66ff25352e9e3f9f6718307c4ca974d631d49e64f6d64fbc4edd8b23609cca1fb3fe7da294118b420708a4e31299348a74454a5599bf19820cbbc3b08bc4092b5c48a02b6d62b0c15ae99b94b608814bdc972e8072b62873b131d36c06f2707bf0c6ee7cc65e0c27edac573c780bfc79260f9b4c674a41ffd0472d419b516c7d2f91a124c39a5d0654e10e0c8936abbd037628303130de978b2063b0fa97c2683e1e8f786d0a0411341c8adde1d418b39b88f62bbc424ebf1af4ef ...</div></div></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span><a class="page-number" href="/page/2/#content-inner">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/#content-inner">15</a><a class="extend next" rel="next" href="/page/2/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/images/logo.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Box</div><div class="author-info__description">知其不可奈何而安之若命</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">141</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">22</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/8bytes-code"><i class="fab fa-github"></i><span>Github</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">鼠鼠我啊懂点电脑会点C/C++<br/>是一个不够勤快的鼠鼠啊<br/>努力找到自己的下水道吧</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2022/12/10/%E6%97%81%E5%90%AC%E9%9D%A2%E8%AF%952-0/" title="旁听面试2.0"><img src="/images/cover/cover9.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="旁听面试2.0"/></a><div class="content"><a class="title" href="/2022/12/10/%E6%97%81%E5%90%AC%E9%9D%A2%E8%AF%952-0/" title="旁听面试2.0">旁听面试2.0</a><time datetime="2022-12-10T05:59:28.000Z" title="发表于 2022-12-10 13:59:28">2022-12-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/11/30/vs%E4%B9%B1%E7%A0%81/" title="【软件】vs2022控制台乱码"><img src="/images/cover/cover6.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="【软件】vs2022控制台乱码"/></a><div class="content"><a class="title" href="/2022/11/30/vs%E4%B9%B1%E7%A0%81/" title="【软件】vs2022控制台乱码">【软件】vs2022控制台乱码</a><time datetime="2022-11-30T11:00:03.000Z" title="发表于 2022-11-30 19:00:03">2022-11-30</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/11/29/jsoncpp%E7%BC%96%E8%AF%91%E4%BD%BF%E7%94%A8/" title="JsonCpp编译使用"><img src="/images/cover/cover5.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="JsonCpp编译使用"/></a><div class="content"><a class="title" href="/2022/11/29/jsoncpp%E7%BC%96%E8%AF%91%E4%BD%BF%E7%94%A8/" title="JsonCpp编译使用">JsonCpp编译使用</a><time datetime="2022-11-29T11:59:56.000Z" title="发表于 2022-11-29 19:59:56">2022-11-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/11/28/%E6%98%93%E6%A0%88/" title="易栈"><img src="/images/cover/cover2.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="易栈"/></a><div class="content"><a class="title" href="/2022/11/28/%E6%98%93%E6%A0%88/" title="易栈">易栈</a><time datetime="2022-11-28T04:42:03.000Z" title="发表于 2022-11-28 12:42:03">2022-11-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/11/22/%E9%9D%A2%E8%AF%951-0/" title="听别人面1.0"><img src="/images/cover/cover5.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="听别人面1.0"/></a><div class="content"><a class="title" href="/2022/11/22/%E9%9D%A2%E8%AF%951-0/" title="听别人面1.0">听别人面1.0</a><time datetime="2022-11-22T01:25:17.000Z" title="发表于 2022-11-22 09:25:17">2022-11-22</time></div></div></div></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">141</div></div><div class="webinfo-item"><div class="item-name">已运行时间 :</div><div class="item-count" id="runtimeshow" data-publishDate="2022-03-19T16:00:00.000Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总字数 :</div><div class="item-count">207.8k</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2022-12-10T11:23:30.664Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('/images/background.png')"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By Box</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">我下班了蟹老板~</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="translateLink" type="button" title="简繁转换">简</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>function subtitleType () {
+  if (true) { 
+    window.typed = new Typed("#subtitle", {
+      strings: ["平淡的一生","A dull life"],
+      startDelay: 300,
+      typeSpeed: 150,
+      loop: true,
+      backSpeed: 50
+    })
+  } else {
+    document.getElementById("subtitle").innerHTML = '平淡的一生'
+  }
+}
+
+if (true) {
+  if (typeof Typed === 'function') {
+    subtitleType()
+  } else {
+    getScript('https://cdn.jsdelivr.net/npm/typed.js/lib/typed.min.js').then(subtitleType)
+  }
+} else {
+  subtitleType()
+}</script></div><canvas class="fireworks" mobile="false"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/fireworks.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

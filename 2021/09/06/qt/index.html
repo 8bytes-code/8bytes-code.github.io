@@ -1,0 +1,461 @@
+<!DOCTYPE html><html lang="[&quot;zh-CN&quot;,&quot;zh-TW&quot;,&quot;en&quot;,&quot;default&quot;]" data-theme="dark"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>【软件】qt creator | Box'Blog</title><meta name="author" content="Box"><meta name="copyright" content="Box"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#0d0d0d"><meta name="description" content="前言b站的cpp看的差不多了，得找个方向溜溜。因为看的是黑马的，所以直接看看qt了。好像最后是个翻金币的小游戏。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【软件】qt creator">
+<meta property="og:url" content="https://8bytes.top/2021/09/06/qt/index.html">
+<meta property="og:site_name" content="Box&#39;Blog">
+<meta property="og:description" content="前言b站的cpp看的差不多了，得找个方向溜溜。因为看的是黑马的，所以直接看看qt了。好像最后是个翻金币的小游戏。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://8bytes.top/images/cover/cover9.png">
+<meta property="article:published_time" content="2021-09-06T13:40:03.000Z">
+<meta property="article:modified_time" content="2022-11-06T13:37:33.985Z">
+<meta property="article:author" content="Box">
+<meta property="article:tag" content="Qt">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://8bytes.top/images/cover/cover9.png"><link rel="shortcut icon" href="/img/favicon.svg"><link rel="canonical" href="https://8bytes.top/2021/09/06/qt/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin=""/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?112e257877c02bad314b2fcefaca0aee";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web&amp;display=swap" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: {"defaultEncoding":1,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: Box","link":"链接: ","source":"来源: Box'Blog","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#1f1f1f","position":"bottom-left"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '【软件】qt creator',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-11-06 21:37:33'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.1"><link rel="alternate" href="/atom.xml" title="Box'Blog" type="application/atom+xml">
+</head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/images/logo.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">141</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">22</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 生活</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/collect/"><i class="fa-fw fa fa-star"></i><span> 收藏</span></a></li><li><a class="site-page child" href="/photography/"><i class="fa-fw fa fa-camera-retro"></i><span> 相册</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/messageboard/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/images/cover/cover9.png')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Box'Blog</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 生活</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/collect/"><i class="fa-fw fa fa-star"></i><span> 收藏</span></a></li><li><a class="site-page child" href="/photography/"><i class="fa-fw fa fa-camera-retro"></i><span> 相册</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/messageboard/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">【软件】qt creator</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-09-06T13:40:03.000Z" title="发表于 2021-09-06 21:40:03">2021-09-06</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-11-06T13:37:33.985Z" title="更新于 2022-11-06 21:37:33">2022-11-06</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/software/">software</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">6.4k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>23分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="【软件】qt creator"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>b站的cpp看的差不多了，得找个方向溜溜。因为看的是黑马的，所以直接看看qt了。好像最后是个翻金币的小游戏。</p>
+<span id="more"></span>
+
+
+<hr>
+<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><h2 id="软件安装"><a href="#软件安装" class="headerlink" title="软件安装"></a>软件安装</h2><p>我是从官网注册了个账号，搞得开源版本<a target="_blank" rel="noopener" href="https://www.qt.io/zh-cn/product?hsLang=zh-cn">地址</a><br>下载的话<a target="_blank" rel="noopener" href="https://www.qt.io/zh-cn/download">地址</a></p>
+<img src="/2021/09/06/qt/020.png" class="">
+
+<p>实际上也有别的方法，比如在清华大学镜像站下或者在官网把下载的连接粘到迅雷去，因为qt的服务器其实还是部署在国外，没有科学道具挺慢的。<br>我这种方法因为都是下的最新的，所以对部分人来说不太适合。<br>所以具体的安装请自行<a target="_blank" rel="noopener" href="https://download.qt.io/">百度</a>，百度的教程提到的是分开下的模式。</p>
+<p>吐槽：</p>
+<ol>
+<li>qt的界面对高分辨率显示器不友好，有的时候不太正经，建议下.2的版本稍微好点。除此之外就是两个不同大小的显示器之间切换你就懂了哈哈。。。有些地方不按比例来的</li>
+<li>qt对中文支持很糟糕，尽量避免使用gbk，不然编译可能有点问题，最重要的是安装路径或者文件路径最好都不要带中文</li>
+<li>官方的图晒得都是配合mac的。虽然我在ubuntu也玩过，但是感觉也就那样</li>
+</ol>
+<hr>
+<h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>作为图形化框架，当然也能开发非GUI的程序，qt拥有很好的跨平台能力，基于面向对象，一般都是用cpp或者python吧，貌似有Android的支持。暂时用不到。除此之外，qt除了桌面端，对于嵌入式开发也有布局。<br>qt有名的例子：vlc、kde、virtualbox等。<br><strong>注意，咱要用的都是开源版，所以发布的软件一版也都是采用开源协议的，貌似有能闭源的，但是我对那些协议目前不够了解，不敢指手画脚</strong></p>
+<p>微软的mfc虽然也是一个良好的图形化框架，但是微软的尿性基本不开源，所以mfc只能在windows用，到目前为止mfc的项目好像都是老项目了。未来究竟是什么样咱也不知道。</p>
+<hr>
+<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><img src="/2021/09/06/qt/000.png" class="">
+<p>图形框架最经典的就是拖控件，然后设置id，参数，在到代码上设置。</p>
+<p>除次之外，qt的控件可以通过引入头文件，然后去创建，一般好像比较喜欢用new，然后在析构函数释放。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;widget.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;ui_widget.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;QPushButton&gt;</span></span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Widget::<span class="built_in">Widget</span>(QWidget *parent)</span><br><span class="line">    : <span class="built_in">QWidget</span>(parent)</span><br><span class="line">    , <span class="built_in">ui</span>(<span class="keyword">new</span> Ui::Widget)</span><br><span class="line">&#123;</span><br><span class="line">    ui-&gt;<span class="built_in">setupUi</span>(<span class="keyword">this</span>);</span><br><span class="line">    QPushButton* btn = <span class="keyword">new</span> QPushButton;</span><br><span class="line">    btn-&gt;<span class="built_in">setText</span>(<span class="string">&quot;hello&quot;</span>);</span><br><span class="line">    btn-&gt;<span class="built_in">setParent</span>(<span class="keyword">this</span>);</span><br><span class="line">    btn-&gt;<span class="built_in">resize</span>(<span class="number">200</span>,<span class="number">250</span>);</span><br><span class="line">    btn-&gt;<span class="built_in">move</span>(<span class="number">100</span>,<span class="number">200</span>);</span><br><span class="line">    btn-&gt;<span class="built_in">show</span>();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Widget::~<span class="built_in">Widget</span>()</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">delete</span> ui;</span><br><span class="line">    <span class="keyword">delete</span> btn;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<img src="/2021/09/06/qt/001.png" class="">
+
+<p>哈哈哈，很草率的一个东西。<br><code>QPushButton* btn = new QPushButton;</code>创建一个按钮对象<br><code>btn-&gt;setText(&quot;hello&quot;);</code>给按钮设置文本<br><code>btn-&gt;setParent(this);</code>设置父类，咱这在widget这个窗口下，就以他为大爹。<br><code>btn-&gt;resize(200,250);</code>resize就是设置大小很好理解<br><code>btn-&gt;move(100,200);</code>move就是在这个父类窗口中通过xy的偏移得到。<br><code>btn-&gt;show();</code>最后show，显示出来。</p>
+<p>可能会好奇为什么要在这个widget函数里面设置和显示，包括销毁也要在widget的析构函数</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;QtWidgetsApplication1.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;QtWidgets/QApplication&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">(<span class="type">int</span> argc, <span class="type">char</span> *argv[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="function">QApplication <span class="title">a</span><span class="params">(argc, argv)</span></span>;</span><br><span class="line">    QtWidgetsApplication1 w;</span><br><span class="line">    w.<span class="built_in">show</span>();</span><br><span class="line">    <span class="keyword">return</span> a.<span class="built_in">exec</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>关于qt项目的<code>main.cpp</code>，咱可以看到他是创建一个对象的，然后把w.show，这就是我们widget这个主窗口。</p>
+<blockquote>
+<p>widget主要是在上面放置布局和控件；所有用户界面对象的基类。<br>窗口部件是用户界面的一个基本单元：它从窗口系统接收鼠标、键盘和其它事件，并且在屏幕上&gt; 绘制自己。每一个窗口部件都是矩形的，并且它们按Z轴顺序排列。一个窗口部件可以被它的父窗口部件或者它前面的窗口部件盖住一部分</p>
+</blockquote>
+<blockquote>
+<p>mainwindow可以有menu菜单、tool工具栏、status状态栏、电脑显示屏右下脚的托盘等。提供更好的可视化操作；一个正常window软件呈现给客户的可视化界面。</p>
+</blockquote>
+<p>当然关于qt他自己是有帮助文档的</p>
+<img src="/2021/09/06/qt/002.png" class="">
+<p>额虽然大概率新手看不懂，不如直接看视频或者百度哈。</p>
+<hr>
+<h2 id="拖拽控件"><a href="#拖拽控件" class="headerlink" title="拖拽控件"></a>拖拽控件</h2><p>额关于其他控件，b站啥的看一下就行了，文字说明没啥灵魂的。<br>而且控件类型也不少，建议视频教学。</p>
+<hr>
+<h2 id="信号和槽"><a href="#信号和槽" class="headerlink" title="信号和槽"></a>信号和槽</h2><p>这个可以说是qt的精髓了，有了信号和槽，对设计者可以更直观的操作组件交互。</p>
+<h3 id="信号-Signal"><a href="#信号-Signal" class="headerlink" title="信号(Signal)"></a>信号(Signal)</h3><p>信号会在特定的情况下发生的事件，咱最常见的PushButton，他最常见的信号就是来自鼠标的点击时发送的<code>clicked()</code>信号，一个combobox最常见的就是选择列表项时列表发生改变的<code>CurrentIndexChanged()</code>信号<br>对于GUI程序设计主要是整合各组件信号的响应，合理的去安排什么时候发送信号。</p>
+<h3 id="槽-Slot"><a href="#槽-Slot" class="headerlink" title="槽(Slot)"></a>槽(Slot)</h3><p>信号是发送的，那么槽就是用来接收响应的。表现形式就是一个函数，与一般c++函数差不多，也可以封装到类里面。<br>槽可以有参数，也可以被直接调用，与一般的函数不同处就是槽可以与一个信号关联，信号发射时，关联的这个槽会自动触发。</p>
+<p>信号和槽关联通过<code>QObject::connect()函数实现</code><br>基本格式示例<code>QObject::connect(sender, SIGNAL(signal()), receiver, SLOT(sloet()));</code></p>
+<ul>
+<li>参数1表示信号发送者</li>
+<li>参数2表示发送的信号</li>
+<li>参数3表示信号的接收者</li>
+<li>参数4表示信号处理(槽)函数</li>
+</ul>
+<p>最简单的使用</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">QMetaObject::Connection ret = <span class="built_in">connect</span>(btn, &amp;QPushButton::clicked, <span class="keyword">this</span>, &amp;Widget::close);</span><br></pre></td></tr></table></figure>
+<p>以咱前面的那个例子，此处的操作主要就是通过btn按钮，触发点击事件之后，把这个父类窗口直接关闭。</p>
+<p><strong>注意的是，咱这里是通过自带的点击事件和窗口自带的关闭事件响应</strong></p>
+<p>如果不知道可以百度，或者打开qt助手搜索查看一下，qt助手的路径为<code>qt安装目录下/版本号/比如mingw或者mscv，32位还是64位看你自己选择/bin/assistant.exe</code><br>可能这样描述有些人看不懂，例如我使用的msvc2019，那么路径应该是<code>D:\Qt\5.15.2\msvc2019\bin\assistant.exe</code></p>
+<p>打开后是这样的</p>
+<img src="/2021/09/06/qt/003.png" class="">
+
+
+<h3 id="如何自定义信号和槽"><a href="#如何自定义信号和槽" class="headerlink" title="如何自定义信号和槽"></a>如何自定义信号和槽</h3><p>先创建俩类</p>
+<img src="/2021/09/06/qt/004.png" class="">
+<p>一个boy，一个gril，信号是love，槽就是ack_love哈哈</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//boy.h</span></span><br><span class="line"><span class="meta">#<span class="keyword">ifndef</span> BOY_H</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> BOY_H</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;QObject&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">boy</span> : <span class="keyword">public</span> QObject</span><br><span class="line">&#123;</span><br><span class="line">    Q_OBJECT</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">explicit</span> <span class="title">boy</span><span class="params">(QObject *parent = <span class="literal">nullptr</span>)</span></span>;</span><br><span class="line"></span><br><span class="line">signals:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">love</span><span class="params">()</span></span>;    <span class="comment">//信号</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">endif</span> <span class="comment">// BOY_H</span></span></span><br></pre></td></tr></table></figure>
+<p><strong>qt的信号是可以不实现的，与原本的cpp有一点相违背，但是我们自己能理解就行，毕竟这个只是一个触发点，调用了这个就相当于发射了信号，内部有无实现并不重要</strong></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//gril.h</span></span><br><span class="line"><span class="meta">#<span class="keyword">ifndef</span> GRIL_H</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> GRIL_H</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;QObject&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">gril</span> : <span class="keyword">public</span> QObject</span><br><span class="line">&#123;</span><br><span class="line">    Q_OBJECT</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">explicit</span> <span class="title">gril</span><span class="params">(QObject *parent = <span class="literal">nullptr</span>)</span></span>;</span><br><span class="line"></span><br><span class="line">signals:</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> slots:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">ack_love</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">endif</span> <span class="comment">// GRIL_H</span></span></span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//gril.cpp</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;gril.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;QDebug&gt;</span></span></span><br><span class="line"></span><br><span class="line">gril::<span class="built_in">gril</span>(QObject *parent)</span><br><span class="line">    : QObject&#123;parent&#125;</span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">gril::ack_love</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">qDebug</span>() &lt;&lt; <span class="string">&quot;不听不听王八念经&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>槽函数是肯定要实现的，不然鬼知道它有没有响应</strong></p>
+<p>然后设计完了，该在哪调用。<br>首先咱用不到按钮，但是还是要承载在主窗口，主窗口是在main.cpp完成创建的，所以咱可以直接在main.cpp就开始，当然在窗口里面写其实问题也不大，关联this就行。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Widget w;</span><br><span class="line"><span class="function">boy <span class="title">x_ming</span><span class="params">(&amp;w)</span></span>;</span><br><span class="line"><span class="function">gril <span class="title">x_hong</span><span class="params">(&amp;w)</span></span>;</span><br><span class="line">w.<span class="built_in">connect</span>(&amp;x_ming, &amp;boy::love, &amp;x_hong, &amp;gril::ack_love);</span><br><span class="line">w.<span class="built_in">show</span>();</span><br><span class="line">x_ming.<span class="built_in">love</span>();</span><br></pre></td></tr></table></figure>
+
+<img src="/2021/09/06/qt/005.png" class="">
+<p>当我们启动的时候，在下面可以看到有输出，而且代码除了connect以外，并没有调用ack_love，说明通过love信号，的确触发了ack_love槽来响应。</p>
+<blockquote>
+<p>关于qdebug，我们不可能直接把文字输出到窗口里吧，想搞也行，但肯定要个文本控件。最简单的就是当然调试信息直接打印在调试框里</p>
+</blockquote>
+<p>所以对于信号</p>
+<ol>
+<li>要声明在头文件的signals下</li>
+<li>信号函数只需要声明，不需要实现</li>
+<li>信号函数必须是void类型，都不要实现了自然也不用你返回值啥的</li>
+<li>信号函数可以有参数，可以重载</li>
+<li>调用信号的时候，可以在前面加一个<code>emit</code>，新版其实加不加都问题不大，还是那句话方便区分</li>
+</ol>
+<blockquote>
+<p>老版本应该是指qt4了吧，现今都是qt5，未来还有qt6，虽然不知道具体差异</p>
+</blockquote>
+<p>对于槽</p>
+<ol>
+<li>槽函数不能写到signals下面，你要写在public slots下面，新版的好像可以不写slots，但是写了主要是明确直观的</li>
+<li>槽函数除了声明还得去实现</li>
+<li>槽函数也是void类型</li>
+<li>也可以有参数和重载，但是大部分情况应该不会用到</li>
+</ol>
+<hr>
+<h3 id="自定义信号带参数和重载"><a href="#自定义信号带参数和重载" class="headerlink" title="自定义信号带参数和重载"></a>自定义信号带参数和重载</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//boy.h</span></span><br><span class="line"><span class="meta">#<span class="keyword">ifndef</span> BOY_H</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> BOY_H</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;QObject&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">boy</span> : <span class="keyword">public</span> QObject</span><br><span class="line">&#123;</span><br><span class="line">    Q_OBJECT</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">explicit</span> <span class="title">boy</span><span class="params">(QObject *parent = <span class="literal">nullptr</span>)</span></span>;</span><br><span class="line"></span><br><span class="line">signals:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">love</span><span class="params">()</span></span>;    <span class="comment">//信号</span></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">love</span><span class="params">(QString str)</span></span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">endif</span> <span class="comment">// BOY_H</span></span></span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//gril.cpp</span></span><br><span class="line"><span class="meta">#<span class="keyword">ifndef</span> GRIL_H</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> GRIL_H</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;QObject&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">gril</span> : <span class="keyword">public</span> QObject</span><br><span class="line">&#123;</span><br><span class="line">    Q_OBJECT</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">explicit</span> <span class="title">gril</span><span class="params">(QObject *parent = <span class="literal">nullptr</span>)</span></span>;</span><br><span class="line"></span><br><span class="line">signals:</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> slots:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">ack_love</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">ack_love</span><span class="params">(QString str)</span></span>;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">endif</span> <span class="comment">// GRIL_H</span></span></span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//gril.cpp</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;gril.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;QDebug&gt;</span></span></span><br><span class="line"></span><br><span class="line">gril::<span class="built_in">gril</span>(QObject *parent)</span><br><span class="line">    : QObject&#123;parent&#125;</span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">gril::ack_love</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">qDebug</span>() &lt;&lt; <span class="string">&quot;不听不听王八念经&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">gril::ack_love</span><span class="params">(QString str)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">qDebug</span>() &lt;&lt; <span class="string">&quot;男孩:&quot;</span> &lt;&lt; str &lt;&lt; <span class="string">&quot; 女孩:hai&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>注意，此处编译是不通过的，因为涉及到函数重载，而connect却没有指明</strong></p>
+<p>随机补充几个点<br>cpp补充重载</p>
+<ol>
+<li>函数名相同，带有不同参数（个数和类型），这样的函数构成重载</li>
+<li>作用域要相同，比如同个类，同个源文件</li>
+<li>重载与返回类型可同可不同，不重要</li>
+</ol>
+<p>cpp补充重写</p>
+<ol>
+<li>其实就是类中函数被定义为虚函数了，子类或者派生类继承之后重写了它</li>
+<li>参数列表必须与父类的结构完全一致</li>
+<li>派生类重写之后函数前缀可不加<code>virtual</code>关键字</li>
+</ol>
+<p>那么如何解决，有两个办法，但都涉及函数指针，因为地址是最好分别的。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">(<span class="type">int</span> argc, <span class="type">char</span> *argv[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="function">QApplication <span class="title">a</span><span class="params">(argc, argv)</span></span>;</span><br><span class="line">    Widget w;</span><br><span class="line">    <span class="function">boy <span class="title">x_ming</span><span class="params">(&amp;w)</span></span>;</span><br><span class="line">    <span class="function">gril <span class="title">x_hong</span><span class="params">(&amp;w)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">void</span>(boy::*pLove)(QString) = &amp;boy::love;</span><br><span class="line">    <span class="built_in">void</span>(gril::*pAck)(QString) = &amp;gril::ack_love;</span><br><span class="line">    w.<span class="built_in">connect</span>(&amp;x_ming, pLove, &amp;x_hong, pAck);</span><br><span class="line">    w.<span class="built_in">show</span>();</span><br><span class="line">    x_ming.<span class="built_in">love</span>();</span><br><span class="line">    <span class="keyword">return</span> a.<span class="built_in">exec</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>当函数指针带参数，执行我们类中的函数他会自己匹配上。</p>
+<p>哦刚才run的时候发现没输出，一看是lov忘记填字符串了哈哈。随便填一下<code>x_ming.love(&quot;你好&quot;);</code></p>
+<img src="/2021/09/06/qt/006.png" class="">
+<p>然后就可以看到有输出了。</p>
+<p>另外一种也类似<br><code>w.connect(&amp;x_ming,(void(boy::*)(QString))&amp;boy::love, &amp;x_hong,(void(gril::*)(QString))&amp;gril::ack_love);</code></p>
+<p>相对而言他就是强制转换了这个函数为这个带参数类型的那个，虽然效果一样，但是代码的可读性差很多。所以并不推荐这种方式。</p>
+<hr>
+<h3 id="信号和槽的拓展"><a href="#信号和槽的拓展" class="headerlink" title="信号和槽的拓展"></a>信号和槽的拓展</h3><p>上述的例子，我们将两个类的信号和槽直接完成关联，那么实际开发中这是一种不可控的情况，并不会被采取，所以是例子！</p>
+<p>最合理的是什么，比如我们说过的pushbutton，他有自带的点击信号，那么就有路数了，给个提示，让btn的点击信号触发。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;boy.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;gril.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;widget.h&quot;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;QApplication&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;QLocale&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;QPushButton&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;QTranslator&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">(<span class="type">int</span> argc, <span class="type">char</span> *argv[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="function">QApplication <span class="title">a</span><span class="params">(argc, argv)</span></span>;</span><br><span class="line"></span><br><span class="line">    Widget w;</span><br><span class="line">    QPushButton btn;</span><br><span class="line">    btn.<span class="built_in">setParent</span>(&amp;w);</span><br><span class="line">    btn.<span class="built_in">setText</span>(<span class="string">&quot;hello&quot;</span>);</span><br><span class="line">    <span class="function">boy <span class="title">x_ming</span><span class="params">(&amp;w)</span></span>;</span><br><span class="line">    <span class="function">gril <span class="title">x_hong</span><span class="params">(&amp;w)</span></span>;</span><br><span class="line">    <span class="built_in">void</span>(boy::*pLove)() = &amp;boy::love;</span><br><span class="line">    <span class="built_in">void</span>(gril::*pAck)() = &amp;gril::ack_love;</span><br><span class="line">    w.<span class="built_in">connect</span>(&amp;btn, &amp;QPushButton::clicked, &amp;x_ming, pLove);</span><br><span class="line">    w.<span class="built_in">connect</span>(&amp;x_ming, pLove, &amp;x_hong, pAck);</span><br><span class="line">    w.<span class="built_in">show</span>();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> a.<span class="built_in">exec</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>此处稍微修改了下按钮的创建时机，show在widget里面设置了。</p>
+<img src="/2021/09/06/qt/007.png" class="">
+<p>效果是有的，不过同样存在一个小问题，无法带参数，因为这个clicked是个bool类型的，她不像我们可以通过函数指针去匹配带参数，这个人家自定义好的我们没法改。<br>这个特色就是连锁的connect，将信号绑定一个信号，再用这个信号触发我们的槽。</p>
+<p>那么换个玩法，套个娃</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;widget.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;ui_widget.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;QPushButton&gt;</span></span></span><br><span class="line"></span><br><span class="line">QPushButton* btn = <span class="literal">NULL</span>;</span><br><span class="line"></span><br><span class="line">Widget::<span class="built_in">Widget</span>(QWidget *parent)</span><br><span class="line">    : <span class="built_in">QWidget</span>(parent)</span><br><span class="line">    , <span class="built_in">ui</span>(<span class="keyword">new</span> Ui::Widget)</span><br><span class="line">    , <span class="built_in">x_ming</span>(<span class="keyword">this</span>)</span><br><span class="line">    , <span class="built_in">x_hong</span>(<span class="keyword">this</span>)</span><br><span class="line">&#123;</span><br><span class="line">    ui-&gt;<span class="built_in">setupUi</span>(<span class="keyword">this</span>);</span><br><span class="line">    btn = <span class="keyword">new</span> QPushButton;</span><br><span class="line">    btn-&gt;<span class="built_in">setText</span>(<span class="string">&quot;hello&quot;</span>);</span><br><span class="line">    btn-&gt;<span class="built_in">setParent</span>(<span class="keyword">this</span>);</span><br><span class="line">    btn-&gt;<span class="built_in">resize</span>(<span class="number">200</span>,<span class="number">220</span>);</span><br><span class="line">    btn-&gt;<span class="built_in">move</span>(<span class="number">100</span>,<span class="number">200</span>);</span><br><span class="line">    <span class="built_in">void</span>(boy::*pLove)() = &amp;boy::love;</span><br><span class="line">    <span class="built_in">void</span>(gril::*pAck)() = &amp;gril::ack_love;</span><br><span class="line">    <span class="built_in">connect</span>(btn, &amp;QPushButton::clicked, &amp;x_ming, pLove);</span><br><span class="line">    <span class="built_in">connect</span>(&amp;x_ming, pLove, &amp;x_hong, pAck);</span><br><span class="line">    <span class="built_in">connect</span>(btn,&amp;QPushButton::clicked, <span class="keyword">this</span>, &amp;Widget::close);</span><br><span class="line">    btn-&gt;<span class="built_in">show</span>();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Widget::~<span class="built_in">Widget</span>()</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">delete</span> ui;</span><br><span class="line">    <span class="keyword">delete</span> btn;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>让按钮先通过点击信号触发boy的love信号，再用love触发gril的ack槽，最后btn通过点击信号关闭窗口。</p>
+<blockquote>
+<p>x_ming和x_hong的定义放在头文件了</p>
+</blockquote>
+<p>最后还有一个断开连接，信号和槽能连接自然也能断开<br><code>disconnect</code>可以将信号断开连接，使用方式和连接一样</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">connect</span>(btn, &amp;QPushButton::clicked, &amp;x_ming, pLove);</span><br><span class="line"><span class="built_in">connect</span>(&amp;x_ming, pLove, &amp;x_hong, pAck);</span><br><span class="line"><span class="built_in">connect</span>(btn,&amp;QPushButton::clicked, <span class="keyword">this</span>, &amp;Widget::close);</span><br><span class="line"><span class="built_in">disconnect</span>(btn,&amp;QPushButton::clicked, &amp;x_ming, pLove);</span><br></pre></td></tr></table></figure>
+<p>加上这一一句，最开始的btn触发plove就失效了，那么后面的通过plove触发pack自然也不存在了。</p>
+<p>所以我们得到结论</p>
+<ul>
+<li>多个信号可以连接同一个槽函数</li>
+<li>信号和槽的参数必须要一一对应</li>
+</ul>
+<hr>
+<h3 id="Lambda"><a href="#Lambda" class="headerlink" title="Lambda"></a>Lambda</h3><p>有些教程叫Lambda表达式，也有的叫Lambda函数，总之它是一个匿名函数，就是没有名字的函数。<strong>跟函数指针不一样</strong><br>Lambda是c++11引入的新概念，格式：<br><code>[捕捉列表](参数)mutable-&gt;返回值类型，可以不设置&#123;函数体&#125;</code></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[]()&#123;</span><br><span class="line">    <span class="built_in">qDebug</span>(<span class="string">&quot;Lambda&quot;</span>);</span><br><span class="line">&#125;();</span><br></pre></td></tr></table></figure>
+<ol>
+<li>[]，标识一个Lambda函数的开始，不能省略<ul>
+<li>为空时，没有使用任何的函数对象参数</li>
+<li>&#x3D;，函数体内使用Lambda所在范围的局部变量包括类的this传值，都会通过复制一份给Lambda函数</li>
+<li>&amp;，与&#x3D;相似，区别就是&#x3D;是复制，而&amp;是引用，意味着&#x3D;不能修改原来变量的值，而引用可以</li>
+<li>this，函数体内可以使用Lambda所在的内部成员</li>
+<li>a，这里表示一个变量名，指Lambda内拷贝一个变量a使用</li>
+<li>&amp;a，表示表达式内引用变量a</li>
+<li>a,&amp;b 表示拷贝a，引用b</li>
+<li>&#x3D;,&amp;a,&amp;b 表示除了ab引用，其他都拷贝</li>
+<li>&amp;,a,b 表示除了ab拷贝，其余都引用</li>
+</ul>
+</li>
+<li>函数参数，与常规函数规则一致</li>
+<li>mutable，修改关键字，在对应位置处设置关键字，才能修改函数对象参数否则报错。可有可无，必须是有才能修改。lambda默认是const，也就是不能修改本地变量<ul>
+<li>-&gt;return-&gt;type返回值的方式，既然是函数就可能会有返回值，所以-&gt;表示有返回值的函数</li>
+</ul>
+</li>
+<li>函数体就是常规函数内容</li>
+</ol>
+<blockquote>
+<p>为什么要使用Lambda函数，通过上述概念，其实就知道，有些函数只是临时随便用，而且业务逻辑简单，就没有必要特意搞个函数出来，通过Lambda可以简化一些步骤。</p>
+</blockquote>
+<p><strong>使用Lambda，需要保证你编译器支持c++11</strong><br>qt中，你新建的项目中有个.pro的文件，里面能看到</p>
+<p>老样子依旧写个例子</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;widget.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;ui_widget.h&quot;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;QPushButton&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;QDebug&gt;</span></span></span><br><span class="line"></span><br><span class="line">Widget::<span class="built_in">Widget</span>(QWidget *parent)</span><br><span class="line">    : <span class="built_in">QWidget</span>(parent)</span><br><span class="line">    , <span class="built_in">ui</span>(<span class="keyword">new</span> Ui::Widget)</span><br><span class="line">&#123;</span><br><span class="line">    ui-&gt;<span class="built_in">setupUi</span>(<span class="keyword">this</span>);</span><br><span class="line">    QPushButton* btn1,*btn2;</span><br><span class="line">    btn1 = <span class="keyword">new</span> QPushButton;</span><br><span class="line">    btn2 = <span class="keyword">new</span> QPushButton;</span><br><span class="line">    btn1-&gt;<span class="built_in">setParent</span>(<span class="keyword">this</span>);</span><br><span class="line">    btn2-&gt;<span class="built_in">setParent</span>(<span class="keyword">this</span>);</span><br><span class="line">    btn1-&gt;<span class="built_in">setText</span>(<span class="string">&quot;按钮1&quot;</span>);</span><br><span class="line">    btn2-&gt;<span class="built_in">setText</span>(<span class="string">&quot;按钮2&quot;</span>);</span><br><span class="line">    btn2-&gt;<span class="built_in">move</span>(<span class="number">100</span>,<span class="number">0</span>);</span><br><span class="line">    btn1-&gt;<span class="built_in">show</span>();</span><br><span class="line">    btn2-&gt;<span class="built_in">show</span>();</span><br><span class="line">    <span class="type">int</span> a = <span class="number">0</span>;</span><br><span class="line">    <span class="built_in">qDebug</span>() &lt;&lt; __LINE__ &lt;&lt; a;</span><br><span class="line">    <span class="built_in">connect</span>(btn1, &amp;QPushButton::clicked, <span class="keyword">this</span>, [=]() <span class="keyword">mutable</span>&#123;</span><br><span class="line">        a += <span class="number">100</span>;</span><br><span class="line">        <span class="built_in">qDebug</span>() &lt;&lt; a;</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="built_in">connect</span>(btn2, &amp;QPushButton::clicked, <span class="keyword">this</span>, [=]()&#123;</span><br><span class="line">        <span class="built_in">qDebug</span>() &lt;&lt; __LINE__ &lt;&lt; a;</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Widget::~<span class="built_in">Widget</span>()</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">delete</span> ui;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<img src="/2021/09/06/qt/009.png" class="">
+<p>此处我们使用了<code>=</code>的lambda表达式，但是似乎btn1的改变对于btn2没有影响。先前提到过<code>=</code>只是能够拷贝一个a，但是不能对其改变。</p>
+<p>对于直接传递变量a，和&#x3D;类似，就是拷贝一个变量。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">connect</span>(btn1, &amp;QPushButton::clicked, <span class="keyword">this</span>, [a]() <span class="keyword">mutable</span>&#123;</span><br><span class="line">    a += <span class="number">100</span>;</span><br><span class="line">    <span class="built_in">qDebug</span>() &lt;&lt; a;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">connect</span>(btn2, &amp;QPushButton::clicked, <span class="keyword">this</span>, [a]()&#123;</span><br><span class="line">    <span class="built_in">qDebug</span>() &lt;&lt; __LINE__ &lt;&lt; a;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>其结果和<code>[=]</code>一样，<code>[=]</code>的范围更大，指定变量肯定范围小。<br><strong>mutable我们后面讲</strong></p>
+<p>要想改变可以通过<code>&amp;</code>引用的方式</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">connect</span>(btn1, &amp;QPushButton::clicked, <span class="keyword">this</span>, [&amp;]()&#123;</span><br><span class="line">    a += <span class="number">100</span>;</span><br><span class="line">    <span class="built_in">qDebug</span>() &lt;&lt; a;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">connect</span>(btn2, &amp;QPushButton::clicked, <span class="keyword">this</span>, [&amp;]()&#123;</span><br><span class="line">    <span class="built_in">qDebug</span>() &lt;&lt; __LINE__ &lt;&lt; a;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<img src="/2021/09/06/qt/010.png" class="">
+<p>这里倒是改变了，但是如果你在connect后面在打印个a，嘿嘿，就会看到好玩的，原因就是有些东西先编译好了，局部变量也是在栈上操作的。</p>
+<p>那么常见的还有通过this操作：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;widget.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;ui_widget.h&quot;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;QPushButton&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;QDebug&gt;</span></span></span><br><span class="line"></span><br><span class="line">Widget::<span class="built_in">Widget</span>(QWidget *parent)</span><br><span class="line">    : <span class="built_in">QWidget</span>(parent)</span><br><span class="line">    , <span class="built_in">ui</span>(<span class="keyword">new</span> Ui::Widget)</span><br><span class="line">&#123;</span><br><span class="line">    ui-&gt;<span class="built_in">setupUi</span>(<span class="keyword">this</span>);</span><br><span class="line">    QPushButton* btn1,*btn2;</span><br><span class="line">    btn1 = <span class="keyword">new</span> QPushButton;</span><br><span class="line">    btn2 = <span class="keyword">new</span> QPushButton;</span><br><span class="line">    btn1-&gt;<span class="built_in">setParent</span>(<span class="keyword">this</span>);</span><br><span class="line">    btn2-&gt;<span class="built_in">setParent</span>(<span class="keyword">this</span>);</span><br><span class="line">    btn1-&gt;<span class="built_in">setText</span>(<span class="string">&quot;按钮1&quot;</span>);</span><br><span class="line">    btn2-&gt;<span class="built_in">setText</span>(<span class="string">&quot;按钮2&quot;</span>);</span><br><span class="line">    btn2-&gt;<span class="built_in">move</span>(<span class="number">100</span>,<span class="number">0</span>);</span><br><span class="line">    btn1-&gt;<span class="built_in">show</span>();</span><br><span class="line">    btn2-&gt;<span class="built_in">show</span>();</span><br><span class="line"></span><br><span class="line">    <span class="built_in">qDebug</span>() &lt;&lt; __LINE__ &lt;&lt; a;</span><br><span class="line">    <span class="built_in">connect</span>(btn1, &amp;QPushButton::clicked, <span class="keyword">this</span>, [<span class="keyword">this</span>]()&#123;</span><br><span class="line">        <span class="keyword">this</span>-&gt;a+=<span class="number">100</span>; </span><br><span class="line">        <span class="built_in">qDebug</span>() &lt;&lt; a;</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="built_in">connect</span>(btn2, &amp;QPushButton::clicked, <span class="keyword">this</span>, [<span class="keyword">this</span>]()&#123;</span><br><span class="line">        <span class="built_in">qDebug</span>() &lt;&lt; __LINE__ &lt;&lt; a;</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Widget::~<span class="built_in">Widget</span>()</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">delete</span> ui;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<img src="/2021/09/06/qt/008.png" class="">
+<p>变量a添加在头文件了，变成类成员。所以通过this，我们让按钮1每按下一次就修改一次成员变量a的值，然后btn2打印出来的也是被修改过后的值。</p>
+<blockquote>
+<p>介么一看，其实lambda是不是感觉还挺简单。</p>
+</blockquote>
+<hr>
+<h3 id="Lambda拓展"><a href="#Lambda拓展" class="headerlink" title="Lambda拓展"></a>Lambda拓展</h3><p>也就是之前提到的<code>mutable</code>这个东西。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">connect</span>(btn1, &amp;QPushButton::clicked, <span class="keyword">this</span>, [=]() <span class="keyword">mutable</span>&#123;</span><br><span class="line">    a += <span class="number">100</span>;</span><br><span class="line">    <span class="built_in">qDebug</span>() &lt;&lt; a;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">connect</span>(btn2, &amp;QPushButton::clicked, <span class="keyword">this</span>, [=]()&#123;</span><br><span class="line">    <span class="built_in">qDebug</span>() &lt;&lt; __LINE__ &lt;&lt; a;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>在这个例子中，我们使用了<code>mutable</code>，如果不加，会有报错，提示a是一个只读变量，不能够被修改。<br><strong>所以第一个作用是会使得该“值捕获变量”的值，可以在被捕获的值的基础上进行变化。</strong></p>
+<p><code>mutable-&gt;type&#123;&#125;()</code>的用法</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> ret = <span class="number">100</span>;</span><br><span class="line"><span class="built_in">qDebug</span>() &lt;&lt; <span class="string">&quot;ret:&quot;</span> &lt;&lt; ret;</span><br><span class="line">ret = [&amp;]() <span class="keyword">mutable</span>-&gt;<span class="type">int</span>&#123;</span><br><span class="line">    ret *= <span class="number">2</span>;</span><br><span class="line">    <span class="keyword">return</span> ret;</span><br><span class="line">&#125;();</span><br><span class="line"><span class="built_in">qDebug</span>() &lt;&lt; <span class="string">&quot;ret:&quot;</span> &lt;&lt; ret;</span><br></pre></td></tr></table></figure>
+<img src="/2021/09/06/qt/012.png" class="">
+<p>这样一来，一些小算术什么的就可以通过表达式完成。<br>比如斐波那契数列</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> x=<span class="number">0</span>,y=<span class="number">1</span>,z=<span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>; i&lt;<span class="number">10</span>; i++)</span><br><span class="line">    [](<span class="type">int</span>&amp; a,<span class="type">int</span>&amp; b)-&gt;<span class="type">int</span>&#123;</span><br><span class="line">    <span class="type">int</span> ret=a+b;</span><br><span class="line">    a=b;</span><br><span class="line">    b=ret;</span><br><span class="line">    <span class="built_in">qDebug</span>() &lt;&lt; ret;</span><br><span class="line">    <span class="keyword">return</span> ret;</span><br><span class="line">&#125;(x,y)</span><br></pre></td></tr></table></figure>
+<p>虽然写法可能让人不习惯哈哈</p>
+<img src="/2021/09/06/qt/013.png" class="">
+
+<p><strong>它的作用我感觉就是让lambda设置返回值</strong></p>
+<ol>
+<li>-&gt;有这玩意才代表有返回值</li>
+<li>-&gt;后面跟的是返回值类型</li>
+<li>最后的()是调用函数，没有则不是，也就跟上面的相似</li>
+</ol>
+<p>而且吧，对于这个匿名表达式，比较实用的还是像咱这样</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">connect</span>(btn, &amp;QPushButton::clicked, &amp;x_ming, [=]()&#123;</span><br><span class="line">    x_ming.<span class="built_in">love</span>(<span class="string">&quot;你好&quot;</span>);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">connect</span>(&amp;x_ming, (<span class="built_in">void</span>(boy::*)(QString))&amp;boy::love, &amp;x_hong, (<span class="built_in">void</span>(gril::*)(QString))&amp;gril::ack_love);</span><br></pre></td></tr></table></figure>
+<p>这样发个带参数的还好弄点</p>
+<img src="/2021/09/06/qt/014.png" class="">
+<p>结果也能正常显示。就是会看到男孩说的话多了个双引号，咱传递的时候带双引号是为了表示字符串类型。而打印却多了双引号。<br>这是因为QString，是qt自己封装的，咱常用的字符串以右值形式存在时是<code>const char*</code>，想要去掉这个双引号，就是让QString转为char*类型。在文档里面可以搜到，Qstring有一个方法叫<code>toUtf8</code>返回的是一个QByteArray的字节数组应该是叫，然后搜索这个QByteArray，发现有个叫data的方法返回值是char*，那么就可以在头文件修改一下<br><code>qDebug() &lt;&lt; &quot;男孩:&quot; &lt;&lt; str.toUtf8().data() &lt;&lt; &quot; 女孩:hai&quot;;</code></p>
+<img src="/2021/09/06/qt/015.png" class="">
+<p>此时在输出就没有双引号了。</p>
+<p>lambda表达式还能代码变得简洁高效，比如咱之前写的按钮点击然后关闭窗口</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">connect</span>(btn2, &amp;QPushButton::clicked, <span class="keyword">this</span>, [=]()&#123;</span><br><span class="line">    <span class="keyword">this</span>-&gt;<span class="built_in">close</span>();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>并且，如果信号接收者是this，可以直接忽略不写</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">connect</span>(btn2, &amp;QPushButton::clicked, [=]()&#123;</span><br><span class="line">    <span class="keyword">this</span>-&gt;<span class="built_in">close</span>();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="ui文件"><a href="#ui文件" class="headerlink" title="ui文件"></a>ui文件</h2><p>这就是拖控件用的可视化操作。<br>其实里面好像算是个xml什么的配置信息，双击这个文件会跳到qt的设计师界面，然后就可以拖拽控件了，包括添加子控件的操作。<br>从代码上，我们一般都是要先定义一个控件，比如菜单栏，然后在往里面add菜单。可视化自然是省去了一些步骤。</p>
+<img src="/2021/09/06/qt/019.png" class="">
+
+<blockquote>
+<p>不过学习嘛，总是先苦后甜，不能说有方便的就不去了解了。</p>
+</blockquote>
+<hr>
+<h2 id="资源文件添加"><a href="#资源文件添加" class="headerlink" title="资源文件添加"></a>资源文件添加</h2><p>先找到一个带图片或者音频啥的文件，拖到项目路径下，然后在qt里右击项目选择添加新文件</p>
+<img src="/2021/09/06/qt/016.png" class="">
+<p>名字看着取，尽量有意义。</p>
+<img src="/2021/09/06/qt/017.png" class="">
+<img src="/2021/09/06/qt/018.png" class="">
+<p>这里的前缀我们一般习惯用<code>/</code>就行了。<br>然后通过addfiles，去打开这个资源文件，那么他就会把这个路径加载进来。<br>资源文件最好最好最好跟项目打包，别搞什么外面的资源。</p>
+<p>额改了下主题，还是黑色带点感觉哈哈，通过add files之后就能看到多了路径和图片，剩下的就是怎么用，随便举个例子。<br>用之前可以在ui文件下，拖一个Graphics view到窗口上，咱好设置图片。</p>
+<img src="/2021/09/06/qt/021.png" class="">
+
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;mainwindow.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;ui_mainwindow.h&quot;</span></span></span><br><span class="line"></span><br><span class="line">MainWindow::<span class="built_in">MainWindow</span>(QWidget *parent)</span><br><span class="line">    : <span class="built_in">QMainWindow</span>(parent)</span><br><span class="line">    , <span class="built_in">ui</span>(<span class="keyword">new</span> Ui::MainWindow)</span><br><span class="line">&#123;</span><br><span class="line">    ui-&gt;<span class="built_in">setupUi</span>(<span class="keyword">this</span>);</span><br><span class="line">    QGraphicsScene* scene = <span class="keyword">new</span> QGraphicsScene;</span><br><span class="line">    scene-&gt;<span class="built_in">addPixmap</span>(QPixmap::<span class="built_in">fromImage</span>(<span class="built_in">QImage</span>(<span class="string">&quot;:/images/ASUS.png&quot;</span>)));</span><br><span class="line">    ui-&gt;graphicsView-&gt;<span class="built_in">setScene</span>(scene);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">MainWindow::~<span class="built_in">MainWindow</span>()</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">delete</span> ui;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>从这里的加载资源文件路径可以看到，为什么要把前缀设置成斜杠，这也是比较通俗易懂的方式</strong></p>
+<img src="/2021/09/06/qt/022.png" class="">
+<blockquote>
+<p>额这里偷个懒没搞大小哈哈，只是说可以在这个控件里直接加载咱们的资源文件。随便演示一下</p>
+</blockquote>
+<hr>
+<h2 id="模态对话框和非模态"><a href="#模态对话框和非模态" class="headerlink" title="模态对话框和非模态"></a>模态对话框和非模态</h2><p>其实可以一句话概括：</p>
+<blockquote>
+<p>模态对话框打开之后，你是没办法对后面的窗口进行操作的；反之，非模态不会独占这个操作，你仍可以对后面或者其他窗口进行操作。    ——首先基于一个软件</p>
+</blockquote>
+<p>模态对话框的场景一般都是一些配置修改，或者文件操作，这种对下层窗口有影响的肯定是要以模态对话框出现。<br>而软件中一般都会有一个版本提示的信息，那个就无关紧要，因为你改变其他的对他不会有啥影响。</p>
+<p>一个小例子：<br>先创建个菜单吧，懒得搞按钮没意思。</p>
+<img src="/2021/09/06/qt/023.png" class="">
+<p>注意，子菜单要先变成中文可以在属性的text修改</p>
+<img src="/2021/09/06/qt/024.png" class="">
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;mainwindow.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;ui_mainwindow.h&quot;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;QDialog&gt;</span></span></span><br><span class="line"></span><br><span class="line">MainWindow::<span class="built_in">MainWindow</span>(QWidget *parent)</span><br><span class="line">    : <span class="built_in">QMainWindow</span>(parent)</span><br><span class="line">    , <span class="built_in">ui</span>(<span class="keyword">new</span> Ui::MainWindow)</span><br><span class="line">&#123;</span><br><span class="line">    ui-&gt;<span class="built_in">setupUi</span>(<span class="keyword">this</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//ui指向的这个控件名，在ui文件的这个控件属性中，有个objectname</span></span><br><span class="line">    <span class="built_in">connect</span>(ui-&gt;actionnew_file, &amp;QAction::triggered, <span class="keyword">this</span>, [=]()&#123;</span><br><span class="line">       QDialog <span class="built_in">dlg</span>(<span class="keyword">this</span>);</span><br><span class="line">       dlg.<span class="built_in">exec</span>();  <span class="comment">//模态化</span></span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">MainWindow::~<span class="built_in">MainWindow</span>()</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">delete</span> ui;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<img src="/2021/09/06/qt/025.png" class="">
+<p>因为没有设置大小姑且这样看，建议自己尝试一下。</p>
+<p>非模态的显示就是方法不同，不过因为我们设置在lambda中，所以生命周期结束得太快了会一闪而过，只能通过new到堆区上活的久一些。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">connect</span>(ui-&gt;actionnew_file, &amp;QAction::triggered, <span class="keyword">this</span>, [=]()&#123;</span><br><span class="line">    QDialog* dlg = <span class="keyword">new</span> <span class="built_in">QDialog</span>(<span class="keyword">this</span>);</span><br><span class="line">    dlg-&gt;<span class="built_in">show</span>();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>这里比较有意思的是，因为非模态没有阻塞的效果，所以你新建可以创建好多个窗口。</p>
+<ul>
+<li>qt的dialog不止这一种</li>
+<li>这个dialog其实还有挺多可以设置的</li>
+</ul>
+<hr>
+<h2 id="关于中文乱码"><a href="#关于中文乱码" class="headerlink" title="关于中文乱码"></a>关于中文乱码</h2><blockquote>
+<p>这里创建的项目的时候好像选了qmake编译，不知道是不是这个问题，cmake的区别暂时也不知道。除此之外就是选的msvc编译器，没准是这个的锅，因为微软就比较喜欢ANSI和UNICODE这俩，但是实际上utf-8大部分软件用的比较多。</p>
+</blockquote>
+<p>我们的配置一般是，编译器的语言按照china，或者system，对于windows地区选了中国那这俩就一样。<br>然后下面的textcode 一般也选system，这个选中文的化地下的工具栏会乱码挺恶心的。</p>
+<p>然后就是给控件从代码上设置中文加了u8和什么修饰都无效的话，可以尝试下在.pro文件下加入</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">##pro文件中，解决中文乱码</span><br><span class="line">msvc &#123;</span><br><span class="line">      QMAKE_CFLAGS += /utf-8</span><br><span class="line">      QMAKE_CXXFLAGS += /utf-8</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<hr>
+<h2 id="未完结-待续"><a href="#未完结-待续" class="headerlink" title="未完结~待续"></a>未完结~待续</h2><hr>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>瞎写就完事，不知道再翻在百度。<br>因为ui这种东西自己不做一遍或者不看看视频，理解起来就比较抽象；并且这个方法有很多，不是我这个初学者一句两句能说清的。<br>网上也有电子书看得进去也可以。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://8bytes.top">Box</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://8bytes.top/2021/09/06/qt/">https://8bytes.top/2021/09/06/qt/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://8bytes.top" target="_blank">Box'Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Qt/">Qt</a></div><div class="post_share"><div class="social-share" data-image="/images/cover/cover9.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2021/09/26/qt%E7%BF%BB%E9%87%91%E5%B8%81%E5%B0%8F%E6%B8%B8%E6%88%8F/"><img class="prev-cover" src="/images/cover/escr.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">qt翻金币小游戏</div></div></a></div><div class="next-post pull-right"><a href="/2021/08/28/WindowsSubSystem/"><img class="next-cover" src="/images/cover/cover8.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">【ubuntu】windows子系统</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2021/09/26/qt%E7%BF%BB%E9%87%91%E5%B8%81%E5%B0%8F%E6%B8%B8%E6%88%8F/" title="qt翻金币小游戏"><img class="cover" src="/images/cover/escr.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-09-26</div><div class="title">qt翻金币小游戏</div></div></a></div><div><a href="/2022/11/05/%E5%A4%A9%E6%B0%94%E9%A2%84%E6%8A%A5/" title="天气预报"><img class="cover" src="/images/cover/cover5.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-11-05</div><div class="title">天气预报</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="waline-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/images/logo.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Box</div><div class="author-info__description">知其不可奈何而安之若命</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">141</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">22</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/8bytes-code"><i class="fab fa-github"></i><span>Github</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">鼠鼠我啊懂点电脑会点C/C++<br/>是一个不够勤快的鼠鼠啊<br/>努力找到自己的下水道吧</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%AD%A3%E6%96%87"><span class="toc-number">2.</span> <span class="toc-text">正文</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85"><span class="toc-number">2.1.</span> <span class="toc-text">软件安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%8B%E7%BB%8D"><span class="toc-number">2.2.</span> <span class="toc-text">介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A4%BA%E4%BE%8B"><span class="toc-number">2.3.</span> <span class="toc-text">示例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8B%96%E6%8B%BD%E6%8E%A7%E4%BB%B6"><span class="toc-number">2.4.</span> <span class="toc-text">拖拽控件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BF%A1%E5%8F%B7%E5%92%8C%E6%A7%BD"><span class="toc-number">2.5.</span> <span class="toc-text">信号和槽</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%A1%E5%8F%B7-Signal"><span class="toc-number">2.5.1.</span> <span class="toc-text">信号(Signal)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A7%BD-Slot"><span class="toc-number">2.5.2.</span> <span class="toc-text">槽(Slot)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E8%87%AA%E5%AE%9A%E4%B9%89%E4%BF%A1%E5%8F%B7%E5%92%8C%E6%A7%BD"><span class="toc-number">2.5.3.</span> <span class="toc-text">如何自定义信号和槽</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E4%BF%A1%E5%8F%B7%E5%B8%A6%E5%8F%82%E6%95%B0%E5%92%8C%E9%87%8D%E8%BD%BD"><span class="toc-number">2.5.4.</span> <span class="toc-text">自定义信号带参数和重载</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%A1%E5%8F%B7%E5%92%8C%E6%A7%BD%E7%9A%84%E6%8B%93%E5%B1%95"><span class="toc-number">2.5.5.</span> <span class="toc-text">信号和槽的拓展</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Lambda"><span class="toc-number">2.5.6.</span> <span class="toc-text">Lambda</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Lambda%E6%8B%93%E5%B1%95"><span class="toc-number">2.5.7.</span> <span class="toc-text">Lambda拓展</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ui%E6%96%87%E4%BB%B6"><span class="toc-number">2.6.</span> <span class="toc-text">ui文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B5%84%E6%BA%90%E6%96%87%E4%BB%B6%E6%B7%BB%E5%8A%A0"><span class="toc-number">2.7.</span> <span class="toc-text">资源文件添加</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A8%A1%E6%80%81%E5%AF%B9%E8%AF%9D%E6%A1%86%E5%92%8C%E9%9D%9E%E6%A8%A1%E6%80%81"><span class="toc-number">2.8.</span> <span class="toc-text">模态对话框和非模态</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B3%E4%BA%8E%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81"><span class="toc-number">2.9.</span> <span class="toc-text">关于中文乱码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%AA%E5%AE%8C%E7%BB%93-%E5%BE%85%E7%BB%AD"><span class="toc-number">2.10.</span> <span class="toc-text">未完结~待续</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">3.</span> <span class="toc-text">总结</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2022/12/10/%E6%97%81%E5%90%AC%E9%9D%A2%E8%AF%952-0/" title="旁听面试2.0"><img src="/images/cover/cover9.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="旁听面试2.0"/></a><div class="content"><a class="title" href="/2022/12/10/%E6%97%81%E5%90%AC%E9%9D%A2%E8%AF%952-0/" title="旁听面试2.0">旁听面试2.0</a><time datetime="2022-12-10T05:59:28.000Z" title="发表于 2022-12-10 13:59:28">2022-12-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/11/30/vs%E4%B9%B1%E7%A0%81/" title="【软件】vs2022控制台乱码"><img src="/images/cover/cover6.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="【软件】vs2022控制台乱码"/></a><div class="content"><a class="title" href="/2022/11/30/vs%E4%B9%B1%E7%A0%81/" title="【软件】vs2022控制台乱码">【软件】vs2022控制台乱码</a><time datetime="2022-11-30T11:00:03.000Z" title="发表于 2022-11-30 19:00:03">2022-11-30</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/11/29/jsoncpp%E7%BC%96%E8%AF%91%E4%BD%BF%E7%94%A8/" title="JsonCpp编译使用"><img src="/images/cover/cover5.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="JsonCpp编译使用"/></a><div class="content"><a class="title" href="/2022/11/29/jsoncpp%E7%BC%96%E8%AF%91%E4%BD%BF%E7%94%A8/" title="JsonCpp编译使用">JsonCpp编译使用</a><time datetime="2022-11-29T11:59:56.000Z" title="发表于 2022-11-29 19:59:56">2022-11-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/11/28/%E6%98%93%E6%A0%88/" title="易栈"><img src="/images/cover/cover2.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="易栈"/></a><div class="content"><a class="title" href="/2022/11/28/%E6%98%93%E6%A0%88/" title="易栈">易栈</a><time datetime="2022-11-28T04:42:03.000Z" title="发表于 2022-11-28 12:42:03">2022-11-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/11/22/%E9%9D%A2%E8%AF%951-0/" title="听别人面1.0"><img src="/images/cover/cover5.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="听别人面1.0"/></a><div class="content"><a class="title" href="/2022/11/22/%E9%9D%A2%E8%AF%951-0/" title="听别人面1.0">听别人面1.0</a><time datetime="2022-11-22T01:25:17.000Z" title="发表于 2022-11-22 09:25:17">2022-11-22</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('/images/cover/cover9.png')"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By Box</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">我下班了蟹老板~</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">简</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>function loadWaline () {
+  function insertCSS () {
+    const link = document.createElement("link")
+    link.rel = "stylesheet"
+    link.href = "https://cdn.jsdelivr.net/npm/@waline/client/dist/waline.min.css"
+    document.head.appendChild(link)
+  }
+
+  function initWaline () {
+    const waline = Waline.init(Object.assign({
+      el: '#waline-wrap',
+      serverURL: 'https://ohmyhsy.vercel.app/',
+      pageview: false,
+      dark: 'html[data-theme="dark"]',
+      path: window.location.pathname,
+      comment: false,
+    }, null))
+  }
+
+  if (typeof Waline === 'function') initWaline()
+  else {
+    insertCSS()
+    getScript('https://cdn.jsdelivr.net/npm/@waline/client/dist/waline.min.js').then(initWaline)
+  }
+}
+
+if ('Waline' === 'Waline' || !false) {
+  if (false) btf.loadComment(document.getElementById('waline-wrap'),loadWaline)
+  else setTimeout(loadWaline, 0)
+} else {
+  function loadOtherComment () {
+    loadWaline()
+  }
+}</script></div><canvas class="fireworks" mobile="false"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/fireworks.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

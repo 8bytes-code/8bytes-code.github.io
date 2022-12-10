@@ -1,331 +1,189 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html><html lang="[&quot;zh-CN&quot;,&quot;zh-TW&quot;,&quot;en&quot;,&quot;default&quot;]" data-theme="dark"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>function | Box'Blog</title><meta name="author" content="Box"><meta name="copyright" content="Box"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#0d0d0d"><meta name="description" content="前言函数是指一段可以直接被另一段程序或代码引用的程序或代码。也叫做子程序、（OOP中）方法。在程序设计中，常将一些常用的功能模块编写成函数，放在函数库中供公共选用。要善于利用函数，以减少重复编写程序段的工作量。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="function">
+<meta property="og:url" content="https://8bytes.top/2022/05/27/function/index.html">
+<meta property="og:site_name" content="Box&#39;Blog">
+<meta property="og:description" content="前言函数是指一段可以直接被另一段程序或代码引用的程序或代码。也叫做子程序、（OOP中）方法。在程序设计中，常将一些常用的功能模块编写成函数，放在函数库中供公共选用。要善于利用函数，以减少重复编写程序段的工作量。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://8bytes.top/images/cover/cover2.png">
+<meta property="article:published_time" content="2022-05-27T13:36:19.000Z">
+<meta property="article:modified_time" content="2022-10-01T07:11:56.184Z">
+<meta property="article:author" content="Box">
+<meta property="article:tag" content="cpp">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://8bytes.top/images/cover/cover2.png"><link rel="shortcut icon" href="/img/favicon.svg"><link rel="canonical" href="https://8bytes.top/2022/05/27/function/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin=""/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?112e257877c02bad314b2fcefaca0aee";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web&amp;display=swap" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: {"defaultEncoding":1,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: Box","link":"链接: ","source":"来源: Box'Blog","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#1f1f1f","position":"bottom-left"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'function',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-10-01 15:11:56'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-
-    
-    <title>function | ohmyhsy</title>
-
-    <meta name="description" content="&lt;h1 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;函数是指一段可以直接被另一段程序或代码引用的程序或代码。也叫做子程序、（OOP中）方法。&lt;br&gt;在程序设计中，常将一些常用的功能模块编写成函数，放在函数库中供公共选用。要善于利用函数，以减少重复编写程序段的工作量。&lt;/p&gt;">
-    <meta name="keywords" content="8bytes-blog">
-
-    
-
-    <meta property="og:locale" content="cn" />
-    <meta property="og:type" content="article" />
-    <meta property="og:title" content= "function | ohmyhsy"  />
-    <meta property="og:description" content= "&lt;h1 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;函数是指一段可以直接被另一段程序或代码引用的程序或代码。也叫做子程序、（OOP中）方法。&lt;br&gt;在程序设计中，常将一些常用的功能模块编写成函数，放在函数库中供公共选用。要善于利用函数，以减少重复编写程序段的工作量。&lt;/p&gt;" />
-    <meta property="og:url" content="https://8bytes.top/2022/05/27/function/index.html" />
-    <meta property="og:site_name" content="" />
-    <meta property="article:author" content="Box" />
-    <meta property="article:publisher" content="" />
-    <meta property="og:description" content="&lt;h1 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;函数是指一段可以直接被另一段程序或代码引用的程序或代码。也叫做子程序、（OOP中）方法。&lt;br&gt;在程序设计中，常将一些常用的功能模块编写成函数，放在函数库中供公共选用。要善于利用函数，以减少重复编写程序段的工作量。&lt;/p&gt;" />
-    <meta name="twitter:title" content="function | ohmyhsy"/>
-    <meta name="twitter:description" content="&lt;h1 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;函数是指一段可以直接被另一段程序或代码引用的程序或代码。也叫做子程序、（OOP中）方法。&lt;br&gt;在程序设计中，常将一些常用的功能模块编写成函数，放在函数库中供公共选用。要善于利用函数，以减少重复编写程序段的工作量。&lt;/p&gt;"/>
-    <script type="application/ld+json">
-        {
-            "description": "&lt;h1 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;函数是指一段可以直接被另一段程序或代码引用的程序或代码。也叫做子程序、（OOP中）方法。&lt;br&gt;在程序设计中，常将一些常用的功能模块编写成函数，放在函数库中供公共选用。要善于利用函数，以减少重复编写程序段的工作量。&lt;/p&gt;",
-            "author": { "@type": "Person", "name": "Box" },
-            "@type": "BlogPosting",
-            "url": "https://8bytes.top/2022/05/27/function/index.html",
-            "publisher": {
-            "@type": "Organization",
-            "logo": {
-                "@type": "ImageObject",
-                "url": "https://8bytes.topundefined"
-            },
-            "name": "Box"
-            },
-            "headline": "function | ohmyhsy",
-            "datePublished": "2022-05-27T13:36:19.000Z",
-            "mainEntityOfPage": {
-                "@type": "WebPage",
-                "@id": "https://8bytes.top/2022/05/27/function/index.html"
-            },
-            "@context": "http://schema.org"
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
         }
-    </script>
+        localStorage.setItem(key, JSON.stringify(item))
+      },
 
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
 
-
-
-    
-
-    
-    <meta property="algolia:search" data-application-id="4CVCYWPWWN" data-api-key="7757db6b0a31c3f94c301c885693ed0d" data-index-name="ohmyhsy">
-    
-
-    
-
-    
-
-    
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎮</text></svg>">
-    
-
-    
-
-    
-
-    
-<link rel="stylesheet" href="/dist/build.css?v=1646451311888.css">
-
-
-    
-<link rel="stylesheet" href="/dist/custom.css?v=1646451311888.css">
-
-
-    <script>
-        window.isPost = true
-        window.aomori = {
-            
-            
-            
+        if (!itemStr) {
+          return undefined
         }
-        window.aomori_logo_typed_animated = true
-        window.aomori_search_algolia = true
+        const item = JSON.parse(itemStr)
+        const now = new Date()
 
-    </script>
-
-<meta name="generator" content="Hexo 5.4.1"><link rel="alternate" href="/atom.xml" title="ohmyhsy" type="application/atom+xml">
-</head>
-
-<body>
-
-    <div class="container">
-    <header class="header">
-        <div class="header-type">
-            
-            <div class="header-type-inner">
-                
-                    <div id="typed-strings" style="display:none">
-                        <p>ohmyhsy</p>
-                    </div>
-                    <a class="header-type-title" id="typed" href="/"></a>
-                
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
     
-                
-            </div>
-        </div>
-        <div class="header-menu">
-            <div class="header-menu-inner">
-                
-                <a href="/">Home</a>
-                
-                <a href="/archives">Archives</a>
-                
-                <a href="/friends">Friends</a>
-                
-                <a href="/collect">Collect</a>
-                
-                <a href="/photography">Phtotgraphy</a>
-                
-            </div>
-            <div class="header-menu-social">
-                
-    <a class="social" target="_blank" href="https://github.com/8bytes-code">
-        <box-icon type='logo' name='github'></box-icon>
-    </a>
-
-            </div>
-        </div>
-
-        <div class="header-menu-mobile">
-            <div class="header-menu-mobile-inner" id="mobile-menu-open">
-                <i class="icon icon-menu"></i>
-            </div>
-        </div>
-    </header>
-
-    <div class="header-menu-mobile-menu">
-        <div class="header-menu-mobile-menu-bg"></div>
-        <div class="header-menu-mobile-menu-wrap">
-            <div class="header-menu-mobile-menu-inner">
-                <div class="header-menu-mobile-menu-close" id="mobile-menu-close">
-                    <i class="icon icon-cross"></i>
-                </div>
-                <div class="header-menu-mobile-menu-list">
-                    
-                    <a href="/">Home</a>
-                    
-                    <a href="/archives">Archives</a>
-                    
-                    <a href="/friends">Friends</a>
-                    
-                    <a href="/collect">Collect</a>
-                    
-                    <a href="/photography">Phtotgraphy</a>
-                    
-                </div>
-            </div>
-        </div>
-    </div>
-
-</div>
-
-    <div class="container">
-        <div class="main">
-            <section class="inner">
-                <section class="inner-main">
-                    <div class="post">
-    <article id="post-cl7vfxqty001vbw9c8yvn8sty" class="article article-type-post" itemscope
-    itemprop="blogPost">
-
-    <div class="article-inner">
-
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
         
-          
-        
-        
-        
-
-        
-        <header class="article-header">
-            
-  
-    <h1 class="article-title" itemprop="name">
-      function
-    </h1>
-  
-
-        </header>
-        
-
-        <div class="article-more-info article-more-info-post hairline">
-
-            <div class="article-date">
-  <time datetime="2022-05-27T13:36:19.000Z" itemprop="datePublished">2022-05-27</time>
-</div>
-
-            
-
-            
-            <div class="article-tag">
-                <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cpp/" rel="tag">cpp</a></li></ul>
-            </div>
-            
-
-            
-            <div class="article-busuanzi">
-                <span id="busuanzi_value_page_pv">N</span> 人看过
-            </div>
-            
-
-        </div>
-
-        <div class="article-entry post-inner-html hairline" itemprop="articleBody">
-            <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>函数是指一段可以直接被另一段程序或代码引用的程序或代码。也叫做子程序、（OOP中）方法。<br>在程序设计中，常将一些常用的功能模块编写成函数，放在函数库中供公共选用。要善于利用函数，以减少重复编写程序段的工作量。</p>
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.1"><link rel="alternate" href="/atom.xml" title="Box'Blog" type="application/atom+xml">
+</head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/images/logo.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">141</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">22</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 生活</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/collect/"><i class="fa-fw fa fa-star"></i><span> 收藏</span></a></li><li><a class="site-page child" href="/photography/"><i class="fa-fw fa fa-camera-retro"></i><span> 相册</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/messageboard/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/images/cover/cover2.png')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Box'Blog</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 生活</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/collect/"><i class="fa-fw fa fa-star"></i><span> 收藏</span></a></li><li><a class="site-page child" href="/photography/"><i class="fa-fw fa fa-camera-retro"></i><span> 相册</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/messageboard/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">function</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-05-27T13:36:19.000Z" title="发表于 2022-05-27 21:36:19">2022-05-27</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-10-01T07:11:56.184Z" title="更新于 2022-10-01 15:11:56">2022-10-01</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/cpp%E5%AD%A6%E4%B9%A0/">cpp学习</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">2.6k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>9分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="function"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>函数是指一段可以直接被另一段程序或代码引用的程序或代码。也叫做子程序、（OOP中）方法。<br>在程序设计中，常将一些常用的功能模块编写成函数，放在函数库中供公共选用。要善于利用函数，以减少重复编写程序段的工作量。</p>
 <span id="more"></span>
 
 
 <p>函数分为全局函数、全局静态函数；在类中还可以定义构造函数、析构函数、拷贝构造函数、成员函数、友元函数、运算符重载函数、内联函数等。</p>
 <hr>
 <h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><p>简而言之就是封装好的功能，通过特定方法调用。</p>
-<pre><code class="cpp">/*
- *  返回类型 函数名(参数，可以没有，也可以一到多个)&#123;
- *      功能区，需要实现的代码
- *      return 返回值； //如果是void类型的函数，则不需要return  
- *  &#125;
-*/
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> *  返回类型 函数名(参数，可以没有，也可以一到多个)&#123;</span></span><br><span class="line"><span class="comment"> *      功能区，需要实现的代码</span></span><br><span class="line"><span class="comment"> *      return 返回值； //如果是void类型的函数，则不需要return  </span></span><br><span class="line"><span class="comment"> *  &#125;</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">Add</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a+b;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">PrintHe</span><span class="params">(<span class="type">char</span> *ch)</span></span>&#123;</span><br><span class="line">    std::cout &lt;&lt; ch &lt;&lt; std::endl;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-int Add(int a, int b)&#123;
-    return a+b;
-&#125;
-
-void PrintHe(char *ch)&#123;
-    std::cout &lt;&lt; ch &lt;&lt; std::endl;
-&#125;
-</code></pre>
 <p>类型可以各式各样，但是要有准确结果和一定的复用性，不然写着也没啥用处。</p>
 <hr>
-<h2 id="自定义函数声明前后问题"><a href="#自定义函数声明前后问题" class="headerlink" title="自定义函数声明前后问题"></a>自定义函数声明前后问题</h2><pre><code class="cpp">#include&lt;iostream&gt;
-
-int add(int a, int b)&#123;
-    return a+b;
-&#125;
-
-int main()&#123;
-    int n = add(1,2);
-    return 0;
-&#125;
-</code></pre>
+<h2 id="自定义函数声明前后问题"><a href="#自定义函数声明前后问题" class="headerlink" title="自定义函数声明前后问题"></a>自定义函数声明前后问题</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">add</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a+b;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> n = <span class="built_in">add</span>(<span class="number">1</span>,<span class="number">2</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>这种情况下，自定义函数写在main函数之前，则不需要额外的单独声明</p>
 </blockquote>
-<pre><code class="cpp">#include&lt;iostream&gt;
-
-int add(int a,int b);
-
-int main()&#123;
-    //或者在此处声明int add(int a, int b);
-
-    int n = add(1,2);
-    return 0;
-&#125;
-
-int add(int a, int b)&#123;
-    return a+b;
-&#125;
-</code></pre>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">add</span><span class="params">(<span class="type">int</span> a,<span class="type">int</span> b)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="comment">//或者在此处声明int add(int a, int b);</span></span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> n = <span class="built_in">add</span>(<span class="number">1</span>,<span class="number">2</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">add</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a+b;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>假如实现的部分写在main函数之后，则需在main函数之前声明一个模板，或者在main函数内声明，区别就在于作用域不一样，在main函数之外声明的具有全局性，main函数之内声明的就是局部函数。<br>但其实不跨文件，终归都是在main函数里面运行，写在外面主要是好区分吧。</p>
 </blockquote>
 <hr>
-<h2 id="形参与实参"><a href="#形参与实参" class="headerlink" title="形参与实参"></a>形参与实参</h2><pre><code class="cpp">int add(int a, int b)&#123;
-    return a+b;
-&#125;
-</code></pre>
+<h2 id="形参与实参"><a href="#形参与实参" class="headerlink" title="形参与实参"></a>形参与实参</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">add</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a+b;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>注：这里的变量a和变量b实际上是不存在的，它只是一个类型参照，只有当你的形参被调用才会分配内存，调用完后立刻释放，所以形参只在函数内有效，并且你传递的变量跟a和b重名也没有关系<br>故此，我们称函数里的参数为形式参数，这里简称形参</p>
 </blockquote>
-<pre><code class="cpp">int main()&#123;
-    int i = 1;
-    int j = 2;
-    int k = add(i, j);
-
-    return 0;
-&#125;
-</code></pre>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> i = <span class="number">1</span>;</span><br><span class="line">    <span class="type">int</span> j = <span class="number">2</span>;</span><br><span class="line">    <span class="type">int</span> k = <span class="built_in">add</span>(i, j);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>此处的i和j，是实质的变量，它俩声明的时候就占用了内存空间，进行函数传递的时候，他俩就是实际参数，简称实参<br>在此处也要引出另一个点，实参传递给形参的只是一个值，这个值在函数内怎么变化都不会影响实参。</p>
 </blockquote>
 <hr>
-<h2 id="经典swap问题"><a href="#经典swap问题" class="headerlink" title="经典swap问题"></a>经典swap问题</h2><pre><code class="cpp">void swap(int a, int b)&#123;
-    int tmp = a;
-    a = b;
-    b = a;
-&#125;
-int main()&#123;
-    int a = 5;
-    int b = 3;
-    swap(a,b);
-
-    std::cout &lt;&lt; &quot;a=&quot; &lt;&lt; a &lt;&lt; &quot;,b=  &quot; &lt;&lt; std::endl;
-
-    return 0;
-&#125;
-</code></pre>
+<h2 id="经典swap问题"><a href="#经典swap问题" class="headerlink" title="经典swap问题"></a>经典swap问题</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">swap</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b)</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> tmp = a;</span><br><span class="line">    a = b;</span><br><span class="line">    b = a;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> a = <span class="number">5</span>;</span><br><span class="line">    <span class="type">int</span> b = <span class="number">3</span>;</span><br><span class="line">    <span class="built_in">swap</span>(a,b);</span><br><span class="line"></span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;a=&quot;</span> &lt;&lt; a &lt;&lt; <span class="string">&quot;,b=  &quot;</span> &lt;&lt; std::endl;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>在形参和实参的时候解释过了，实参传递给形参的时候，只是传递了值。就是相当于激活了形参，形参拥有的只是实参的值，用完形参就释放了。所以这里a和b并不会交换值。<br>但如果想要真的交换两个变量的值，就需要对它的地址进行操作</p>
 </blockquote>
-<h3 id="C语言swap"><a href="#C语言swap" class="headerlink" title="C语言swap"></a>C语言swap</h3><pre><code class="c">void swap(int *a, int *b)&#123;
-    int tmp = *a;
-    *a = *b;
-    *b = tmp;
-&#125;
-
-int main()&#123;
-    int a = 5;
-    int b = 3;
-    swap(&amp;a, &amp;b);
-
-    std::cout &lt;&lt; &quot;a=&quot; &lt;&lt; a &lt;&lt; &quot;,b=&quot; &lt;&lt; b &lt;&lt; std::endl;
-
-    return 0;
-&#125;
-</code></pre>
+<h3 id="C语言swap"><a href="#C语言swap" class="headerlink" title="C语言swap"></a>C语言swap</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">swap</span><span class="params">(<span class="type">int</span> *a, <span class="type">int</span> *b)</span>&#123;</span><br><span class="line">    <span class="type">int</span> tmp = *a;</span><br><span class="line">    *a = *b;</span><br><span class="line">    *b = tmp;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line">    <span class="type">int</span> a = <span class="number">5</span>;</span><br><span class="line">    <span class="type">int</span> b = <span class="number">3</span>;</span><br><span class="line">    swap(&amp;a, &amp;b);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;a=&quot;</span> &lt;&lt; a &lt;&lt; <span class="string">&quot;,b=&quot;</span> &lt;&lt; b &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <img src="/2022/05/27/function/000.png" class="">
 <blockquote>
 <p>C语言没有引用这个特性，所以依靠的是指针<br>而c++则都可以实现</p>
@@ -333,9 +191,7 @@ int main()&#123;
 <hr>
 <h2 id="数组参数"><a href="#数组参数" class="headerlink" title="数组参数"></a>数组参数</h2><p>上述的swap问题所使用的形参是指针类型，此处提及数组参数的时候</p>
 <p>参数为数组时：</p>
-<pre><code class="cpp">void sortInt(int ch[])&#123;
-&#125;
-</code></pre>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">sortInt</span><span class="params">(<span class="type">int</span> ch[])</span></span>&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>这里需要强调一个问题，就是印象中，声明数组必须指定大小，除非是初始化的时候写好了。<br>那么作为形参的数组为什么不需要指定大小？<br>底层中，数组就是指针实现的，所以c语言和c++在编译的时候不对形参数组大小做检查，因为形参接受到的是实参的首地址！</p>
 </blockquote>
@@ -345,98 +201,46 @@ int main()&#123;
 <img src="/2022/05/27/function/002.png" class="">
 <p>发现结果是8，这也就是表明了这个大小代表的是指针的大小。</p>
 <p>提到soft，我们可以配合冒泡排序对数组进行排序</p>
-<pre><code class="cpp">void sortInt(int ch[], unsigned len)&#123;
-    for (int i = 0; i &lt; len; i++)&#123;
-        for (int j = i; j &lt; len - i - 1; j++)&#123;
-            if (ch[j] &lt; ch[j + 1])&#123;
-                int tmp = ch[j];
-                ch[j] = ch[j + 1];
-                ch[j + 1] = tmp;
-            &#125;
-        &#125;
-    &#125;
-&#125;
-int main()&#123;
-    int ch1[5]&#123; 100,20,25,58,79 &#125;;
-    sortInt(ch1,5);
-
-    for (auto n : ch1) std::cout &lt;&lt; n &lt;&lt; &quot;\t&quot;;
-
-    return 0;
-&#125;
-</code></pre>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">sortInt</span><span class="params">(<span class="type">int</span> ch[], <span class="type">unsigned</span> len)</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; len; i++)&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> j = i; j &lt; len - i - <span class="number">1</span>; j++)&#123;</span><br><span class="line">            <span class="keyword">if</span> (ch[j] &lt; ch[j + <span class="number">1</span>])&#123;</span><br><span class="line">                <span class="type">int</span> tmp = ch[j];</span><br><span class="line">                ch[j] = ch[j + <span class="number">1</span>];</span><br><span class="line">                ch[j + <span class="number">1</span>] = tmp;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> ch1[<span class="number">5</span>]&#123; <span class="number">100</span>,<span class="number">20</span>,<span class="number">25</span>,<span class="number">58</span>,<span class="number">79</span> &#125;;</span><br><span class="line">    <span class="built_in">sortInt</span>(ch1,<span class="number">5</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">auto</span> n : ch1) std::cout &lt;&lt; n &lt;&lt; <span class="string">&quot;\t&quot;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>结果为：<img src="/2022/05/27/function/003.png" class=""></p>
 <p>可以先不管算法，我们看到排序的时候函数形参除了数组还有个长度，当在我们印象里数组的长度似乎可以通过<code>sizeof(ch)/sizeof(ch[0])</code>得到，但是这里为什么不能这么写。</p>
 <ol>
 <li>我们之前说过，形参数组接收到的是实参的地址，也就是指针，而指针在x86下占用4字节，x64下占用8字节，当处于x86环境下，<code>sizeof(ch)/sizeof(ch[0])</code>就变成了4&#x2F;4 &#x3D; 1；故此循环就没能跑起来。不信邪的可以debug测试看这句表达式的值。</li>
 </ol>
 <p>然后就是模板问题，数组底层是指针，但是在设置形参的时候，使用数组和指针给人的第一印象是不一样的</p>
-<pre><code class="cpp">void sortInt(int ch[], unsigned len)&#123;
-&#125;
-//or
-void sortInt(int *ch, unsigned len)&#123;
-&#125;
-</code></pre>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">sortInt</span><span class="params">(<span class="type">int</span> ch[], <span class="type">unsigned</span> len)</span></span>&#123;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//or</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">sortInt</span><span class="params">(<span class="type">int</span> *ch, <span class="type">unsigned</span> len)</span></span>&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>再不看函数名的情况下，只看形参，不一定就能看出第二个函数是干什么的。<br>当然效果都是一样的，只是在可阅读性上，我们尽量不为难自己人</p>
 </blockquote>
 <p>然后是多维数组，例如二维：</p>
-<pre><code class="cpp">void sortInt(int ch[][], unsigned len)&#123;
-&#125;
-</code></pre>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">sortInt</span><span class="params">(<span class="type">int</span> ch[][], <span class="type">unsigned</span> len)</span></span>&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><strong>这种写法肯定就不合适了！</strong><br>学过数组的都知道，二维数组可以不声明有多少行，但是要声明多少列，从实参传递来的是数组的起始地址，在内存中按数组排列规则存放(按⾏存放)，⽽并不区分⾏和列，如果在形参中不说明列数，则系统⽆法决定应为多少⾏多少列，不能只指定⼀维⽽不指定第⼆维<br>形参是实参的模板，所以形参肯定也要是合法的。</p>
 <hr>
 <h2 id="引用参数"><a href="#引用参数" class="headerlink" title="引用参数"></a>引用参数</h2><p>引用就是<code>int &amp;a = b;</code>，放到函数里</p>
-<pre><code class="cpp">void hhh(int &amp;n)&#123;
-    n = 100;
-&#125;
-</code></pre>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">hhh</span><span class="params">(<span class="type">int</span> &amp;n)</span></span>&#123;</span><br><span class="line">    n = <span class="number">100</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>引用变量可以修改被引用的变量：</p>
-<pre><code class="cpp">int a = 10;
-hhh(a);
-std::cout &lt;&lt; a &lt;&lt; std::endl;
-</code></pre>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> a = <span class="number">10</span>;</span><br><span class="line"><span class="built_in">hhh</span>(a);</span><br><span class="line">std::cout &lt;&lt; a &lt;&lt; std::endl;</span><br></pre></td></tr></table></figure>
 <p>得到结果：<img src="/2022/05/27/function/004.png" class=""><br>如果不想被修改，那就只有在类型前加上const限定为常量。</p>
 <p>之前提到过引用其实就是弱化的指针，放到形参上他俩的区别就是指针可以传入nullptr，也就是空指针；而引用不能传入nullptr。因为引用是必然要初始化的，指针稍不留神就会漏掉。</p>
 <blockquote>
 <p>引用作为参数的时候，对于结构体才会用的比较多，现在的体会比较少</p>
 </blockquote>
 <p>不过对于swap函数，引用就派上用场了</p>
-<pre><code class="cpp">void swap(int &amp;a,int &amp;b)&#123;
-    int tmp = a;
-    a = b;
-    b = tmp;
-&#125;
-</code></pre>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">swap</span><span class="params">(<span class="type">int</span> &amp;a,<span class="type">int</span> &amp;b)</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> tmp = a;</span><br><span class="line">    a = b;</span><br><span class="line">    b = tmp;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>效果也是一样的，对比指针还要用*号取值时更直观点。</p>
 <hr>
-<h2 id="默认实参"><a href="#默认实参" class="headerlink" title="默认实参"></a>默认实参</h2><pre><code class="cpp">void hh(int a,int b,int c,bool d)&#123;&#125;
-</code></pre>
+<h2 id="默认实参"><a href="#默认实参" class="headerlink" title="默认实参"></a>默认实参</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">hh</span><span class="params">(<span class="type">int</span> a,<span class="type">int</span> b,<span class="type">int</span> c,<span class="type">bool</span> d)</span></span>&#123;&#125;</span><br></pre></td></tr></table></figure>
 <p>我们在声明函数的时候，形参是各式各样的，但是针对一些值，比如布尔类型，他就两种结果，有的时候我们就想不声明了，让他默认有一个值，方法也很简单：</p>
-<pre><code class="cpp">void hh(int a,int b,int c,bool d=true)&#123;&#125;
-</code></pre>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">hh</span><span class="params">(<span class="type">int</span> a,<span class="type">int</span> b,<span class="type">int</span> c,<span class="type">bool</span> d=<span class="literal">true</span>)</span></span>&#123;&#125;</span><br></pre></td></tr></table></figure>
 <p>不想额外声明的可以提前定义一个值作为默认参数<br><strong>注：默认参数可以有多个但只能放在最后面，否则调用函数时hh(1,3, ,3)在中间留空，则导致参数不匹配了。但如果形参都设置了默认值那也无可厚非，参数自然能匹配上</strong></p>
 <hr>
 <h2 id="不定量参数"><a href="#不定量参数" class="headerlink" title="不定量参数"></a>不定量参数</h2><p>学网络的时候常在cmd中用ping命令，ping是人为写好的功能，一般存放在<code>C:/Windows/</code>下，ping 可以是ping网址也可以pingIP地址，但是这俩参数都是不确定的，并且还有一些其他功能-t 持续ping之类的，这些都是不确定的。</p>
 <p>在老的编译器那会，创建模板的时候main函数括号里是有两个形参的，这好像也是c语言规定的主函数的形参就俩</p>
-<pre><code class="cpp">int main(int argc,char *argv[])&#123;
-    /*
-     * argc表示命令行的参数个数
-     * argv表示有argc搁参数，[0]是以程序名开始，随后每多一个参数就一一匹配上。
-    */
-&#125;
-</code></pre>
-<p>不好理解的可以直接写段代码看看：</p>
-<pre><code class="cpp">int main(int argc,char *argv[])&#123;
-    std::cout &lt;&lt; &quot;argc=&quot; &lt;&lt; argc &lt;&lt; std::endl;
-    for (int i = 0; i &lt; argc; i++)&#123;
-        std::cout &lt;&lt; argv[i] &lt;&lt; std::endl;
-    &#125;
-    
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">(<span class="type">int</span> argc,<span class="type">char</span> *argv[])</span></span>&#123;</span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">     * argc表示命令行的参数个数</span></span><br><span class="line"><span class="comment">     * argv表示有argc搁参数，[0]是以程序名开始，随后每多一个参数就一一匹配上。</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-    return 0;
-&#125;
-</code></pre>
+<p>不好理解的可以直接写段代码看看：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">(<span class="type">int</span> argc,<span class="type">char</span> *argv[])</span></span>&#123;</span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;argc=&quot;</span> &lt;&lt; argc &lt;&lt; std::endl;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; argc; i++)&#123;</span><br><span class="line">        std::cout &lt;&lt; argv[i] &lt;&lt; std::endl;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <img src="/2022/05/27/function/005.png" class="">
 <p>右击main函数打开所在文件夹，然后找到Debug目录下，不用看x64，如果你是x64编译的就去找x64下的debug。<br>进去之后看到这个项目名.exe程序，右击文件夹空白地方打开终端：</p>
 <img src="/2022/05/27/function/006.png" class="">
@@ -448,231 +252,41 @@ std::cout &lt;&lt; a &lt;&lt; std::endl;
 <p>argv就像一个数组制作的字符串，输入的参数会分配到一片连续的空间，并且以0结尾。</p>
 <hr>
 <h1 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h1><p>函数的模板其实没啥好写的，用着用着就习惯了</p>
-
-        </div>
-
-    </div>
-
-    
-
-    
-
-    
-
-    
-  <div class="article-copyright hairline">
-    <p>
-      本作品采用  <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议 (CC BY-NC-ND 4.0)</a> 进行许可。
-    </p>
-  </div>
-  
-
-    
-
-    
-<nav class="article-nav">
-  
-    <a href="/2022/05/28/functionTest/" id="article-nav-newer" class="article-nav-link-wrap">
-      <div class="article-nav-caption">下一篇</div>
-      <div class="article-nav-title">
-        
-          functionTest
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2022/05/27/text003/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-caption">上一篇</div>
-      <div class="article-nav-title">text003</div>
-    </a>
-  
-</nav>
-
-
-    <section class="share">
-        <div class="share-title">分享</div>
-        <a class="share-item" target="_blank"
-            href="https://twitter.com/share?text=function - ohmyhsy&url=https%3A%2F%2F8bytes.top%2F2022%2F05%2F27%2Ffunction%2F">
-            <box-icon type='logo' name='twitter'></box-icon>
-        </a>
-        <a class="share-item" target="_blank"
-            href="https://www.facebook.com/sharer.php?title=function - ohmyhsy&u=https%3A%2F%2F8bytes.top%2F2022%2F05%2F27%2Ffunction%2F">
-            <box-icon name='facebook-square' type='logo' ></box-icon>
-        </a>
-        <!-- <a class="share-item" target="_blank"
-            href="https://service.weibo.com/share/share.php?title=function - ohmyhsy&url=https://8bytes.top/2022/05/27/function/&pic=">
-            <div class="n-icon n-icon-weibo"></div>
-        </a> -->
-    </section>
-
-</article>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <!-- <script src="//unpkg.com/@waline/dist/Waline.min.js"></script> -->
-    <script src="https://unpkg.com/@waline/client@v2/dist/waline.js"></script>
-    <link
-        rel="stylesheet"
-        href="https://unpkg.com/@waline/client@v2/dist/waline.css"
-    />
-    <section class="comments">
-        <div id="waline"></div>
-    </section>
-    <script>
-        Waline.init({
-          el: '#waline',
-          serverURL: 'https://ohmyhsy.vercel.app/',
-        });
-    </script>
-
-
-
-<script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-</div>
-
-                </section>
-            </section>
-
-            
-            <aside class="sidebar sidebar-search-fix">
-                
-
-    <div class="search">
-    <div class="has-icon-right">
-        <input type="text" class="form-input" id="search" placeholder="SEARCH" autocomplete="off">
-        <div class="form-icon">
-            <box-icon name='search' color="#3c4859"></box-icon>
-        </div>
-    </div>
-    <div class="search-result" id="search-ps"></div>
-</div>
-
-
-<div class="widget" id="widget">
-    
-      
-  <div class="widget-wrap">
-    <div class="widget-inner">
-      <div class="toc post-toc-html"></div>
-    </div>
-  </div>
-
-    
-      
-
-    
-      
-  <div class="widget-wrap widget-tags">
-    <div class="widget-title"><span>Tags</span></div>
-    <div class="widget-inner">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/MFC/" rel="tag">MFC</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NoteBook/" rel="tag">NoteBook</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RemoteControl/" rel="tag">RemoteControl</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c/" rel="tag">c</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cheat-engine/" rel="tag">cheat engine</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/compiler/" rel="tag">compiler</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cpp/" rel="tag">cpp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/exam/" rel="tag">exam</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jetbrains/" rel="tag">jetbrains</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/" rel="tag">leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/life/" rel="tag">life</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/phone/" rel="tag">phone</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ubuntu/" rel="tag">ubuntu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/visual-studio-2022/" rel="tag">visual studio 2022</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vscode/" rel="tag">vscode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/windows/" rel="tag">windows</a></li></ul>
-    </div>
-  </div>
-
-
-    
-      
-  <div class="widget-wrap widget-recent-posts">
-    <div class="widget-title"><span>Recent Posts</span></div>
-    <div class="widget-inner">
-      <ul>
-        
-          <li>
-            <a href="/2022/09/16/phoneTest/">给爪机上点科技</a>
-          </li>
-        
-          <li>
-            <a href="/2022/09/15/%E8%BF%9C%E6%8E%A7%E9%97%AE%E9%A2%98%E9%9B%86/">远控问题集</a>
-          </li>
-        
-          <li>
-            <a href="/2022/09/10/text021/">text021</a>
-          </li>
-        
-          <li>
-            <a href="/2022/09/10/text020/">text020</a>
-          </li>
-        
-          <li>
-            <a href="/2022/09/05/text019/">text019</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-    
-      
-  <div class="widget-wrap widget-archive">
-    <div class="widget-title"><span>Archive</span></div>
-    <div class="widget-inner">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/">2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/">2021</a></li></ul>
-    </div>
-  </div>
-
-
-    
-</div>
-
-<div id="backtop"><i class="icon icon-arrow-up"></i></div>
-            </aside>
-            
-        </div>
-    </div>
-
-    <footer class="footer">
-    <div class="footer-wave">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#3c4859" fill-opacity="1" d="M0,160L60,181.3C120,203,240,245,360,240C480,235,600,181,720,186.7C840,192,960,256,1080,261.3C1200,267,1320,213,1380,186.7L1440,160L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>
-    </div>
-
-    <!-- Please do not remove this -->
-    <!-- 开源不易，请勿删除 -->
-    <div class="footer-wrap">
-        <div class="footer-inner"> 
-            ohmyhsy &copy; 2022<br>
-            Powered By Hexo · Theme By <a href="https://linhong.me/" target="_blank">Aomori</a> · <a href="https://github.com/lh1me/hexo-theme-aomori" target="_blank">Github</a>
-        </div>
-    </div>
-
-</footer>
-
-
-
-
-
-
-<script src="/dist/build.js?1646451311888.js"></script>
-
-
-<script src="/dist/custom.js?1646451311888.js"></script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-</body>
-
-</html>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://8bytes.top">Box</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://8bytes.top/2022/05/27/function/">https://8bytes.top/2022/05/27/function/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://8bytes.top" target="_blank">Box'Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/cpp/">cpp</a></div><div class="post_share"><div class="social-share" data-image="/images/cover/cover2.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2022/05/28/functionTest/"><img class="prev-cover" src="/images/cover/cover5.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">functionTest</div></div></a></div><div class="next-post pull-right"><a href="/2022/05/26/string2/"><img class="next-cover" src="/images/cover/cover2.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">string2</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2022/06/23/Constructor/" title="构造函数"><img class="cover" src="/images/cover/cover7.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-06-23</div><div class="title">构造函数</div></div></a></div><div><a href="/2022/06/23/Constructor1/" title="构造函数+1"><img class="cover" src="/images/cover/cover8.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-06-23</div><div class="title">构造函数+1</div></div></a></div><div><a href="/2022/06/25/CustonCallFunction/" title="自定义类的函数调用约定"><img class="cover" src="/images/cover/cover.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-06-25</div><div class="title">自定义类的函数调用约定</div></div></a></div><div><a href="/2022/06/30/DerivedclassFun/" title="派生类的构造函数"><img class="cover" src="/images/cover/cover2.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-06-30</div><div class="title">派生类的构造函数</div></div></a></div><div><a href="/2022/06/29/Derivedclass/" title="派生类的访问"><img class="cover" src="/images/cover/cover4.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-06-29</div><div class="title">派生类的访问</div></div></a></div><div><a href="/2022/06/30/DerivedclassFun1/" title="派生类的析构函数和重名问题"><img class="cover" src="/images/cover/cover1.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-06-30</div><div class="title">派生类的析构函数和重名问题</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="waline-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/images/logo.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Box</div><div class="author-info__description">知其不可奈何而安之若命</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">141</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">22</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/8bytes-code"><i class="fab fa-github"></i><span>Github</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">鼠鼠我啊懂点电脑会点C/C++<br/>是一个不够勤快的鼠鼠啊<br/>努力找到自己的下水道吧</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%AD%A3%E6%96%87"><span class="toc-number">2.</span> <span class="toc-text">正文</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E5%87%BD%E6%95%B0%E5%A3%B0%E6%98%8E%E5%89%8D%E5%90%8E%E9%97%AE%E9%A2%98"><span class="toc-number">2.1.</span> <span class="toc-text">自定义函数声明前后问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BD%A2%E5%8F%82%E4%B8%8E%E5%AE%9E%E5%8F%82"><span class="toc-number">2.2.</span> <span class="toc-text">形参与实参</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%8F%E5%85%B8swap%E9%97%AE%E9%A2%98"><span class="toc-number">2.3.</span> <span class="toc-text">经典swap问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#C%E8%AF%AD%E8%A8%80swap"><span class="toc-number">2.3.1.</span> <span class="toc-text">C语言swap</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E7%BB%84%E5%8F%82%E6%95%B0"><span class="toc-number">2.4.</span> <span class="toc-text">数组参数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%95%E7%94%A8%E5%8F%82%E6%95%B0"><span class="toc-number">2.5.</span> <span class="toc-text">引用参数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%BB%98%E8%AE%A4%E5%AE%9E%E5%8F%82"><span class="toc-number">2.6.</span> <span class="toc-text">默认实参</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8D%E5%AE%9A%E9%87%8F%E5%8F%82%E6%95%B0"><span class="toc-number">2.7.</span> <span class="toc-text">不定量参数</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BB%93%E8%AF%AD"><span class="toc-number">3.</span> <span class="toc-text">结语</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2022/12/10/%E6%97%81%E5%90%AC%E9%9D%A2%E8%AF%952-0/" title="旁听面试2.0"><img src="/images/cover/cover9.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="旁听面试2.0"/></a><div class="content"><a class="title" href="/2022/12/10/%E6%97%81%E5%90%AC%E9%9D%A2%E8%AF%952-0/" title="旁听面试2.0">旁听面试2.0</a><time datetime="2022-12-10T05:59:28.000Z" title="发表于 2022-12-10 13:59:28">2022-12-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/11/30/vs%E4%B9%B1%E7%A0%81/" title="【软件】vs2022控制台乱码"><img src="/images/cover/cover6.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="【软件】vs2022控制台乱码"/></a><div class="content"><a class="title" href="/2022/11/30/vs%E4%B9%B1%E7%A0%81/" title="【软件】vs2022控制台乱码">【软件】vs2022控制台乱码</a><time datetime="2022-11-30T11:00:03.000Z" title="发表于 2022-11-30 19:00:03">2022-11-30</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/11/29/jsoncpp%E7%BC%96%E8%AF%91%E4%BD%BF%E7%94%A8/" title="JsonCpp编译使用"><img src="/images/cover/cover5.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="JsonCpp编译使用"/></a><div class="content"><a class="title" href="/2022/11/29/jsoncpp%E7%BC%96%E8%AF%91%E4%BD%BF%E7%94%A8/" title="JsonCpp编译使用">JsonCpp编译使用</a><time datetime="2022-11-29T11:59:56.000Z" title="发表于 2022-11-29 19:59:56">2022-11-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/11/28/%E6%98%93%E6%A0%88/" title="易栈"><img src="/images/cover/cover2.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="易栈"/></a><div class="content"><a class="title" href="/2022/11/28/%E6%98%93%E6%A0%88/" title="易栈">易栈</a><time datetime="2022-11-28T04:42:03.000Z" title="发表于 2022-11-28 12:42:03">2022-11-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/11/22/%E9%9D%A2%E8%AF%951-0/" title="听别人面1.0"><img src="/images/cover/cover5.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="听别人面1.0"/></a><div class="content"><a class="title" href="/2022/11/22/%E9%9D%A2%E8%AF%951-0/" title="听别人面1.0">听别人面1.0</a><time datetime="2022-11-22T01:25:17.000Z" title="发表于 2022-11-22 09:25:17">2022-11-22</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('/images/cover/cover2.png')"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By Box</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">我下班了蟹老板~</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">简</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>function loadWaline () {
+  function insertCSS () {
+    const link = document.createElement("link")
+    link.rel = "stylesheet"
+    link.href = "https://cdn.jsdelivr.net/npm/@waline/client/dist/waline.min.css"
+    document.head.appendChild(link)
+  }
+
+  function initWaline () {
+    const waline = Waline.init(Object.assign({
+      el: '#waline-wrap',
+      serverURL: 'https://ohmyhsy.vercel.app/',
+      pageview: false,
+      dark: 'html[data-theme="dark"]',
+      path: window.location.pathname,
+      comment: false,
+    }, null))
+  }
+
+  if (typeof Waline === 'function') initWaline()
+  else {
+    insertCSS()
+    getScript('https://cdn.jsdelivr.net/npm/@waline/client/dist/waline.min.js').then(initWaline)
+  }
+}
+
+if ('Waline' === 'Waline' || !false) {
+  if (false) btf.loadComment(document.getElementById('waline-wrap'),loadWaline)
+  else setTimeout(loadWaline, 0)
+} else {
+  function loadOtherComment () {
+    loadWaline()
+  }
+}</script></div><canvas class="fireworks" mobile="false"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/fireworks.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

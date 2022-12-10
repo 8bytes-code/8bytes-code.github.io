@@ -1,282 +1,178 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html><html lang="[&quot;zh-CN&quot;,&quot;zh-TW&quot;,&quot;en&quot;,&quot;default&quot;]" data-theme="dark"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>构造函数 | Box'Blog</title><meta name="author" content="Box"><meta name="copyright" content="Box"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#0d0d0d"><meta name="description" content="前言构造函数也是类的成员函数，但是比较特殊。类一共有两个特殊的函数，一个是构造函数，另一个是析构函数。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="构造函数">
+<meta property="og:url" content="https://8bytes.top/2022/06/23/Constructor/index.html">
+<meta property="og:site_name" content="Box&#39;Blog">
+<meta property="og:description" content="前言构造函数也是类的成员函数，但是比较特殊。类一共有两个特殊的函数，一个是构造函数，另一个是析构函数。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://8bytes.top/images/cover/cover7.png">
+<meta property="article:published_time" content="2022-06-23T04:37:37.000Z">
+<meta property="article:modified_time" content="2022-10-01T07:10:53.365Z">
+<meta property="article:author" content="Box">
+<meta property="article:tag" content="cpp">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://8bytes.top/images/cover/cover7.png"><link rel="shortcut icon" href="/img/favicon.svg"><link rel="canonical" href="https://8bytes.top/2022/06/23/Constructor/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin=""/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?112e257877c02bad314b2fcefaca0aee";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web&amp;display=swap" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: {"defaultEncoding":1,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: Box","link":"链接: ","source":"来源: Box'Blog","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#1f1f1f","position":"bottom-left"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '构造函数',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-10-01 15:10:53'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-
-    
-    <title>构造函数 | ohmyhsy</title>
-
-    <meta name="description" content="&lt;h1 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;构造函数也是类的成员函数，但是比较特殊。&lt;br&gt;类一共有两个特殊的函数，一个是构造函数，另一个是析构函数。&lt;/p&gt;">
-    <meta name="keywords" content="8bytes-blog">
-
-    
-
-    <meta property="og:locale" content="cn" />
-    <meta property="og:type" content="article" />
-    <meta property="og:title" content= "构造函数 | ohmyhsy"  />
-    <meta property="og:description" content= "&lt;h1 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;构造函数也是类的成员函数，但是比较特殊。&lt;br&gt;类一共有两个特殊的函数，一个是构造函数，另一个是析构函数。&lt;/p&gt;" />
-    <meta property="og:url" content="https://8bytes.top/2022/06/23/Constructor/index.html" />
-    <meta property="og:site_name" content="" />
-    <meta property="article:author" content="Box" />
-    <meta property="article:publisher" content="" />
-    <meta property="og:description" content="&lt;h1 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;构造函数也是类的成员函数，但是比较特殊。&lt;br&gt;类一共有两个特殊的函数，一个是构造函数，另一个是析构函数。&lt;/p&gt;" />
-    <meta name="twitter:title" content="构造函数 | ohmyhsy"/>
-    <meta name="twitter:description" content="&lt;h1 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;构造函数也是类的成员函数，但是比较特殊。&lt;br&gt;类一共有两个特殊的函数，一个是构造函数，另一个是析构函数。&lt;/p&gt;"/>
-    <script type="application/ld+json">
-        {
-            "description": "&lt;h1 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;构造函数也是类的成员函数，但是比较特殊。&lt;br&gt;类一共有两个特殊的函数，一个是构造函数，另一个是析构函数。&lt;/p&gt;",
-            "author": { "@type": "Person", "name": "Box" },
-            "@type": "BlogPosting",
-            "url": "https://8bytes.top/2022/06/23/Constructor/index.html",
-            "publisher": {
-            "@type": "Organization",
-            "logo": {
-                "@type": "ImageObject",
-                "url": "https://8bytes.topundefined"
-            },
-            "name": "Box"
-            },
-            "headline": "构造函数 | ohmyhsy",
-            "datePublished": "2022-06-23T04:37:37.000Z",
-            "mainEntityOfPage": {
-                "@type": "WebPage",
-                "@id": "https://8bytes.top/2022/06/23/Constructor/index.html"
-            },
-            "@context": "http://schema.org"
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
         }
-    </script>
+        localStorage.setItem(key, JSON.stringify(item))
+      },
 
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
 
-
-
-    
-
-    
-    <meta property="algolia:search" data-application-id="4CVCYWPWWN" data-api-key="7757db6b0a31c3f94c301c885693ed0d" data-index-name="ohmyhsy">
-    
-
-    
-
-    
-
-    
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎮</text></svg>">
-    
-
-    
-
-    
-
-    
-<link rel="stylesheet" href="/dist/build.css?v=1646451311888.css">
-
-
-    
-<link rel="stylesheet" href="/dist/custom.css?v=1646451311888.css">
-
-
-    <script>
-        window.isPost = true
-        window.aomori = {
-            
-            
-            
+        if (!itemStr) {
+          return undefined
         }
-        window.aomori_logo_typed_animated = true
-        window.aomori_search_algolia = true
+        const item = JSON.parse(itemStr)
+        const now = new Date()
 
-    </script>
-
-<meta name="generator" content="Hexo 5.4.1"><link rel="alternate" href="/atom.xml" title="ohmyhsy" type="application/atom+xml">
-</head>
-
-<body>
-
-    <div class="container">
-    <header class="header">
-        <div class="header-type">
-            
-            <div class="header-type-inner">
-                
-                    <div id="typed-strings" style="display:none">
-                        <p>ohmyhsy</p>
-                    </div>
-                    <a class="header-type-title" id="typed" href="/"></a>
-                
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
     
-                
-            </div>
-        </div>
-        <div class="header-menu">
-            <div class="header-menu-inner">
-                
-                <a href="/">Home</a>
-                
-                <a href="/archives">Archives</a>
-                
-                <a href="/friends">Friends</a>
-                
-                <a href="/collect">Collect</a>
-                
-                <a href="/photography">Phtotgraphy</a>
-                
-            </div>
-            <div class="header-menu-social">
-                
-    <a class="social" target="_blank" href="https://github.com/8bytes-code">
-        <box-icon type='logo' name='github'></box-icon>
-    </a>
-
-            </div>
-        </div>
-
-        <div class="header-menu-mobile">
-            <div class="header-menu-mobile-inner" id="mobile-menu-open">
-                <i class="icon icon-menu"></i>
-            </div>
-        </div>
-    </header>
-
-    <div class="header-menu-mobile-menu">
-        <div class="header-menu-mobile-menu-bg"></div>
-        <div class="header-menu-mobile-menu-wrap">
-            <div class="header-menu-mobile-menu-inner">
-                <div class="header-menu-mobile-menu-close" id="mobile-menu-close">
-                    <i class="icon icon-cross"></i>
-                </div>
-                <div class="header-menu-mobile-menu-list">
-                    
-                    <a href="/">Home</a>
-                    
-                    <a href="/archives">Archives</a>
-                    
-                    <a href="/friends">Friends</a>
-                    
-                    <a href="/collect">Collect</a>
-                    
-                    <a href="/photography">Phtotgraphy</a>
-                    
-                </div>
-            </div>
-        </div>
-    </div>
-
-</div>
-
-    <div class="container">
-        <div class="main">
-            <section class="inner">
-                <section class="inner-main">
-                    <div class="post">
-    <article id="post-cl7vfxqtc0001bw9calxq0d1s" class="article article-type-post" itemscope
-    itemprop="blogPost">
-
-    <div class="article-inner">
-
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
         
-          
-        
-        
-        
-
-        
-        <header class="article-header">
-            
-  
-    <h1 class="article-title" itemprop="name">
-      构造函数
-    </h1>
-  
-
-        </header>
-        
-
-        <div class="article-more-info article-more-info-post hairline">
-
-            <div class="article-date">
-  <time datetime="2022-06-23T04:37:37.000Z" itemprop="datePublished">2022-06-23</time>
-</div>
-
-            
-
-            
-            <div class="article-tag">
-                <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cpp/" rel="tag">cpp</a></li></ul>
-            </div>
-            
-
-            
-            <div class="article-busuanzi">
-                <span id="busuanzi_value_page_pv">N</span> 人看过
-            </div>
-            
-
-        </div>
-
-        <div class="article-entry post-inner-html hairline" itemprop="articleBody">
-            <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>构造函数也是类的成员函数，但是比较特殊。<br>类一共有两个特殊的函数，一个是构造函数，另一个是析构函数。</p>
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.1"><link rel="alternate" href="/atom.xml" title="Box'Blog" type="application/atom+xml">
+</head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/images/logo.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">141</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">22</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 生活</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/collect/"><i class="fa-fw fa fa-star"></i><span> 收藏</span></a></li><li><a class="site-page child" href="/photography/"><i class="fa-fw fa fa-camera-retro"></i><span> 相册</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/messageboard/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/images/cover/cover7.png')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Box'Blog</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 生活</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/collect/"><i class="fa-fw fa fa-star"></i><span> 收藏</span></a></li><li><a class="site-page child" href="/photography/"><i class="fa-fw fa fa-camera-retro"></i><span> 相册</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/messageboard/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">构造函数</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-06-23T04:37:37.000Z" title="发表于 2022-06-23 12:37:37">2022-06-23</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-10-01T07:10:53.365Z" title="更新于 2022-10-01 15:10:53">2022-10-01</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/cpp%E5%AD%A6%E4%B9%A0/">cpp学习</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">1.4k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>5分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="构造函数"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>构造函数也是类的成员函数，但是比较特殊。<br>类一共有两个特殊的函数，一个是构造函数，另一个是析构函数。</p>
 <span id="more"></span>
 
 
 <hr>
-<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><h2 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h2><pre><code class="cpp">#pragma once
-class Hack&#123;
-public:
-    int hp;
-    int mp;
-&#125;;
-</code></pre>
-<pre><code class="cpp">int main()&#123;
-    Hack ha&#123;100,200&#125;;
-&#125;
-</code></pre>
+<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><h2 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">pragma</span> once</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Hack</span>&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="type">int</span> hp;</span><br><span class="line">	<span class="type">int</span> mp;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    Hack ha&#123;<span class="number">100</span>,<span class="number">200</span>&#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>在成员变量都为public属性时，可以通过这种方式顺序初始化。</p>
 <img src="/2022/06/23/Constructor/000.png" class="">
 <p>打印一下看到值是正确被赋予了。</p>
 <p>但是如果有个成员是私有的，那么这种顺序就被打乱了</p>
-<pre><code class="cpp">#pragma once
-class Hack&#123;
-public:
-    int hp;
-private:
-    int mp;
-&#125;;
-</code></pre>
-<pre><code class="cpp">int main()&#123;
-    Hack ha&#123; 100,200 &#125;; //error
-&#125;
-</code></pre>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">pragma</span> once</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Hack</span>&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="type">int</span> hp;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">	<span class="type">int</span> mp;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	Hack ha&#123; <span class="number">100</span>,<span class="number">200</span> &#125;; <span class="comment">//error</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>1是不匹配，2是设置的参数超了。</p>
 <p>归根结底就是类型没有对上，那么新建个类，然后给指定的参数赋值，在拷贝给这个类。</p>
-<pre><code class="cpp">int main()&#123;
-    Hack ha;
-    ha.hp = 100;
-    Hack hc = ha;
-&#125;
-</code></pre>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	Hack ha;</span><br><span class="line">	ha.hp = <span class="number">100</span>;</span><br><span class="line">	Hack hc = ha;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>这种方法是可行的，因为这样的拷贝就是只带上hp的值。</p>
 <img src="/2022/06/23/Constructor/001.png" class="">
 <p>打印出来也是行得通，但是这个私有的mp是肯定没法操作。</p>
 <hr>
 <h2 id="setter和getter"><a href="#setter和getter" class="headerlink" title="setter和getter"></a>setter和getter</h2><p>其实接触c++面向对象的时候前面上学学过一点java的。<br>就有两种方法，一种是传参 初始化私有的成员变量，一种是返回这个私有变量的值。</p>
 <p>手写也不难</p>
-<pre><code class="cpp">#pragma once
-class Hack&#123;
-public:
-    int hp;
-
-    void SetMp(int mp)&#123;
-        this-&gt;mp = mp;
-    &#125;
-    int GetMp()&#123;
-        return mp;
-    &#125;
-private:
-    int mp;
-&#125;;
-</code></pre>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">pragma</span> once</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Hack</span>&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="type">int</span> hp;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="type">void</span> <span class="title">SetMp</span><span class="params">(<span class="type">int</span> mp)</span></span>&#123;</span><br><span class="line">		<span class="keyword">this</span>-&gt;mp = mp;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="type">int</span> <span class="title">GetMp</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="keyword">return</span> mp;</span><br><span class="line">	&#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">	<span class="type">int</span> mp;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <img src="/2022/06/23/Constructor/002.png" class="">
 <p>的的确确是能够达到这种效果的。</p>
 <hr>
@@ -289,99 +185,44 @@ private:
 <li>每个类至少有一个构造函数</li>
 </ol>
 <p>所以说很特殊，但是很高级~</p>
-<pre><code class="cpp">#pragma once
-#include&lt;iostream&gt;
-class Hack&#123;
-public:
-    int hp;
-
-    void SetMp(int mp)&#123;
-        this-&gt;mp = mp;
-    &#125;
-    int GetMp()&#123;
-        return mp;
-    &#125;
-
-    Hack()&#123;
-        std::cout &lt;&lt; &quot;构造函数&quot; &lt;&lt; std::endl;
-        hp = 100;
-        mp = 200;
-    &#125;
-
-private:
-    int mp;
-&#125;;
-</code></pre>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">pragma</span> once</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Hack</span>&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="type">int</span> hp;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="type">void</span> <span class="title">SetMp</span><span class="params">(<span class="type">int</span> mp)</span></span>&#123;</span><br><span class="line">		<span class="keyword">this</span>-&gt;mp = mp;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="type">int</span> <span class="title">GetMp</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="keyword">return</span> mp;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="built_in">Hack</span>()&#123;</span><br><span class="line">		std::cout &lt;&lt; <span class="string">&quot;构造函数&quot;</span> &lt;&lt; std::endl;</span><br><span class="line">		hp = <span class="number">100</span>;</span><br><span class="line">		mp = <span class="number">200</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">	<span class="type">int</span> mp;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <img src="/2022/06/23/Constructor/003.png" class="">
 <p>看到在实例化对象的时候和在打印参数值之前，肯定是调用了构造函数的，因为我们在构造函数里面也加了一条打印。</p>
 <p>还有就是构造函数不止一个，说明它也可以重载</p>
-<pre><code class="cpp">Hack(int hp, int mp)&#123;
-    this-&gt;hp = hp;
-    this-&gt;mp = mp;
-&#125;
-</code></pre>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Hack</span>(<span class="type">int</span> hp, <span class="type">int</span> mp)&#123;</span><br><span class="line">    <span class="keyword">this</span>-&gt;hp = hp;</span><br><span class="line">    <span class="keyword">this</span>-&gt;mp = mp;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><strong>这里继续强调，形参名如果养成良好习惯就不要跟成员变量重复，除非你像我一样习惯用this指针去分开，否则就是一种无用行为，形参&#x3D;形参编译器都傻了</strong></p>
 <p>为了区分也加个cout</p>
-<pre><code class="cpp">Hack(int hp, int mp)&#123;
-    std::cout &lt;&lt; &quot;构造函数1&quot; &lt;&lt; std::endl;
-    this-&gt;hp = hp;
-    this-&gt;mp = mp;
-&#125;
-</code></pre>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Hack</span>(<span class="type">int</span> hp, <span class="type">int</span> mp)&#123;</span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;构造函数1&quot;</span> &lt;&lt; std::endl;</span><br><span class="line">    <span class="keyword">this</span>-&gt;hp = hp;</span><br><span class="line">    <span class="keyword">this</span>-&gt;mp = mp;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <img src="/2022/06/23/Constructor/004.png" class="">
 <p>可以看到效果很妙。</p>
 <p>重载嘛，把类的对象当参数也ok，因为之前是用<code>=</code>号去赋值</p>
-<pre><code class="cpp">Hack(Hack&amp; H)&#123;
-    std::cout &lt;&lt; &quot;构造函数2&quot; &lt;&lt; std::endl;
-    this-&gt;hp = H.hp;
-    this-&gt;mp = H.mp;
-&#125;
-</code></pre>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Hack</span>(Hack&amp; H)&#123;</span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;构造函数2&quot;</span> &lt;&lt; std::endl;</span><br><span class="line">    <span class="keyword">this</span>-&gt;hp = H.hp;</span><br><span class="line">    <span class="keyword">this</span>-&gt;mp = H.mp;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <img src="/2022/06/23/Constructor/005.png" class="">
 
 
 
 <hr>
 <h2 id="默认构造函数"><a href="#默认构造函数" class="headerlink" title="默认构造函数"></a>默认构造函数</h2><p>这个就很好理解，就是你没有主动写，那么编译器自动给它加上一个<code>类名()&#123;&#125;</code><br>这个默认构造函数，无参数无返回值，就是空的放在那里。</p>
-<pre><code class="cpp">class Box&#123;
-public:
-    int hp;
-    int mp;
-    //Box()&#123;&#125; 在没有定义构造函数的时候，默认存在的就是这样的。
-&#125;;
-</code></pre>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Box</span>&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="type">int</span> hp;</span><br><span class="line">    <span class="type">int</span> mp;</span><br><span class="line">    <span class="comment">//Box()&#123;&#125; 在没有定义构造函数的时候，默认存在的就是这样的。</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
 <hr>
 <h2 id="default"><a href="#default" class="headerlink" title="default"></a>default</h2><p>前面说到只要定义过构造函数，就不会出现默认构造函数，但有的时候可能还需要一个默认构造函数<br>就可以用到default关键字去声明。</p>
 <p><code>类名()&#123;&#125;</code> 默认构造函数<br><code>类名()=default;</code>用关键字定义默认构造函数</p>
 <p>当我们注释掉之前写的构造函数</p>
-<pre><code class="cpp">/*Hack()&#123;
-    std::cout &lt;&lt; &quot;构造函数&quot; &lt;&lt; std::endl;
-    hp = 100;
-    mp = 200;
-&#125;*/
-</code></pre>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*Hack()&#123;</span></span><br><span class="line"><span class="comment">    std::cout &lt;&lt; &quot;构造函数&quot; &lt;&lt; std::endl;</span></span><br><span class="line"><span class="comment">    hp = 100;</span></span><br><span class="line"><span class="comment">    mp = 200;</span></span><br><span class="line"><span class="comment">&#125;*/</span></span><br></pre></td></tr></table></figure>
 <p>这个时候你再去创建一个类的对象就会报错了</p>
 <img src="/2022/06/23/Constructor/006.png" class="">
 
 <p>解决的方法就是给它留个默认构造函数或者指定</p>
-<pre><code class="cpp">Hack()&#123;
-
-&#125;
-Hack() = default;
-</code></pre>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Hack</span>()&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">Hack</span>() = <span class="keyword">default</span>;</span><br></pre></td></tr></table></figure>
 <p>当然这两种方法只能存在一个，否则也是定义冲突。</p>
 <p>这两种孰优孰劣要看默认构造函数里面是否要存放什么比如初始化，如果要就选前者，如果不需要就选后者。</p>
 <hr>
 <h2 id="explicit"><a href="#explicit" class="headerlink" title="explicit"></a>explicit</h2><blockquote>
 <p>被explicit关键字修饰的构造函数会被禁止类型转换</p>
 </blockquote>
-<pre><code class="cpp">bool toMax(Hack hack)&#123;
-    return hack.GetMp() &gt; this-&gt;mp;
-&#125;
-Hack(int mp)&#123;
-    this-&gt;mp = mp;
-&#125;
-</code></pre>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">bool</span> <span class="title">toMax</span><span class="params">(Hack hack)</span></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> hack.<span class="built_in">GetMp</span>() &gt; <span class="keyword">this</span>-&gt;mp;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">Hack</span>(<span class="type">int</span> mp)&#123;</span><br><span class="line">    <span class="keyword">this</span>-&gt;mp = mp;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <img src="/2022/06/23/Constructor/007.png" class="">
 <p>布尔值，返回就是0或者1，这个很直观。</p>
 <img src="/2022/06/23/Constructor/008.png" class="">
@@ -391,240 +232,47 @@ Hack(int mp)&#123;
 <p>你会发现，我toMax函数明明参数是Hack类型的，居然放数字也成功了</p>
 <p>其实本质上就是编译器偷偷转换了，因为我们有个构造函数就是让传值赋给mp的。<br>你在调用<code>std::cout &lt;&lt; ha.toMax(900) &lt;&lt; std::endl;</code><br>他就会先把这个900传进给一个临时的hack对象，然后再用这个临时的对象去和ha作比较。</p>
 <p>那么说去掉这个构造函数就行，也确实是一个办法，但是有的时候我这个构造函数存在有他的道理，我只是不希望他被拿来做转换运算了。就可以使用explicit这个关键字</p>
-<pre><code class="cpp">explicit Hack(int mp)&#123;
-    this-&gt;mp = mp;
-&#125;
-</code></pre>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">explicit</span> <span class="title">Hack</span><span class="params">(<span class="type">int</span> mp)</span></span>&#123;</span><br><span class="line">    <span class="keyword">this</span>-&gt;mp = mp;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <img src="/2022/06/23/Constructor/010.png" class="">
 <p>调用的地方就会发生报错了，无法转换。</p>
 <p>这个在后面可以规避掉很多问题。</p>
 <hr>
 <h1 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h1><p>未完结待续。</p>
-
-        </div>
-
-    </div>
-
-    
-
-    
-
-    
-
-    
-  <div class="article-copyright hairline">
-    <p>
-      本作品采用  <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议 (CC BY-NC-ND 4.0)</a> 进行许可。
-    </p>
-  </div>
-  
-
-    
-
-    
-<nav class="article-nav">
-  
-    <a href="/2022/06/23/Constructor1/" id="article-nav-newer" class="article-nav-link-wrap">
-      <div class="article-nav-caption">下一篇</div>
-      <div class="article-nav-title">
-        
-          构造函数+1
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2022/06/22/const/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-caption">上一篇</div>
-      <div class="article-nav-title">const类</div>
-    </a>
-  
-</nav>
-
-
-    <section class="share">
-        <div class="share-title">分享</div>
-        <a class="share-item" target="_blank"
-            href="https://twitter.com/share?text=构造函数 - ohmyhsy&url=https%3A%2F%2F8bytes.top%2F2022%2F06%2F23%2FConstructor%2F">
-            <box-icon type='logo' name='twitter'></box-icon>
-        </a>
-        <a class="share-item" target="_blank"
-            href="https://www.facebook.com/sharer.php?title=构造函数 - ohmyhsy&u=https%3A%2F%2F8bytes.top%2F2022%2F06%2F23%2FConstructor%2F">
-            <box-icon name='facebook-square' type='logo' ></box-icon>
-        </a>
-        <!-- <a class="share-item" target="_blank"
-            href="https://service.weibo.com/share/share.php?title=构造函数 - ohmyhsy&url=https://8bytes.top/2022/06/23/Constructor/&pic=">
-            <div class="n-icon n-icon-weibo"></div>
-        </a> -->
-    </section>
-
-</article>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <!-- <script src="//unpkg.com/@waline/dist/Waline.min.js"></script> -->
-    <script src="https://unpkg.com/@waline/client@v2/dist/waline.js"></script>
-    <link
-        rel="stylesheet"
-        href="https://unpkg.com/@waline/client@v2/dist/waline.css"
-    />
-    <section class="comments">
-        <div id="waline"></div>
-    </section>
-    <script>
-        Waline.init({
-          el: '#waline',
-          serverURL: 'https://ohmyhsy.vercel.app/',
-        });
-    </script>
-
-
-
-<script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-</div>
-
-                </section>
-            </section>
-
-            
-            <aside class="sidebar sidebar-search-fix">
-                
-
-    <div class="search">
-    <div class="has-icon-right">
-        <input type="text" class="form-input" id="search" placeholder="SEARCH" autocomplete="off">
-        <div class="form-icon">
-            <box-icon name='search' color="#3c4859"></box-icon>
-        </div>
-    </div>
-    <div class="search-result" id="search-ps"></div>
-</div>
-
-
-<div class="widget" id="widget">
-    
-      
-  <div class="widget-wrap">
-    <div class="widget-inner">
-      <div class="toc post-toc-html"></div>
-    </div>
-  </div>
-
-    
-      
-
-    
-      
-  <div class="widget-wrap widget-tags">
-    <div class="widget-title"><span>Tags</span></div>
-    <div class="widget-inner">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/MFC/" rel="tag">MFC</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NoteBook/" rel="tag">NoteBook</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RemoteControl/" rel="tag">RemoteControl</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c/" rel="tag">c</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cheat-engine/" rel="tag">cheat engine</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/compiler/" rel="tag">compiler</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cpp/" rel="tag">cpp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/exam/" rel="tag">exam</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jetbrains/" rel="tag">jetbrains</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/" rel="tag">leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/life/" rel="tag">life</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/phone/" rel="tag">phone</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ubuntu/" rel="tag">ubuntu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/visual-studio-2022/" rel="tag">visual studio 2022</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vscode/" rel="tag">vscode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/windows/" rel="tag">windows</a></li></ul>
-    </div>
-  </div>
-
-
-    
-      
-  <div class="widget-wrap widget-recent-posts">
-    <div class="widget-title"><span>Recent Posts</span></div>
-    <div class="widget-inner">
-      <ul>
-        
-          <li>
-            <a href="/2022/09/16/phoneTest/">给爪机上点科技</a>
-          </li>
-        
-          <li>
-            <a href="/2022/09/15/%E8%BF%9C%E6%8E%A7%E9%97%AE%E9%A2%98%E9%9B%86/">远控问题集</a>
-          </li>
-        
-          <li>
-            <a href="/2022/09/10/text021/">text021</a>
-          </li>
-        
-          <li>
-            <a href="/2022/09/10/text020/">text020</a>
-          </li>
-        
-          <li>
-            <a href="/2022/09/05/text019/">text019</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-    
-      
-  <div class="widget-wrap widget-archive">
-    <div class="widget-title"><span>Archive</span></div>
-    <div class="widget-inner">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/">2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/">2021</a></li></ul>
-    </div>
-  </div>
-
-
-    
-</div>
-
-<div id="backtop"><i class="icon icon-arrow-up"></i></div>
-            </aside>
-            
-        </div>
-    </div>
-
-    <footer class="footer">
-    <div class="footer-wave">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#3c4859" fill-opacity="1" d="M0,160L60,181.3C120,203,240,245,360,240C480,235,600,181,720,186.7C840,192,960,256,1080,261.3C1200,267,1320,213,1380,186.7L1440,160L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>
-    </div>
-
-    <!-- Please do not remove this -->
-    <!-- 开源不易，请勿删除 -->
-    <div class="footer-wrap">
-        <div class="footer-inner"> 
-            ohmyhsy &copy; 2022<br>
-            Powered By Hexo · Theme By <a href="https://linhong.me/" target="_blank">Aomori</a> · <a href="https://github.com/lh1me/hexo-theme-aomori" target="_blank">Github</a>
-        </div>
-    </div>
-
-</footer>
-
-
-
-
-
-
-<script src="/dist/build.js?1646451311888.js"></script>
-
-
-<script src="/dist/custom.js?1646451311888.js"></script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-</body>
-
-</html>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://8bytes.top">Box</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://8bytes.top/2022/06/23/Constructor/">https://8bytes.top/2022/06/23/Constructor/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://8bytes.top" target="_blank">Box'Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/cpp/">cpp</a></div><div class="post_share"><div class="social-share" data-image="/images/cover/cover7.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2022/06/23/Constructor1/"><img class="prev-cover" src="/images/cover/cover8.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">构造函数+1</div></div></a></div><div class="next-post pull-right"><a href="/2022/06/22/const/"><img class="next-cover" src="/images/cover/cover5.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">const类</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2022/06/23/Constructor1/" title="构造函数+1"><img class="cover" src="/images/cover/cover8.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-06-23</div><div class="title">构造函数+1</div></div></a></div><div><a href="/2022/06/25/CustonCallFunction/" title="自定义类的函数调用约定"><img class="cover" src="/images/cover/cover.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-06-25</div><div class="title">自定义类的函数调用约定</div></div></a></div><div><a href="/2022/06/30/DerivedclassFun/" title="派生类的构造函数"><img class="cover" src="/images/cover/cover2.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-06-30</div><div class="title">派生类的构造函数</div></div></a></div><div><a href="/2022/06/29/Derivedclass/" title="派生类的访问"><img class="cover" src="/images/cover/cover4.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-06-29</div><div class="title">派生类的访问</div></div></a></div><div><a href="/2022/06/30/DerivedclassFun1/" title="派生类的析构函数和重名问题"><img class="cover" src="/images/cover/cover1.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-06-30</div><div class="title">派生类的析构函数和重名问题</div></div></a></div><div><a href="/2022/06/15/ODR/" title="【编译器角度】ODR"><img class="cover" src="/images/cover/cover.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-06-15</div><div class="title">【编译器角度】ODR</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="waline-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/images/logo.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Box</div><div class="author-info__description">知其不可奈何而安之若命</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">141</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">22</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/8bytes-code"><i class="fab fa-github"></i><span>Github</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">鼠鼠我啊懂点电脑会点C/C++<br/>是一个不够勤快的鼠鼠啊<br/>努力找到自己的下水道吧</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%AD%A3%E6%96%87"><span class="toc-number">2.</span> <span class="toc-text">正文</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="toc-number">2.1.</span> <span class="toc-text">初始化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#setter%E5%92%8Cgetter"><span class="toc-number">2.2.</span> <span class="toc-text">setter和getter</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0"><span class="toc-number">2.3.</span> <span class="toc-text">构造函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%BB%98%E8%AE%A4%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0"><span class="toc-number">2.4.</span> <span class="toc-text">默认构造函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#default"><span class="toc-number">2.5.</span> <span class="toc-text">default</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#explicit"><span class="toc-number">2.6.</span> <span class="toc-text">explicit</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BB%93%E8%AF%AD"><span class="toc-number">3.</span> <span class="toc-text">结语</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2022/12/10/%E6%97%81%E5%90%AC%E9%9D%A2%E8%AF%952-0/" title="旁听面试2.0"><img src="/images/cover/cover9.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="旁听面试2.0"/></a><div class="content"><a class="title" href="/2022/12/10/%E6%97%81%E5%90%AC%E9%9D%A2%E8%AF%952-0/" title="旁听面试2.0">旁听面试2.0</a><time datetime="2022-12-10T05:59:28.000Z" title="发表于 2022-12-10 13:59:28">2022-12-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/11/30/vs%E4%B9%B1%E7%A0%81/" title="【软件】vs2022控制台乱码"><img src="/images/cover/cover6.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="【软件】vs2022控制台乱码"/></a><div class="content"><a class="title" href="/2022/11/30/vs%E4%B9%B1%E7%A0%81/" title="【软件】vs2022控制台乱码">【软件】vs2022控制台乱码</a><time datetime="2022-11-30T11:00:03.000Z" title="发表于 2022-11-30 19:00:03">2022-11-30</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/11/29/jsoncpp%E7%BC%96%E8%AF%91%E4%BD%BF%E7%94%A8/" title="JsonCpp编译使用"><img src="/images/cover/cover5.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="JsonCpp编译使用"/></a><div class="content"><a class="title" href="/2022/11/29/jsoncpp%E7%BC%96%E8%AF%91%E4%BD%BF%E7%94%A8/" title="JsonCpp编译使用">JsonCpp编译使用</a><time datetime="2022-11-29T11:59:56.000Z" title="发表于 2022-11-29 19:59:56">2022-11-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/11/28/%E6%98%93%E6%A0%88/" title="易栈"><img src="/images/cover/cover2.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="易栈"/></a><div class="content"><a class="title" href="/2022/11/28/%E6%98%93%E6%A0%88/" title="易栈">易栈</a><time datetime="2022-11-28T04:42:03.000Z" title="发表于 2022-11-28 12:42:03">2022-11-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/11/22/%E9%9D%A2%E8%AF%951-0/" title="听别人面1.0"><img src="/images/cover/cover5.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="听别人面1.0"/></a><div class="content"><a class="title" href="/2022/11/22/%E9%9D%A2%E8%AF%951-0/" title="听别人面1.0">听别人面1.0</a><time datetime="2022-11-22T01:25:17.000Z" title="发表于 2022-11-22 09:25:17">2022-11-22</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('/images/cover/cover7.png')"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By Box</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">我下班了蟹老板~</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">简</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>function loadWaline () {
+  function insertCSS () {
+    const link = document.createElement("link")
+    link.rel = "stylesheet"
+    link.href = "https://cdn.jsdelivr.net/npm/@waline/client/dist/waline.min.css"
+    document.head.appendChild(link)
+  }
+
+  function initWaline () {
+    const waline = Waline.init(Object.assign({
+      el: '#waline-wrap',
+      serverURL: 'https://ohmyhsy.vercel.app/',
+      pageview: false,
+      dark: 'html[data-theme="dark"]',
+      path: window.location.pathname,
+      comment: false,
+    }, null))
+  }
+
+  if (typeof Waline === 'function') initWaline()
+  else {
+    insertCSS()
+    getScript('https://cdn.jsdelivr.net/npm/@waline/client/dist/waline.min.js').then(initWaline)
+  }
+}
+
+if ('Waline' === 'Waline' || !false) {
+  if (false) btf.loadComment(document.getElementById('waline-wrap'),loadWaline)
+  else setTimeout(loadWaline, 0)
+} else {
+  function loadOtherComment () {
+    loadWaline()
+  }
+}</script></div><canvas class="fireworks" mobile="false"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/fireworks.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
