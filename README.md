@@ -18,5 +18,5 @@
 - Butterfly主题demo: [戳此处](https://butterfly.js.org/)
 - Butterfly主题项目地址: [戳此处](https://github.com/jerryc127/hexo-theme-butterfly)
 
-![样图示意](./source/../images/2.jpg)
+![样图示意](./source/../images/2.png)
 > 功能强大，花里胡哨哈哈，玩法比较多
