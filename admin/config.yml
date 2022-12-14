@@ -46,6 +46,12 @@ collections:
     name: pages
     delete: false
     files:
+      - name: archives-index.md
+        label: archives
+        file: source\archives\index.md
+        editor:
+          preview: true
+        fields: *ref_0
       - name: categories-index.md
         label: categories
         file: source\categories\index.md
@@ -58,21 +64,9 @@ collections:
         editor:
           preview: true
         fields: *ref_0
-      - name: archives-index.md
-        label: archives
-        file: source\archives\index.md
-        editor:
-          preview: true
-        fields: *ref_0
-      - name: link-index.md
-        label: friends
-        file: source\link\index.md
-        editor:
-          preview: true
-        fields: *ref_0
-      - name: scenery-index.md
-        label: scenery
-        file: source\scenery\index.md
+      - name: tags-index.md
+        label: tags
+        file: source\tags\index.md
         editor:
           preview: true
         fields: *ref_0
@@ -88,9 +82,15 @@ collections:
         editor:
           preview: true
         fields: *ref_0
-      - name: tags-index.md
-        label: tags
-        file: source\tags\index.md
+      - name: scenery-index.md
+        label: scenery
+        file: source\scenery\index.md
+        editor:
+          preview: true
+        fields: *ref_0
+      - name: link-index.md
+        label: friends
+        file: source\link\index.md
         editor:
           preview: true
         fields: *ref_0

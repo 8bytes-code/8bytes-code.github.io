@@ -154,12 +154,12 @@ https://8bytes.top/
 https://8bytes.top/tags/cpp/
 https://8bytes.top/tags/markdown/
 https://8bytes.top/tags/themes/
+https://8bytes.top/tags/hexo/
 https://8bytes.top/tags/git/
 https://8bytes.top/tags/ubuntu/
 https://8bytes.top/tags/jetbrains/
 https://8bytes.top/tags/MFC/
 https://8bytes.top/tags/windowsSocket/
-https://8bytes.top/tags/hexo/
 https://8bytes.top/tags/leetcode/
 https://8bytes.top/tags/NoteBook/
 https://8bytes.top/tags/phone/

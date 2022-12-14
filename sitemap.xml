@@ -1400,6 +1400,13 @@
   </url>
   
   <url>
+    <loc>https://8bytes.top/tags/hexo/</loc>
+    <lastmod>2022-12-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://8bytes.top/tags/git/</loc>
     <lastmod>2022-12-14</lastmod>
     <changefreq>weekly</changefreq>
@@ -1429,13 +1436,6 @@
   
   <url>
     <loc>https://8bytes.top/tags/windowsSocket/</loc>
-    <lastmod>2022-12-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://8bytes.top/tags/hexo/</loc>
     <lastmod>2022-12-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
